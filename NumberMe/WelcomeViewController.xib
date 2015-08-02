@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="15A235d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WelcomeViewController">
+            <connections>
+                <outlet property="recordButton" destination="IA1-SY-Bae" id="8e5-tR-9Bc"/>
+                <outlet property="settingButton" destination="RZA-Hm-puU" id="RMn-a7-nlM"/>
+                <outlet property="startButton" destination="oOh-is-50H" id="qkr-hU-T9r"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome.png" translatesAutoresizingMaskIntoConstraints="NO" id="qEd-H0-AXE">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <animations/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NumberMe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZf-GA-3MV">
+                    <rect key="frame" x="75" y="51" width="170" height="39"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="39" id="NRm-dC-8nr"/>
+                        <constraint firstAttribute="width" constant="170" id="ipU-GR-jWa"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Palatino-Italic" family="Palatino" pointSize="32"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOh-is-50H">
+                    <rect key="frame" x="90" y="190" width="140" height="30"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="140" id="4Ip-Sa-Bls"/>
+                        <constraint firstAttribute="height" constant="30" id="Vhs-mj-lIe"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="KohinoorDevanagari-Book" family="Kohinoor Devanagari" pointSize="24"/>
+                    <state key="normal" title="Start">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="startGame:" destination="-1" eventType="touchUpInside" id="MJY-Y8-0Lz"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IA1-SY-Bae">
+                    <rect key="frame" x="90" y="260" width="140" height="30"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="CS1-g0-kyM"/>
+                        <constraint firstAttribute="width" constant="140" id="ypJ-LF-Xae"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="KohinoorDevanagari-Book" family="Kohinoor Devanagari" pointSize="24"/>
+                    <state key="normal" title="Record">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZA-Hm-puU">
+                    <rect key="frame" x="90" y="330" width="140" height="30"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="ea8-84-GLT"/>
+                        <constraint firstAttribute="width" constant="140" id="pDj-lP-Pek"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="KohinoorDevanagari-Book" family="Kohinoor Devanagari" pointSize="24"/>
+                    <state key="normal" title="Setting">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crafted By Farrell" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8x-c1-N9k">
+                    <rect key="frame" x="85" y="527" width="150" height="21"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="iin-fp-jrb"/>
+                        <constraint firstAttribute="height" constant="21" id="nBb-VP-Jjb"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="f8x-c1-N9k" secondAttribute="centerX" id="2E3-x2-veO"/>
+                <constraint firstItem="IA1-SY-Bae" firstAttribute="top" secondItem="oOh-is-50H" secondAttribute="bottom" constant="40" id="Cv4-y7-gwd"/>
+                <constraint firstItem="mZf-GA-3MV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="51" id="LKC-zQ-aIw"/>
+                <constraint firstItem="RZA-Hm-puU" firstAttribute="top" secondItem="IA1-SY-Bae" secondAttribute="bottom" constant="40" id="Ntp-Ov-MNY"/>
+                <constraint firstAttribute="trailing" secondItem="qEd-H0-AXE" secondAttribute="trailing" id="OyF-7x-0WA"/>
+                <constraint firstItem="qEd-H0-AXE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="SvC-T8-E7j"/>
+                <constraint firstItem="oOh-is-50H" firstAttribute="top" secondItem="mZf-GA-3MV" secondAttribute="bottom" constant="100" id="Yiy-3c-CnX"/>
+                <constraint firstAttribute="centerX" secondItem="mZf-GA-3MV" secondAttribute="centerX" id="det-q1-E3H"/>
+                <constraint firstAttribute="centerX" secondItem="IA1-SY-Bae" secondAttribute="centerX" id="ffC-h2-tuM"/>
+                <constraint firstAttribute="bottom" secondItem="f8x-c1-N9k" secondAttribute="bottom" constant="20" id="lkw-xO-LFd"/>
+                <constraint firstAttribute="bottom" secondItem="qEd-H0-AXE" secondAttribute="bottom" id="uOb-JP-aq6"/>
+                <constraint firstAttribute="centerX" secondItem="oOh-is-50H" secondAttribute="centerX" id="v9m-R4-Web"/>
+                <constraint firstItem="qEd-H0-AXE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="voZ-nm-7LU"/>
+                <constraint firstAttribute="centerX" secondItem="RZA-Hm-puU" secondAttribute="centerX" id="zUI-91-LCr"/>
+            </constraints>
+            <point key="canvasLocation" x="521" y="469"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="welcome.png" width="640" height="1136"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
