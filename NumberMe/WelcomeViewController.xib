@@ -34,11 +34,11 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOh-is-50H">
-                    <rect key="frame" x="90" y="190" width="140" height="30"/>
+                    <rect key="frame" x="90" y="190" width="140" height="33"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="140" id="4Ip-Sa-Bls"/>
-                        <constraint firstAttribute="height" constant="30" id="Vhs-mj-lIe"/>
+                        <constraint firstAttribute="height" constant="33" id="Vhs-mj-lIe"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="KohinoorDevanagari-Book" family="Kohinoor Devanagari" pointSize="24"/>
                     <state key="normal" title="Start">
@@ -50,10 +50,10 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IA1-SY-Bae">
-                    <rect key="frame" x="90" y="260" width="140" height="30"/>
+                    <rect key="frame" x="90" y="263" width="140" height="33"/>
                     <animations/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="CS1-g0-kyM"/>
+                        <constraint firstAttribute="height" constant="33" id="CS1-g0-kyM"/>
                         <constraint firstAttribute="width" constant="140" id="ypJ-LF-Xae"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="KohinoorDevanagari-Book" family="Kohinoor Devanagari" pointSize="24"/>
@@ -63,10 +63,10 @@
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZA-Hm-puU">
-                    <rect key="frame" x="90" y="330" width="140" height="30"/>
+                    <rect key="frame" x="90" y="336" width="140" height="33"/>
                     <animations/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="ea8-84-GLT"/>
+                        <constraint firstAttribute="height" constant="33" id="ea8-84-GLT"/>
                         <constraint firstAttribute="width" constant="140" id="pDj-lP-Pek"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="KohinoorDevanagari-Book" family="Kohinoor Devanagari" pointSize="24"/>

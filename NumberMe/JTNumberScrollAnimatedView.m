@@ -45,7 +45,7 @@
 {
     self.duration = 1.5;
     self.durationOffset = .2;
-    self.density = 5;
+    self.density = 14;
     self.minLength = 0;
     self.isAscending = NO;
     
@@ -133,6 +133,7 @@
     }
     
     [textForScroll addObject:numberText];
+    //[textForScroll addObject:@"?"];
 
     if(!self.isAscending){
         textForScroll = [[[textForScroll reverseObjectEnumerator] allObjects] mutableCopy];

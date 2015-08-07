@@ -18,8 +18,8 @@
 		AE3E410C1B6EC46E001E26FE /* welcome.png in Resources */ = {isa = PBXBuildFile; fileRef = AE3E410B1B6EC46E001E26FE /* welcome.png */; };
 		AE3E41101B6ECFD0001E26FE /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3E410E1B6ECFD0001E26FE /* GameViewController.m */; };
 		AE3E41111B6ECFD0001E26FE /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE3E410F1B6ECFD0001E26FE /* GameViewController.xib */; };
-		AE7E74B81B7435B1003E9341 /* GameBG.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7E74B71B7435B1003E9341 /* GameBG.png */; };
 		AE7E74BC1B746896003E9341 /* JTNumberScrollAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7E74BB1B746896003E9341 /* JTNumberScrollAnimatedView.m */; };
+		AE7E74C01B7543A7003E9341 /* GameBG.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7E74BF1B7543A7003E9341 /* GameBG.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,9 +53,9 @@
 		AE3E410F1B6ECFD0001E26FE /* GameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GameViewController.xib; path = VCs/GameViewController.xib; sourceTree = "<group>"; };
 		AE3E41121B6F2B06001E26FE /* CommonDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonDefine.h; sourceTree = "<group>"; };
 		AE3E41131B6F2BA7001E26FE /* NumberMe-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NumberMe-Prefix.pch"; sourceTree = SOURCE_ROOT; };
-		AE7E74B71B7435B1003E9341 /* GameBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameBG.png; sourceTree = "<group>"; };
 		AE7E74BA1B746896003E9341 /* JTNumberScrollAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTNumberScrollAnimatedView.h; sourceTree = "<group>"; };
 		AE7E74BB1B746896003E9341 /* JTNumberScrollAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTNumberScrollAnimatedView.m; sourceTree = "<group>"; };
+		AE7E74BF1B7543A7003E9341 /* GameBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameBG.png; sourceTree = "<group>"; };
 		D6CD3BC6EB4860751C1445E0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FE5163FF0427C40D0D0FC969 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -174,7 +174,7 @@
 		AE3E41081B6EC28E001E26FE /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				AE7E74B71B7435B1003E9341 /* GameBG.png */,
+				AE7E74BF1B7543A7003E9341 /* GameBG.png */,
 				AE3E410B1B6EC46E001E26FE /* welcome.png */,
 			);
 			name = Images;
@@ -280,7 +280,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE7E74B81B7435B1003E9341 /* GameBG.png in Resources */,
+				AE7E74C01B7543A7003E9341 /* GameBG.png in Resources */,
 				AE26308F1B6EA58000A566AE /* LaunchScreen.xib in Resources */,
 				AE3E41051B6EC19D001E26FE /* WelcomeViewController.xib in Resources */,
 				AE3E410C1B6EC46E001E26FE /* welcome.png in Resources */,
