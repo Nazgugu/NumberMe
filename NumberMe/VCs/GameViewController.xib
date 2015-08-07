@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="15A244d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GameViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GameBG.png" translatesAutoresizingMaskIntoConstraints="NO" id="cbe-Ea-I5L">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <animations/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ygt-nN-Ra5">
+                    <rect key="frame" x="10" y="22" width="25" height="25"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="MsJ-73-Jne"/>
+                        <constraint firstAttribute="width" constant="25" id="d29-IL-cv2"/>
+                    </constraints>
+                    <state key="normal" image="close">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="close:" destination="-1" eventType="touchUpInside" id="Dj2-vS-2YT"/>
+                    </connections>
+                </button>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="cbe-Ea-I5L" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BZv-un-1Lx"/>
+                <constraint firstItem="Ygt-nN-Ra5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="22" id="W94-vn-bR3"/>
+                <constraint firstAttribute="trailing" secondItem="cbe-Ea-I5L" secondAttribute="trailing" id="ncr-lU-Jzl"/>
+                <constraint firstItem="Ygt-nN-Ra5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="ngw-T1-SdW"/>
+                <constraint firstAttribute="bottom" secondItem="cbe-Ea-I5L" secondAttribute="bottom" id="wIY-yk-uvh"/>
+                <constraint firstItem="cbe-Ea-I5L" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="yxc-30-9KH"/>
+            </constraints>
+            <point key="canvasLocation" x="51" y="421"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="GameBG.png" width="640" height="1136"/>
+        <image name="close" width="45" height="45"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

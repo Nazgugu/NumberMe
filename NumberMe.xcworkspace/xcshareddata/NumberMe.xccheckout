@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>9A90AA9D-F827-484C-9D4E-E80BF4170B32</string>
+	<key>IDESourceControlProjectName</key>
+	<string>NumberMe</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C474CD61835F5A0B4206852FF64793BC7A2C3120</key>
+		<string>https://github.com/Nazgugu/NumberMe.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>NumberMe.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C474CD61835F5A0B4206852FF64793BC7A2C3120</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Nazgugu/NumberMe.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C474CD61835F5A0B4206852FF64793BC7A2C3120</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C474CD61835F5A0B4206852FF64793BC7A2C3120</string>
+			<key>IDESourceControlWCCName</key>
+			<string>NumberMe</string>
+		</dict>
+	</array>
+</dict>
+</plist>

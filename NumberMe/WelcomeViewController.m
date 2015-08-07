@@ -7,6 +7,7 @@
 //
 
 #import "WelcomeViewController.h"
+#import "GameViewController.h"
 
 @interface WelcomeViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
@@ -36,6 +37,8 @@
 }
 
 - (IBAction)startGame:(id)sender {
+    GameViewController *gameVC = [[GameViewController alloc] init];
+    [self presentViewController:gameVC animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

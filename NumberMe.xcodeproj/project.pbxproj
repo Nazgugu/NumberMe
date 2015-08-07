@@ -16,6 +16,10 @@
 		AE3E41041B6EC19D001E26FE /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3E41021B6EC19D001E26FE /* WelcomeViewController.m */; };
 		AE3E41051B6EC19D001E26FE /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE3E41031B6EC19D001E26FE /* WelcomeViewController.xib */; };
 		AE3E410C1B6EC46E001E26FE /* welcome.png in Resources */ = {isa = PBXBuildFile; fileRef = AE3E410B1B6EC46E001E26FE /* welcome.png */; };
+		AE3E41101B6ECFD0001E26FE /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3E410E1B6ECFD0001E26FE /* GameViewController.m */; };
+		AE3E41111B6ECFD0001E26FE /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE3E410F1B6ECFD0001E26FE /* GameViewController.xib */; };
+		AE7E74B81B7435B1003E9341 /* GameBG.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7E74B71B7435B1003E9341 /* GameBG.png */; };
+		AE7E74BC1B746896003E9341 /* JTNumberScrollAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7E74BB1B746896003E9341 /* JTNumberScrollAnimatedView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,14 @@
 		AE3E41021B6EC19D001E26FE /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		AE3E41031B6EC19D001E26FE /* WelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 		AE3E410B1B6EC46E001E26FE /* welcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome.png; sourceTree = "<group>"; };
+		AE3E410D1B6ECFD0001E26FE /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameViewController.h; path = VCs/GameViewController.h; sourceTree = "<group>"; };
+		AE3E410E1B6ECFD0001E26FE /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameViewController.m; path = VCs/GameViewController.m; sourceTree = "<group>"; };
+		AE3E410F1B6ECFD0001E26FE /* GameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GameViewController.xib; path = VCs/GameViewController.xib; sourceTree = "<group>"; };
+		AE3E41121B6F2B06001E26FE /* CommonDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonDefine.h; sourceTree = "<group>"; };
+		AE3E41131B6F2BA7001E26FE /* NumberMe-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NumberMe-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		AE7E74B71B7435B1003E9341 /* GameBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameBG.png; sourceTree = "<group>"; };
+		AE7E74BA1B746896003E9341 /* JTNumberScrollAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTNumberScrollAnimatedView.h; sourceTree = "<group>"; };
+		AE7E74BB1B746896003E9341 /* JTNumberScrollAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTNumberScrollAnimatedView.m; sourceTree = "<group>"; };
 		D6CD3BC6EB4860751C1445E0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FE5163FF0427C40D0D0FC969 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,6 +110,7 @@
 		AE26307D1B6EA58000A566AE /* NumberMe */ = {
 			isa = PBXGroup;
 			children = (
+				AE7E74B91B74688B003E9341 /* Vendor */,
 				AE3E41071B6EC280001E26FE /* Model */,
 				AE3E41061B6EC1B9001E26FE /* VCs */,
 				AE2630821B6EA58000A566AE /* AppDelegate.h */,
@@ -112,6 +125,8 @@
 		AE26307E1B6EA58000A566AE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AE3E41131B6F2BA7001E26FE /* NumberMe-Prefix.pch */,
+				AE3E41121B6F2B06001E26FE /* CommonDefine.h */,
 				AE3E41081B6EC28E001E26FE /* Images */,
 				AE26307F1B6EA58000A566AE /* Info.plist */,
 				AE2630801B6EA58000A566AE /* main.m */,
@@ -139,6 +154,9 @@
 		AE3E41061B6EC1B9001E26FE /* VCs */ = {
 			isa = PBXGroup;
 			children = (
+				AE3E410D1B6ECFD0001E26FE /* GameViewController.h */,
+				AE3E410E1B6ECFD0001E26FE /* GameViewController.m */,
+				AE3E410F1B6ECFD0001E26FE /* GameViewController.xib */,
 				AE3E41011B6EC19D001E26FE /* WelcomeViewController.h */,
 				AE3E41021B6EC19D001E26FE /* WelcomeViewController.m */,
 				AE3E41031B6EC19D001E26FE /* WelcomeViewController.xib */,
@@ -156,9 +174,19 @@
 		AE3E41081B6EC28E001E26FE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AE7E74B71B7435B1003E9341 /* GameBG.png */,
 				AE3E410B1B6EC46E001E26FE /* welcome.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		AE7E74B91B74688B003E9341 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				AE7E74BA1B746896003E9341 /* JTNumberScrollAnimatedView.h */,
+				AE7E74BB1B746896003E9341 /* JTNumberScrollAnimatedView.m */,
+			);
+			name = Vendor;
 			sourceTree = "<group>";
 		};
 		C8C3897A91AE30033EF5E5AE /* Pods */ = {
@@ -216,7 +244,7 @@
 		AE2630731B6EA58000A566AE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Liu Zhe";
 				TargetAttributes = {
 					AE26307A1B6EA58000A566AE = {
@@ -252,10 +280,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE7E74B81B7435B1003E9341 /* GameBG.png in Resources */,
 				AE26308F1B6EA58000A566AE /* LaunchScreen.xib in Resources */,
 				AE3E41051B6EC19D001E26FE /* WelcomeViewController.xib in Resources */,
 				AE3E410C1B6EC46E001E26FE /* welcome.png in Resources */,
 				AE26308C1B6EA58000A566AE /* Images.xcassets in Resources */,
+				AE3E41111B6ECFD0001E26FE /* GameViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,8 +336,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE3E41101B6ECFD0001E26FE /* GameViewController.m in Sources */,
 				AE2630841B6EA58000A566AE /* AppDelegate.m in Sources */,
 				AE3E41041B6EC19D001E26FE /* WelcomeViewController.m in Sources */,
+				AE7E74BC1B746896003E9341 /* JTNumberScrollAnimatedView.m in Sources */,
 				AE2630811B6EA58000A566AE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,6 +395,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -427,9 +460,12 @@
 			baseConfigurationReference = D6CD3BC6EB4860751C1445E0 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NumberMe-Prefix.pch";
 				INFOPLIST_FILE = NumberMe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ZL.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -439,9 +475,12 @@
 			baseConfigurationReference = FE5163FF0427C40D0D0FC969 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NumberMe-Prefix.pch";
 				INFOPLIST_FILE = NumberMe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ZL.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -460,6 +499,7 @@
 				);
 				INFOPLIST_FILE = NumberMeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ZL.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NumberMe.app/NumberMe";
 			};
@@ -475,6 +515,7 @@
 				);
 				INFOPLIST_FILE = NumberMeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ZL.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NumberMe.app/NumberMe";
 			};
