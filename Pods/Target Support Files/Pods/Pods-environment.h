@@ -6,12 +6,6 @@
 // project.
 
 
-// YETICharacterLabel
-#define COCOAPODS_POD_AVAILABLE_YETICharacterLabel
-#define COCOAPODS_VERSION_MAJOR_YETICharacterLabel 1
-#define COCOAPODS_VERSION_MINOR_YETICharacterLabel 0
-#define COCOAPODS_VERSION_PATCH_YETICharacterLabel 1
-
 // pop
 #define COCOAPODS_POD_AVAILABLE_pop
 #define COCOAPODS_VERSION_MAJOR_pop 1

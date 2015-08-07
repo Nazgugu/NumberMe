@@ -8,6 +8,7 @@
 
 #import "GameViewController.h"
 #import "JTNumberScrollAnimatedView.h"
+#import "YETIFallingLabel.h"
 //#import <pop/POP.h>
 
 @interface GameViewController ()
@@ -47,6 +48,11 @@
 @property (nonatomic, strong) UIButton *restartButton;
 @property (nonatomic, strong) UIButton *hintButton;
 
+//top guide label
+@property (nonatomic, strong) YETIFallingLabel *guideLabel;
+
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
+
 @end
 
 @implementation GameViewController
@@ -64,6 +70,7 @@
         _verticalGap = 10.0f;
         _boxHeight = 60.0f;
         _toolButtonHeight = 25.0f;
+        _guideLabel = [[YETIFallingLabel alloc] initWithFrame:CGRectMake(_backButton.frame.origin.x + _backButton.frame.size.width + 10,0, SCREENWIDTH - 2 * (_backButton.frame.origin.x + _backButton.frame.size.width + 10), _backButton.frame.size.height + 10)];
     }
     else if (IS_IPHONE_5)
     {
@@ -71,21 +78,28 @@
         _verticalGap = 15.0f;
         _boxHeight = 65.0f;
         _toolButtonHeight = 28.0f;
+        _guideLabel = [[YETIFallingLabel alloc] initWithFrame:CGRectMake(_backButton.frame.origin.x + _backButton.frame.size.width + 10, 0, SCREENWIDTH - 2 * (_backButton.frame.origin.x + _backButton.frame.size.width + 10), _backButton.frame.size.height + 20)];
     }
     else if (IS_IPHONE_6)
     {
         _gapSize = 30.0f;
         _boxHeight = 80.0f;
         _toolButtonHeight = 33.0f;
+        _guideLabel = [[YETIFallingLabel alloc] initWithFrame:CGRectMake(_backButton.frame.origin.x + _backButton.frame.size.width + 10, 0, SCREENWIDTH - 2 * (_backButton.frame.origin.x + _backButton.frame.size.width + 10), _backButton.frame.size.height + 20)];
     }
     else
     {
         _gapSize = 35.0f;
         _boxHeight = 95.0f;
         _toolButtonHeight = 38.0f;
+        _guideLabel = [[YETIFallingLabel alloc] initWithFrame:CGRectMake(_backButton.frame.origin.x + _backButton.frame.size.width + 10, 0, SCREENWIDTH - 2 * (_backButton.frame.origin.x + _backButton.frame.size.width + 10), _backButton.frame.size.height + 20)];
     }
     
+    _guideLabel.textColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8f];
+    _guideLabel.textAlignment = NSTextAlignmentCenter;
+    _guideLabel.text = @"Guess A Four Digit Number";
     
+    [self.view addSubview:_guideLabel];
     [self initButtons];
     [self createBoxes];
     [self createLine];
@@ -97,6 +111,7 @@
     [super viewWillAppear:animated];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
     [self commitAnimation];
+    [self performSelector:@selector(animateReady) withObject:nil afterDelay:1.0f];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -112,6 +127,15 @@
 
 - (IBAction)close:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)animateReady{
+    _guideLabel.text = @"Ready?";
+    [self performSelector:@selector(animateGo) withObject:nil afterDelay:1.5f];
+}
+
+- (void)animateGo{
+    _guideLabel.text = @"GO!";
 }
 
 - (void)createLine

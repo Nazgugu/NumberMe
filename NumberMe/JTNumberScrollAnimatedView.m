@@ -43,9 +43,9 @@
 
 - (void)commonInit
 {
-    self.duration = 1.5;
+    self.duration = 3.5;
     self.durationOffset = .2;
-    self.density = 14;
+    self.density = 25;
     self.minLength = 0;
     self.isAscending = NO;
     

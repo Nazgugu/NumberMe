@@ -20,6 +20,11 @@
 		AE3E41111B6ECFD0001E26FE /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE3E410F1B6ECFD0001E26FE /* GameViewController.xib */; };
 		AE7E74BC1B746896003E9341 /* JTNumberScrollAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7E74BB1B746896003E9341 /* JTNumberScrollAnimatedView.m */; };
 		AE7E74C01B7543A7003E9341 /* GameBG.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7E74BF1B7543A7003E9341 /* GameBG.png */; };
+		AE8E22821B756B7E00A298DE /* YETICharacterLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8E22811B756B7E00A298DE /* YETICharacterLabel.m */; };
+		AE8E22851B756B8600A298DE /* YETIFadeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8E22841B756B8600A298DE /* YETIFadeLabel.m */; };
+		AE8E22881B756B8D00A298DE /* YETIFallingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8E22871B756B8D00A298DE /* YETIFallingLabel.m */; };
+		AE8E228B1B756B9500A298DE /* YETILayerAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8E228A1B756B9500A298DE /* YETILayerAnimation.m */; };
+		AE8E228E1B756B9B00A298DE /* YETIMotionLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8E228D1B756B9B00A298DE /* YETIMotionLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +61,16 @@
 		AE7E74BA1B746896003E9341 /* JTNumberScrollAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTNumberScrollAnimatedView.h; sourceTree = "<group>"; };
 		AE7E74BB1B746896003E9341 /* JTNumberScrollAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTNumberScrollAnimatedView.m; sourceTree = "<group>"; };
 		AE7E74BF1B7543A7003E9341 /* GameBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameBG.png; sourceTree = "<group>"; };
+		AE8E22801B756B7E00A298DE /* YETICharacterLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YETICharacterLabel.h; sourceTree = "<group>"; };
+		AE8E22811B756B7E00A298DE /* YETICharacterLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YETICharacterLabel.m; sourceTree = "<group>"; };
+		AE8E22831B756B8600A298DE /* YETIFadeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YETIFadeLabel.h; sourceTree = "<group>"; };
+		AE8E22841B756B8600A298DE /* YETIFadeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YETIFadeLabel.m; sourceTree = "<group>"; };
+		AE8E22861B756B8D00A298DE /* YETIFallingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YETIFallingLabel.h; sourceTree = "<group>"; };
+		AE8E22871B756B8D00A298DE /* YETIFallingLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YETIFallingLabel.m; sourceTree = "<group>"; };
+		AE8E22891B756B9500A298DE /* YETILayerAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YETILayerAnimation.h; sourceTree = "<group>"; };
+		AE8E228A1B756B9500A298DE /* YETILayerAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YETILayerAnimation.m; sourceTree = "<group>"; };
+		AE8E228C1B756B9B00A298DE /* YETIMotionLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YETIMotionLabel.h; sourceTree = "<group>"; };
+		AE8E228D1B756B9B00A298DE /* YETIMotionLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YETIMotionLabel.m; sourceTree = "<group>"; };
 		D6CD3BC6EB4860751C1445E0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FE5163FF0427C40D0D0FC969 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -183,10 +198,36 @@
 		AE7E74B91B74688B003E9341 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				AE8E227F1B756B6B00A298DE /* AnimateLabel */,
+				AE8E227E1B756B6100A298DE /* AnimateNumber */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
+		AE8E227E1B756B6100A298DE /* AnimateNumber */ = {
+			isa = PBXGroup;
+			children = (
 				AE7E74BA1B746896003E9341 /* JTNumberScrollAnimatedView.h */,
 				AE7E74BB1B746896003E9341 /* JTNumberScrollAnimatedView.m */,
 			);
-			name = Vendor;
+			name = AnimateNumber;
+			sourceTree = "<group>";
+		};
+		AE8E227F1B756B6B00A298DE /* AnimateLabel */ = {
+			isa = PBXGroup;
+			children = (
+				AE8E22801B756B7E00A298DE /* YETICharacterLabel.h */,
+				AE8E22811B756B7E00A298DE /* YETICharacterLabel.m */,
+				AE8E22831B756B8600A298DE /* YETIFadeLabel.h */,
+				AE8E22841B756B8600A298DE /* YETIFadeLabel.m */,
+				AE8E22861B756B8D00A298DE /* YETIFallingLabel.h */,
+				AE8E22871B756B8D00A298DE /* YETIFallingLabel.m */,
+				AE8E22891B756B9500A298DE /* YETILayerAnimation.h */,
+				AE8E228A1B756B9500A298DE /* YETILayerAnimation.m */,
+				AE8E228C1B756B9B00A298DE /* YETIMotionLabel.h */,
+				AE8E228D1B756B9B00A298DE /* YETIMotionLabel.m */,
+			);
+			name = AnimateLabel;
 			sourceTree = "<group>";
 		};
 		C8C3897A91AE30033EF5E5AE /* Pods */ = {
@@ -336,11 +377,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE8E228B1B756B9500A298DE /* YETILayerAnimation.m in Sources */,
+				AE8E22851B756B8600A298DE /* YETIFadeLabel.m in Sources */,
 				AE3E41101B6ECFD0001E26FE /* GameViewController.m in Sources */,
 				AE2630841B6EA58000A566AE /* AppDelegate.m in Sources */,
 				AE3E41041B6EC19D001E26FE /* WelcomeViewController.m in Sources */,
+				AE8E228E1B756B9B00A298DE /* YETIMotionLabel.m in Sources */,
 				AE7E74BC1B746896003E9341 /* JTNumberScrollAnimatedView.m in Sources */,
+				AE8E22881B756B8D00A298DE /* YETIFallingLabel.m in Sources */,
 				AE2630811B6EA58000A566AE /* main.m in Sources */,
+				AE8E22821B756B7E00A298DE /* YETICharacterLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

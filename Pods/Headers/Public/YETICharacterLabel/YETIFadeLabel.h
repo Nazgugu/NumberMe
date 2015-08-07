@@ -1,1 +1,0 @@
-../../../YETICharacterLabel/YETICharacterLabel/YETIFadeLabel/YETIFadeLabel.h

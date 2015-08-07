@@ -1,1 +1,0 @@
-PODS_YETICHARACTERLABEL_OTHER_LDFLAGS = -framework "CoreText" -framework "Foundation" -framework "QuartzCore"
