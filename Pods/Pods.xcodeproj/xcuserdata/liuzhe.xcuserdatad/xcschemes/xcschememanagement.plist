@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-JSKTimerView-JSKTimerView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-JSKTimerView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-pop.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>428F08EA789A4F25BC8D7B64</key>
+		<key>6010593A108B7B6AD7034476</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9789CF68E734AF764B3922F3</key>
+		<key>837B41A2654AA632C7C46192</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A2E457173CEE9B5CEC846E98</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D651B20C63723077E5D273C4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

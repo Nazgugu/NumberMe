@@ -25,6 +25,7 @@
 		AE8E22881B756B8D00A298DE /* YETIFallingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8E22871B756B8D00A298DE /* YETIFallingLabel.m */; };
 		AE8E228B1B756B9500A298DE /* YETILayerAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8E228A1B756B9500A298DE /* YETILayerAnimation.m */; };
 		AE8E228E1B756B9B00A298DE /* YETIMotionLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8E228D1B756B9B00A298DE /* YETIMotionLabel.m */; };
+		AE8E22911B76AE7E00A298DE /* guessGame.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8E22901B76AE7E00A298DE /* guessGame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,8 @@
 		AE8E228A1B756B9500A298DE /* YETILayerAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YETILayerAnimation.m; sourceTree = "<group>"; };
 		AE8E228C1B756B9B00A298DE /* YETIMotionLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YETIMotionLabel.h; sourceTree = "<group>"; };
 		AE8E228D1B756B9B00A298DE /* YETIMotionLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YETIMotionLabel.m; sourceTree = "<group>"; };
+		AE8E228F1B76AE7E00A298DE /* guessGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = guessGame.h; path = Model/guessGame.h; sourceTree = "<group>"; };
+		AE8E22901B76AE7E00A298DE /* guessGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = guessGame.m; path = Model/guessGame.m; sourceTree = "<group>"; };
 		D6CD3BC6EB4860751C1445E0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FE5163FF0427C40D0D0FC969 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -182,6 +185,8 @@
 		AE3E41071B6EC280001E26FE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AE8E228F1B76AE7E00A298DE /* guessGame.h */,
+				AE8E22901B76AE7E00A298DE /* guessGame.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -383,6 +388,7 @@
 				AE2630841B6EA58000A566AE /* AppDelegate.m in Sources */,
 				AE3E41041B6EC19D001E26FE /* WelcomeViewController.m in Sources */,
 				AE8E228E1B756B9B00A298DE /* YETIMotionLabel.m in Sources */,
+				AE8E22911B76AE7E00A298DE /* guessGame.m in Sources */,
 				AE7E74BC1B746896003E9341 /* JTNumberScrollAnimatedView.m in Sources */,
 				AE8E22881B756B8D00A298DE /* YETIFallingLabel.m in Sources */,
 				AE2630811B6EA58000A566AE /* main.m in Sources */,

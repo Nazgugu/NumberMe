@@ -9,9 +9,10 @@
 #import "GameViewController.h"
 #import "JTNumberScrollAnimatedView.h"
 #import "YETIFallingLabel.h"
+#import <JSKTimerView/JSKTimerView.h>
 //#import <pop/POP.h>
 
-@interface GameViewController ()
+@interface GameViewController ()<JSKTimerViewDelegate>
 
 //number buttons
 @property (nonatomic, strong) UIButton *numberZero;
@@ -42,6 +43,8 @@
 @property (nonatomic, strong) JTNumberScrollAnimatedView *thirdDigit;
 @property (nonatomic, strong) JTNumberScrollAnimatedView *forthDigit;
 
+@property (nonatomic, strong) NSArray *boxArray;
+
 //tool buttons
 @property (nonatomic, strong) UIButton *deleteOneButton;
 @property (nonatomic, strong) UIButton *clearButton;
@@ -52,6 +55,11 @@
 @property (nonatomic, strong) YETIFallingLabel *guideLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
+
+//timer
+@property (nonatomic, strong) JSKTimerView *timer;
+
+@property (nonatomic) NSInteger theGlowingBox;
 
 @end
 
@@ -104,6 +112,7 @@
     [self createBoxes];
     [self createLine];
     [self initToolButton];
+    [self initTimer];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -136,6 +145,12 @@
 
 - (void)animateGo{
     _guideLabel.text = @"GO!";
+    [_timer startTimer];
+    _deleteOneButton.enabled = YES;
+    _clearButton.enabled = YES;
+    _restartButton.enabled = YES;
+    _hintButton.enabled = YES;
+    [self glowBoxAtIndex:1];
 }
 
 - (void)createLine
@@ -232,6 +247,12 @@
     [_hintButton addTarget:self action:@selector(toolButtonHighlighted:) forControlEvents:UIControlEventTouchDown];
     [_hintButton addTarget:self action:@selector(toolButtonNormal:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_hintButton];
+    
+    //first set them to be disabled
+    _deleteOneButton.enabled = NO;
+    _clearButton.enabled = NO;
+    _restartButton.enabled = NO;
+    _hintButton.enabled = NO;
 
 }
 
@@ -240,49 +261,93 @@
 {
     _boxWidth = (SCREENWIDTH - 5 * _gapSize) / 4;
     
+    //add recognizer
+    UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedBox:)];
+    tap1.numberOfTapsRequired = 1;
+    tap1.numberOfTouchesRequired = 1;
+    
+    UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedBox:)];
+    tap1.numberOfTapsRequired = 1;
+    tap1.numberOfTouchesRequired = 1;
+    
+    UITapGestureRecognizer *tap3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedBox:)];
+    tap1.numberOfTapsRequired = 1;
+    tap1.numberOfTouchesRequired = 1;
+    
+    UITapGestureRecognizer *tap4 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedBox:)];
+    tap1.numberOfTapsRequired = 1;
+    tap1.numberOfTouchesRequired = 1;
+    
     //first digit
     _firstDigit = [[JTNumberScrollAnimatedView alloc] initWithFrame:CGRectMake(_gapSize, SCREEN_HEIGHT - _verticalGap * 6 - 4 * _buttonSize - _boxHeight, _boxWidth, _boxHeight)];
-    _firstDigit.layer.borderWidth = 2.0f;
+    _firstDigit.layer.borderWidth = 1.5f;
     _firstDigit.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
     _firstDigit.layer.cornerRadius = 8.0f;
     _firstDigit.layer.masksToBounds = YES;
     _firstDigit.textColor = [UIColor whiteColor];
     _firstDigit.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:35.0f];
     _firstDigit.minLength = 1;
+    _firstDigit.tag = 1;
+    _firstDigit.userInteractionEnabled = YES;
+    [_firstDigit addGestureRecognizer:tap1];
     [self.view addSubview:_firstDigit];
     
     //second digit
     _secondDigit = [[JTNumberScrollAnimatedView alloc] initWithFrame:CGRectMake(_gapSize * 2 + _boxWidth, SCREEN_HEIGHT - _verticalGap * 6 - 4 * _buttonSize - _boxHeight, _boxWidth, _boxHeight)];
-    _secondDigit.layer.borderWidth = 2.0f;
+    _secondDigit.layer.borderWidth = 1.5f;
     _secondDigit.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
     _secondDigit.layer.cornerRadius = 8.0f;
     _secondDigit.layer.masksToBounds = YES;
     _secondDigit.textColor = [UIColor whiteColor];
     _secondDigit.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:35.0f];
     _secondDigit.minLength = 1;
+    _secondDigit.tag = 2;
+    _secondDigit.userInteractionEnabled = YES;
+    [_secondDigit addGestureRecognizer:tap2];
     [self.view addSubview:_secondDigit];
     
     //third digit
     _thirdDigit = [[JTNumberScrollAnimatedView alloc] initWithFrame:CGRectMake(_gapSize * 3 + _boxWidth * 2, SCREEN_HEIGHT - _verticalGap * 6 - 4 * _buttonSize - _boxHeight, _boxWidth, _boxHeight)];
-    _thirdDigit.layer.borderWidth = 2.0f;
+    _thirdDigit.layer.borderWidth = 1.5f;
     _thirdDigit.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
     _thirdDigit.layer.cornerRadius = 8.0f;
     _thirdDigit.layer.masksToBounds = YES;
     _thirdDigit.textColor = [UIColor whiteColor];
     _thirdDigit.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:35.0f];
     _thirdDigit.minLength = 1;
+    _thirdDigit.tag = 3;
+    _thirdDigit.userInteractionEnabled = YES;
+    [_thirdDigit addGestureRecognizer:tap3];
     [self.view addSubview:_thirdDigit];
     
     //forth digit
     _forthDigit = [[JTNumberScrollAnimatedView alloc] initWithFrame:CGRectMake(_gapSize * 4 + _boxWidth * 3, SCREEN_HEIGHT - _verticalGap * 6 - 4 * _buttonSize - _boxHeight, _boxWidth, _boxHeight)];
-    _forthDigit.layer.borderWidth = 2.0f;
+    _forthDigit.layer.borderWidth = 1.5f;
     _forthDigit.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
     _forthDigit.layer.cornerRadius = 8.0f;
     _forthDigit.layer.masksToBounds = YES;
     _forthDigit.textColor = [UIColor whiteColor];
     _forthDigit.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:35.0f];
     _forthDigit.minLength = 1;
+    _forthDigit.tag = 4;
+    _forthDigit.userInteractionEnabled = YES;
+    [_forthDigit addGestureRecognizer:tap4];
     [self.view addSubview:_forthDigit];
+    
+    _theGlowingBox = 0;
+    _boxArray = [[NSArray alloc] initWithObjects:_firstDigit, _secondDigit, _thirdDigit, _forthDigit, nil];
+}
+
+- (void)initTimer
+{
+    if (!_timer)
+    {
+        _timer = [[JSKTimerView alloc] initWithFrame:CGRectMake(_gapSize, SCREENHEIGHT, _buttonSize, _buttonSize)];
+    }
+    _timer.delegate = self;
+    _timer.labelTextColor = [UIColor colorWithRed:0.678f green:0.663f blue:0.824f alpha:1.00f];
+    [_timer setTimerWithDuration:60];
+    [self.view addSubview:_timer];
 }
 
 - (void)initButtons
@@ -617,6 +682,7 @@
     [UIView animateWithDuration:0.5f delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         [_numberSeven setCenter:CGPointMake(centerX, centerY)];
     }completion:^(BOOL finished) {
+        [self animateTimer];
         [self animateButtonZero];
     }];
 }
@@ -649,6 +715,136 @@
         [_numberZero setCenter:CGPointMake(centerX, centerY)];
     }completion:^(BOOL finished) {
     }];
+}
+
+- (void)animateTimer
+{
+    CGFloat centerX = _gapSize + _buttonSize/2;
+    CGFloat centerY = SCREENHEIGHT - _verticalGap - _buttonSize/2;
+    [UIView animateWithDuration:0.2 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        [_timer setCenter:CGPointMake(centerX, centerY)];
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+
+- (void)tappedBox:(UIGestureRecognizer *)tap
+{
+//    NSLog(@"tapped");
+    JTNumberScrollAnimatedView *tappedNumber = (JTNumberScrollAnimatedView *)[tap view];
+    if (tappedNumber.tag == _theGlowingBox)
+    {
+        return;
+    }
+    else
+    {
+        [self glowBoxAtIndex:tappedNumber.tag];
+    }
+}
+
+- (void)glowBoxAtIndex:(NSInteger)index
+{
+//    NSLog(@"the glowing box = %ld",(long)_theGlowingBox);
+    
+    JTNumberScrollAnimatedView *temp;
+    if (_theGlowingBox == 0)
+    {
+        temp = (JTNumberScrollAnimatedView *)[_boxArray objectAtIndex:_theGlowingBox];
+    }
+    else
+    {
+        temp = (JTNumberScrollAnimatedView *)[_boxArray objectAtIndex:_theGlowingBox - 1];
+    }
+    [temp.layer removeAllAnimations];
+    CABasicAnimation *reverseAnimation = [CABasicAnimation animationWithKeyPath:@"colorAnimation"];
+    reverseAnimation.autoreverses = NO;
+    reverseAnimation.fromValue = (id)[UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+    reverseAnimation.toValue = (id)[[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
+    reverseAnimation.duration = 1.5f;
+    reverseAnimation.removedOnCompletion = YES;
+    reverseAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+
+    if (_theGlowingBox != 0)
+    {
+        if (_theGlowingBox != index)
+        {
+            //glow back
+            
+            temp.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
+            temp.layer.shadowColor = [UIColor clearColor].CGColor;
+            temp.layer.shadowRadius = 0;
+            temp.layer.shadowOpacity = 0;
+            [temp.layer addAnimation:reverseAnimation forKey:@"reverse"];
+        }
+    }
+    else
+    {
+        temp.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
+        temp.layer.shadowColor = [UIColor clearColor].CGColor;
+        temp.layer.shadowRadius = 0;
+        temp.layer.shadowOpacity = 0;
+        [temp.layer addAnimation:reverseAnimation forKey:@"reverse"];
+    }
+    
+    CABasicAnimation *colorAnimation = [CABasicAnimation animationWithKeyPath:@"colorAnimation"];
+    colorAnimation.autoreverses = YES;
+    colorAnimation.repeatCount = FLT_MAX;
+    colorAnimation.fromValue = (id)[[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
+    _theGlowingBox = index;
+    switch (index) {
+        case 1:
+        {
+            colorAnimation.toValue = (id)[UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+            _firstDigit.layer.borderColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+            _firstDigit.layer.shadowColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+            _firstDigit.layer.shadowRadius = 5.0f;
+            _firstDigit.layer.shadowOpacity = 0.8f;
+            colorAnimation.duration = 1.5f;
+            colorAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+            [_firstDigit.layer addAnimation:colorAnimation forKey:@"borderColorChange"];
+            
+        }
+            break;
+        case 2:
+        {
+            colorAnimation.toValue = (id)[UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+            _secondDigit.layer.borderColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+            _secondDigit.layer.shadowColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+            _secondDigit.layer.shadowRadius = 5.0f;
+            _secondDigit.layer.shadowOpacity = 0.8f;
+            colorAnimation.duration = 1.5f;
+            colorAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+            [_secondDigit.layer addAnimation:colorAnimation forKey:@"borderColorChange"];
+        }
+            break;
+        case 3:
+        {
+            colorAnimation.toValue = (id)[UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+            _thirdDigit.layer.borderColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+            _thirdDigit.layer.shadowColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+            _thirdDigit.layer.shadowRadius = 5.0f;
+            _thirdDigit.layer.shadowOpacity = 0.8f;
+            colorAnimation.duration = 1.5f;
+            colorAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+            [_thirdDigit.layer addAnimation:colorAnimation forKey:@"borderColorChange"];
+        }
+            break;
+        case 4:
+        {
+            colorAnimation.toValue = (id)[UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+            _forthDigit.layer.borderColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+            _forthDigit.layer.shadowColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+            _forthDigit.layer.shadowRadius = 5.0f;
+            _forthDigit.layer.shadowOpacity = 0.8f;
+            colorAnimation.duration = 1.5f;
+            colorAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+            [_forthDigit.layer addAnimation:colorAnimation forKey:@"borderColorChange"];
+        }
+            break;
+        
+        default:
+            break;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -751,6 +947,12 @@
         default:
             break;
     }
+}
+
+#pragma mark - JSKTimerDelegate
+- (void)timerDidFinish:(JSKTimerView *)timerView
+{
+    
 }
 
 /*

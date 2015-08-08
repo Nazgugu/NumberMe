@@ -1,10 +1,13 @@
 PODS:
+  - JSKTimerView (0.4.1)
   - pop (1.0.7)
 
 DEPENDENCIES:
+  - JSKTimerView (~> 0.4.1)
   - pop (~> 1.0.7)
 
 SPEC CHECKSUMS:
+  JSKTimerView: 6e773cc20f87e3af98b9fe242492f38055f55cc8
   pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
 
 COCOAPODS: 0.36.3
