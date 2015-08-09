@@ -133,10 +133,12 @@
     {
         if (userAnswer == _gameAnswer)
         {
+            NSLog(@"correct!");
             _succeed = 2;
         }
         else
         {
+            NSLog(@"correct!");
             _succeed = 1;
         }
     }

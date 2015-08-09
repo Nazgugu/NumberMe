@@ -834,7 +834,36 @@
 
 - (void)shakeBoxAtIndex:(NSInteger)index
 {
-    
+    JTNumberScrollAnimatedView *temp = (JTNumberScrollAnimatedView *)[_boxArray objectAtIndex:index];
+    [temp shake:14 withDelta:6 speed:0.06 shakeDirection:ShakeDirectionHorizontal];
+    [UIView animateWithDuration:0.72f animations:^{
+        temp.layer.borderColor = [[UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f] colorWithAlphaComponent:0.5f].CGColor;
+        temp.layer.shadowColor = [UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f].CGColor;
+        temp.layer.shadowRadius = 5.0f;
+        temp.layer.shadowOpacity = 0.8f;
+    } completion:^(BOOL finished) {
+       if (finished)
+       {
+           [self performSelector:@selector(glowBlue:) withObject:temp afterDelay:0.7f];
+       }
+    }];
+}
+
+- (void)glowBlue:(JTNumberScrollAnimatedView *)view
+{
+    [view.layer removeAllAnimations];
+    CABasicAnimation *colorAnimation = [CABasicAnimation animationWithKeyPath:@"colorAnimation"];
+    colorAnimation.autoreverses = YES;
+    colorAnimation.repeatCount = FLT_MAX;
+    colorAnimation.fromValue = (id)[[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
+    colorAnimation.toValue = (id)[UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+    view.layer.borderColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+    view.layer.shadowColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+    view.layer.shadowRadius = 5.0f;
+    view.layer.shadowOpacity = 0.8f;
+    colorAnimation.duration = 1.5f;
+    colorAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    [view.layer addAnimation:colorAnimation forKey:@"borderColorChange"];
 }
 
 - (void)revertToWhite
@@ -960,6 +989,7 @@
         }
     }
     
+    
     CABasicAnimation *colorAnimation = [CABasicAnimation animationWithKeyPath:@"colorAnimation"];
     colorAnimation.autoreverses = YES;
     colorAnimation.repeatCount = FLT_MAX;
@@ -968,51 +998,63 @@
     switch (index) {
         case 1:
         {
-            colorAnimation.toValue = (id)[UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
-            _firstDigit.layer.borderColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
-            _firstDigit.layer.shadowColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
-            _firstDigit.layer.shadowRadius = 5.0f;
-            _firstDigit.layer.shadowOpacity = 0.8f;
-            colorAnimation.duration = 1.5f;
-            colorAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-            [_firstDigit.layer addAnimation:colorAnimation forKey:@"borderColorChange"];
+            if (_firstDigit.isUserInteractionEnabled)
+            {
+                colorAnimation.toValue = (id)[UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+                _firstDigit.layer.borderColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+                _firstDigit.layer.shadowColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+                _firstDigit.layer.shadowRadius = 5.0f;
+                _firstDigit.layer.shadowOpacity = 0.8f;
+                colorAnimation.duration = 1.5f;
+                colorAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+                [_firstDigit.layer addAnimation:colorAnimation forKey:@"borderColorChange"];
+            }
             
         }
             break;
         case 2:
         {
-            colorAnimation.toValue = (id)[UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
-            _secondDigit.layer.borderColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
-            _secondDigit.layer.shadowColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
-            _secondDigit.layer.shadowRadius = 5.0f;
-            _secondDigit.layer.shadowOpacity = 0.8f;
-            colorAnimation.duration = 1.5f;
-            colorAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-            [_secondDigit.layer addAnimation:colorAnimation forKey:@"borderColorChange"];
+            if (_secondDigit.isUserInteractionEnabled)
+            {
+                colorAnimation.toValue = (id)[UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+                _secondDigit.layer.borderColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+                _secondDigit.layer.shadowColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+                _secondDigit.layer.shadowRadius = 5.0f;
+                _secondDigit.layer.shadowOpacity = 0.8f;
+                colorAnimation.duration = 1.5f;
+                colorAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+                [_secondDigit.layer addAnimation:colorAnimation forKey:@"borderColorChange"];
+            }
         }
             break;
         case 3:
         {
-            colorAnimation.toValue = (id)[UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
-            _thirdDigit.layer.borderColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
-            _thirdDigit.layer.shadowColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
-            _thirdDigit.layer.shadowRadius = 5.0f;
-            _thirdDigit.layer.shadowOpacity = 0.8f;
-            colorAnimation.duration = 1.5f;
-            colorAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-            [_thirdDigit.layer addAnimation:colorAnimation forKey:@"borderColorChange"];
+            if (_thirdDigit.isUserInteractionEnabled)
+            {
+                colorAnimation.toValue = (id)[UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+                _thirdDigit.layer.borderColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+                _thirdDigit.layer.shadowColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+                _thirdDigit.layer.shadowRadius = 5.0f;
+                _thirdDigit.layer.shadowOpacity = 0.8f;
+                colorAnimation.duration = 1.5f;
+                colorAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+                [_thirdDigit.layer addAnimation:colorAnimation forKey:@"borderColorChange"];
+            }
         }
             break;
         case 4:
         {
-            colorAnimation.toValue = (id)[UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
-            _forthDigit.layer.borderColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
-            _forthDigit.layer.shadowColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
-            _forthDigit.layer.shadowRadius = 5.0f;
-            _forthDigit.layer.shadowOpacity = 0.8f;
-            colorAnimation.duration = 1.5f;
-            colorAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-            [_forthDigit.layer addAnimation:colorAnimation forKey:@"borderColorChange"];
+            if (_forthDigit.isUserInteractionEnabled)
+            {
+                colorAnimation.toValue = (id)[UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+                _forthDigit.layer.borderColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+                _forthDigit.layer.shadowColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+                _forthDigit.layer.shadowRadius = 5.0f;
+                _forthDigit.layer.shadowOpacity = 0.8f;
+                colorAnimation.duration = 1.5f;
+                colorAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+                [_forthDigit.layer addAnimation:colorAnimation forKey:@"borderColorChange"];
+            }
         }
             break;
         
@@ -1123,7 +1165,7 @@
     }
     else
     {
-        
+        [self shakeBoxAtIndex:_theGlowingBox - 1];
     }
 }
 
@@ -1231,7 +1273,7 @@
 #pragma mark - JSKTimerDelegate
 - (void)timerDidFinish:(JSKTimerView *)timerView
 {
-    NSLog(@"shaking");
+    //NSLog(@"shaking");
     [_game verifyAnswer];
     [self verifyAndShake];
 }

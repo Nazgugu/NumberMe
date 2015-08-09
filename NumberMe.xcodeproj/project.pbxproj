@@ -21,6 +21,8 @@
 		AE6758731B77C24F00F5A93C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6758721B77C24F00F5A93C /* Foundation.framework */; };
 		AE6758751B77C25A00F5A93C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6758741B77C25A00F5A93C /* UIKit.framework */; };
 		AE6758771B77C28100F5A93C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6758761B77C28100F5A93C /* QuartzCore.framework */; };
+		AE67587B1B7813F400F5A93C /* AlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE6758791B7813F400F5A93C /* AlertViewController.m */; };
+		AE67587C1B7813F400F5A93C /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE67587A1B7813F400F5A93C /* AlertViewController.xib */; };
 		AE721D7F1B77BBD600AFDFBE /* GameBG.png in Resources */ = {isa = PBXBuildFile; fileRef = AE721D7E1B77BBD600AFDFBE /* GameBG.png */; };
 		AE7E74BC1B746896003E9341 /* JTNumberScrollAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7E74BB1B746896003E9341 /* JTNumberScrollAnimatedView.m */; };
 		AE8E22821B756B7E00A298DE /* YETICharacterLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8E22811B756B7E00A298DE /* YETICharacterLabel.m */; };
@@ -65,6 +67,9 @@
 		AE6758721B77C24F00F5A93C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AE6758741B77C25A00F5A93C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AE6758761B77C28100F5A93C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		AE6758781B7813F400F5A93C /* AlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlertViewController.h; path = VCs/AlertViewController.h; sourceTree = "<group>"; };
+		AE6758791B7813F400F5A93C /* AlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlertViewController.m; path = VCs/AlertViewController.m; sourceTree = "<group>"; };
+		AE67587A1B7813F400F5A93C /* AlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AlertViewController.xib; path = VCs/AlertViewController.xib; sourceTree = "<group>"; };
 		AE721D7E1B77BBD600AFDFBE /* GameBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameBG.png; sourceTree = "<group>"; };
 		AE7E74BA1B746896003E9341 /* JTNumberScrollAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTNumberScrollAnimatedView.h; sourceTree = "<group>"; };
 		AE7E74BB1B746896003E9341 /* JTNumberScrollAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTNumberScrollAnimatedView.m; sourceTree = "<group>"; };
@@ -184,6 +189,9 @@
 		AE3E41061B6EC1B9001E26FE /* VCs */ = {
 			isa = PBXGroup;
 			children = (
+				AE6758781B7813F400F5A93C /* AlertViewController.h */,
+				AE6758791B7813F400F5A93C /* AlertViewController.m */,
+				AE67587A1B7813F400F5A93C /* AlertViewController.xib */,
 				AE3E410D1B6ECFD0001E26FE /* GameViewController.h */,
 				AE3E410E1B6ECFD0001E26FE /* GameViewController.m */,
 				AE3E410F1B6ECFD0001E26FE /* GameViewController.xib */,
@@ -344,6 +352,7 @@
 				AE3E410C1B6EC46E001E26FE /* welcome.png in Resources */,
 				AE26308C1B6EA58000A566AE /* Images.xcassets in Resources */,
 				AE3E41111B6ECFD0001E26FE /* GameViewController.xib in Resources */,
+				AE67587C1B7813F400F5A93C /* AlertViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +414,7 @@
 				AE8E22881B756B8D00A298DE /* YETIFallingLabel.m in Sources */,
 				AE2630811B6EA58000A566AE /* main.m in Sources */,
 				AE8E22821B756B7E00A298DE /* YETICharacterLabel.m in Sources */,
+				AE67587B1B7813F400F5A93C /* AlertViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
