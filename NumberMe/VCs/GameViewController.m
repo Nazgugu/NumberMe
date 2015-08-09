@@ -11,6 +11,8 @@
 #import "YETIFallingLabel.h"
 #import <JSKTimerView/JSKTimerView.h>
 #import "guessGame.h"
+#import "UIView+Shake.h"
+#import <QuartzCore/QuartzCore.h>
 //#import <pop/POP.h>
 
 @interface GameViewController ()<JSKTimerViewDelegate>
@@ -166,12 +168,16 @@
 - (void)animateGo{
     _guideLabel.text = @"GO!";
     [_timer startTimer];
+    [self performSelector:@selector(shakeTimer) withObject:nil afterDelay:50];
     _deleteOneButton.enabled = YES;
     _clearButton.enabled = YES;
     _restartButton.enabled = YES;
     _hintButton.enabled = YES;
     [self glowBoxAtIndex:1];
     [self performSelector:@selector(enableTouchOnBox) withObject:nil afterDelay:1.5f];
+    
+    //debug
+    //[self answerWrongAndShakeBoxes];
 }
 
 - (void)enableTouchOnBox
@@ -784,6 +790,90 @@
     }];
 }
 
+//shake all the boxes
+- (void)answerWrongAndShakeBoxes
+{
+    [_firstDigit shake:14 withDelta:6 speed:0.06 shakeDirection:ShakeDirectionHorizontal];
+    [_secondDigit shake:14 withDelta:6 speed:0.06 shakeDirection:ShakeDirectionHorizontal];
+    [_thirdDigit shake:14 withDelta:6 speed:0.06 shakeDirection:ShakeDirectionHorizontal];
+    [_forthDigit shake:14 withDelta:6 speed:0.06 shakeDirection:ShakeDirectionHorizontal];
+    
+    [UIView animateWithDuration:0.72f animations:^{
+        //first digit
+        _firstDigit.layer.borderColor = [[UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f] colorWithAlphaComponent:0.5f].CGColor;
+        _firstDigit.layer.shadowColor = [UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f].CGColor;
+        _firstDigit.layer.shadowRadius = 5.0f;
+        _firstDigit.layer.shadowOpacity = 0.8f;
+        
+        //second digit
+        _secondDigit.layer.borderColor = [[UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f] colorWithAlphaComponent:0.5f].CGColor;
+        _secondDigit.layer.shadowColor = [UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f].CGColor;
+        _secondDigit.layer.shadowRadius = 5.0f;
+        _secondDigit.layer.shadowOpacity = 0.8f;
+        
+        //third digit
+        _thirdDigit.layer.borderColor = [[UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f] colorWithAlphaComponent:0.5f].CGColor;
+        _thirdDigit.layer.shadowColor = [UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f].CGColor;
+        _thirdDigit.layer.shadowRadius = 5.0f;
+        _thirdDigit.layer.shadowOpacity = 0.8f;
+        
+        //forth digit
+        _forthDigit.layer.borderColor = [[UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f] colorWithAlphaComponent:0.5f].CGColor;
+        _forthDigit.layer.shadowColor = [UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f].CGColor;
+        _forthDigit.layer.shadowRadius = 5.0f;
+        _forthDigit.layer.shadowOpacity = 0.8f;
+        
+        //shake
+        } completion:^(BOOL finished) {
+            
+            if (finished)
+            {
+                [self performSelector:@selector(revertToWhite) withObject:nil afterDelay:0.7f];
+            }
+    }];
+}
+
+- (void)revertToWhite
+{
+    CABasicAnimation *reverseAnimation = [CABasicAnimation animationWithKeyPath:@"colorAnimation"];
+    reverseAnimation.autoreverses = NO;
+    reverseAnimation.fromValue = (id)[[UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f] colorWithAlphaComponent:0.5f].CGColor;
+    reverseAnimation.toValue = (id)[[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
+    reverseAnimation.duration = 0.3f;
+    reverseAnimation.removedOnCompletion = YES;
+    reverseAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    
+    //first digitt
+    _firstDigit.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
+    _firstDigit.layer.shadowColor = [UIColor clearColor].CGColor;
+    _firstDigit.layer.shadowRadius = 0;
+    _firstDigit.layer.shadowOpacity = 0;
+    [_firstDigit.layer addAnimation:reverseAnimation forKey:@"reverse"];
+    
+    //second digit
+    _secondDigit.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
+    _secondDigit.layer.shadowColor = [UIColor clearColor].CGColor;
+    _secondDigit.layer.shadowRadius = 0;
+    _secondDigit.layer.shadowOpacity = 0;
+    [_secondDigit.layer addAnimation:reverseAnimation forKey:@"reverse"];
+    
+    //third digit
+    _thirdDigit.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
+    _thirdDigit.layer.shadowColor = [UIColor clearColor].CGColor;
+    _thirdDigit.layer.shadowRadius = 0;
+    _thirdDigit.layer.shadowOpacity = 0;
+    [_thirdDigit.layer addAnimation:reverseAnimation forKey:@"reverse"];
+    
+    //forth digit
+    _forthDigit.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
+    _forthDigit.layer.shadowColor = [UIColor clearColor].CGColor;
+    _forthDigit.layer.shadowRadius = 0;
+    _forthDigit.layer.shadowOpacity = 0;
+    [_forthDigit.layer addAnimation:reverseAnimation forKey:@"reverse"];
+    
+    [self glowBoxAtIndex:_theGlowingBox];
+}
+
 - (void)tappedBox:(UIGestureRecognizer *)tap
 {
 //    NSLog(@"tapped");
@@ -903,6 +993,22 @@
     }
 }
 
+- (void)cancelShake
+{
+    [self stopShake];
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(shakeTimer) object:nil];
+}
+
+- (void)stopShake
+{
+    [_timer.layer removeAllAnimations];
+}
+
+- (void)shakeTimer
+{
+    [_timer shake:220 withDelta:4.0f speed:0.09 shakeDirection:ShakeDirectionHorizontal];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -936,6 +1042,10 @@
     //deal with button press
     JTNumberScrollAnimatedView *temp = (JTNumberScrollAnimatedView *)[_boxArray objectAtIndex:_theGlowingBox - 1];
     temp.value = [NSString stringWithFormat:@"%ld",(long)sender.tag];
+    
+    /* game logic goes here */
+    
+    self.guideLabel.text = [_game userAnswersAtBox:_theGlowingBox andAnswer:sender.tag];
     
     if (_theGlowingBox < 4)
     {

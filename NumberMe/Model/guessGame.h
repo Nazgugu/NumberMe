@@ -19,7 +19,8 @@
 //in seconds
 @property (nonatomic) NSInteger duration;
 
-@property (nonatomic) BOOL succeed;
+//0 = not able to check yet, 1 = failed, 2 = succeed
+@property (nonatomic) NSInteger succeed;
 
 @property (nonatomic, strong) NSDate *dateOfGame;
 
@@ -28,10 +29,20 @@
 @property (nonatomic) NSInteger userThirdDigit;
 @property (nonatomic) NSInteger userForthDigit;
 
+@property (nonatomic) NSInteger answerFirstDigit;
+@property (nonatomic) NSInteger answerSecondDigit;
+@property (nonatomic) NSInteger answerThirdDigit;
+@property (nonatomic) NSInteger answerForthDigit;
+
 @property (nonatomic) NSInteger availabelHints;
 
 @property (nonatomic, strong) NSString *hintMessage;
 
+//0 = incorrect, 1 = correct
+@property (nonatomic, strong) NSMutableArray *correctNess;
+
 - (void)generateHint;
+
+- (NSString *)userAnswersAtBox:(NSInteger)boxNum andAnswer:(NSInteger)answer;
 
 @end

@@ -18,8 +18,11 @@
 		AE3E410C1B6EC46E001E26FE /* welcome.png in Resources */ = {isa = PBXBuildFile; fileRef = AE3E410B1B6EC46E001E26FE /* welcome.png */; };
 		AE3E41101B6ECFD0001E26FE /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3E410E1B6ECFD0001E26FE /* GameViewController.m */; };
 		AE3E41111B6ECFD0001E26FE /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE3E410F1B6ECFD0001E26FE /* GameViewController.xib */; };
+		AE6758731B77C24F00F5A93C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6758721B77C24F00F5A93C /* Foundation.framework */; };
+		AE6758751B77C25A00F5A93C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6758741B77C25A00F5A93C /* UIKit.framework */; };
+		AE6758771B77C28100F5A93C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6758761B77C28100F5A93C /* QuartzCore.framework */; };
+		AE721D7F1B77BBD600AFDFBE /* GameBG.png in Resources */ = {isa = PBXBuildFile; fileRef = AE721D7E1B77BBD600AFDFBE /* GameBG.png */; };
 		AE7E74BC1B746896003E9341 /* JTNumberScrollAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7E74BB1B746896003E9341 /* JTNumberScrollAnimatedView.m */; };
-		AE7E74C01B7543A7003E9341 /* GameBG.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7E74BF1B7543A7003E9341 /* GameBG.png */; };
 		AE8E22821B756B7E00A298DE /* YETICharacterLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8E22811B756B7E00A298DE /* YETICharacterLabel.m */; };
 		AE8E22851B756B8600A298DE /* YETIFadeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8E22841B756B8600A298DE /* YETIFadeLabel.m */; };
 		AE8E22881B756B8D00A298DE /* YETIFallingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8E22871B756B8D00A298DE /* YETIFallingLabel.m */; };
@@ -59,9 +62,12 @@
 		AE3E410F1B6ECFD0001E26FE /* GameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GameViewController.xib; path = VCs/GameViewController.xib; sourceTree = "<group>"; };
 		AE3E41121B6F2B06001E26FE /* CommonDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonDefine.h; sourceTree = "<group>"; };
 		AE3E41131B6F2BA7001E26FE /* NumberMe-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NumberMe-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		AE6758721B77C24F00F5A93C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AE6758741B77C25A00F5A93C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		AE6758761B77C28100F5A93C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		AE721D7E1B77BBD600AFDFBE /* GameBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameBG.png; sourceTree = "<group>"; };
 		AE7E74BA1B746896003E9341 /* JTNumberScrollAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTNumberScrollAnimatedView.h; sourceTree = "<group>"; };
 		AE7E74BB1B746896003E9341 /* JTNumberScrollAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTNumberScrollAnimatedView.m; sourceTree = "<group>"; };
-		AE7E74BF1B7543A7003E9341 /* GameBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameBG.png; sourceTree = "<group>"; };
 		AE8E22801B756B7E00A298DE /* YETICharacterLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YETICharacterLabel.h; sourceTree = "<group>"; };
 		AE8E22811B756B7E00A298DE /* YETICharacterLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YETICharacterLabel.m; sourceTree = "<group>"; };
 		AE8E22831B756B8600A298DE /* YETIFadeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YETIFadeLabel.h; sourceTree = "<group>"; };
@@ -83,6 +89,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE6758771B77C28100F5A93C /* QuartzCore.framework in Frameworks */,
+				AE6758751B77C25A00F5A93C /* UIKit.framework in Frameworks */,
+				AE6758731B77C24F00F5A93C /* Foundation.framework in Frameworks */,
 				215550EBC1647E8DE4F792BB /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -100,6 +109,9 @@
 		6E1917FA78D175219BF57EAC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AE6758761B77C28100F5A93C /* QuartzCore.framework */,
+				AE6758741B77C25A00F5A93C /* UIKit.framework */,
+				AE6758721B77C24F00F5A93C /* Foundation.framework */,
 				9E8ECBE8B2E3D81B32599EE4 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -194,8 +206,8 @@
 		AE3E41081B6EC28E001E26FE /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				AE7E74BF1B7543A7003E9341 /* GameBG.png */,
 				AE3E410B1B6EC46E001E26FE /* welcome.png */,
+				AE721D7E1B77BBD600AFDFBE /* GameBG.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -326,7 +338,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE7E74C01B7543A7003E9341 /* GameBG.png in Resources */,
+				AE721D7F1B77BBD600AFDFBE /* GameBG.png in Resources */,
 				AE26308F1B6EA58000A566AE /* LaunchScreen.xib in Resources */,
 				AE3E41051B6EC19D001E26FE /* WelcomeViewController.xib in Resources */,
 				AE3E410C1B6EC46E001E26FE /* welcome.png in Resources */,
