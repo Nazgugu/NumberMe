@@ -10,6 +10,7 @@
 #import "JTNumberScrollAnimatedView.h"
 #import "YETIFallingLabel.h"
 #import <JSKTimerView/JSKTimerView.h>
+#import "guessGame.h"
 //#import <pop/POP.h>
 
 @interface GameViewController ()<JSKTimerViewDelegate>
@@ -61,6 +62,9 @@
 
 @property (nonatomic) NSInteger theGlowingBox;
 
+//the game
+@property (nonatomic, strong) guessGame *game;
+
 @end
 
 @implementation GameViewController
@@ -78,7 +82,9 @@
         _verticalGap = 10.0f;
         _boxHeight = 60.0f;
         _toolButtonHeight = 25.0f;
-        _guideLabel = [[YETIFallingLabel alloc] initWithFrame:CGRectMake(_backButton.frame.origin.x + _backButton.frame.size.width + 10,0, SCREENWIDTH - 2 * (_backButton.frame.origin.x + _backButton.frame.size.width + 10), _backButton.frame.size.height + 10)];
+        _guideLabel = [[YETIFallingLabel alloc] initWithFrame:CGRectMake(_backButton.frame.origin.x + _backButton.frame.size.width + 10,0, SCREENWIDTH - 2 * (_backButton.frame.origin.x + _backButton.frame.size.width + 10), _backButton.frame.size.height + 25)];
+        _guideLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:12.0f];
+        
     }
     else if (IS_IPHONE_5)
     {
@@ -86,26 +92,40 @@
         _verticalGap = 15.0f;
         _boxHeight = 65.0f;
         _toolButtonHeight = 28.0f;
-        _guideLabel = [[YETIFallingLabel alloc] initWithFrame:CGRectMake(_backButton.frame.origin.x + _backButton.frame.size.width + 10, 0, SCREENWIDTH - 2 * (_backButton.frame.origin.x + _backButton.frame.size.width + 10), _backButton.frame.size.height + 20)];
+        _guideLabel = [[YETIFallingLabel alloc] initWithFrame:CGRectMake(_backButton.frame.origin.x + _backButton.frame.size.width + 10, 0, SCREENWIDTH - 2 * (_backButton.frame.origin.x + _backButton.frame.size.width + 10), _backButton.frame.size.height + 50)];
+        _guideLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:15.0f];
     }
     else if (IS_IPHONE_6)
     {
         _gapSize = 30.0f;
         _boxHeight = 80.0f;
         _toolButtonHeight = 33.0f;
-        _guideLabel = [[YETIFallingLabel alloc] initWithFrame:CGRectMake(_backButton.frame.origin.x + _backButton.frame.size.width + 10, 0, SCREENWIDTH - 2 * (_backButton.frame.origin.x + _backButton.frame.size.width + 10), _backButton.frame.size.height + 20)];
+        _guideLabel = [[YETIFallingLabel alloc] initWithFrame:CGRectMake(_backButton.frame.origin.x + _backButton.frame.size.width + 10, 0, SCREENWIDTH - 2 * (_backButton.frame.origin.x + _backButton.frame.size.width + 10), _backButton.frame.size.height + 50)];
+        _guideLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:15.0f];
     }
     else
     {
         _gapSize = 35.0f;
         _boxHeight = 95.0f;
         _toolButtonHeight = 38.0f;
-        _guideLabel = [[YETIFallingLabel alloc] initWithFrame:CGRectMake(_backButton.frame.origin.x + _backButton.frame.size.width + 10, 0, SCREENWIDTH - 2 * (_backButton.frame.origin.x + _backButton.frame.size.width + 10), _backButton.frame.size.height + 20)];
+        _guideLabel = [[YETIFallingLabel alloc] initWithFrame:CGRectMake(_backButton.frame.origin.x + _backButton.frame.size.width + 10, 0, SCREENWIDTH - 2 * (_backButton.frame.origin.x + _backButton.frame.size.width + 10), _backButton.frame.size.height + 70)];
+        _guideLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:17.0f];
     }
     
+    //debug puropse
+//    _guideLabel.layer.borderColor = [UIColor whiteColor].CGColor;
+//    _guideLabel.layer.borderWidth = 1.0f;
+//    _guideLabel.layer.masksToBounds = YES;
+    
+    _guideLabel.numberOfLines = 0;
+    _guideLabel.lineBreakMode = NSLineBreakByWordWrapping;
     _guideLabel.textColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8f];
     _guideLabel.textAlignment = NSTextAlignmentCenter;
-    _guideLabel.text = @"Guess A Four Digit Number";
+    _guideLabel.text = @"请猜一位四位数";
+    
+    //initialize a new game
+    _game = [[guessGame alloc] init];
+    NSLog(@"correct answer = %ld",(long)_game.gameAnswer);
     
     [self.view addSubview:_guideLabel];
     [self initButtons];
@@ -151,6 +171,45 @@
     _restartButton.enabled = YES;
     _hintButton.enabled = YES;
     [self glowBoxAtIndex:1];
+    [self performSelector:@selector(enableTouchOnBox) withObject:nil afterDelay:1.5f];
+}
+
+- (void)enableTouchOnBox
+{
+    _firstDigit.userInteractionEnabled = YES;
+    _secondDigit.userInteractionEnabled = YES;
+    _thirdDigit.userInteractionEnabled = YES;
+    _forthDigit.userInteractionEnabled = YES;
+    
+    _numberZero.userInteractionEnabled = YES;
+    _numberOne.userInteractionEnabled = YES;
+    _numberTwo.userInteractionEnabled = YES;
+    _numberThree.userInteractionEnabled = YES;
+    _numberFour.userInteractionEnabled = YES;
+    _numberFive.userInteractionEnabled = YES;
+    _numberSix.userInteractionEnabled = YES;
+    _numberSeven.userInteractionEnabled = YES;
+    _numberEight.userInteractionEnabled = YES;
+    _numberNine.userInteractionEnabled = YES;
+}
+
+- (void)disableTouchOnBox
+{
+    _firstDigit.userInteractionEnabled = NO;
+    _secondDigit.userInteractionEnabled = NO;
+    _thirdDigit.userInteractionEnabled = NO;
+    _forthDigit.userInteractionEnabled = NO;
+    
+    _numberZero.userInteractionEnabled = NO;
+    _numberOne.userInteractionEnabled = NO;
+    _numberTwo.userInteractionEnabled = NO;
+    _numberThree.userInteractionEnabled = NO;
+    _numberFour.userInteractionEnabled = NO;
+    _numberFive.userInteractionEnabled = NO;
+    _numberSix.userInteractionEnabled = NO;
+    _numberSeven.userInteractionEnabled = NO;
+    _numberEight.userInteractionEnabled = NO;
+    _numberNine.userInteractionEnabled = NO;
 }
 
 - (void)createLine
@@ -288,7 +347,6 @@
     _firstDigit.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:35.0f];
     _firstDigit.minLength = 1;
     _firstDigit.tag = 1;
-    _firstDigit.userInteractionEnabled = YES;
     [_firstDigit addGestureRecognizer:tap1];
     [self.view addSubview:_firstDigit];
     
@@ -302,7 +360,6 @@
     _secondDigit.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:35.0f];
     _secondDigit.minLength = 1;
     _secondDigit.tag = 2;
-    _secondDigit.userInteractionEnabled = YES;
     [_secondDigit addGestureRecognizer:tap2];
     [self.view addSubview:_secondDigit];
     
@@ -316,7 +373,6 @@
     _thirdDigit.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:35.0f];
     _thirdDigit.minLength = 1;
     _thirdDigit.tag = 3;
-    _thirdDigit.userInteractionEnabled = YES;
     [_thirdDigit addGestureRecognizer:tap3];
     [self.view addSubview:_thirdDigit];
     
@@ -330,12 +386,12 @@
     _forthDigit.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:35.0f];
     _forthDigit.minLength = 1;
     _forthDigit.tag = 4;
-    _forthDigit.userInteractionEnabled = YES;
     [_forthDigit addGestureRecognizer:tap4];
     [self.view addSubview:_forthDigit];
     
     _theGlowingBox = 0;
     _boxArray = [[NSArray alloc] initWithObjects:_firstDigit, _secondDigit, _thirdDigit, _forthDigit, nil];
+    [self disableTouchOnBox];
 }
 
 - (void)initTimer
@@ -876,6 +932,19 @@
 {
     sender.backgroundColor = [UIColor clearColor];
     sender.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
+    
+    //deal with button press
+    JTNumberScrollAnimatedView *temp = (JTNumberScrollAnimatedView *)[_boxArray objectAtIndex:_theGlowingBox - 1];
+    temp.value = [NSString stringWithFormat:@"%ld",(long)sender.tag];
+    
+    if (_theGlowingBox < 4)
+    {
+        [self glowBoxAtIndex:_theGlowingBox + 1];
+    }
+    else
+    {
+        [self glowBoxAtIndex:1];
+    }
 }
 
 - (void)toolButtonHighlighted:(UIButton *)sender
@@ -947,6 +1016,11 @@
         default:
             break;
     }
+}
+
+- (void)remindTime
+{
+    _guideLabel.text = [NSString stringWithFormat:@"There is only %ld seconds remaining",(long)[_timer remainingDurationInSeconds]];
 }
 
 #pragma mark - JSKTimerDelegate

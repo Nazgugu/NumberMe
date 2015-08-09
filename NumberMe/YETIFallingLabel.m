@@ -85,4 +85,11 @@
     }
 }
 
+- (void)drawTextInRect:(CGRect)rect
+{
+    NSLog(@"called");
+    UIEdgeInsets insets = UIEdgeInsetsMake(25.0f, 0, 25.0f, 0);
+    [super drawTextInRect:UIEdgeInsetsInsetRect(rect, insets)];
+}
+
 @end
