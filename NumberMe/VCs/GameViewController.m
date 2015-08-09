@@ -127,7 +127,6 @@
     
     //initialize a new game
     _game = [[guessGame alloc] init];
-    NSLog(@"correct answer = %ld",(long)_game.gameAnswer);
     
     [self.view addSubview:_guideLabel];
     [self initButtons];
@@ -833,6 +832,11 @@
     }];
 }
 
+- (void)shakeBoxAtIndex:(NSInteger)index
+{
+    
+}
+
 - (void)revertToWhite
 {
     CABasicAnimation *reverseAnimation = [CABasicAnimation animationWithKeyPath:@"colorAnimation"];
@@ -888,48 +892,72 @@
     }
 }
 
+//glow blue
 - (void)glowBoxAtIndex:(NSInteger)index
 {
 //    NSLog(@"the glowing box = %ld",(long)_theGlowingBox);
     
     JTNumberScrollAnimatedView *temp;
+    
     if (_theGlowingBox == 0)
     {
+        //NSLog(@"zero");
         temp = (JTNumberScrollAnimatedView *)[_boxArray objectAtIndex:_theGlowingBox];
     }
     else
     {
         temp = (JTNumberScrollAnimatedView *)[_boxArray objectAtIndex:_theGlowingBox - 1];
     }
+    
+//    if (temp.isUserInteractionEnabled == NO)
+//    {
+//        if (index < 4)
+//        {
+//            [self glowBoxAtIndex:index + 1];
+//        }
+//        else
+//        {
+//            [self glowBoxAtIndex:1];
+//        }
+//    }
+//    else
+//    {
+//        return;
+//    }
+    
     [temp.layer removeAllAnimations];
-    CABasicAnimation *reverseAnimation = [CABasicAnimation animationWithKeyPath:@"colorAnimation"];
-    reverseAnimation.autoreverses = NO;
-    reverseAnimation.fromValue = (id)[UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
-    reverseAnimation.toValue = (id)[[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
-    reverseAnimation.duration = 1.5f;
-    reverseAnimation.removedOnCompletion = YES;
-    reverseAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-
-    if (_theGlowingBox != 0)
+    
+    if (temp.isUserInteractionEnabled == YES)
     {
-        if (_theGlowingBox != index)
+        CABasicAnimation *reverseAnimation = [CABasicAnimation animationWithKeyPath:@"colorAnimation"];
+        reverseAnimation.autoreverses = NO;
+        reverseAnimation.fromValue = (id)[UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+        reverseAnimation.toValue = (id)[[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
+        reverseAnimation.duration = 1.5f;
+        reverseAnimation.removedOnCompletion = YES;
+        reverseAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        
+        if (_theGlowingBox != 0)
         {
-            //glow back
-            
+            if (_theGlowingBox != index)
+            {
+                //glow back
+                
+                temp.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
+                temp.layer.shadowColor = [UIColor clearColor].CGColor;
+                temp.layer.shadowRadius = 0;
+                temp.layer.shadowOpacity = 0;
+                [temp.layer addAnimation:reverseAnimation forKey:@"reverse"];
+            }
+        }
+        else
+        {
             temp.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
             temp.layer.shadowColor = [UIColor clearColor].CGColor;
             temp.layer.shadowRadius = 0;
             temp.layer.shadowOpacity = 0;
             [temp.layer addAnimation:reverseAnimation forKey:@"reverse"];
         }
-    }
-    else
-    {
-        temp.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
-        temp.layer.shadowColor = [UIColor clearColor].CGColor;
-        temp.layer.shadowRadius = 0;
-        temp.layer.shadowOpacity = 0;
-        [temp.layer addAnimation:reverseAnimation forKey:@"reverse"];
     }
     
     CABasicAnimation *colorAnimation = [CABasicAnimation animationWithKeyPath:@"colorAnimation"];
@@ -993,6 +1021,30 @@
     }
 }
 
+//glow green
+- (void)glowGreenAtIndex:(NSInteger)index
+{
+    NSLog(@"called glow green at index = %ld",index);
+    CABasicAnimation *reverseAnimation = [CABasicAnimation animationWithKeyPath:@"colorAnimation"];
+    reverseAnimation.autoreverses = NO;
+    reverseAnimation.fromValue = (id)[UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+    reverseAnimation.toValue = (id)[UIColor colorWithRed:0.263f green:0.792f blue:0.459f alpha:1.00f].CGColor;
+    reverseAnimation.duration = 1.5f;
+    reverseAnimation.removedOnCompletion = YES;
+    reverseAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    
+    //NSLog(@"index = %ld",index);
+    JTNumberScrollAnimatedView *temp = (JTNumberScrollAnimatedView *)[_boxArray objectAtIndex:index];
+    
+    temp.layer.borderColor = [UIColor colorWithRed:0.263f green:0.792f blue:0.459f alpha:1.00f].CGColor;
+    temp.layer.shadowColor = [UIColor colorWithRed:0.263f green:0.792f blue:0.459f alpha:1.00f].CGColor;
+    temp.layer.shadowRadius = 5.0f;
+    temp.layer.shadowOpacity = 0.8;
+    temp.userInteractionEnabled = NO;
+    
+    [temp.layer addAnimation:reverseAnimation forKey:@"colorChange"];
+}
+
 - (void)cancelShake
 {
     [self stopShake];
@@ -1046,14 +1098,57 @@
     /* game logic goes here */
     
     self.guideLabel.text = [_game userAnswersAtBox:_theGlowingBox andAnswer:sender.tag];
-    
-    if (_theGlowingBox < 4)
+//    [_game verifyAnswer];
+    if (_game.succeed == 1)
     {
-        [self glowBoxAtIndex:_theGlowingBox + 1];
+        //failed
+        [self verifyAndShake];
+    }
+    else if (_game.succeed == 2)
+    {
+        //succeed
+    }
+    
+    if ([[_game.correctNess objectAtIndex:_theGlowingBox - 1] integerValue] == 1)
+    {
+        [self glowGreenAtIndex:_theGlowingBox - 1];
+        if (_theGlowingBox < 4)
+        {
+            [self glowBoxAtIndex:_theGlowingBox + 1];
+        }
+        else
+        {
+            [self glowBoxAtIndex:1];
+        }
     }
     else
     {
-        [self glowBoxAtIndex:1];
+        
+    }
+}
+
+- (void)verifyAndShake
+{
+    if (_game.allWrong)
+    {
+        //all wrong then shake them all
+        [self answerWrongAndShakeBoxes];
+    }
+    else
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            //0 incorrect, 1 correct
+            if ([[_game.correctNess objectAtIndex:i] integerValue] == 1)
+            {
+                //glow green
+                [self glowGreenAtIndex:i];
+            }
+            else
+            {
+                //glow red and shake a bit
+            }
+        }
     }
 }
 
@@ -1136,7 +1231,9 @@
 #pragma mark - JSKTimerDelegate
 - (void)timerDidFinish:(JSKTimerView *)timerView
 {
-    
+    NSLog(@"shaking");
+    [_game verifyAnswer];
+    [self verifyAndShake];
 }
 
 /*

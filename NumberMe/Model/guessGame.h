@@ -22,6 +22,8 @@
 //0 = not able to check yet, 1 = failed, 2 = succeed
 @property (nonatomic) NSInteger succeed;
 
+@property (nonatomic) BOOL allWrong;
+
 @property (nonatomic, strong) NSDate *dateOfGame;
 
 @property (nonatomic) NSInteger userFirstDigit;
@@ -44,5 +46,7 @@
 - (void)generateHint;
 
 - (NSString *)userAnswersAtBox:(NSInteger)boxNum andAnswer:(NSInteger)answer;
+
+- (void)verifyAnswer;
 
 @end
