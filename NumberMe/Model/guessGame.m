@@ -138,7 +138,7 @@
         }
         else
         {
-            NSLog(@"correct!");
+            NSLog(@"not correct!");
             _succeed = 1;
         }
     }

@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-RWBlurPopover.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-UIView+Shake.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>08E4A61E6BEC57F5FB640234</key>
+		<key>2933C12D5D9EAD63A10DD3FC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>290351B2E9EE9B58BA095769</key>
+		<key>5F52A6F4BA5C0272D90C1717</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4D50FB858D7B8DAC2B3FD650</key>
+		<key>8BBB2D884103D5713AD072FA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9E28B5DA15EAE22368FDB74B</key>
+		<key>97033A1AB90B8A0366C80087</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AAC87DF942A1E7A2DE667319</key>
+		<key>A34E41A5C8296B88A86CC4DE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F8207F3E0FB2FA8400E37367</key>
 		<dict>
 			<key>primary</key>
 			<true/>

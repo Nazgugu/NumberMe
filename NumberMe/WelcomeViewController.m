@@ -22,6 +22,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     //setting up button appearance
+//    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
     _startButton.layer.borderWidth = 1.0f;
     _settingButton.layer.borderWidth = 1.0f;
     _recordButton.layer.borderWidth = 1.0f;

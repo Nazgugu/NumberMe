@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "guessGame.h"
 
 @interface AlertViewController : UIViewController
+
+- (instancetype)initWithGame:(guessGame *)game;
 
 @end

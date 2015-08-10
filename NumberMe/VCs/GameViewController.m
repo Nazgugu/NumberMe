@@ -13,6 +13,9 @@
 #import "guessGame.h"
 #import "UIView+Shake.h"
 #import <QuartzCore/QuartzCore.h>
+#import "RWBlurPopover.h"
+#import "RWBlurPopoverView.h"
+#import "AlertViewController.h"
 //#import <pop/POP.h>
 
 @interface GameViewController ()<JSKTimerViewDelegate>
@@ -75,6 +78,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     //first init 10 round digit buttons
+    
+//    self.edgesForExtendedLayout = UIRectEdgeNone;
     
     _verticalGap = 20.0f;
     
@@ -172,11 +177,11 @@
     _clearButton.enabled = YES;
     _restartButton.enabled = YES;
     _hintButton.enabled = YES;
-    [self glowBoxAtIndex:1];
     [self performSelector:@selector(enableTouchOnBox) withObject:nil afterDelay:1.5f];
     
     //debug
     //[self answerWrongAndShakeBoxes];
+    [self showSuccess];
 }
 
 - (void)enableTouchOnBox
@@ -196,6 +201,7 @@
     _numberSeven.userInteractionEnabled = YES;
     _numberEight.userInteractionEnabled = YES;
     _numberNine.userInteractionEnabled = YES;
+    [self glowBoxAtIndex:1];
 }
 
 - (void)disableTouchOnBox
@@ -1066,7 +1072,7 @@
 //glow green
 - (void)glowGreenAtIndex:(NSInteger)index
 {
-    NSLog(@"called glow green at index = %ld",index);
+    //NSLog(@"called glow green at index = %ld",index);
     CABasicAnimation *reverseAnimation = [CABasicAnimation animationWithKeyPath:@"colorAnimation"];
     reverseAnimation.autoreverses = NO;
     reverseAnimation.fromValue = (id)[UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
@@ -1149,6 +1155,9 @@
     else if (_game.succeed == 2)
     {
         //succeed
+        NSLog(@"showing success");
+        [_timer stopTimer];
+        [self showSuccess];
     }
     
     if ([[_game.correctNess objectAtIndex:_theGlowingBox - 1] integerValue] == 1)
@@ -1167,6 +1176,16 @@
     {
         [self shakeBoxAtIndex:_theGlowingBox - 1];
     }
+}
+
+- (void)showSuccess
+{
+    [self cancelShake];
+    AlertViewController *success = [[AlertViewController alloc] initWithGame:_game];
+    RWBlurPopover *pop = [[RWBlurPopover alloc] initWithContentViewController:success];
+    pop.throwingGestureEnabled = NO;
+    pop.tapBlurToDismissEnabled = NO;
+    [pop showInViewController:self];
 }
 
 - (void)verifyAndShake
@@ -1189,6 +1208,7 @@
             else
             {
                 //glow red and shake a bit
+                [self shakeBoxAtIndex:i];
             }
         }
     }

@@ -7,16 +7,98 @@
 //
 
 #import "AlertViewController.h"
+#import "RWBlurPopover.h"
 
 @interface AlertViewController ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *symbolImage;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
+@property (weak, nonatomic) IBOutlet UIButton *playAgainButton;
+@property (weak, nonatomic) IBOutlet UIButton *quitButton;
+@property (nonatomic, strong) guessGame *game;
 
 @end
 
 @implementation AlertViewController
 
+- (instancetype)initWithGame:(guessGame *)game
+{
+    self = [super init];
+    if (self)
+    {
+        _game = game;
+        //self.view.backgroundColor = [UIColor blueColor];
+    }
+    return self;
+}
+
+- (CGSize)preferredContentSize {
+    //NSLog(@"preffer size");
+    return CGSizeMake(280, 300);
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+//    self.backgroundView.layer.borderWidth = 1.0f;
+//    self.backgroundView.layer.borderColor = [UIColor whiteColor].CGColor;
+//    self.backgroundView.layer.masksToBounds = YES;
+    self.view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.9f];
+    self.view.layer.cornerRadius = 15.0f;
+    self.view.layer.masksToBounds = YES;
+    
+    [self presentView];
+}
+
+- (void)presentView
+{
+    self.playAgainButton.layer.borderWidth = 1.0f;
+    self.playAgainButton.layer.borderColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+    self.playAgainButton.layer.cornerRadius = 12.0f;
+    self.playAgainButton.layer.masksToBounds = YES;
+    
+    self.quitButton.layer.borderWidth = 1.0f;
+    self.quitButton.layer.borderColor = [UIColor colorWithRed:0.902f green:0.114f blue:0.169f alpha:1.00f].CGColor;
+    self.quitButton.layer.cornerRadius = 12.0f;
+    self.quitButton.layer.masksToBounds = YES;
+    //failed
+    if (_game.succeed == 0 || _game.succeed == 1)
+    {
+//        self.symbolImage.contentMode = UIViewContentModeTop;
+        self.symbolImage.backgroundColor = [UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:0.8f];
+        [_symbolImage setImage:[UIImage imageNamed:@"fail"]];
+    }
+    //succeed
+    else
+    {
+        self.symbolImage.backgroundColor = [UIColor colorWithRed:0.243f green:0.773f blue:0.420f alpha:0.8f];
+        [_symbolImage setImage:[UIImage imageNamed:@"succeed"]];
+        
+    }
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    //NSLog(@"will appear");
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    if (_game.succeed == 2)
+    {
+        _titleLabel.textColor = [UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:0.7f];
+        _titleLabel.text = @"Success!!";
+    }
+    else
+    {
+        _titleLabel.textColor = [UIColor colorWithRed:1.000f green:0.953f blue:0.216f alpha:1.00f];
+        _titleLabel.text = @"Failed!";
+    }
+    //[self.backgroundView addSubview:_titleLabel];
+    
+    //self.backgroundView.frame = CGRectMake(0, 0, self.view.frame.size.width, 160);
 }
 
 - (void)didReceiveMemoryWarning {
