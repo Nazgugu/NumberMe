@@ -172,16 +172,16 @@
 - (void)animateGo{
     _guideLabel.text = @"GO!";
     [_timer startTimer];
-    [self performSelector:@selector(shakeTimer) withObject:nil afterDelay:50];
+    [self performSelector:@selector(shakeTimer) withObject:nil afterDelay:20];
     _deleteOneButton.enabled = YES;
     _clearButton.enabled = YES;
     _restartButton.enabled = YES;
     _hintButton.enabled = YES;
-    [self performSelector:@selector(enableTouchOnBox) withObject:nil afterDelay:1.5f];
+    [self performSelector:@selector(enableTouchOnBox) withObject:nil afterDelay:0.3f];
     
     //debug
     //[self answerWrongAndShakeBoxes];
-    [self showSuccess];
+    //[self showSuccess];
 }
 
 - (void)enableTouchOnBox
@@ -413,7 +413,7 @@
     }
     _timer.delegate = self;
     _timer.labelTextColor = [UIColor colorWithRed:0.678f green:0.663f blue:0.824f alpha:1.00f];
-    [_timer setTimerWithDuration:60];
+    [_timer setTimerWithDuration:30];
     [self.view addSubview:_timer];
 }
 
@@ -1181,6 +1181,7 @@
 - (void)showSuccess
 {
     [self cancelShake];
+    [_game endGameWithDuration:[_timer remainingDurationInSeconds]];
     AlertViewController *success = [[AlertViewController alloc] initWithGame:_game];
     RWBlurPopover *pop = [[RWBlurPopover alloc] initWithContentViewController:success];
     pop.throwingGestureEnabled = NO;
@@ -1294,8 +1295,7 @@
 - (void)timerDidFinish:(JSKTimerView *)timerView
 {
     //NSLog(@"shaking");
-    [_game verifyAnswer];
-    [self verifyAndShake];
+    [self showSuccess];
 }
 
 /*

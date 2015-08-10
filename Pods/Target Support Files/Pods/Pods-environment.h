@@ -24,6 +24,12 @@
 #define COCOAPODS_VERSION_MINOR_UIView_Shake 0
 #define COCOAPODS_VERSION_PATCH_UIView_Shake 1
 
+// ZCAnimatedLabel
+#define COCOAPODS_POD_AVAILABLE_ZCAnimatedLabel
+#define COCOAPODS_VERSION_MAJOR_ZCAnimatedLabel 0
+#define COCOAPODS_VERSION_MINOR_ZCAnimatedLabel 0
+#define COCOAPODS_VERSION_PATCH_ZCAnimatedLabel 1
+
 // pop
 #define COCOAPODS_POD_AVAILABLE_pop
 #define COCOAPODS_VERSION_MAJOR_pop 1

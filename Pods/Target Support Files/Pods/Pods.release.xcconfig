@@ -1,8 +1,8 @@
 CLANG_CXX_LANGUAGE_STANDARD = c++11
 CLANG_CXX_LIBRARY = libc++
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/JSKTimerView" "${PODS_ROOT}/Headers/Public/RWBlurPopover" "${PODS_ROOT}/Headers/Public/UIView+Shake" "${PODS_ROOT}/Headers/Public/pop"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/JSKTimerView" -isystem "${PODS_ROOT}/Headers/Public/RWBlurPopover" -isystem "${PODS_ROOT}/Headers/Public/UIView+Shake" -isystem "${PODS_ROOT}/Headers/Public/pop"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"Pods-JSKTimerView" -l"Pods-RWBlurPopover" -l"Pods-UIView+Shake" -l"Pods-pop" -l"c++" -framework "CoreGraphics" -framework "Foundation" -framework "UIKit"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/JSKTimerView" "${PODS_ROOT}/Headers/Public/RWBlurPopover" "${PODS_ROOT}/Headers/Public/UIView+Shake" "${PODS_ROOT}/Headers/Public/ZCAnimatedLabel" "${PODS_ROOT}/Headers/Public/pop"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/JSKTimerView" -isystem "${PODS_ROOT}/Headers/Public/RWBlurPopover" -isystem "${PODS_ROOT}/Headers/Public/UIView+Shake" -isystem "${PODS_ROOT}/Headers/Public/ZCAnimatedLabel" -isystem "${PODS_ROOT}/Headers/Public/pop"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"Pods-JSKTimerView" -l"Pods-RWBlurPopover" -l"Pods-UIView+Shake" -l"Pods-ZCAnimatedLabel" -l"Pods-pop" -l"c++" -framework "CoreGraphics" -framework "CoreText" -framework "Foundation" -framework "UIKit"
 OTHER_LIBTOOLFLAGS = $(OTHER_LDFLAGS)
 PODS_ROOT = ${SRCROOT}/Pods

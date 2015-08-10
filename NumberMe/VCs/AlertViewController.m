@@ -18,6 +18,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *quitButton;
 @property (nonatomic, strong) guessGame *game;
 
+@property (weak, nonatomic) IBOutlet UIButton *shareCircleButton;
+@property (weak, nonatomic) IBOutlet UIButton *shareWeiboCircle;
+@property (weak, nonatomic) IBOutlet UIButton *shareFacebookCircle;
+
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+
+
 @end
 
 @implementation AlertViewController
@@ -48,6 +55,17 @@
     self.view.layer.cornerRadius = 15.0f;
     self.view.layer.masksToBounds = YES;
     
+    self.shareCircleButton.layer.cornerRadius = 15.0f;
+    self.shareCircleButton.layer.masksToBounds = YES;
+    self.shareWeiboCircle.layer.cornerRadius = 15.0f;
+    self.shareWeiboCircle.layer.masksToBounds = YES;
+    self.shareFacebookCircle.layer.cornerRadius = 15.0f;
+    self.shareFacebookCircle.layer.masksToBounds = YES;
+    
+    _dateLabel.text = _game.dateString;
+    
+    self.shareFacebookCircle.contentMode = UIViewContentModeScaleAspectFit;
+    
     [self presentView];
 }
 
@@ -59,14 +77,14 @@
     self.playAgainButton.layer.masksToBounds = YES;
     
     self.quitButton.layer.borderWidth = 1.0f;
-    self.quitButton.layer.borderColor = [UIColor colorWithRed:0.902f green:0.114f blue:0.169f alpha:1.00f].CGColor;
+    self.quitButton.layer.borderColor = [UIColor colorWithRed:0.902f green:0.114f blue:0.169f alpha:0.60f].CGColor;
     self.quitButton.layer.cornerRadius = 12.0f;
     self.quitButton.layer.masksToBounds = YES;
     //failed
     if (_game.succeed == 0 || _game.succeed == 1)
     {
 //        self.symbolImage.contentMode = UIViewContentModeTop;
-        self.symbolImage.backgroundColor = [UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:0.8f];
+        self.symbolImage.backgroundColor = [UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:0.7f];
         [_symbolImage setImage:[UIImage imageNamed:@"fail"]];
     }
     //succeed
@@ -89,7 +107,7 @@
     if (_game.succeed == 2)
     {
         _titleLabel.textColor = [UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:0.7f];
-        _titleLabel.text = @"Success!!";
+        _titleLabel.text = @"Success!";
     }
     else
     {

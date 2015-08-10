@@ -24,6 +24,7 @@
         _gameAnswer = arc4random() % 10000;
         _availabelHints = 4;
         _allWrong = YES;
+        _correctNumber = 0;
         
         _correctNess = [[NSMutableArray alloc] initWithObjects:@(0),@(0),@(0),@(0), nil];
         
@@ -270,6 +271,35 @@
     [self verifyAnswer];
     
     return feedBackString;
+}
+
+//Total score is 1000, for each correct answer we give 100 and for each second past we deduct 10, for each hint used we give 75
+- (void)endGameWithDuration:(NSInteger)secondsLeft
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd  HH:mm"];
+    _dateString = [formatter stringFromDate:[NSDate date]];
+    
+    _duration = 30 - secondsLeft;
+    
+    //全部正确的情况
+    if (_succeed == 2)
+    {
+        _gameScore = 400;
+        _correctNumber = 4;
+    }
+    else
+    {
+        for (NSNumber *correct in _correctNess)
+        {
+            if ([correct integerValue] == 1)
+            {
+                _gameScore = _gameScore + 100;
+                _correctNumber = _correctNumber + 1;
+            }
+        }
+    }
+     _gameScore = secondsLeft * 10 + _availabelHints;
 }
 
 @end

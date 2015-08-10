@@ -23,7 +23,7 @@
 		AE6758771B77C28100F5A93C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6758761B77C28100F5A93C /* QuartzCore.framework */; };
 		AE67587B1B7813F400F5A93C /* AlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE6758791B7813F400F5A93C /* AlertViewController.m */; };
 		AE67587C1B7813F400F5A93C /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE67587A1B7813F400F5A93C /* AlertViewController.xib */; };
-		AE6E62B91B7883AB00E0E4E2 /* AlertBG.png in Resources */ = {isa = PBXBuildFile; fileRef = AE6E62B81B7883AB00E0E4E2 /* AlertBG.png */; };
+		AE6E62BD1B7958DC00E0E4E2 /* AlertBG.png in Resources */ = {isa = PBXBuildFile; fileRef = AE6E62BC1B7958DC00E0E4E2 /* AlertBG.png */; };
 		AE721D7F1B77BBD600AFDFBE /* GameBG.png in Resources */ = {isa = PBXBuildFile; fileRef = AE721D7E1B77BBD600AFDFBE /* GameBG.png */; };
 		AE7E74BC1B746896003E9341 /* JTNumberScrollAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7E74BB1B746896003E9341 /* JTNumberScrollAnimatedView.m */; };
 		AE8E22821B756B7E00A298DE /* YETICharacterLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8E22811B756B7E00A298DE /* YETICharacterLabel.m */; };
@@ -71,7 +71,7 @@
 		AE6758781B7813F400F5A93C /* AlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlertViewController.h; path = VCs/AlertViewController.h; sourceTree = "<group>"; };
 		AE6758791B7813F400F5A93C /* AlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlertViewController.m; path = VCs/AlertViewController.m; sourceTree = "<group>"; };
 		AE67587A1B7813F400F5A93C /* AlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AlertViewController.xib; path = VCs/AlertViewController.xib; sourceTree = "<group>"; };
-		AE6E62B81B7883AB00E0E4E2 /* AlertBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AlertBG.png; sourceTree = "<group>"; };
+		AE6E62BC1B7958DC00E0E4E2 /* AlertBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AlertBG.png; sourceTree = "<group>"; };
 		AE721D7E1B77BBD600AFDFBE /* GameBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameBG.png; sourceTree = "<group>"; };
 		AE7E74BA1B746896003E9341 /* JTNumberScrollAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTNumberScrollAnimatedView.h; sourceTree = "<group>"; };
 		AE7E74BB1B746896003E9341 /* JTNumberScrollAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTNumberScrollAnimatedView.m; sourceTree = "<group>"; };
@@ -216,7 +216,7 @@
 		AE3E41081B6EC28E001E26FE /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				AE6E62B81B7883AB00E0E4E2 /* AlertBG.png */,
+				AE6E62BC1B7958DC00E0E4E2 /* AlertBG.png */,
 				AE3E410B1B6EC46E001E26FE /* welcome.png */,
 				AE721D7E1B77BBD600AFDFBE /* GameBG.png */,
 			);
@@ -356,7 +356,7 @@
 				AE26308C1B6EA58000A566AE /* Images.xcassets in Resources */,
 				AE3E41111B6ECFD0001E26FE /* GameViewController.xib in Resources */,
 				AE67587C1B7813F400F5A93C /* AlertViewController.xib in Resources */,
-				AE6E62B91B7883AB00E0E4E2 /* AlertBG.png in Resources */,
+				AE6E62BD1B7958DC00E0E4E2 /* AlertBG.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,7 +24,8 @@
 
 @property (nonatomic) BOOL allWrong;
 
-@property (nonatomic, strong) NSDate *dateOfGame;
+//@property (nonatomic, strong) NSDate *dateOfGame;
+@property (nonatomic, strong) NSString *dateString;
 
 @property (nonatomic) NSInteger userFirstDigit;
 @property (nonatomic) NSInteger userSecondDigit;
@@ -40,6 +41,8 @@
 
 @property (nonatomic, strong) NSString *hintMessage;
 
+@property (nonatomic) NSInteger correctNumber;
+
 //0 = incorrect, 1 = correct
 @property (nonatomic, strong) NSMutableArray *correctNess;
 
@@ -48,5 +51,7 @@
 - (NSString *)userAnswersAtBox:(NSInteger)boxNum andAnswer:(NSInteger)answer;
 
 - (void)verifyAnswer;
+
+- (void)endGameWithDuration:(NSInteger)secondsLeft;
 
 @end
