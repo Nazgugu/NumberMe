@@ -43,6 +43,8 @@
 
 @property (nonatomic) NSInteger correctNumber;
 
+@property (nonatomic) NSInteger numberOfTries;
+
 //0 = incorrect, 1 = correct
 @property (nonatomic, strong) NSMutableArray *correctNess;
 

@@ -63,6 +63,9 @@
                         <color key="titleColor" red="0.1764705882352941" green="0.71764705882352942" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="restartingGame:" destination="-1" eventType="touchUpInside" id="I5e-zh-fGM"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sRo-Ie-zb1">
                     <rect key="frame" x="153" y="237" width="110" height="25"/>

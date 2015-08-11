@@ -131,7 +131,13 @@
 - (IBAction)quitButtonPressed:(id)sender {
     
     [self dismissViewControllerAnimated:YES completion:^{
-       [[NSNotificationCenter defaultCenter] postNotificationName:@"quit" object:nil]; 
+       [[NSNotificationCenter defaultCenter] postNotificationName:@"quit" object:nil];
+    }];
+}
+
+- (IBAction)restartingGame:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"restart" object:nil];
     }];
 }
 

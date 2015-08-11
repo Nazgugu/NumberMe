@@ -156,11 +156,19 @@
 
 - (void)restart
 {
+    NSLog(@"restarting game");
+    _game = [[guessGame alloc] init];
+    _theGlowingBox = 0;
+    [self revertToWhite];
+    [_timer resetTimer];
+    _guideLabel.text = @"请猜一位四位数";
+    [self performSelector:@selector(animateReady) withObject:nil afterDelay:1.2f];
+    [self animateDigits];
     
 }
-
 - (void)viewWillAppear:(BOOL)animated
 {
+    NSLog(@"will appear");
     [super viewWillAppear:animated];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
     [self commitAnimation];
@@ -440,7 +448,7 @@
     _buttonSize = (SCREENWIDTH - 4 * _gapSize) / 3;
     
     //debug
-    NSLog(@"_gap size = %lf, button size = %lf",_gapSize, _buttonSize);
+    //NSLog(@"_gap size = %lf, button size = %lf",_gapSize, _buttonSize);
     
     //number zero
     if (!_numberZero)
@@ -1173,7 +1181,7 @@
     else if (_game.succeed == 2)
     {
         //succeed
-        NSLog(@"showing success");
+        //NSLog(@"showing success");
 //        NSLog(@"remain time = %ld",[_timer remainingDurationInSeconds]);
         [_timer pauseTimer];
         [self showSuccess];
@@ -1199,7 +1207,9 @@
 
 - (void)showSuccess
 {
+    _guideLabel.text = @"";
     [self cancelShake];
+    [self disableTouchOnBox];
     [_game endGameWithDuration:[_timer remainingDurationInSeconds]];
     AlertViewController *success = [[AlertViewController alloc] initWithGame:_game];
     RWBlurPopover *pop = [[RWBlurPopover alloc] initWithContentViewController:success];

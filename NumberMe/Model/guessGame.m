@@ -28,7 +28,9 @@
         
         _correctNess = [[NSMutableArray alloc] initWithObjects:@(0),@(0),@(0),@(0), nil];
         
-        NSLog(@"correct answer = %ld",(long)_gameAnswer);
+        _numberOfTries = 0;
+        
+        //NSLog(@"correct answer = %ld",(long)_gameAnswer);
         
         [self calculateDigits];
         NSLog(@"%ld, %ld, %ld, %ld",_answerFirstDigit, _answerSecondDigit, _answerThirdDigit, _answerForthDigit);
@@ -148,6 +150,8 @@
 - (NSString *)userAnswersAtBox:(NSInteger)boxNum andAnswer:(NSInteger)answer
 {
     NSString *feedBackString = @"";
+    
+    _numberOfTries += 1;
     
     NSUInteger difference;
     
@@ -301,7 +305,7 @@
             }
         }
     }
-    _gameScore = secondsLeft * 10 + _availabelHints * 75 + _gameScore;
+    _gameScore = secondsLeft * 10 + _availabelHints * 75 + _gameScore - _numberOfTries * 2;
 }
 
 @end
