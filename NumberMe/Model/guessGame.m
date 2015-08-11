@@ -82,6 +82,11 @@ NSString * const kHintUsed = @"hintUsed";
         
         _numberOfTries = 0;
         
+        _firstHint = NO;
+        _secondHint = NO;
+        _thirdHint = NO;
+        _forthHint = NO;
+        
         //NSLog(@"correct answer = %ld",(long)_gameAnswer);
         
         [self calculateDigits];
@@ -126,16 +131,130 @@ NSString * const kHintUsed = @"hintUsed";
     }
 }
 
-- (void)generateHint
+- (void)generateHintOfDigit:(NSInteger)digit
 {
-    if ((_userFirstDigit != -1) && (_userSecondDigit != -1) && (_userThirdDigit != -1) && (_userForthDigit != -1))
+    //1 for plus, 0 for minus
+    NSInteger sign = arc4random() % 2;
+    //0 for 1, 1 for 2
+    NSInteger number = arc4random() % 2;
+    
+    if (number == 0)
     {
-        [self verifyAnswer];
+        number = 1;
     }
     else
     {
-        _succeed = 0;
+        number = 2;
     }
+    
+    NSInteger hintNumber;
+    
+    switch (digit) {
+        case 1:
+        {
+            if (!_firstHint)
+            {
+                _availabelHints -= 1;
+                _firstHint = YES;
+            }
+            if (sign == 0)
+            {
+                hintNumber = _answerFirstDigit - number;
+                if (hintNumber < 0)
+                {
+                    hintNumber = _answerFirstDigit + number;
+                }
+            }
+            else
+            {
+                hintNumber = _answerFirstDigit + number;
+                if (hintNumber > 9)
+                {
+                    hintNumber = _answerFirstDigit - number;
+                }
+            }
+        }
+            break;
+        case 2:
+        {
+            if (!_secondHint)
+            {
+                _availabelHints -= 1;
+                _secondHint = YES;
+            }
+            if (sign == 0)
+            {
+                hintNumber = _answerSecondDigit - number;
+                if (hintNumber < 0)
+                {
+                    hintNumber = _answerSecondDigit + number;
+                }
+            }
+            else
+            {
+                hintNumber = _answerSecondDigit + number;
+                if (hintNumber > 9)
+                {
+                    hintNumber = _answerSecondDigit - number;
+                }
+            }
+        }
+            break;
+        case 3:
+        {
+            if (!_thirdHint)
+            {
+                _availabelHints -= 1;
+                _thirdHint = YES;
+            }
+            if (sign == 0)
+            {
+                hintNumber = _answerThirdDigit - number;
+                if (hintNumber < 0)
+                {
+                    hintNumber = _answerThirdDigit + number;
+                }
+            }
+            else
+            {
+                hintNumber = _answerThirdDigit + number;
+                if (hintNumber > 9)
+                {
+                    hintNumber = _answerThirdDigit - number;
+                }
+            }
+        }
+            break;
+        case 4:
+        {
+            if (!_forthHint)
+            {
+                _availabelHints -= 1;
+                _forthHint = YES;
+            }
+            if (sign == 0)
+            {
+                hintNumber = _answerForthDigit - number;
+                if (hintNumber < 0)
+                {
+                    hintNumber = _answerForthDigit + number;
+                }
+            }
+            else
+            {
+                hintNumber = _answerForthDigit + number;
+                if (hintNumber > 9)
+                {
+                    hintNumber = _answerForthDigit - number;
+                }
+            }
+        }
+            break;
+        default:
+            break;
+    }
+    
+    _hintMessage = [NSString stringWithFormat:@"The answer is very close to %ld",hintNumber];
 }
 
 - (void)verifyAnswer
@@ -338,6 +457,9 @@ NSString * const kHintUsed = @"hintUsed";
     
     _duration = 30 - secondsLeft;
     
+    NSInteger baseScore = arc4random() % 200 + 100;
+    _gameScore += baseScore;
+    
     //全部正确的情况
     if (_succeed == 2)
     {
@@ -357,7 +479,7 @@ NSString * const kHintUsed = @"hintUsed";
             }
         }
     }
-    _gameScore = secondsLeft * 10 + _availabelHints * 75 + _gameScore - _numberOfTries * 2;
+    _gameScore += secondsLeft * 10 + _availabelHints * 75 - _numberOfTries * 2 - (arc4random() % 25) * (4 - _availabelHints);
     
     //record the game
     NSData *gameData = [[EGOCache globalCache] dataForKey:@"games"];

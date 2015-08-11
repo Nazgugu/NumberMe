@@ -161,6 +161,7 @@
     _theGlowingBox = 0;
     [self revertToWhite];
     [_timer resetTimer];
+    [self cancelShake];
     _guideLabel.text = @"请猜一位四位数";
     [self performSelector:@selector(animateReady) withObject:nil afterDelay:1.2f];
     [self animateDigits];
@@ -1331,6 +1332,8 @@
         case -4:
         {
             sender.layer.borderColor = [UIColor colorWithRed:0.263f green:0.792f blue:0.459f alpha:1.00f].CGColor;
+            [_game generateHintOfDigit:_theGlowingBox];
+            self.guideLabel.text = _game.hintMessage;
         }
             break;
             

@@ -40,7 +40,7 @@
                         <constraint firstAttribute="width" constant="140" id="4Ip-Sa-Bls"/>
                         <constraint firstAttribute="height" constant="33" id="Vhs-mj-lIe"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="KohinoorDevanagari-Book" family="Kohinoor Devanagari" pointSize="24"/>
+                    <fontDescription key="fontDescription" name="KohinoorDevanagari-Light" family="Kohinoor Devanagari" pointSize="24"/>
                     <state key="normal" title="Start">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -56,7 +56,7 @@
                         <constraint firstAttribute="height" constant="33" id="CS1-g0-kyM"/>
                         <constraint firstAttribute="width" constant="140" id="ypJ-LF-Xae"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="KohinoorDevanagari-Book" family="Kohinoor Devanagari" pointSize="24"/>
+                    <fontDescription key="fontDescription" name="KohinoorDevanagari-Light" family="Kohinoor Devanagari" pointSize="24"/>
                     <state key="normal" title="Record">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -69,7 +69,7 @@
                         <constraint firstAttribute="height" constant="33" id="ea8-84-GLT"/>
                         <constraint firstAttribute="width" constant="140" id="pDj-lP-Pek"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="KohinoorDevanagari-Book" family="Kohinoor Devanagari" pointSize="24"/>
+                    <fontDescription key="fontDescription" name="KohinoorDevanagari-Light" family="Kohinoor Devanagari" pointSize="24"/>
                     <state key="normal" title="Setting">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>

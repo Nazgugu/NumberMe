@@ -45,10 +45,15 @@
 
 @property (nonatomic) NSInteger numberOfTries;
 
+@property (nonatomic) BOOL firstHint;
+@property (nonatomic) BOOL secondHint;
+@property (nonatomic) BOOL thirdHint;
+@property (nonatomic) BOOL forthHint;
+
 //0 = incorrect, 1 = correct
 @property (nonatomic, strong) NSMutableArray *correctNess;
 
-- (void)generateHint;
+- (void)generateHintOfDigit:(NSInteger)digit;
 
 - (NSString *)userAnswersAtBox:(NSInteger)boxNum andAnswer:(NSInteger)answer;
 
