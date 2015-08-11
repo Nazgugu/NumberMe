@@ -294,12 +294,14 @@
         {
             if ([correct integerValue] == 1)
             {
-                _gameScore = _gameScore + 100;
+                //NSLog(@"one correct");
+                _gameScore += 100;
+                //NSLog(@"game score = %ld",_gameScore);
                 _correctNumber = _correctNumber + 1;
             }
         }
     }
-     _gameScore = secondsLeft * 10 + _availabelHints;
+    _gameScore = secondsLeft * 10 + _availabelHints * 75 + _gameScore;
 }
 
 @end

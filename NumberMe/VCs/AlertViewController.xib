@@ -7,14 +7,18 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlertViewController">
             <connections>
+                <outlet property="correctnessLabel" destination="cEf-LZ-fuz" id="WKd-Se-kad"/>
                 <outlet property="dateLabel" destination="aan-3W-dW0" id="VFJ-Ew-Xpq"/>
                 <outlet property="playAgainButton" destination="sa6-6m-e0p" id="SPJ-jy-KZk"/>
                 <outlet property="quitButton" destination="sRo-Ie-zb1" id="z1k-jT-ATm"/>
+                <outlet property="recordLabel" destination="RhD-Ym-Kks" id="zgf-fw-ORn"/>
+                <outlet property="scoreLabel" destination="CZR-VG-4pa" id="PnB-mg-Bmn"/>
                 <outlet property="shareCircleButton" destination="fYh-BL-7ST" id="Pc7-ZG-x96"/>
                 <outlet property="shareFacebookCircle" destination="1ng-wJ-Ke6" id="6dL-4t-Tf8"/>
                 <outlet property="shareWeiboCircle" destination="Jap-UA-ocX" id="8fR-uI-Pyo"/>
                 <outlet property="symbolImage" destination="XaI-la-9gC" id="A1q-BD-R9g"/>
                 <outlet property="titleLabel" destination="EPO-33-Ybq" id="QKP-ZG-YxY"/>
+                <outlet property="usedTimeLabel" destination="e70-9Q-pW7" id="EaO-ds-mBF"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -72,6 +76,9 @@
                         <color key="titleColor" red="0.90196078431372551" green="0.11372549019607843" blue="0.16862745098039217" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="quitButtonPressed:" destination="-1" eventType="touchUpInside" id="ama-R5-EDd"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYh-BL-7ST">
                     <rect key="frame" x="48" y="265" width="30" height="30"/>
@@ -125,18 +132,69 @@
                     <color key="textColor" white="1" alpha="0.65000000000000002" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEf-LZ-fuz">
+                    <rect key="frame" x="10" y="158" width="125" height="26"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="125" id="7tc-1j-44j"/>
+                        <constraint firstAttribute="height" constant="26" id="qFt-o3-HtF"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="KohinoorDevanagari-Book" family="Kohinoor Devanagari" pointSize="13"/>
+                    <color key="textColor" white="1" alpha="0.65000000000000002" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZR-VG-4pa">
+                    <rect key="frame" x="150" y="158" width="120" height="26"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="26" id="Mig-Is-iA7"/>
+                        <constraint firstAttribute="width" constant="120" id="unL-xn-hAa"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="KohinoorDevanagari-Book" family="Kohinoor Devanagari" pointSize="12"/>
+                    <color key="textColor" white="1" alpha="0.65000000000000002" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RhD-Ym-Kks">
+                    <rect key="frame" x="150" y="194" width="120" height="26"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="120" id="55e-Y5-HTt"/>
+                        <constraint firstAttribute="height" constant="26" id="sV8-SC-LFg"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="KohinoorDevanagari-Book" family="Kohinoor Devanagari" pointSize="12"/>
+                    <color key="textColor" white="1" alpha="0.65000000000000002" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e70-9Q-pW7">
+                    <rect key="frame" x="10" y="194" width="125" height="26"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="125" id="ZCE-xv-WJX"/>
+                        <constraint firstAttribute="height" constant="26" id="wJR-zK-G0l"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="KohinoorDevanagari-Book" family="Kohinoor Devanagari" pointSize="12"/>
+                    <color key="textColor" white="1" alpha="0.65000000000000002" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="EPO-33-Ybq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="80" id="2i3-VP-eRE"/>
                 <constraint firstItem="sRo-Ie-zb1" firstAttribute="trailing" secondItem="Bjp-x3-jjj" secondAttribute="trailing" constant="-17" id="4in-Hd-Cel"/>
+                <constraint firstItem="cEf-LZ-fuz" firstAttribute="top" secondItem="aan-3W-dW0" secondAttribute="bottom" constant="10" id="5jE-nu-vwY"/>
                 <constraint firstItem="XaI-la-9gC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="68c-0R-dwx"/>
+                <constraint firstItem="e70-9Q-pW7" firstAttribute="top" secondItem="cEf-LZ-fuz" secondAttribute="bottom" constant="10" id="7Yr-1i-beH"/>
                 <constraint firstItem="sa6-6m-e0p" firstAttribute="top" secondItem="eCb-Vh-0O1" secondAttribute="bottom" constant="8" id="A3T-w6-OOK"/>
+                <constraint firstItem="e70-9Q-pW7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="Cee-zy-JbN"/>
+                <constraint firstAttribute="trailing" secondItem="CZR-VG-4pa" secondAttribute="trailing" constant="10" id="Gsp-gV-cYV"/>
                 <constraint firstItem="Bjp-x3-jjj" firstAttribute="bottom" secondItem="fYh-BL-7ST" secondAttribute="bottom" constant="5" id="M44-h4-TbT"/>
+                <constraint firstItem="CZR-VG-4pa" firstAttribute="top" secondItem="aan-3W-dW0" secondAttribute="bottom" constant="10" id="MUF-pX-60X"/>
                 <constraint firstItem="EPO-33-Ybq" firstAttribute="centerX" secondItem="XaI-la-9gC" secondAttribute="centerX" id="QZP-HO-8b9"/>
                 <constraint firstItem="1ng-wJ-Ke6" firstAttribute="bottom" secondItem="Bjp-x3-jjj" secondAttribute="bottom" constant="-5" id="Qil-5v-0Wp"/>
+                <constraint firstAttribute="trailing" secondItem="RhD-Ym-Kks" secondAttribute="trailing" constant="10" id="SbH-jk-jhN"/>
                 <constraint firstAttribute="bottom" secondItem="Bjp-x3-jjj" secondAttribute="bottom" id="WtL-8R-HWe"/>
+                <constraint firstItem="cEf-LZ-fuz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="ZLF-PG-MG7"/>
                 <constraint firstItem="Jap-UA-ocX" firstAttribute="leading" secondItem="fYh-BL-7ST" secondAttribute="trailing" constant="48" id="b0D-52-JP1"/>
                 <constraint firstItem="Bjp-x3-jjj" firstAttribute="leading" secondItem="sa6-6m-e0p" secondAttribute="leading" constant="-17" id="cea-6i-VZa"/>
                 <constraint firstItem="Bjp-x3-jjj" firstAttribute="leading" secondItem="fYh-BL-7ST" secondAttribute="leading" constant="-48" id="dPb-FL-sfj"/>
@@ -153,6 +211,7 @@
                 <constraint firstItem="1ng-wJ-Ke6" firstAttribute="leading" secondItem="Jap-UA-ocX" secondAttribute="trailing" constant="48" id="ttD-KV-cGb"/>
                 <constraint firstItem="eCb-Vh-0O1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="139" id="u7R-Eu-7YI"/>
                 <constraint firstItem="XaI-la-9gC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wEw-9h-ifZ"/>
+                <constraint firstItem="RhD-Ym-Kks" firstAttribute="top" secondItem="CZR-VG-4pa" secondAttribute="bottom" constant="10" id="yPB-eX-I3R"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

@@ -128,7 +128,7 @@ typedef NS_ENUM(NSInteger, RWBlurPopoverViewState) {
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.container];
     
     UIGravityBehavior *gravityBehavior = [[UIGravityBehavior alloc] initWithItems:@[self.contentView]];
-    gravityBehavior.magnitude = 4;
+    gravityBehavior.magnitude = 20;
     
     [self.animator addBehavior:gravityBehavior];
     

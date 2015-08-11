@@ -24,6 +24,11 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *correctnessLabel;
+@property (weak, nonatomic) IBOutlet UILabel *usedTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *recordLabel;
+
 
 @end
 
@@ -92,8 +97,12 @@
     {
         self.symbolImage.backgroundColor = [UIColor colorWithRed:0.243f green:0.773f blue:0.420f alpha:0.8f];
         [_symbolImage setImage:[UIImage imageNamed:@"succeed"]];
-        
     }
+    
+    _correctnessLabel.text = [NSString stringWithFormat:@"Correctness = %ld %%",_game.correctNumber/4 * 100];
+    _usedTimeLabel.text = [NSString stringWithFormat:@"Used Time: %ld s",_game.duration];
+    _scoreLabel.text = [NSString stringWithFormat:@"Score: %ld",_game.gameScore];
+    _recordLabel.text = [NSString stringWithFormat:@"Record: 0"];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -117,6 +126,13 @@
     //[self.backgroundView addSubview:_titleLabel];
     
     //self.backgroundView.frame = CGRectMake(0, 0, self.view.frame.size.width, 160);
+}
+
+- (IBAction)quitButtonPressed:(id)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:^{
+       [[NSNotificationCenter defaultCenter] postNotificationName:@"quit" object:nil]; 
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

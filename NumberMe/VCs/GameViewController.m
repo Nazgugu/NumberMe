@@ -139,6 +139,24 @@
     [self createLine];
     [self initToolButton];
     [self initTimer];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(quit) name:@"quit" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restart) name:@"restart" object:nil];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)quit
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)restart
+{
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -1156,7 +1174,8 @@
     {
         //succeed
         NSLog(@"showing success");
-        [_timer stopTimer];
+//        NSLog(@"remain time = %ld",[_timer remainingDurationInSeconds]);
+        [_timer pauseTimer];
         [self showSuccess];
     }
     
