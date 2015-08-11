@@ -1,4 +1,5 @@
 PODS:
+  - EGOCache (2.1.3)
   - JSKTimerView (0.4.1)
   - pop (1.0.7)
   - RWBlurPopover (3.1.0)
@@ -6,6 +7,7 @@ PODS:
   - ZCAnimatedLabel (0.0.1)
 
 DEPENDENCIES:
+  - EGOCache (~> 2.1.3)
   - JSKTimerView (~> 0.4.1)
   - pop (~> 1.0.7)
   - RWBlurPopover (~> 3.1.0)
@@ -13,6 +15,7 @@ DEPENDENCIES:
   - ZCAnimatedLabel (~> 0.0.1)
 
 SPEC CHECKSUMS:
+  EGOCache: f0295dbe041156acabd39021354ad1045ee49e72
   JSKTimerView: 6e773cc20f87e3af98b9fe242492f38055f55cc8
   pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
   RWBlurPopover: dc7d91ee0dc8cbc79d6bbebed26c4f688f1661f8

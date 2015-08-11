@@ -8,6 +8,7 @@
 
 #import "AlertViewController.h"
 #import "RWBlurPopover.h"
+#import "EGOCache.h"
 
 @interface AlertViewController ()
 
@@ -29,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *recordLabel;
 
+@property (weak, nonatomic) IBOutlet UIImageView *recordSign;
 
 @end
 
@@ -70,6 +72,7 @@
     _dateLabel.text = _game.dateString;
     
     self.shareFacebookCircle.contentMode = UIViewContentModeScaleAspectFit;
+    _recordSign.hidden = YES;
     
     [self presentView];
 }
@@ -102,7 +105,26 @@
     _correctnessLabel.text = [NSString stringWithFormat:@"Correctness = %ld %%",_game.correctNumber/4 * 100];
     _usedTimeLabel.text = [NSString stringWithFormat:@"Used Time: %ld s",_game.duration];
     _scoreLabel.text = [NSString stringWithFormat:@"Score: %ld",_game.gameScore];
-    _recordLabel.text = [NSString stringWithFormat:@"Record: 0"];
+    
+    if ([[EGOCache globalCache] hasCacheForKey:@"maxScore"])
+    {
+        NSInteger oldRecord = [[[EGOCache globalCache] stringForKey:@"maxScore"] integerValue];
+        //new record, need to display the record
+        if (oldRecord < _game.gameScore)
+        {
+            _recordSign.hidden = NO;
+            [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameScore] forKey:@"maxScore"];
+        }
+        _recordLabel.text = [NSString stringWithFormat:@"Record: %ld",oldRecord];
+    }
+    else
+    {
+        //new record, need to display the record
+        _recordSign.hidden = NO;
+        [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameScore] forKey:@"maxScore"];
+        _recordLabel.text = [NSString stringWithFormat:@"Record: unavailable"];
+    }
+
 }
 
 - (void)viewWillAppear:(BOOL)animated

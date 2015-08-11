@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "62A0156FD5E0C7F1B792748C"
-               BuildableName = "libPods-ZCAnimatedLabel.a"
-               BlueprintName = "Pods-ZCAnimatedLabel"
+               BlueprintIdentifier = "7B8E94C35B32246C34F9B26C"
+               BuildableName = "libPods-EGOCache.a"
+               BlueprintName = "Pods-EGOCache"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

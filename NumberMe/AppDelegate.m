@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "WelcomeViewController.h"
+#import "EGOCache.h"
 
 @interface AppDelegate ()
 
@@ -24,6 +25,11 @@
     self.window.rootViewController = welcome;
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void)setUpEGOCache
+{
+    [EGOCache globalCache].defaultTimeoutInterval = INT_MAX;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

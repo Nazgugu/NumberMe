@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-EGOCache.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-JSKTimerView-JSKTimerView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,37 +47,42 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>097736DCEAEC56A1A4C57AFC</key>
+		<key>22D0DF352FE864FF3E4D4E42</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0D10D0649429B79A3CA05455</key>
+		<key>62A0156FD5E0C7F1B792748C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>252D6DC66B18F5E1BC341BC0</key>
+		<key>6EA1CFC791B11BFABA347D57</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3F2830F8DBFBA04AE9A3F63D</key>
+		<key>7190A79C8ACAE8AB088D640D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>42AD6CFC14F2A99B80054DAC</key>
+		<key>71AEC6C0F5D518CA7C13F7F2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>73C180C95AFA59BD5A3AFA3C</key>
+		<key>7B8E94C35B32246C34F9B26C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8CC9D9FC3850C340A2D2801D</key>
+		<key>C50DFD0CD510AF32EDE4C3EA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EE73DD65B26A09F3E59138EA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -7,6 +7,7 @@
 //
 
 #import "guessGame.h"
+#import "EGOCache.h"
 
 @implementation guessGame
 
@@ -306,6 +307,8 @@
         }
     }
     _gameScore = secondsLeft * 10 + _availabelHints * 75 + _gameScore - _numberOfTries * 2;
+    
+    //record the game
 }
 
 @end

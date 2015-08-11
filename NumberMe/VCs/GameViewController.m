@@ -217,6 +217,11 @@
     _thirdDigit.userInteractionEnabled = YES;
     _forthDigit.userInteractionEnabled = YES;
     
+    _deleteOneButton.enabled = YES;
+    _clearButton.enabled = YES;
+    _restartButton.enabled = YES;
+    _hintButton.enabled = YES;
+    
     _numberZero.userInteractionEnabled = YES;
     _numberOne.userInteractionEnabled = YES;
     _numberTwo.userInteractionEnabled = YES;
@@ -236,6 +241,11 @@
     _secondDigit.userInteractionEnabled = NO;
     _thirdDigit.userInteractionEnabled = NO;
     _forthDigit.userInteractionEnabled = NO;
+    
+    _deleteOneButton.enabled = NO;
+    _clearButton.enabled = NO;
+    _restartButton.enabled = NO;
+    _hintButton.enabled = NO;
     
     _numberZero.userInteractionEnabled = NO;
     _numberOne.userInteractionEnabled = NO;
@@ -297,7 +307,7 @@
     _clearButton.titleLabel.adjustsFontSizeToFitWidth = YES;
     _clearButton.tintColor = [UIColor colorWithRed:0.890f green:0.494f blue:0.188f alpha:1.00f];
     _clearButton.alpha = 0;
-    _clearButton.tag = -1;
+    _clearButton.tag = -2;
     [_clearButton addTarget:self action:@selector(toolButtonHighlighted:) forControlEvents:UIControlEventTouchDown];
     [_clearButton addTarget:self action:@selector(toolButtonNormal:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_clearButton];
@@ -1172,13 +1182,7 @@
     /* game logic goes here */
     
     self.guideLabel.text = [_game userAnswersAtBox:_theGlowingBox andAnswer:sender.tag];
-//    [_game verifyAnswer];
-    if (_game.succeed == 1)
-    {
-        //failed
-        [self verifyAndShake];
-    }
-    else if (_game.succeed == 2)
+    if (_game.succeed == 2)
     {
         //succeed
         //NSLog(@"showing success");
@@ -1289,18 +1293,38 @@
         case -1:
         {
             sender.layer.borderColor = [UIColor colorWithRed:0.941f green:0.761f blue:0.188f alpha:1.00f].CGColor;
+            if (_theGlowingBox == 0)
+            {
+                return;
+            }
+            else
+            {
+                JTNumberScrollAnimatedView *temp = (JTNumberScrollAnimatedView *)[_boxArray objectAtIndex:_theGlowingBox - 1];
+                if (temp.isUserInteractionEnabled)
+                {
+                    temp.value = @"?";
+                }
+            }
         }
             break;
             //clear button
         case -2:
         {
             sender.layer.borderColor = [UIColor colorWithRed:0.890f green:0.494f blue:0.188f alpha:1.00f].CGColor;
+            for (JTNumberScrollAnimatedView *temp in _boxArray)
+            {
+                if (temp.isUserInteractionEnabled)
+                {
+                    temp.value = @"?";
+                }
+            }
         }
             break;
             //restart button
         case -3:
         {
             sender.layer.borderColor = [UIColor colorWithRed:0.890f green:0.306f blue:0.259f alpha:1.00f].CGColor;
+            [self restart];
         }
             break;
             //hint button
