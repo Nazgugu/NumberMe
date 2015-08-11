@@ -9,7 +9,58 @@
 #import "guessGame.h"
 #import "EGOCache.h"
 
+NSString * const kGameScore = @"gameScore";
+NSString * const kGameDate = @"gameDate";
+NSString * const kNumberTries = @"numberOfTries";
+NSString * const kCorrectNumber = @"correctNumber";
+NSString * const kGameDuration = @"gameDuration";
+NSString * const kGameResult = @"result";
+NSString * const kHintUsed = @"hintUsed";
+
+
 @implementation guessGame
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:[NSNumber numberWithInteger:_gameScore] forKey:kGameScore];
+    [aCoder encodeObject:_dateString forKey:kGameDate];
+    [aCoder encodeObject:[NSNumber numberWithInteger:_numberOfTries] forKey:kNumberTries];
+    [aCoder encodeObject:[NSNumber numberWithInteger:_correctNumber] forKey:kCorrectNumber];
+    [aCoder encodeObject:[NSNumber numberWithInteger:_duration] forKey:kGameDuration];
+    if (_succeed == 2)
+    {
+        [aCoder encodeObject:[NSNumber numberWithBool:YES] forKey:kGameResult];
+    }
+    else
+    {
+        [aCoder encodeObject:[NSNumber numberWithBool:NO] forKey:kGameResult];
+    }
+    [aCoder encodeObject:[NSNumber numberWithInteger:(4 - _availabelHints)] forKey:kHintUsed];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    if (self)
+    {
+        self.gameScore = [[aDecoder decodeObjectForKey:kGameScore] integerValue];
+        self.dateString = [aDecoder decodeObjectForKey:kGameDate];
+        self.numberOfTries = [[aDecoder decodeObjectForKey:kNumberTries] integerValue];
+        self.correctNumber = [[aDecoder decodeObjectForKey:kCorrectNumber] integerValue];
+        BOOL succeed = [[aDecoder decodeObjectForKey:kGameResult] boolValue];
+        if (succeed)
+        {
+            self.succeed = 2;
+        }
+        else
+        {
+            self.succeed = 1;
+        }
+        self.duration = [[aDecoder decodeObjectForKey:kGameDuration] integerValue];
+        self.availabelHints = 4 - [[aDecoder decodeObjectForKey:kHintUsed] integerValue];
+    }
+    return self;
+}
 
 - (instancetype)init
 {
@@ -309,6 +360,11 @@
     _gameScore = secondsLeft * 10 + _availabelHints * 75 + _gameScore - _numberOfTries * 2;
     
     //record the game
+    NSData *gameData = [[EGOCache globalCache] dataForKey:@"games"];
+    NSMutableArray *games = [NSKeyedUnarchiver unarchiveObjectWithData:gameData];
+    [games addObject:self];
+    gameData = [NSKeyedArchiver archivedDataWithRootObject:games];
+    [[EGOCache globalCache] setData:gameData forKey:@"games"];
 }
 
 @end

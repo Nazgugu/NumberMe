@@ -109,7 +109,7 @@
         </view>
     </objects>
     <resources>
-        <image name="welcome.png" width="640" height="1136"/>
+        <image name="welcome.png" width="1242" height="2208"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

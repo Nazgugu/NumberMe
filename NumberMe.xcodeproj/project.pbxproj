@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		215550EBC1647E8DE4F792BB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E8ECBE8B2E3D81B32599EE4 /* libPods.a */; };
+		AE21E6E61B79C229006F4CB6 /* welcome.png in Resources */ = {isa = PBXBuildFile; fileRef = AE21E6E51B79C229006F4CB6 /* welcome.png */; };
 		AE2630811B6EA58000A566AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2630801B6EA58000A566AE /* main.m */; };
 		AE2630841B6EA58000A566AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2630831B6EA58000A566AE /* AppDelegate.m */; };
 		AE26308C1B6EA58000A566AE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE26308B1B6EA58000A566AE /* Images.xcassets */; };
@@ -15,7 +16,6 @@
 		AE26309B1B6EA58000A566AE /* NumberMeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AE26309A1B6EA58000A566AE /* NumberMeTests.m */; };
 		AE3E41041B6EC19D001E26FE /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3E41021B6EC19D001E26FE /* WelcomeViewController.m */; };
 		AE3E41051B6EC19D001E26FE /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE3E41031B6EC19D001E26FE /* WelcomeViewController.xib */; };
-		AE3E410C1B6EC46E001E26FE /* welcome.png in Resources */ = {isa = PBXBuildFile; fileRef = AE3E410B1B6EC46E001E26FE /* welcome.png */; };
 		AE3E41101B6ECFD0001E26FE /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3E410E1B6ECFD0001E26FE /* GameViewController.m */; };
 		AE3E41111B6ECFD0001E26FE /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE3E410F1B6ECFD0001E26FE /* GameViewController.xib */; };
 		AE6758731B77C24F00F5A93C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6758721B77C24F00F5A93C /* Foundation.framework */; };
@@ -46,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		9E8ECBE8B2E3D81B32599EE4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE21E6E51B79C229006F4CB6 /* welcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome.png; sourceTree = "<group>"; };
 		AE26307B1B6EA58000A566AE /* NumberMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NumberMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE26307F1B6EA58000A566AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE2630801B6EA58000A566AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -59,7 +60,6 @@
 		AE3E41011B6EC19D001E26FE /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		AE3E41021B6EC19D001E26FE /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		AE3E41031B6EC19D001E26FE /* WelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
-		AE3E410B1B6EC46E001E26FE /* welcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome.png; sourceTree = "<group>"; };
 		AE3E410D1B6ECFD0001E26FE /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameViewController.h; path = VCs/GameViewController.h; sourceTree = "<group>"; };
 		AE3E410E1B6ECFD0001E26FE /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameViewController.m; path = VCs/GameViewController.m; sourceTree = "<group>"; };
 		AE3E410F1B6ECFD0001E26FE /* GameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GameViewController.xib; path = VCs/GameViewController.xib; sourceTree = "<group>"; };
@@ -217,7 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				AE6E62BC1B7958DC00E0E4E2 /* AlertBG.png */,
-				AE3E410B1B6EC46E001E26FE /* welcome.png */,
+				AE21E6E51B79C229006F4CB6 /* welcome.png */,
 				AE721D7E1B77BBD600AFDFBE /* GameBG.png */,
 			);
 			name = Images;
@@ -351,8 +351,8 @@
 			files = (
 				AE721D7F1B77BBD600AFDFBE /* GameBG.png in Resources */,
 				AE26308F1B6EA58000A566AE /* LaunchScreen.xib in Resources */,
+				AE21E6E61B79C229006F4CB6 /* welcome.png in Resources */,
 				AE3E41051B6EC19D001E26FE /* WelcomeViewController.xib in Resources */,
-				AE3E410C1B6EC46E001E26FE /* welcome.png in Resources */,
 				AE26308C1B6EA58000A566AE /* Images.xcassets in Resources */,
 				AE3E41111B6ECFD0001E26FE /* GameViewController.xib in Resources */,
 				AE67587C1B7813F400F5A93C /* AlertViewController.xib in Resources */,

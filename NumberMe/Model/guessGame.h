@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface guessGame : NSObject
+@interface guessGame : NSObject<NSCoding>
 
 @property (nonatomic) NSInteger gameAnswer;
 @property (nonatomic) NSInteger userAnswer;

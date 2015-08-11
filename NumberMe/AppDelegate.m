@@ -24,12 +24,20 @@
     WelcomeViewController *welcome = [[WelcomeViewController alloc] init];
     self.window.rootViewController = welcome;
     [self.window makeKeyAndVisible];
+    
+    [self setUpEGOCache];
+    
     return YES;
 }
 
 - (void)setUpEGOCache
 {
     [EGOCache globalCache].defaultTimeoutInterval = INT_MAX;
+    if (![[EGOCache globalCache] hasCacheForKey:@"games"])
+    {
+        NSData *gameData = [NSKeyedArchiver archivedDataWithRootObject:[NSMutableArray new]];
+        [[EGOCache globalCache] setData:gameData forKey:@"games"];
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
