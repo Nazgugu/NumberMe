@@ -67,7 +67,7 @@ CGFloat getAngleBetweenThreePoints(CGPoint centerPoint, CGPoint p1, CGPoint p2);
         _circleBG.lineCap     = kCALineCapRound;
         _circleBG.fillColor   = [UIColor clearColor].CGColor;
         _circleBG.lineWidth   = [_lineWidth floatValue];
-        _circleBG.strokeColor = PNLightYellow.CGColor;
+        _circleBG.strokeColor = [UIColor clearColor].CGColor;
         _circleBG.strokeEnd   = 1.0;
         _circleBG.zPosition   = -1;
         

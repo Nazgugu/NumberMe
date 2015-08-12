@@ -56,7 +56,7 @@
     {
         _gameResultChart.barWidth = 14.0f;
         _chartHeightConstraint.constant = 200.0f;
-        delta = -50;
+        delta = -70;
     }
     else if (IS_IPHONE_5)
     {
@@ -64,7 +64,7 @@
         _spaceConstraintLeft.constant = 62.0f;
         _spaceConstraintRight.constant = 62.0f;
         _chartHeightConstraint.constant = 270.0f;
-        delta = 20;
+        delta = 0;
     }
     else if (IS_IPHONE_6)
     {
@@ -72,7 +72,7 @@
         _gameResultChart.barWidth = 18.0f;
         _spaceConstraintLeft.constant = 68.0f;
         _spaceConstraintRight.constant = 68.0f;
-        delta = 70;
+        delta = 50;
     }
     else
     {
@@ -80,7 +80,7 @@
         _gameResultChart.barWidth = 20.0f;
         _spaceConstraintLeft.constant = 76.0f;
         _spaceConstraintRight.constant = 76.0f;
-        delta = 100;
+        delta = 80;
     }
     if ([[EGOCache globalCache] hasCacheForKey:@"maxScore"])
     {
@@ -110,32 +110,35 @@
         if ((SCREENWIDTH/2 - 20) > _seperator.frame.size.height)
         {
             //NSLog(@"case 1, x = %lf, seperator height = %lf, screen width = %lf, seperator origin y = %lf",(SCREENWIDTH - _seperator.frame.size.height + 20) / 2, _seperator.frame.size.height, SCREENWIDTH, _seperator.frame.origin.y);
-            _dataChart = [[NUDialChart alloc] initWithFrame:CGRectMake((SCREENWIDTH/2 - _seperator.frame.size.height + 20) / 2, _seperator.frame.origin.y + 10 + delta, _seperator.frame.size.height - 20, _seperator.frame.size.height - 20)];
+            CGFloat width = SCREENHEIGHT - _chartHeightConstraint.constant - 147 - 10;
+            _dataChart = [[NUDialChart alloc] initWithFrame:CGRectMake((SCREENWIDTH/2 - width) / 2, _seperator.frame.origin.y + 5 + delta, width, width)];
         }
         else
         {
             NSLog(@"case 2");
-            _dataChart = [[NUDialChart alloc] initWithFrame:CGRectMake(10, delta + _seperator.frame.origin.y + (_seperator.frame.size.height + - SCREENWIDTH/2 + 20)/2, SCREENWIDTH/2 - 20, SCREENWIDTH/2 - 20)];
+            _dataChart = [[NUDialChart alloc] initWithFrame:CGRectMake(5, delta + _seperator.frame.origin.y + (SCREENHEIGHT - _chartHeightConstraint.constant - 137 - SCREENWIDTH/2)/2, SCREENWIDTH/2 - 10, SCREENWIDTH/2 - 10)];
         }
     }
+    
+    //_dataChart.backgroundColor = [UIColor lightGrayColor];
     
     _dataChart.chartDataSource = self;
     _dataChart.chartDelegate = self;
     if (IS_IPHONE_4_OR_LESS)
     {
-        [_dataChart setupWithCount:3 TotalValue:100 LineWidth:5];
+        [_dataChart setupWithCount:3 TotalValue:100 LineWidth:7];
     }
     else if (IS_IPHONE_5)
     {
-        [_dataChart setupWithCount:3 TotalValue:100 LineWidth:6];
+        [_dataChart setupWithCount:3 TotalValue:100 LineWidth:9];
     }
     else if (IS_IPHONE_6)
     {
-        [_dataChart setupWithCount:3 TotalValue:100 LineWidth:7];
+        [_dataChart setupWithCount:3 TotalValue:100 LineWidth:11];
     }
     else
     {
-        [_dataChart setupWithCount:3 TotalValue:100 LineWidth:8];
+        [_dataChart setupWithCount:3 TotalValue:100 LineWidth:14];
     }
     [self.view addSubview:_dataChart];
     [_gameResultChart reloadData];
@@ -364,7 +367,8 @@
 
 - (UIColor *)dialChart:(NUDialChart *)dialChart textColorOfCircleAtIndex:(int)_index
 {
-    return [[UIColor whiteColor] colorWithAlphaComponent:0.8f];
+    //return [UIColor yellowColor];
+    return [UIColor whiteColor];
 }
 
 - (BOOL)isShowCenterLabelInDial:(NUDialChart *)dialChart
@@ -380,6 +384,7 @@
 - (UIColor *)centerTextColorInDialChart:(NUDialChart *)dialChart
 {
     return [UIColor colorWithRed:0.980f green:0.267f blue:0.275f alpha:0.8f];
+    //return [UIColor yellowColor];
 }
 
 - (UIColor *)centerBackgroundColorInDialChart:(NUDialChart *)dialChart
