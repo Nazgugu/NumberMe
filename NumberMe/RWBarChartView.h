@@ -131,6 +131,8 @@
 @property (nonatomic, strong) UIColor *itemTextColor;
 @property (nonatomic, strong) UIFont *itemTextFont;
 
+@property (nonatomic) NSInteger highlightNumber;
+
 /**
  *  Refresh the chart view.
  */

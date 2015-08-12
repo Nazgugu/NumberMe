@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecordViewController">
             <connections>
+                <outlet property="gameRecordLabel" destination="fFc-1u-T7x" id="uOI-4T-7yS"/>
                 <outlet property="gameResultChart" destination="x5q-9J-Vl9" id="i4S-IQ-GWP"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -35,12 +36,23 @@
                     </connections>
                 </button>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x5q-9J-Vl9" customClass="RWBarChartView">
-                    <rect key="frame" x="0.0" y="40" width="320" height="250"/>
+                    <rect key="frame" x="0.0" y="50" width="320" height="250"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="250" id="gyj-cy-hxF"/>
                     </constraints>
                 </scrollView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFc-1u-T7x">
+                    <rect key="frame" x="85" y="10" width="150" height="20"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="H37-uY-DVw"/>
+                        <constraint firstAttribute="width" constant="150" id="tKl-cY-R4O"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="KohinoorDevanagari-Book" family="Kohinoor Devanagari" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="0.90000000000000002" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -49,9 +61,11 @@
                 <constraint firstItem="NUo-oX-YFk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="GM0-X8-1F6"/>
                 <constraint firstItem="NUo-oX-YFk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="KI6-bC-gZS"/>
                 <constraint firstAttribute="trailing" secondItem="x5q-9J-Vl9" secondAttribute="trailing" id="NcQ-xi-01M"/>
-                <constraint firstItem="x5q-9J-Vl9" firstAttribute="top" secondItem="NUo-oX-YFk" secondAttribute="bottom" constant="10" id="Tpz-Ye-x6K"/>
+                <constraint firstItem="fFc-1u-T7x" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="Qmt-M9-vkd"/>
+                <constraint firstItem="x5q-9J-Vl9" firstAttribute="top" secondItem="NUo-oX-YFk" secondAttribute="bottom" constant="20" id="Tpz-Ye-x6K"/>
                 <constraint firstItem="BdV-5v-kLC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="YL8-WR-eet"/>
                 <constraint firstAttribute="trailing" secondItem="BdV-5v-kLC" secondAttribute="trailing" id="alx-W0-MQW"/>
+                <constraint firstAttribute="centerX" secondItem="fFc-1u-T7x" secondAttribute="centerX" id="bdP-gO-xZb"/>
                 <constraint firstItem="x5q-9J-Vl9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="prM-SA-d35"/>
                 <constraint firstAttribute="bottom" secondItem="BdV-5v-kLC" secondAttribute="bottom" id="zyZ-3T-qwt"/>
             </constraints>

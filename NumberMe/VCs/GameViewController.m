@@ -169,7 +169,7 @@
 }
 - (void)viewWillAppear:(BOOL)animated
 {
-    NSLog(@"will appear");
+    //NSLog(@"will appear");
     [super viewWillAppear:animated];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
     [self commitAnimation];

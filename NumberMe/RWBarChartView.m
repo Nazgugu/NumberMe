@@ -38,23 +38,25 @@
     self.barPadding = 1.0;
     self.barWidth = 15;
     self.sectionPadding = 1.0;
-    self.sectionTitleFont = [UIFont systemFontOfSize:12];
+    self.sectionTitleFont = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:12.0f];
     self.sectionTitleTextHorizontalMargin = 5;
     self.sectionTitleTextVerticalMargin = 2;
-    self.sectionTitleColor = [UIColor whiteColor];
-    self.itemTextFont = [UIFont systemFontOfSize:12];
-    self.itemTextColor = [UIColor colorWithWhite:0.2 alpha:1.0];
+    self.sectionTitleColor = [[UIColor whiteColor] colorWithAlphaComponent:0.6f];
+    self.itemTextFont = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:12.0f];
+    self.itemTextColor = [[UIColor whiteColor] colorWithAlphaComponent:0.6f];
     self.itemTextHorizontalMargin = 10;
     self.itemTextVerticalMargin = 2;
     self.itemTextBackgroundColor = [UIColor whiteColor];
     self.lastSectionGap = 0;
-    self.axisFont = [UIFont systemFontOfSize:10];
-    self.axisColor = [UIColor whiteColor];
+    self.axisFont = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:11.0f];
+    self.axisColor = [[UIColor whiteColor] colorWithAlphaComponent:0.6f];
     self.sectionTitleSizeCache = [NSMutableDictionary dictionary];
     self.contentHorizontalMargin = 5;
     self.needleLength = 5;
     self.needlePadding = 2;
     self.itemCache = [NSCache new];
+    
+    self.highlightNumber = 0;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -208,7 +210,7 @@
         if (nItems > 0)
         {
             secWidth += (nItems - 1) * [self barPadding];
-            self.lastItemIndexPath = [NSIndexPath indexPathForItem:nItems - 1 inSection:isec];
+            self.lastItemIndexPath = [NSIndexPath indexPathForItem:nItems-1 inSection:isec];
         }
         
         CGFloat headerWidth = [self headerWidthInSection:isec];
@@ -491,10 +493,12 @@
 
 - (void)drawHighlightText:(NSString *)text withRealBarFrame:(CGRect)barFrame inRect:(CGRect)rect context:(CGContextRef)ctx
 {
+    //NSLog(@"highlight text = %@",text);
     if (![self.dataSource shouldShowItemTextForBarChartView:self])
     {
         return;
     }
+    
     
     CGContextSetStrokeColorWithColor(ctx, self.itemTextBackgroundColor.CGColor);
     CGContextStrokeRect(ctx, barFrame);
@@ -525,6 +529,8 @@
 //    CGContextFillPath(ctx);
     
     //[text drawAtPoint:CGPointMake(CGRectGetMinX(bgRect) + self.itemTextHorizontalMargin, CGRectGetMinY(bgRect) + (bgRect.size.height - textSize.height) / 2.0) withAttributes:[self highlightTextAttr]];
+    
+    _highlightNumber = [text integerValue];
 }
 
 - (void)drawAxisInRect:(CGRect)rect context:(CGContextRef)ctx

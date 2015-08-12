@@ -14,6 +14,7 @@
 @interface RecordViewController ()<UIScrollViewDelegate, RWBarChartViewDataSource>
 @property (weak, nonatomic) IBOutlet RWBarChartView *gameResultChart;
 @property (nonatomic, strong) NSMutableArray *gameResult;
+@property (weak, nonatomic) IBOutlet UILabel *gameRecordLabel;
 
 @property (nonatomic, strong) NSMutableArray *dataSource;
 
@@ -56,16 +57,34 @@
     _gameResultChart.scrollViewDelegate = self;
     [self retrieveGameResult];
     [_gameResultChart reloadData];
+    
+    if (_gameResult.count > 0)
+    {
+        [_gameResultChart scrollToBarAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES];
+    }
+    
+    _gameRecordLabel.text = @"Game Record";
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(10, _gameResultChart.frame.origin.y + _gameResultChart.frame.size.height - 10, SCREENWIDTH - 20, 1)];
+    view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.25f];
+    [self.view addSubview:view];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    [super viewWillDisappear:animated];
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
 }
 
 - (void)retrieveGameResult
@@ -75,11 +94,25 @@
         NSData *gameData = [[EGOCache globalCache] dataForKey:@"games"];
         _gameResult = [NSKeyedUnarchiver unarchiveObjectWithData:gameData];
         //process the game data
-        for (guessGame *game in _gameResult)
+        for (int i = 0; i < _gameResult.count; i++)
         {
+            guessGame *game = [_gameResult objectAtIndex:i];
             CGFloat ratio = (CGFloat)game.gameScore/(CGFloat)_max;
-            RWBarChartItem *singleResult = [RWBarChartItem itemWithSingleSegmentOfRatio:ratio color:[UIColor greenColor]];
-            singleResult.text = [NSString stringWithFormat:@"%ld",game.gameScore];
+            UIColor *color;
+            if (ratio < 0.34)
+            {
+                color = [UIColor colorWithRed:0.835f green:0.141f blue:0.137f alpha:1.00f];
+            }
+            else if (ratio > 0.67)
+            {
+                color = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f];
+            }
+            else
+            {
+                color = [UIColor colorWithRed:0.263f green:0.792f blue:0.459f alpha:1.00f];
+            }
+            RWBarChartItem *singleResult = [RWBarChartItem itemWithSingleSegmentOfRatio:ratio color:color];
+            singleResult.text = [NSString stringWithFormat:@"%d",i];
             [_dataSource addObject:singleResult];
         }
     }
@@ -143,6 +176,13 @@
 - (BOOL)shouldShowItemTextForBarChartView:(RWBarChartView *)barChartView
 {
     return YES;
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    NSLog(@"decelerating, highlighted one is: %ld",_gameResultChart.highlightNumber);
 }
 
 /*
