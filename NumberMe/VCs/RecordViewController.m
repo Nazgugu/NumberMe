@@ -31,6 +31,10 @@
 
 @property (weak, nonatomic) IBOutlet YETIMotionLabel *dateLabel;
 
+@property (nonatomic, strong) YETIMotionLabel *correctnessLabel;
+@property (nonatomic, strong) YETIMotionLabel *durationLabel;
+@property (nonatomic, strong) YETIMotionLabel *scoreLabel;
+
 @property (strong, nonatomic) NUDialChart *dataChart;
 //@property (weak, nonatomic) IBOutlet NSLayoutConstraint *circleChartHeightConstraint;
 //@property (weak, nonatomic) IBOutlet NSLayoutConstraint *circleLabelWidthConstraint;
@@ -47,8 +51,11 @@
     // Do any additional setup after loading the view from its nib.
     _gameResultChart.dataSource = self;
     
-    
     _game = nil;
+    
+    CGFloat labelGap,labelHeight,seperatorHeight;
+    
+    seperatorHeight = SCREENHEIGHT - 147 - 270;
     
     NSInteger delta;
     
@@ -57,6 +64,7 @@
         _gameResultChart.barWidth = 14.0f;
         _chartHeightConstraint.constant = 200.0f;
         delta = -70;
+        labelHeight = 20.0f;
     }
     else if (IS_IPHONE_5)
     {
@@ -65,6 +73,8 @@
         _spaceConstraintRight.constant = 62.0f;
         _chartHeightConstraint.constant = 270.0f;
         delta = 0;
+        labelHeight = 24.0f;
+        //labelGap = (151.0f - labelHeight)/4.0f;
     }
     else if (IS_IPHONE_6)
     {
@@ -73,6 +83,8 @@
         _spaceConstraintLeft.constant = 68.0f;
         _spaceConstraintRight.constant = 68.0f;
         delta = 50;
+        labelHeight = 30.0f;
+        //labelGap = (200.0f - labelHeight)/4.0f;
     }
     else
     {
@@ -81,7 +93,12 @@
         _spaceConstraintLeft.constant = 76.0f;
         _spaceConstraintRight.constant = 76.0f;
         delta = 80;
+        labelHeight = 35.0f;
+        //labelGap = (239.0f - labelHeight)/4.0f;
     }
+    
+    labelGap = (seperatorHeight - delta - labelHeight * 3)/4.0f;
+    
     if ([[EGOCache globalCache] hasCacheForKey:@"maxScore"])
     {
         _max = [[[EGOCache globalCache] stringForKey:@"maxScore"] integerValue];
@@ -126,7 +143,7 @@
     _dataChart.chartDelegate = self;
     if (IS_IPHONE_4_OR_LESS)
     {
-        [_dataChart setupWithCount:3 TotalValue:100 LineWidth:7];
+        [_dataChart setupWithCount:3 TotalValue:100 LineWidth:9];
     }
     else if (IS_IPHONE_5)
     {
@@ -138,10 +155,42 @@
     }
     else
     {
-        [_dataChart setupWithCount:3 TotalValue:100 LineWidth:14];
+        [_dataChart setupWithCount:3 TotalValue:100 LineWidth:12];
     }
     [self.view addSubview:_dataChart];
     [_gameResultChart reloadData];
+    
+    //add three labels;
+    CGFloat labelWidth = SCREENWIDTH/2 - 10;
+    
+    NSLog(@"seperator height = %lf, gap size = %lf, such seperator height = %lf, screen height = %lf",_seperator.frame.size.height,labelGap,seperatorHeight,SCREENHEIGHT);
+    
+    //correctness label
+    if (!_correctnessLabel)
+    {
+        _correctnessLabel = [[YETIMotionLabel alloc] initWithFrame:CGRectMake(SCREENWIDTH/2 + 5, _seperator.frame.origin.y + delta + labelGap, labelWidth, labelHeight)];
+    }
+    _correctnessLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:16.0f];
+    _correctnessLabel.textColor = [[UIColor whiteColor] colorWithAlphaComponent:0.9f];
+    
+    //duration label
+    if (!_durationLabel)
+    {
+        _durationLabel = [[YETIMotionLabel alloc] initWithFrame:CGRectMake(SCREENWIDTH/2 + 5, _seperator.frame.origin.y + delta + labelGap*2 + labelHeight, labelWidth, labelHeight)];
+    }
+    _durationLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:16.0f];
+    _durationLabel.textColor = [[UIColor whiteColor] colorWithAlphaComponent:0.9f];
+    
+    if (!_scoreLabel)
+    {
+        _scoreLabel = [[YETIMotionLabel alloc] initWithFrame:CGRectMake(SCREENWIDTH/2 + 5, _seperator.frame.origin.y + delta + labelGap*3 + labelHeight*2, labelWidth, labelHeight)];
+    }
+    _scoreLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:16.0f];
+    _scoreLabel.textColor = [[UIColor whiteColor] colorWithAlphaComponent:0.9f];
+    
+    [self.view addSubview:_correctnessLabel];
+    [self.view addSubview:_durationLabel];
+    [self.view addSubview:_scoreLabel];
     
     if (_gameResult.count > 0)
     {
@@ -216,10 +265,16 @@
 
 - (void)loadDataAtIndex:(NSInteger)index
 {
-    NSLog(@"loading data");
+    //NSLog(@"loading data");
     _currentIndex = index;
     _game = [_gameResult objectAtIndex:index];
     _dateLabel.text = _game.dateString;
+    
+    //three labels
+    _correctnessLabel.text = [NSString stringWithFormat:@"Correctness: %ld%%",_game.correctNumber * 25];
+    _durationLabel.text = [NSString stringWithFormat:@"Time used: %ld s",_game.duration];
+    _scoreLabel.text = [NSString stringWithFormat:@"Game score: %ld",_game.gameScore];
+    
     [_dataChart reloadDialWithAnimation:YES];
 }
 
@@ -383,7 +438,7 @@
 
 - (UIColor *)centerTextColorInDialChart:(NUDialChart *)dialChart
 {
-    return [UIColor colorWithRed:0.980f green:0.267f blue:0.275f alpha:0.8f];
+    return [[UIColor whiteColor] colorWithAlphaComponent:0.9f];
     //return [UIColor yellowColor];
 }
 

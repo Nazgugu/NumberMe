@@ -52,7 +52,7 @@ CGFloat getAngleBetweenThreePoints(CGPoint centerPoint, CGPoint p1, CGPoint p2);
         _circle.path          = circlePath.CGPath;
         _circle.lineCap       = kCALineCapRound;  //kCALineCapSquare;
         _circle.fillColor     = [UIColor clearColor].CGColor;
-        _circle.lineWidth     = [_lineWidth floatValue] - 3;
+        _circle.lineWidth     = [_lineWidth floatValue];
         _circle.zPosition     = 1;
         
         _circleBorder               = [CAShapeLayer layer];
@@ -72,7 +72,7 @@ CGFloat getAngleBetweenThreePoints(CGPoint centerPoint, CGPoint p1, CGPoint p2);
         _circleBG.zPosition   = -1;
         
         [self.layer addSublayer:_circleBG];
-        [self.layer addSublayer:_circleBorder];
+        //[self.layer addSublayer:_circleBorder];
         [self.layer addSublayer:_circle];
         
         _gradeLabel = [[UICountingLabel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
@@ -108,6 +108,7 @@ CGFloat getAngleBetweenThreePoints(CGPoint centerPoint, CGPoint p1, CGPoint p2);
 -(void)strokeChart
 {
     //Add count label
+    
     [self setHidden:NO];
     
     [_gradeLabel setTextAlignment:NSTextAlignmentCenter];
@@ -122,7 +123,7 @@ CGFloat getAngleBetweenThreePoints(CGPoint centerPoint, CGPoint p1, CGPoint p2);
     
     //Add circle params
     
-    _circle.lineWidth   = [_lineWidth floatValue] - 3;
+    _circle.lineWidth   = [_lineWidth floatValue];
     _circleBorder.lineWidth = [_lineWidth floatValue];
     _circleBG.lineWidth = [_lineWidth floatValue];
     _circleBG.strokeEnd = 1.0;
@@ -165,7 +166,7 @@ CGFloat getAngleBetweenThreePoints(CGPoint centerPoint, CGPoint p1, CGPoint p2);
     
     //Add circle params
     
-    _circle.lineWidth   = [_lineWidth floatValue] - 3;
+    _circle.lineWidth   = [_lineWidth floatValue];
     _circleBorder.lineWidth = [_lineWidth floatValue];
     _circleBG.lineWidth = [_lineWidth floatValue];
     _circleBG.strokeEnd = 1.0;
@@ -186,9 +187,9 @@ CGFloat getAngleBetweenThreePoints(CGPoint centerPoint, CGPoint p1, CGPoint p2);
             pathAnimation.duration = _animationDuration;
             pathAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
             pathAnimation.fromValue = [NSNumber numberWithFloat:0.0f];
-            pathAnimation.toValue = [NSNumber numberWithFloat:[_lineWidth floatValue] - 3.0];
+            pathAnimation.toValue = [NSNumber numberWithFloat:[_lineWidth floatValue]];
             [_circle addAnimation:pathAnimation forKey:@"lineWidthAnimation"];
-            _circle.lineWidth   = [_lineWidth floatValue] - 3.0;
+            _circle.lineWidth   = [_lineWidth floatValue];
             
             pathAnimation.toValue = [NSNumber numberWithFloat:[_lineWidth floatValue]];
             [_circleBorder addAnimation:pathAnimation forKey:@"lineWidthAnimation"];
@@ -202,7 +203,7 @@ CGFloat getAngleBetweenThreePoints(CGPoint centerPoint, CGPoint p1, CGPoint p2);
             CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"lineWidth"];
             pathAnimation.duration = _animationDuration;
             pathAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-            pathAnimation.fromValue = [NSNumber numberWithFloat:[_lineWidth floatValue] - 3.0];
+            pathAnimation.fromValue = [NSNumber numberWithFloat:[_lineWidth floatValue]];
             pathAnimation.toValue = [NSNumber numberWithFloat:0.0f];
             [_circle addAnimation:pathAnimation forKey:@"lineWidthAnimation"];
             _circle.lineWidth   = 0;

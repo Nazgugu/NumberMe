@@ -90,7 +90,7 @@
     }
     
     LabelCenterCurrent = [[UICountingLabel alloc] initWithFrame:CGRectMake(0, 0, centerLabelWidth, centerLabelWidth)];
-    LabelCenterCurrent.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:(centerLabelWidth / 2)];
+    LabelCenterCurrent.font = [UIFont fontWithName:@"KohinoorDevanagari-Light" size:(centerLabelWidth / 2)];
     LabelCenterCurrent.textAlignment = NSTextAlignmentCenter;
     LabelCenterCurrent.backgroundColor = [UIColor darkGrayColor];
     LabelCenterCurrent.textColor = [UIColor whiteColor];
@@ -99,11 +99,11 @@
     
     labelTotalValue = [[UILabel alloc] initWithFrame:CGRectMake(0, (centerLabelWidth * 2) / 3, centerLabelWidth, centerLabelWidth / 3)];
     labelTotalValue.textAlignment = NSTextAlignmentCenter;
-    labelTotalValue.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:(centerLabelWidth / 6)];
+    labelTotalValue.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:(centerLabelWidth / 6)];
     labelTotalValue.text = [NSString stringWithFormat:@"/ %d", _total];
     labelTotalValue.textColor = [UIColor whiteColor];
     
-    [LabelCenterCurrent addSubview:labelTotalValue];
+    //[LabelCenterCurrent addSubview:labelTotalValue];
     LabelCenterCurrent.center = centerPoint;
     [self addSubview:LabelCenterCurrent];
     
