@@ -24,7 +24,7 @@
 
 @property (nonatomic) BOOL allWrong;
 
-//@property (nonatomic, strong) NSDate *dateOfGame;
+@property (nonatomic, strong) NSDate *dateOfGame;
 @property (nonatomic, strong) NSString *dateString;
 
 @property (nonatomic) NSInteger userFirstDigit;

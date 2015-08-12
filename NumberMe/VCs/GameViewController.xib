@@ -49,7 +49,7 @@
         </view>
     </objects>
     <resources>
-        <image name="GameBG.png" width="750" height="1334"/>
+        <image name="GameBG.png" width="1242" height="2208"/>
         <image name="close" width="45" height="45"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

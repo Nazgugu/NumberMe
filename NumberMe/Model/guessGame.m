@@ -16,6 +16,7 @@ NSString * const kCorrectNumber = @"correctNumber";
 NSString * const kGameDuration = @"gameDuration";
 NSString * const kGameResult = @"result";
 NSString * const kHintUsed = @"hintUsed";
+NSString * const kDateOfGame = @"dateOfGame";
 
 
 @implementation guessGame
@@ -27,6 +28,7 @@ NSString * const kHintUsed = @"hintUsed";
     [aCoder encodeObject:[NSNumber numberWithInteger:_numberOfTries] forKey:kNumberTries];
     [aCoder encodeObject:[NSNumber numberWithInteger:_correctNumber] forKey:kCorrectNumber];
     [aCoder encodeObject:[NSNumber numberWithInteger:_duration] forKey:kGameDuration];
+    [aCoder encodeObject:_dateOfGame forKey:kDateOfGame];
     if (_succeed == 2)
     {
         [aCoder encodeObject:[NSNumber numberWithBool:YES] forKey:kGameResult];
@@ -56,6 +58,7 @@ NSString * const kHintUsed = @"hintUsed";
         {
             self.succeed = 1;
         }
+        self.dateOfGame = [aDecoder decodeObjectForKey:kDateOfGame];
         self.duration = [[aDecoder decodeObjectForKey:kGameDuration] integerValue];
         self.availabelHints = 4 - [[aDecoder decodeObjectForKey:kHintUsed] integerValue];
     }
@@ -451,6 +454,7 @@ NSString * const kHintUsed = @"hintUsed";
 //Total score is 1000, for each correct answer we give 100 and for each second past we deduct 10, for each hint used we give 75
 - (void)endGameWithDuration:(NSInteger)secondsLeft
 {
+    _dateOfGame = [NSDate date];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd  HH:mm"];
     _dateString = [formatter stringFromDate:[NSDate date]];
@@ -480,6 +484,8 @@ NSString * const kHintUsed = @"hintUsed";
         }
     }
     _gameScore += secondsLeft * 10 + _availabelHints * 75 - _numberOfTries * 2 - (arc4random() % 25) * (4 - _availabelHints);
+    
+    //NSLog(@"correct number = %ld",_correctNumber);
     
     //record the game
     NSData *gameData = [[EGOCache globalCache] dataForKey:@"games"];

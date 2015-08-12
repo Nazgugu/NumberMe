@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		215550EBC1647E8DE4F792BB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E8ECBE8B2E3D81B32599EE4 /* libPods.a */; };
 		AE21E6E61B79C229006F4CB6 /* welcome.png in Resources */ = {isa = PBXBuildFile; fileRef = AE21E6E51B79C229006F4CB6 /* welcome.png */; };
+		AE21E6EA1B7AAB1D006F4CB6 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE21E6E81B7AAB1D006F4CB6 /* RecordViewController.m */; };
+		AE21E6EB1B7AAB1D006F4CB6 /* RecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE21E6E91B7AAB1D006F4CB6 /* RecordViewController.xib */; };
+		AE21E6EF1B7ABAA3006F4CB6 /* RWBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE21E6EE1B7ABAA3006F4CB6 /* RWBarChartView.m */; };
+		AE21E6F11B7ABF0D006F4CB6 /* GameBG.png in Resources */ = {isa = PBXBuildFile; fileRef = AE21E6F01B7ABF0D006F4CB6 /* GameBG.png */; };
+		AE21E6F31B7AC517006F4CB6 /* recordBG.png in Resources */ = {isa = PBXBuildFile; fileRef = AE21E6F21B7AC517006F4CB6 /* recordBG.png */; };
 		AE2630811B6EA58000A566AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2630801B6EA58000A566AE /* main.m */; };
 		AE2630841B6EA58000A566AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2630831B6EA58000A566AE /* AppDelegate.m */; };
 		AE26308C1B6EA58000A566AE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE26308B1B6EA58000A566AE /* Images.xcassets */; };
@@ -24,7 +29,6 @@
 		AE67587B1B7813F400F5A93C /* AlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE6758791B7813F400F5A93C /* AlertViewController.m */; };
 		AE67587C1B7813F400F5A93C /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE67587A1B7813F400F5A93C /* AlertViewController.xib */; };
 		AE6E62BD1B7958DC00E0E4E2 /* AlertBG.png in Resources */ = {isa = PBXBuildFile; fileRef = AE6E62BC1B7958DC00E0E4E2 /* AlertBG.png */; };
-		AE721D7F1B77BBD600AFDFBE /* GameBG.png in Resources */ = {isa = PBXBuildFile; fileRef = AE721D7E1B77BBD600AFDFBE /* GameBG.png */; };
 		AE7E74BC1B746896003E9341 /* JTNumberScrollAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7E74BB1B746896003E9341 /* JTNumberScrollAnimatedView.m */; };
 		AE8E22821B756B7E00A298DE /* YETICharacterLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8E22811B756B7E00A298DE /* YETICharacterLabel.m */; };
 		AE8E22851B756B8600A298DE /* YETIFadeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8E22841B756B8600A298DE /* YETIFadeLabel.m */; };
@@ -47,6 +51,13 @@
 /* Begin PBXFileReference section */
 		9E8ECBE8B2E3D81B32599EE4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE21E6E51B79C229006F4CB6 /* welcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome.png; sourceTree = "<group>"; };
+		AE21E6E71B7AAB1D006F4CB6 /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordViewController.h; path = VCs/RecordViewController.h; sourceTree = "<group>"; };
+		AE21E6E81B7AAB1D006F4CB6 /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordViewController.m; path = VCs/RecordViewController.m; sourceTree = "<group>"; };
+		AE21E6E91B7AAB1D006F4CB6 /* RecordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RecordViewController.xib; path = VCs/RecordViewController.xib; sourceTree = "<group>"; };
+		AE21E6ED1B7ABAA3006F4CB6 /* RWBarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWBarChartView.h; sourceTree = "<group>"; };
+		AE21E6EE1B7ABAA3006F4CB6 /* RWBarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWBarChartView.m; sourceTree = "<group>"; };
+		AE21E6F01B7ABF0D006F4CB6 /* GameBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameBG.png; sourceTree = "<group>"; };
+		AE21E6F21B7AC517006F4CB6 /* recordBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recordBG.png; sourceTree = "<group>"; };
 		AE26307B1B6EA58000A566AE /* NumberMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NumberMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE26307F1B6EA58000A566AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE2630801B6EA58000A566AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -72,7 +83,6 @@
 		AE6758791B7813F400F5A93C /* AlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlertViewController.m; path = VCs/AlertViewController.m; sourceTree = "<group>"; };
 		AE67587A1B7813F400F5A93C /* AlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AlertViewController.xib; path = VCs/AlertViewController.xib; sourceTree = "<group>"; };
 		AE6E62BC1B7958DC00E0E4E2 /* AlertBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AlertBG.png; sourceTree = "<group>"; };
-		AE721D7E1B77BBD600AFDFBE /* GameBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameBG.png; sourceTree = "<group>"; };
 		AE7E74BA1B746896003E9341 /* JTNumberScrollAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTNumberScrollAnimatedView.h; sourceTree = "<group>"; };
 		AE7E74BB1B746896003E9341 /* JTNumberScrollAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTNumberScrollAnimatedView.m; sourceTree = "<group>"; };
 		AE8E22801B756B7E00A298DE /* YETICharacterLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YETICharacterLabel.h; sourceTree = "<group>"; };
@@ -122,6 +132,15 @@
 				9E8ECBE8B2E3D81B32599EE4 /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AE21E6EC1B7ABA95006F4CB6 /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				AE21E6ED1B7ABAA3006F4CB6 /* RWBarChartView.h */,
+				AE21E6EE1B7ABAA3006F4CB6 /* RWBarChartView.m */,
+			);
+			name = Chart;
 			sourceTree = "<group>";
 		};
 		AE2630721B6EA58000A566AE = {
@@ -191,6 +210,9 @@
 		AE3E41061B6EC1B9001E26FE /* VCs */ = {
 			isa = PBXGroup;
 			children = (
+				AE21E6E71B7AAB1D006F4CB6 /* RecordViewController.h */,
+				AE21E6E81B7AAB1D006F4CB6 /* RecordViewController.m */,
+				AE21E6E91B7AAB1D006F4CB6 /* RecordViewController.xib */,
 				AE6758781B7813F400F5A93C /* AlertViewController.h */,
 				AE6758791B7813F400F5A93C /* AlertViewController.m */,
 				AE67587A1B7813F400F5A93C /* AlertViewController.xib */,
@@ -216,9 +238,10 @@
 		AE3E41081B6EC28E001E26FE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AE21E6F21B7AC517006F4CB6 /* recordBG.png */,
 				AE6E62BC1B7958DC00E0E4E2 /* AlertBG.png */,
 				AE21E6E51B79C229006F4CB6 /* welcome.png */,
-				AE721D7E1B77BBD600AFDFBE /* GameBG.png */,
+				AE21E6F01B7ABF0D006F4CB6 /* GameBG.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -226,6 +249,7 @@
 		AE7E74B91B74688B003E9341 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				AE21E6EC1B7ABA95006F4CB6 /* Chart */,
 				AE8E227F1B756B6B00A298DE /* AnimateLabel */,
 				AE8E227E1B756B6100A298DE /* AnimateNumber */,
 			);
@@ -349,12 +373,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE721D7F1B77BBD600AFDFBE /* GameBG.png in Resources */,
 				AE26308F1B6EA58000A566AE /* LaunchScreen.xib in Resources */,
+				AE21E6EB1B7AAB1D006F4CB6 /* RecordViewController.xib in Resources */,
 				AE21E6E61B79C229006F4CB6 /* welcome.png in Resources */,
 				AE3E41051B6EC19D001E26FE /* WelcomeViewController.xib in Resources */,
 				AE26308C1B6EA58000A566AE /* Images.xcassets in Resources */,
 				AE3E41111B6ECFD0001E26FE /* GameViewController.xib in Resources */,
+				AE21E6F11B7ABF0D006F4CB6 /* GameBG.png in Resources */,
+				AE21E6F31B7AC517006F4CB6 /* recordBG.png in Resources */,
 				AE67587C1B7813F400F5A93C /* AlertViewController.xib in Resources */,
 				AE6E62BD1B7958DC00E0E4E2 /* AlertBG.png in Resources */,
 			);
@@ -411,9 +437,11 @@
 				AE8E22851B756B8600A298DE /* YETIFadeLabel.m in Sources */,
 				AE3E41101B6ECFD0001E26FE /* GameViewController.m in Sources */,
 				AE2630841B6EA58000A566AE /* AppDelegate.m in Sources */,
+				AE21E6EA1B7AAB1D006F4CB6 /* RecordViewController.m in Sources */,
 				AE3E41041B6EC19D001E26FE /* WelcomeViewController.m in Sources */,
 				AE8E228E1B756B9B00A298DE /* YETIMotionLabel.m in Sources */,
 				AE8E22911B76AE7E00A298DE /* guessGame.m in Sources */,
+				AE21E6EF1B7ABAA3006F4CB6 /* RWBarChartView.m in Sources */,
 				AE7E74BC1B746896003E9341 /* JTNumberScrollAnimatedView.m in Sources */,
 				AE8E22881B756B8D00A298DE /* YETIFallingLabel.m in Sources */,
 				AE2630811B6EA58000A566AE /* main.m in Sources */,

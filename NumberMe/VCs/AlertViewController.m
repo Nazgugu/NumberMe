@@ -102,7 +102,7 @@
         [_symbolImage setImage:[UIImage imageNamed:@"succeed"]];
     }
     
-    _correctnessLabel.text = [NSString stringWithFormat:@"Correctness = %ld %%",_game.correctNumber/4 * 100];
+    _correctnessLabel.text = [NSString stringWithFormat:@"Correctness = %ld %%",_game.correctNumber * 25];
     _usedTimeLabel.text = [NSString stringWithFormat:@"Used Time: %ld s",_game.duration];
     _scoreLabel.text = [NSString stringWithFormat:@"Score: %ld",_game.gameScore];
     
