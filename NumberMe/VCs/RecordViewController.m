@@ -11,8 +11,9 @@
 #import "EGOCache.h"
 #import "guessGame.h"
 #import "YETIMotionLabel.h"
+#import "NUDialChart.h"
 
-@interface RecordViewController ()<UIScrollViewDelegate, RWBarChartViewDataSource>
+@interface RecordViewController ()<UIScrollViewDelegate, RWBarChartViewDataSource, NUDialChartDataSource, NUDialChartDelegate>
 @property (weak, nonatomic) IBOutlet RWBarChartView *gameResultChart;
 @property (nonatomic, strong) NSMutableArray *gameResult;
 @property (weak, nonatomic) IBOutlet UILabel *gameRecordLabel;
@@ -29,6 +30,14 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *spaceConstraintLeft;
 
 @property (weak, nonatomic) IBOutlet YETIMotionLabel *dateLabel;
+
+@property (strong, nonatomic) NUDialChart *dataChart;
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *circleChartHeightConstraint;
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *circleLabelWidthConstraint;
+
+@property (nonatomic, strong) guessGame *game;
+
+@property (weak, nonatomic) IBOutlet UIView *seperator;
 @end
 
 @implementation RecordViewController
@@ -37,28 +46,41 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _gameResultChart.dataSource = self;
+    
+    
+    _game = nil;
+    
+    NSInteger delta;
+    
     if (IS_IPHONE_4_OR_LESS)
     {
         _gameResultChart.barWidth = 14.0f;
         _chartHeightConstraint.constant = 200.0f;
+        delta = -50;
     }
     else if (IS_IPHONE_5)
     {
         _gameResultChart.barWidth = 16.0f;
         _spaceConstraintLeft.constant = 62.0f;
         _spaceConstraintRight.constant = 62.0f;
+        _chartHeightConstraint.constant = 270.0f;
+        delta = 20;
     }
     else if (IS_IPHONE_6)
     {
+        _chartHeightConstraint.constant = 320.0f;
         _gameResultChart.barWidth = 18.0f;
         _spaceConstraintLeft.constant = 68.0f;
         _spaceConstraintRight.constant = 68.0f;
+        delta = 70;
     }
     else
     {
+        _chartHeightConstraint.constant = 350.0f;
         _gameResultChart.barWidth = 20.0f;
         _spaceConstraintLeft.constant = 76.0f;
         _spaceConstraintRight.constant = 76.0f;
+        delta = 100;
     }
     if ([[EGOCache globalCache] hasCacheForKey:@"maxScore"])
     {
@@ -72,20 +94,57 @@
     _gameResultChart.backgroundColor = [UIColor clearColor];
     _gameResultChart.scrollViewDelegate = self;
     [self retrieveGameResult];
-    [_gameResultChart reloadData];
     
     _currentIndex = 0;
+    
+    _gameRecordLabel.text = @"Game Record";
+    
+    //_gameResultChart.backgroundColor = [UIColor grayColor];
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(10, _gameResultChart.frame.origin.y + _chartHeightConstraint.constant - 15, SCREENWIDTH - 20, 1)];
+    view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.25f];
+    [self.view addSubview:view];
+    
+    if (!_dataChart)
+    {
+        if ((SCREENWIDTH/2 - 20) > _seperator.frame.size.height)
+        {
+            //NSLog(@"case 1, x = %lf, seperator height = %lf, screen width = %lf, seperator origin y = %lf",(SCREENWIDTH - _seperator.frame.size.height + 20) / 2, _seperator.frame.size.height, SCREENWIDTH, _seperator.frame.origin.y);
+            _dataChart = [[NUDialChart alloc] initWithFrame:CGRectMake((SCREENWIDTH/2 - _seperator.frame.size.height + 20) / 2, _seperator.frame.origin.y + 10 + delta, _seperator.frame.size.height - 20, _seperator.frame.size.height - 20)];
+        }
+        else
+        {
+            NSLog(@"case 2");
+            _dataChart = [[NUDialChart alloc] initWithFrame:CGRectMake(10, delta + _seperator.frame.origin.y + (_seperator.frame.size.height + - SCREENWIDTH/2 + 20)/2, SCREENWIDTH/2 - 20, SCREENWIDTH/2 - 20)];
+        }
+    }
+    
+    _dataChart.chartDataSource = self;
+    _dataChart.chartDelegate = self;
+    if (IS_IPHONE_4_OR_LESS)
+    {
+        [_dataChart setupWithCount:3 TotalValue:100 LineWidth:5];
+    }
+    else if (IS_IPHONE_5)
+    {
+        [_dataChart setupWithCount:3 TotalValue:100 LineWidth:6];
+    }
+    else if (IS_IPHONE_6)
+    {
+        [_dataChart setupWithCount:3 TotalValue:100 LineWidth:7];
+    }
+    else
+    {
+        [_dataChart setupWithCount:3 TotalValue:100 LineWidth:8];
+    }
+    [self.view addSubview:_dataChart];
+    [_gameResultChart reloadData];
+    
     if (_gameResult.count > 0)
     {
         [_gameResultChart scrollToBarAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES];
         [self loadDataAtIndex:0];
     }
-    
-    _gameRecordLabel.text = @"Game Record";
-    
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(10, _gameResultChart.frame.origin.y + _chartHeightConstraint.constant - 15, SCREENWIDTH - 20, 1)];
-    view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.25f];
-    [self.view addSubview:view];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -117,14 +176,17 @@
             guessGame *game = [_gameResult objectAtIndex:i];
             CGFloat ratio = (CGFloat)game.gameScore/(CGFloat)_max;
             UIColor *color;
+            //red
             if (ratio < 0.34)
             {
-                color = [UIColor colorWithRed:0.980f green:0.267f blue:0.275f alpha:0.6f];
+                color = [UIColor colorWithRed:0.980f green:0.267f blue:0.275f alpha:0.8f];
             }
+            //green
             else if (ratio > 0.67)
             {
                 color = [UIColor colorWithRed:0.263f green:0.792f blue:0.459f alpha:0.8f];
             }
+            //blue
             else
             {
                 color = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:0.8f];
@@ -151,9 +213,11 @@
 
 - (void)loadDataAtIndex:(NSInteger)index
 {
+    NSLog(@"loading data");
     _currentIndex = index;
-    guessGame *game = [_gameResult objectAtIndex:index];
-    _dateLabel.text = game.dateString;
+    _game = [_gameResult objectAtIndex:index];
+    _dateLabel.text = _game.dateString;
+    [_dataChart reloadDialWithAnimation:YES];
 }
 
 #pragma mark - RWBarChartViewDelegate
@@ -207,11 +271,133 @@
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    NSLog(@"decelerating, highlighted one is: %ld",_gameResultChart.highlightNumber);
+    //NSLog(@"decelerating, highlighted one is: %ld",_gameResultChart.highlightNumber);
     if (_gameResultChart.highlightNumber != _currentIndex)
     {
         [self loadDataAtIndex:_gameResultChart.highlightNumber];
     }
+}
+
+#pragma mark - NUDailChartDataSource
+
+- (NSNumber *)dialChart:(NUDialChart *)dialChart valueOfCircleAtIndex:(int)_index
+{
+    NSNumber *number;
+    switch (_index) {
+        //inner circle: correct number
+        case 0:
+        {
+            number = [NSNumber numberWithInteger:_game.correctNumber * 25];
+        }
+            break;
+        //second circle: use time
+        case 1:
+        {
+            number = [NSNumber numberWithInteger:(_game.duration * 100) / 30];
+        }
+            break;
+        //outter circle: score
+        case 2:
+        {
+            number = [NSNumber numberWithInteger:(_game.gameScore * 100) / _max];
+        }
+            break;
+        default:
+            break;
+    }
+    return number;
+}
+
+- (UIColor *)dialChart:(NUDialChart *)dialChart colorOfCircleAtIndex:(int)_index
+{
+    UIColor *color;
+    
+    switch (_index) {
+        case 0:
+        {
+            color = [UIColor colorWithRed:0.263f green:0.792f blue:0.459f alpha:0.8f];
+        }
+            break;
+        case 1:
+        {
+            color = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:0.8f];
+        }
+            break;
+        case 2:
+        {
+            color = [UIColor colorWithRed:0.980f green:0.267f blue:0.275f alpha:0.8f];
+        }
+            break;
+        default:
+            break;
+    }
+    
+    return color;
+}
+
+- (NSString *)dialChart:(NUDialChart *)dialChart textOfCircleAtIndex:(int)_index
+{
+    NSString *info;
+    
+    switch (_index) {
+        case 0:
+        {
+            info = @"Correctness";
+        }
+            break;
+        case 1:
+        {
+            info = @"Time used";
+        }
+            break;
+        case 2:
+        {
+            info = @"Game score";
+        }
+            break;
+        default:
+            break;
+    }
+    
+    return info;
+}
+
+- (UIColor *)dialChart:(NUDialChart *)dialChart textColorOfCircleAtIndex:(int)_index
+{
+    return [[UIColor whiteColor] colorWithAlphaComponent:0.8f];
+}
+
+- (BOOL)isShowCenterLabelInDial:(NUDialChart *)dialChart
+{
+    return YES;
+}
+
+- (BOOL)dialChart:(NUDialChart *)dialChart defaultCircleAtIndex:(int)_index
+{
+    return NO;
+}
+
+- (UIColor *)centerTextColorInDialChart:(NUDialChart *)dialChart
+{
+    return [UIColor colorWithRed:0.980f green:0.267f blue:0.275f alpha:0.8f];
+}
+
+- (UIColor *)centerBackgroundColorInDialChart:(NUDialChart *)dialChart
+{
+    return [UIColor clearColor];
+}
+
+- (int)nuscoreInDialChart:(NUDialChart *)dialChart
+{
+    //NSLog(@"game score = %ld",_game.gameScore);
+    return (int)_game.gameScore;
+}
+
+#pragma mark - NUDailChartDelegate
+
+- (void)touchNuDialChart:(NUDialChart *)chart
+{
+    
 }
 
 /*
