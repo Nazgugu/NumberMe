@@ -1,0 +1,1 @@
+../../../NuweScoreCharts/NuweScoreCharts/NuweScoreCharts/NuweScoreCharts/XMCircleTypeView/XMCircleTypeView.h

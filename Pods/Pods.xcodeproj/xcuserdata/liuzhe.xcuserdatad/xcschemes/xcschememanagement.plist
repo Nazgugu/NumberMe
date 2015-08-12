@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-NuweScoreCharts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-RWBlurPopover.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,42 +52,47 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>22D0DF352FE864FF3E4D4E42</key>
+		<key>0E9535A79BFFA945EE875F1B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>62A0156FD5E0C7F1B792748C</key>
+		<key>22E89C0BB13314B74473B700</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6EA1CFC791B11BFABA347D57</key>
+		<key>44B8D41C738E4C08BB00720F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7190A79C8ACAE8AB088D640D</key>
+		<key>490937C3F959BD19BFEBFE58</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>71AEC6C0F5D518CA7C13F7F2</key>
+		<key>4E2448E041B4A94C9FC5AC16</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7B8E94C35B32246C34F9B26C</key>
+		<key>683F22D26181867CDEA9D487</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C50DFD0CD510AF32EDE4C3EA</key>
+		<key>8E2EA8703A8DA59A528A639B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EE73DD65B26A09F3E59138EA</key>
+		<key>AE47026B64A1A9C1A40E39A5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DF7748198856BFA0CAE59407</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -10,6 +10,7 @@
 #import "RWBarChartView.h"
 #import "EGOCache.h"
 #import "guessGame.h"
+#import "YETIMotionLabel.h"
 
 @interface RecordViewController ()<UIScrollViewDelegate, RWBarChartViewDataSource>
 @property (weak, nonatomic) IBOutlet RWBarChartView *gameResultChart;
@@ -27,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *spaceConstraintRight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *spaceConstraintLeft;
 
+@property (weak, nonatomic) IBOutlet YETIMotionLabel *dateLabel;
 @end
 
 @implementation RecordViewController
@@ -149,7 +151,9 @@
 
 - (void)loadDataAtIndex:(NSInteger)index
 {
-    
+    _currentIndex = index;
+    guessGame *game = [_gameResult objectAtIndex:index];
+    _dateLabel.text = game.dateString;
 }
 
 #pragma mark - RWBarChartViewDelegate

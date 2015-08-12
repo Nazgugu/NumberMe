@@ -1,0 +1,1 @@
+../../../NuweScoreCharts/NuweScoreCharts/NuweScoreCharts/NuweScoreCharts/PNChart/PNChartDelegate.h

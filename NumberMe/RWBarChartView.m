@@ -243,7 +243,7 @@
     if (self.lastItemIndexPath) {
         [self setContentOffset:CGPointMake([self scrollOffsetForBarAtIndexPath:self.lastItemIndexPath], 0)];
     } else {
-        NSLog(@"this case");
+        //NSLog(@"this case");
         //NSLog(@"offset = %lf",width - self.bounds.size.width + self.contentHorizontalMargin);
         //[self setContentOffset:CGPointMake(width - self.bounds.size.width + self.contentHorizontalMargin, 0)];
     }

@@ -18,6 +18,12 @@
 #define COCOAPODS_VERSION_MINOR_JSKTimerView 4
 #define COCOAPODS_VERSION_PATCH_JSKTimerView 1
 
+// NuweScoreCharts
+#define COCOAPODS_POD_AVAILABLE_NuweScoreCharts
+#define COCOAPODS_VERSION_MAJOR_NuweScoreCharts 1
+#define COCOAPODS_VERSION_MINOR_NuweScoreCharts 0
+#define COCOAPODS_VERSION_PATCH_NuweScoreCharts 0
+
 // RWBlurPopover
 #define COCOAPODS_POD_AVAILABLE_RWBlurPopover
 #define COCOAPODS_VERSION_MAJOR_RWBlurPopover 3

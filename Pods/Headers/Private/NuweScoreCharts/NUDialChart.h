@@ -1,0 +1,1 @@
+../../../NuweScoreCharts/NuweScoreCharts/NuweScoreCharts/NuweScoreCharts/NUChart/NUDialChart.h

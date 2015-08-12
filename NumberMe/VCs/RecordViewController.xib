@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecordViewController">
             <connections>
                 <outlet property="chartHeightConstraint" destination="gyj-cy-hxF" id="mjc-Rp-Fwp"/>
+                <outlet property="dateLabel" destination="fzW-NT-8v4" id="RDw-UP-trq"/>
                 <outlet property="gameRecordLabel" destination="fFc-1u-T7x" id="uOI-4T-7yS"/>
                 <outlet property="gameResultChart" destination="x5q-9J-Vl9" id="i4S-IQ-GWP"/>
                 <outlet property="spaceConstraintLeft" destination="0pu-FL-RQY" id="DYo-W3-QtB"/>
@@ -52,10 +53,21 @@
                         <constraint firstAttribute="height" constant="20" id="H37-uY-DVw"/>
                         <constraint firstAttribute="width" constant="150" id="tKl-cY-R4O"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="KohinoorDevanagari-Book" family="Kohinoor Devanagari" pointSize="17"/>
+                    <fontDescription key="fontDescription" name="KohinoorDevanagari-Book" family="Kohinoor Devanagari" pointSize="22"/>
                     <color key="textColor" white="1" alpha="0.90000000000000002" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3a-fe-ny6">
+                    <rect key="frame" x="57" y="520" width="30" height="30"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="DD7-SH-OEs"/>
+                        <constraint firstAttribute="height" constant="30" id="Kye-NP-ADT"/>
+                    </constraints>
+                    <state key="normal" image="shareCircle">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PjD-Ds-yLl">
                     <rect key="frame" x="145" y="520" width="30" height="30"/>
                     <animations/>
@@ -78,17 +90,17 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3a-fe-ny6">
-                    <rect key="frame" x="57" y="520" width="30" height="30"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzW-NT-8v4" customClass="YETIMotionLabel">
+                    <rect key="frame" x="90" y="300" width="140" height="22"/>
                     <animations/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="30" id="DD7-SH-OEs"/>
-                        <constraint firstAttribute="height" constant="30" id="Kye-NP-ADT"/>
+                        <constraint firstAttribute="height" constant="22" id="N0n-Y2-gyB"/>
+                        <constraint firstAttribute="width" constant="140" id="lAr-dT-M2o"/>
                     </constraints>
-                    <state key="normal" image="shareCircle">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
+                    <fontDescription key="fontDescription" name="KohinoorDevanagari-Book" family="Kohinoor Devanagari" pointSize="18"/>
+                    <color key="textColor" white="1" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -96,10 +108,12 @@
                 <constraint firstItem="PjD-Ds-yLl" firstAttribute="leading" secondItem="k3a-fe-ny6" secondAttribute="trailing" constant="58" id="0pu-FL-RQY"/>
                 <constraint firstItem="BdV-5v-kLC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0tP-fj-mvf"/>
                 <constraint firstItem="kup-iA-5eW" firstAttribute="leading" secondItem="PjD-Ds-yLl" secondAttribute="trailing" constant="58" id="1Vd-Tm-5w3"/>
+                <constraint firstAttribute="centerX" secondItem="fzW-NT-8v4" secondAttribute="centerX" id="Dqe-MB-QCY"/>
                 <constraint firstAttribute="bottom" secondItem="PjD-Ds-yLl" secondAttribute="bottom" constant="18" id="G96-NB-dug"/>
                 <constraint firstItem="NUo-oX-YFk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="GM0-X8-1F6"/>
                 <constraint firstAttribute="centerX" secondItem="PjD-Ds-yLl" secondAttribute="centerX" id="KBO-R0-dNZ"/>
                 <constraint firstItem="NUo-oX-YFk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="KI6-bC-gZS"/>
+                <constraint firstItem="fzW-NT-8v4" firstAttribute="top" secondItem="x5q-9J-Vl9" secondAttribute="bottom" id="KvR-kH-bWL"/>
                 <constraint firstAttribute="trailing" secondItem="x5q-9J-Vl9" secondAttribute="trailing" id="NcQ-xi-01M"/>
                 <constraint firstItem="fFc-1u-T7x" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="Qmt-M9-vkd"/>
                 <constraint firstItem="x5q-9J-Vl9" firstAttribute="top" secondItem="NUo-oX-YFk" secondAttribute="bottom" constant="20" id="Tpz-Ye-x6K"/>
