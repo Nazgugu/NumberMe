@@ -243,7 +243,9 @@
     if (self.lastItemIndexPath) {
         [self setContentOffset:CGPointMake([self scrollOffsetForBarAtIndexPath:self.lastItemIndexPath], 0)];
     } else {
-        [self setContentOffset:CGPointMake(width - self.bounds.size.width + self.contentHorizontalMargin, 0)];
+        NSLog(@"this case");
+        //NSLog(@"offset = %lf",width - self.bounds.size.width + self.contentHorizontalMargin);
+        //[self setContentOffset:CGPointMake(width - self.bounds.size.width + self.contentHorizontalMargin, 0)];
     }
     [self setNeedsDisplay];
 }
@@ -474,6 +476,7 @@
         titleX += self.sectionTitleTextHorizontalMargin;
         
         titleX = MIN(titleX, CGRectGetMaxX(sectionRect) - titleSize.width - self.sectionTitleTextHorizontalMargin);
+        
         CGFloat titleY = titleAreaY + self.sectionTitleTextVerticalMargin;
         NSString *title = [self.dataSource barChartView:self titleForSection:isec];
         [title drawAtPoint:CGPointMake(titleX, titleY) withAttributes:@{NSFontAttributeName:self.sectionTitleFont, NSForegroundColorAttributeName:self.sectionTitleColor}];

@@ -7,8 +7,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecordViewController">
             <connections>
+                <outlet property="chartHeightConstraint" destination="gyj-cy-hxF" id="mjc-Rp-Fwp"/>
                 <outlet property="gameRecordLabel" destination="fFc-1u-T7x" id="uOI-4T-7yS"/>
                 <outlet property="gameResultChart" destination="x5q-9J-Vl9" id="i4S-IQ-GWP"/>
+                <outlet property="spaceConstraintLeft" destination="0pu-FL-RQY" id="DYo-W3-QtB"/>
+                <outlet property="spaceConstraintRight" destination="1Vd-Tm-5w3" id="jtr-Qm-0K9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -53,12 +56,49 @@
                     <color key="textColor" white="1" alpha="0.90000000000000002" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PjD-Ds-yLl">
+                    <rect key="frame" x="145" y="520" width="30" height="30"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="hOu-aX-FB6"/>
+                        <constraint firstAttribute="height" constant="30" id="jRe-nU-ibr"/>
+                    </constraints>
+                    <state key="normal" image="shareWeibo">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kup-iA-5eW">
+                    <rect key="frame" x="233" y="522" width="25" height="25"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="Fav-Yh-dZU"/>
+                        <constraint firstAttribute="width" constant="25" id="Lgb-ar-WRp"/>
+                    </constraints>
+                    <state key="normal" image="shareFacebook">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3a-fe-ny6">
+                    <rect key="frame" x="57" y="520" width="30" height="30"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="DD7-SH-OEs"/>
+                        <constraint firstAttribute="height" constant="30" id="Kye-NP-ADT"/>
+                    </constraints>
+                    <state key="normal" image="shareCircle">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="PjD-Ds-yLl" firstAttribute="leading" secondItem="k3a-fe-ny6" secondAttribute="trailing" constant="58" id="0pu-FL-RQY"/>
                 <constraint firstItem="BdV-5v-kLC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0tP-fj-mvf"/>
+                <constraint firstItem="kup-iA-5eW" firstAttribute="leading" secondItem="PjD-Ds-yLl" secondAttribute="trailing" constant="58" id="1Vd-Tm-5w3"/>
+                <constraint firstAttribute="bottom" secondItem="PjD-Ds-yLl" secondAttribute="bottom" constant="18" id="G96-NB-dug"/>
                 <constraint firstItem="NUo-oX-YFk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="GM0-X8-1F6"/>
+                <constraint firstAttribute="centerX" secondItem="PjD-Ds-yLl" secondAttribute="centerX" id="KBO-R0-dNZ"/>
                 <constraint firstItem="NUo-oX-YFk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="KI6-bC-gZS"/>
                 <constraint firstAttribute="trailing" secondItem="x5q-9J-Vl9" secondAttribute="trailing" id="NcQ-xi-01M"/>
                 <constraint firstItem="fFc-1u-T7x" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="Qmt-M9-vkd"/>
@@ -66,6 +106,8 @@
                 <constraint firstItem="BdV-5v-kLC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="YL8-WR-eet"/>
                 <constraint firstAttribute="trailing" secondItem="BdV-5v-kLC" secondAttribute="trailing" id="alx-W0-MQW"/>
                 <constraint firstAttribute="centerX" secondItem="fFc-1u-T7x" secondAttribute="centerX" id="bdP-gO-xZb"/>
+                <constraint firstAttribute="bottom" secondItem="k3a-fe-ny6" secondAttribute="bottom" constant="18" id="ggo-r6-Xbp"/>
+                <constraint firstAttribute="bottom" secondItem="kup-iA-5eW" secondAttribute="bottom" constant="21" id="nGl-Fi-JJ3"/>
                 <constraint firstItem="x5q-9J-Vl9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="prM-SA-d35"/>
                 <constraint firstAttribute="bottom" secondItem="BdV-5v-kLC" secondAttribute="bottom" id="zyZ-3T-qwt"/>
             </constraints>
@@ -75,6 +117,9 @@
     <resources>
         <image name="close" width="45" height="45"/>
         <image name="recordBG.png" width="1242" height="2208"/>
+        <image name="shareCircle" width="30" height="30"/>
+        <image name="shareFacebook" width="25" height="25"/>
+        <image name="shareWeibo" width="30" height="24"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

@@ -20,6 +20,13 @@
 
 @property (nonatomic) NSInteger max;
 
+@property (nonatomic) NSInteger currentIndex;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *chartHeightConstraint;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *spaceConstraintRight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *spaceConstraintLeft;
+
 @end
 
 @implementation RecordViewController
@@ -31,18 +38,25 @@
     if (IS_IPHONE_4_OR_LESS)
     {
         _gameResultChart.barWidth = 14.0f;
+        _chartHeightConstraint.constant = 200.0f;
     }
     else if (IS_IPHONE_5)
     {
         _gameResultChart.barWidth = 16.0f;
+        _spaceConstraintLeft.constant = 62.0f;
+        _spaceConstraintRight.constant = 62.0f;
     }
     else if (IS_IPHONE_6)
     {
         _gameResultChart.barWidth = 18.0f;
+        _spaceConstraintLeft.constant = 68.0f;
+        _spaceConstraintRight.constant = 68.0f;
     }
     else
     {
         _gameResultChart.barWidth = 20.0f;
+        _spaceConstraintLeft.constant = 76.0f;
+        _spaceConstraintRight.constant = 76.0f;
     }
     if ([[EGOCache globalCache] hasCacheForKey:@"maxScore"])
     {
@@ -58,14 +72,16 @@
     [self retrieveGameResult];
     [_gameResultChart reloadData];
     
+    _currentIndex = 0;
     if (_gameResult.count > 0)
     {
         [_gameResultChart scrollToBarAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES];
+        [self loadDataAtIndex:0];
     }
     
     _gameRecordLabel.text = @"Game Record";
     
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(10, _gameResultChart.frame.origin.y + _gameResultChart.frame.size.height - 10, SCREENWIDTH - 20, 1)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(10, _gameResultChart.frame.origin.y + _chartHeightConstraint.constant - 15, SCREENWIDTH - 20, 1)];
     view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.25f];
     [self.view addSubview:view];
 }
@@ -101,15 +117,15 @@
             UIColor *color;
             if (ratio < 0.34)
             {
-                color = [UIColor colorWithRed:0.835f green:0.141f blue:0.137f alpha:1.00f];
+                color = [UIColor colorWithRed:0.980f green:0.267f blue:0.275f alpha:0.6f];
             }
             else if (ratio > 0.67)
             {
-                color = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f];
+                color = [UIColor colorWithRed:0.263f green:0.792f blue:0.459f alpha:0.8f];
             }
             else
             {
-                color = [UIColor colorWithRed:0.263f green:0.792f blue:0.459f alpha:1.00f];
+                color = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:0.8f];
             }
             RWBarChartItem *singleResult = [RWBarChartItem itemWithSingleSegmentOfRatio:ratio color:color];
             singleResult.text = [NSString stringWithFormat:@"%d",i];
@@ -129,6 +145,11 @@
 
 - (IBAction)close:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)loadDataAtIndex:(NSInteger)index
+{
+    
 }
 
 #pragma mark - RWBarChartViewDelegate
@@ -183,6 +204,10 @@
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
     NSLog(@"decelerating, highlighted one is: %ld",_gameResultChart.highlightNumber);
+    if (_gameResultChart.highlightNumber != _currentIndex)
+    {
+        [self loadDataAtIndex:_gameResultChart.highlightNumber];
+    }
 }
 
 /*
