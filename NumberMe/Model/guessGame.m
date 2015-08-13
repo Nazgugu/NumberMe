@@ -257,7 +257,7 @@ NSString * const kDateOfGame = @"dateOfGame";
             break;
     }
     
-    _hintMessage = [NSString stringWithFormat:@"The answer is very close to %ld",hintNumber];
+    _hintMessage = [NSString stringWithFormat:NSLocalizedString(@"HINTMSG", nil),hintNumber];
 }
 
 - (void)verifyAnswer
@@ -335,7 +335,7 @@ NSString * const kDateOfGame = @"dateOfGame";
             _userFirstDigit = answer;
             if (_userFirstDigit == _answerFirstDigit)
             {
-                feedBackString = @"This is probably the answer!";
+                feedBackString = NSLocalizedString(@"RIGHT", nil);
             }
             else
             {
@@ -343,17 +343,17 @@ NSString * const kDateOfGame = @"dateOfGame";
                 //7,8,9
                 if (difference > 6)
                 {
-                    feedBackString = @"Input is far from the answer";
+                    feedBackString = NSLocalizedString(@"FAR", nil);
                 }
                 //4,5,6
                 else if (difference <= 6 && difference >= 4)
                 {
-                    feedBackString = @"Input has some difference from the answer";
+                    feedBackString = NSLocalizedString(@"MAYBE", nil);
                 }
                 //1,2,3
                 else if (difference < 4 && difference >= 1)
                 {
-                    feedBackString = @"Input is quite near the answer";
+                    feedBackString = NSLocalizedString(@"NEAR", nil);
                 }
             }
         }
@@ -363,7 +363,7 @@ NSString * const kDateOfGame = @"dateOfGame";
             _userSecondDigit = answer;
             if (_userSecondDigit == _answerSecondDigit)
             {
-                feedBackString = @"This is probably the answer!";
+                feedBackString = NSLocalizedString(@"RIGHT", nil);
             }
             else
             {
@@ -371,17 +371,17 @@ NSString * const kDateOfGame = @"dateOfGame";
                 //7,8,9
                 if (difference > 6)
                 {
-                    feedBackString = @"Input is far from the answer";
+                    feedBackString = NSLocalizedString(@"FAR", nil);
                 }
                 //4,5,6
                 else if (difference <= 6 && difference >= 4)
                 {
-                    feedBackString = @"Input has some difference from the answer";
+                    feedBackString = NSLocalizedString(@"MAYBE", nil);
                 }
                 //1,2,3
                 else if (difference < 4 && difference >= 1)
                 {
-                    feedBackString = @"Input is quite near the answer";
+                    feedBackString = NSLocalizedString(@"NEAR", nil);
                 }
             }
         }
@@ -391,7 +391,7 @@ NSString * const kDateOfGame = @"dateOfGame";
             _userThirdDigit = answer;
             if (_userThirdDigit == _answerThirdDigit)
             {
-                feedBackString = @"This is probably the answer!";
+                feedBackString = NSLocalizedString(@"RIGHT", nil);
             }
             else
             {
@@ -399,17 +399,17 @@ NSString * const kDateOfGame = @"dateOfGame";
                 //7,8,9
                 if (difference > 6)
                 {
-                    feedBackString = @"Input is far from the answer";
+                    feedBackString = NSLocalizedString(@"FAR", nil);
                 }
                 //4,5,6
                 else if (difference <= 6 && difference >= 4)
                 {
-                    feedBackString = @"Input has some difference from the answer";
+                    feedBackString = NSLocalizedString(@"MAYBE", nil);
                 }
                 //1,2,3
                 else if (difference < 4 && difference >= 1)
                 {
-                    feedBackString = @"Input is quite near the answer";
+                    feedBackString = NSLocalizedString(@"NEAR", nil);
                 }
             }
         }
@@ -419,7 +419,7 @@ NSString * const kDateOfGame = @"dateOfGame";
             _userForthDigit = answer;
             if (_userForthDigit == _answerForthDigit)
             {
-                feedBackString = @"This is probably the answer!";
+                feedBackString = NSLocalizedString(@"RIGHT", nil);
             }
             else
             {
@@ -427,17 +427,17 @@ NSString * const kDateOfGame = @"dateOfGame";
                 //7,8,9
                 if (difference > 6)
                 {
-                    feedBackString = @"Input is far from the answer";
+                    feedBackString = NSLocalizedString(@"FAR", nil);
                 }
                 //4,5,6
                 else if (difference <= 6 && difference >= 4)
                 {
-                    feedBackString = @"Input has some difference from the answer";
+                    feedBackString = NSLocalizedString(@"MAYBE", nil);
                 }
                 //1,2,3
                 else if (difference < 4 && difference >= 1)
                 {
-                    feedBackString = @"Input is quite near the answer";
+                    feedBackString = NSLocalizedString(@"NEAR", nil);
                 }
             }
         }

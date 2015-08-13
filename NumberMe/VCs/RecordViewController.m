@@ -114,7 +114,7 @@
     
     _currentIndex = 0;
     
-    _gameRecordLabel.text = @"Game Record";
+    _gameRecordLabel.text = NSLocalizedString(@"RECORDTITLE", nil);
     
     //_gameResultChart.backgroundColor = [UIColor grayColor];
     
@@ -132,7 +132,7 @@
         }
         else
         {
-            NSLog(@"case 2");
+            //NSLog(@"case 2");
             _dataChart = [[NUDialChart alloc] initWithFrame:CGRectMake(5, delta + _seperator.frame.origin.y + (SCREENHEIGHT - _chartHeightConstraint.constant - 137 - SCREENWIDTH/2)/2, SCREENWIDTH/2 - 10, SCREENWIDTH/2 - 10)];
         }
     }
@@ -271,9 +271,9 @@
     _dateLabel.text = _game.dateString;
     
     //three labels
-    _correctnessLabel.text = [NSString stringWithFormat:@"Correctness: %ld%%",_game.correctNumber * 25];
-    _durationLabel.text = [NSString stringWithFormat:@"Time used: %ld s",_game.duration];
-    _scoreLabel.text = [NSString stringWithFormat:@"Game score: %ld",_game.gameScore];
+    _correctnessLabel.text = [NSString stringWithFormat:NSLocalizedString(@"CORRECTNESS", nil), _game.correctNumber * 25];
+    _durationLabel.text = [NSString stringWithFormat:NSLocalizedString(@"DURATION", nil),_game.duration];
+    _scoreLabel.text = [NSString stringWithFormat:NSLocalizedString(@"SCORE", nil),_game.gameScore];
     
     [_dataChart reloadDialWithAnimation:YES];
 }
@@ -296,7 +296,7 @@
 
 - (NSString *)barChartView:(RWBarChartView *)barChartView titleForSection:(NSInteger)section
 {
-    return @"Score Record";
+    return NSLocalizedString(@"SCORERECORD", nil);
 }
 
 - (BOOL)barChartView:(RWBarChartView *)barChartView shouldShowAxisAtRatios:(out NSArray *__autoreleasing *)axisRatios withLabels:(out NSArray *__autoreleasing *)axisLabels
@@ -400,17 +400,17 @@
     switch (_index) {
         case 0:
         {
-            info = @"Correctness";
+            info = NSLocalizedString(@"INFOC", nil);
         }
             break;
         case 1:
         {
-            info = @"Time used";
+            info = NSLocalizedString(@"INFOT", nil);
         }
             break;
         case 2:
         {
-            info = @"Game score";
+            info = NSLocalizedString(@"INFOS", nil);
         }
             break;
         default:

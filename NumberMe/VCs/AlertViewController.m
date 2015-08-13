@@ -74,6 +74,9 @@
     self.shareFacebookCircle.contentMode = UIViewContentModeScaleAspectFit;
     _recordSign.hidden = YES;
     
+    [self.playAgainButton setTitle:NSLocalizedString(@"PLAY_AGAIN", nil) forState:UIControlStateNormal];
+    [self.quitButton setTitle:NSLocalizedString(@"QUIT", nil) forState:UIControlStateNormal];
+    
     [self presentView];
 }
 
@@ -102,9 +105,9 @@
         [_symbolImage setImage:[UIImage imageNamed:@"succeed"]];
     }
     
-    _correctnessLabel.text = [NSString stringWithFormat:@"Correctness = %ld %%",_game.correctNumber * 25];
-    _usedTimeLabel.text = [NSString stringWithFormat:@"Used Time: %ld s",_game.duration];
-    _scoreLabel.text = [NSString stringWithFormat:@"Score: %ld",_game.gameScore];
+    _correctnessLabel.text = [NSString stringWithFormat:NSLocalizedString(@"CORRECTNESS", nil),_game.correctNumber * 25];
+    _usedTimeLabel.text = [NSString stringWithFormat:NSLocalizedString(@"DURATION", nil),_game.duration];
+    _scoreLabel.text = [NSString stringWithFormat:NSLocalizedString(@"SCORE", nil),_game.gameScore];
     
     if ([[EGOCache globalCache] hasCacheForKey:@"maxScore"])
     {
@@ -115,14 +118,14 @@
             _recordSign.hidden = NO;
             [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameScore] forKey:@"maxScore"];
         }
-        _recordLabel.text = [NSString stringWithFormat:@"Record: %ld",oldRecord];
+        _recordLabel.text = [NSString stringWithFormat:NSLocalizedString(@"RECORD", nil),oldRecord];
     }
     else
     {
         //new record, need to display the record
         _recordSign.hidden = NO;
         [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameScore] forKey:@"maxScore"];
-        _recordLabel.text = [NSString stringWithFormat:@"Record: unavailable"];
+        _recordLabel.text = NSLocalizedString(@"NORECORD", nil);
     }
 
 }
@@ -138,12 +141,12 @@
     if (_game.succeed == 2)
     {
         _titleLabel.textColor = [UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:0.7f];
-        _titleLabel.text = @"Success!";
+        _titleLabel.text = NSLocalizedString(@"SUCCESS", nil);
     }
     else
     {
         _titleLabel.textColor = [UIColor colorWithRed:1.000f green:0.953f blue:0.216f alpha:1.00f];
-        _titleLabel.text = @"Failed!";
+        _titleLabel.text = NSLocalizedString(@"FAILED", nil);
     }
     //[self.backgroundView addSubview:_titleLabel];
     
