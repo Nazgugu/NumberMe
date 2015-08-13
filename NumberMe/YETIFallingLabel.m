@@ -17,7 +17,10 @@
 {
     [super setAttributedText:attributedText];
     [self animateOutWithCompletion:^(BOOL finished) {
-        [self animateInWithCompletion:nil];
+        if (finished)
+        {
+            [self animateInWithCompletion:nil];
+        }
     }];
 }
 
@@ -32,8 +35,12 @@
 {
     for (CALayer *textLayer in self.characterTextLayers) {
         
-        NSTimeInterval duration = ((arc4random()%100)/200.0)+0.25;
-        NSTimeInterval delay = (arc4random()%100)/500.0;
+//        NSTimeInterval duration = ((arc4random()%100)/200.0)+0.25;
+//        NSTimeInterval delay = (arc4random()%100)/500.0;
+        
+        NSTimeInterval duration = ((arc4random()%100)/500.0)+0.07;
+        
+        NSTimeInterval delay = 0;
         
         [YETILayerAnimation animationForLayer:textLayer duration:duration delay:delay animations:^{
             textLayer.opacity = 1;
@@ -56,8 +63,13 @@
     
     for (CALayer *textLayer in self.oldCharacterTextLayers) {
         
-        NSTimeInterval duration = ((arc4random()%100)/200.0)+0.25;
-        NSTimeInterval delay = (arc4random()%100)/500.0;
+//        NSTimeInterval duration = ((arc4random()%100)/200.0)+0.25;
+//        NSTimeInterval delay = (arc4random()%100)/500.0;
+        
+        NSTimeInterval duration = ((arc4random()%100)/300.0)+0.1;
+        
+        NSTimeInterval delay = 0;
+        
         CGFloat distance = (arc4random()%50)+25;
         CGFloat angle = ((arc4random()/M_PI_2)-M_PI_4);
         

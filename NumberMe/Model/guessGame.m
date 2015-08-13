@@ -262,39 +262,39 @@ NSString * const kDateOfGame = @"dateOfGame";
 
 - (void)verifyAnswer
 {
-    if (_userFirstDigit == _answerFirstDigit)
-    {
-        [_correctNess replaceObjectAtIndex:0 withObject:@(1)];
-    }
-    else
-    {
-        [_correctNess replaceObjectAtIndex:0 withObject:@(0)];
-    }
-    if (_userSecondDigit == _answerSecondDigit)
-    {
-        [_correctNess replaceObjectAtIndex:1 withObject:@(1)];
-    }
-    else
-    {
-        [_correctNess replaceObjectAtIndex:1 withObject:@(0)];
-    }
-    if (_userThirdDigit == _answerThirdDigit)
-    {
-        [_correctNess replaceObjectAtIndex:2 withObject:@(1)];
-    }
-    else
-    {
-        [_correctNess replaceObjectAtIndex:2 withObject:@(0)];
-    }
-    if (_userForthDigit == _answerForthDigit)
-    {
-        [_correctNess replaceObjectAtIndex:3 withObject:@(1)];
-    }
-    else
-    {
-        [_correctNess replaceObjectAtIndex:3 withObject:@(0)];
-    }
-    
+//    if (_userFirstDigit == _answerFirstDigit)
+//    {
+//        [_correctNess replaceObjectAtIndex:0 withObject:@(1)];
+//    }
+//    else
+//    {
+//        [_correctNess replaceObjectAtIndex:0 withObject:@(0)];
+//    }
+//    if (_userSecondDigit == _answerSecondDigit)
+//    {
+//        [_correctNess replaceObjectAtIndex:1 withObject:@(1)];
+//    }
+//    else
+//    {
+//        [_correctNess replaceObjectAtIndex:1 withObject:@(0)];
+//    }
+//    if (_userThirdDigit == _answerThirdDigit)
+//    {
+//        [_correctNess replaceObjectAtIndex:2 withObject:@(1)];
+//    }
+//    else
+//    {
+//        [_correctNess replaceObjectAtIndex:2 withObject:@(0)];
+//    }
+//    if (_userForthDigit == _answerForthDigit)
+//    {
+//        [_correctNess replaceObjectAtIndex:3 withObject:@(1)];
+//    }
+//    else
+//    {
+//        [_correctNess replaceObjectAtIndex:3 withObject:@(0)];
+//    }
+//    
     for (int i = 0; i < 4; i++)
     {
         //0 incorrect, 1 correct
@@ -310,12 +310,12 @@ NSString * const kDateOfGame = @"dateOfGame";
     {
         if (userAnswer == _gameAnswer)
         {
-            NSLog(@"correct!");
+            //NSLog(@"correct!");
             _succeed = 2;
         }
         else
         {
-            NSLog(@"not correct!");
+            //NSLog(@"not correct!");
             _succeed = 1;
         }
     }
@@ -336,6 +336,7 @@ NSString * const kDateOfGame = @"dateOfGame";
             if (_userFirstDigit == _answerFirstDigit)
             {
                 feedBackString = NSLocalizedString(@"RIGHT", nil);
+                [_correctNess replaceObjectAtIndex:0 withObject:@(1)];
             }
             else
             {
@@ -364,6 +365,7 @@ NSString * const kDateOfGame = @"dateOfGame";
             if (_userSecondDigit == _answerSecondDigit)
             {
                 feedBackString = NSLocalizedString(@"RIGHT", nil);
+                [_correctNess replaceObjectAtIndex:1 withObject:@(1)];
             }
             else
             {
@@ -392,6 +394,7 @@ NSString * const kDateOfGame = @"dateOfGame";
             if (_userThirdDigit == _answerThirdDigit)
             {
                 feedBackString = NSLocalizedString(@"RIGHT", nil);
+                [_correctNess replaceObjectAtIndex:2 withObject:@(1)];
             }
             else
             {
@@ -420,6 +423,7 @@ NSString * const kDateOfGame = @"dateOfGame";
             if (_userForthDigit == _answerForthDigit)
             {
                 feedBackString = NSLocalizedString(@"RIGHT", nil);
+                [_correctNess replaceObjectAtIndex:3 withObject:@(1)];
             }
             else
             {
