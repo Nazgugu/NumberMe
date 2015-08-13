@@ -24,6 +24,12 @@
 #define COCOAPODS_VERSION_MINOR_NuweScoreCharts 0
 #define COCOAPODS_VERSION_PATCH_NuweScoreCharts 0
 
+// OpenShare
+#define COCOAPODS_POD_AVAILABLE_OpenShare
+#define COCOAPODS_VERSION_MAJOR_OpenShare 0
+#define COCOAPODS_VERSION_MINOR_OpenShare 0
+#define COCOAPODS_VERSION_PATCH_OpenShare 1
+
 // RJBlurAlertView
 #define COCOAPODS_POD_AVAILABLE_RJBlurAlertView
 #define COCOAPODS_VERSION_MAJOR_RJBlurAlertView 0
