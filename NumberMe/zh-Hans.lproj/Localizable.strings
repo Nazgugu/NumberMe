@@ -6,6 +6,11 @@
   Copyright (c) 2015年 Liu Zhe. All rights reserved.
 */
 
+//Welcome
+"START"="开始";
+"RD"="记录";
+"ST"="设置";
+
 //GameViewController
 "GUIDE_ONE"="请猜一个四位数";
 "GUIDE_TWO"="准备?";

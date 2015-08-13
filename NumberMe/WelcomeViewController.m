@@ -40,6 +40,10 @@
     _settingButton.layer.masksToBounds = YES;
     _recordButton.layer.masksToBounds = YES;
     _startButton.layer.masksToBounds = YES;
+    
+    [_startButton setTitle:NSLocalizedString(@"START", nil) forState:UIControlStateNormal];
+    [_recordButton setTitle:NSLocalizedString(@"RD", nil) forState:UIControlStateNormal];
+    [_settingButton setTitle:NSLocalizedString(@"ST", nil) forState:UIControlStateNormal];
 }
 
 - (IBAction)startGame:(id)sender {

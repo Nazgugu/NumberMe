@@ -6,6 +6,11 @@
   Copyright (c) 2015年 Liu Zhe. All rights reserved.
 */
 
+//Welcome
+"START"="Start";
+"RD"="Record";
+"ST"="Setting";
+
 //GameViewController
 "GUIDE_ONE"="Please guess a four-digit number";
 "GUIDE_TWO"="Ready?";
