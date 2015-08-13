@@ -162,7 +162,7 @@
     [self revertToWhite];
     [_timer resetTimer];
     [self cancelShake];
-    _guideLabel.text = @"请猜一位四位数";
+    _guideLabel.text = NSLocalizedString(@"GUIDE_ONE", nil);
     [self performSelector:@selector(animateReady) withObject:nil afterDelay:1.2f];
     [self animateDigits];
     
@@ -192,12 +192,12 @@
 }
 
 - (void)animateReady{
-    _guideLabel.text = @"Ready?";
+    _guideLabel.text = NSLocalizedString(@"GUIDE_TWO", nil);
     [self performSelector:@selector(animateGo) withObject:nil afterDelay:1.5f];
 }
 
 - (void)animateGo{
-    _guideLabel.text = @"GO!";
+    _guideLabel.text = NSLocalizedString(@"GUIDE_THREE", nil);
     [_timer startTimer];
     [self performSelector:@selector(shakeTimer) withObject:nil afterDelay:20];
     _deleteOneButton.enabled = YES;
@@ -281,7 +281,7 @@
     _deleteOneButton.layer.masksToBounds = YES;
     [_deleteOneButton setTitleColor:[UIColor colorWithRed:0.941f green:0.761f blue:0.188f alpha:1.00f] forState:UIControlStateNormal];
     [_deleteOneButton setTitleColor:[UIColor colorWithRed:0.941f green:0.608f blue:0.173f alpha:1.00f] forState:UIControlStateHighlighted];
-    [_deleteOneButton setTitle:@"Delete" forState:UIControlStateNormal];
+    [_deleteOneButton setTitle:NSLocalizedString(@"DELETE", nil) forState:UIControlStateNormal];
     _deleteOneButton.titleLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:15.0f];
     _deleteOneButton.titleLabel.minimumScaleFactor = 0.5f;
     _deleteOneButton.titleLabel.adjustsFontSizeToFitWidth = YES;
@@ -302,7 +302,7 @@
     _clearButton.layer.masksToBounds = YES;
     [_clearButton setTitleColor:[UIColor colorWithRed:0.890f green:0.494f blue:0.188f alpha:1.00f] forState:UIControlStateNormal];
     [_clearButton setTitleColor:[UIColor colorWithRed:0.812f green:0.333f blue:0.098f alpha:1.00f] forState:UIControlStateHighlighted];
-    [_clearButton setTitle:@"Clear" forState:UIControlStateNormal];
+    [_clearButton setTitle:NSLocalizedString(@"CLEAR", nil) forState:UIControlStateNormal];
     _clearButton.titleLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:15.0f];
     _clearButton.titleLabel.minimumScaleFactor = 0.5f;
     _clearButton.titleLabel.adjustsFontSizeToFitWidth = YES;
@@ -323,7 +323,7 @@
     _restartButton.layer.masksToBounds = YES;
     [_restartButton setTitleColor:[UIColor colorWithRed:0.890f green:0.306f blue:0.259f alpha:1.00f] forState:UIControlStateNormal];
     [_restartButton setTitleColor:[UIColor colorWithRed:0.737f green:0.231f blue:0.188f alpha:1.00f] forState:UIControlStateHighlighted];
-    [_restartButton setTitle:@"Restart" forState:UIControlStateNormal];
+    [_restartButton setTitle:NSLocalizedString(@"RESTART", nil) forState:UIControlStateNormal];
     _restartButton.titleLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:15.0f];
     _restartButton.titleLabel.minimumScaleFactor = 0.5f;
     _restartButton.titleLabel.adjustsFontSizeToFitWidth = YES;
@@ -344,7 +344,7 @@
     _hintButton.layer.masksToBounds = YES;
     [_hintButton setTitleColor:[UIColor colorWithRed:0.263f green:0.792f blue:0.459f alpha:1.00f] forState:UIControlStateNormal];
     [_hintButton setTitleColor:[UIColor colorWithRed:0.224f green:0.675f blue:0.388f alpha:1.00f] forState:UIControlStateHighlighted];
-    [_hintButton setTitle:@"Hint" forState:UIControlStateNormal];
+    [_hintButton setTitle:NSLocalizedString(@"HINT", nil) forState:UIControlStateNormal];
     _hintButton.titleLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:15.0f];
     _hintButton.titleLabel.minimumScaleFactor = 0.5f;
     _hintButton.titleLabel.adjustsFontSizeToFitWidth = YES;

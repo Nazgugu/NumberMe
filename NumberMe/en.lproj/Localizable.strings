@@ -6,4 +6,13 @@
   Copyright (c) 2015年 Liu Zhe. All rights reserved.
 */
 
+//GameViewController
 "GUIDE_ONE"="Please guess a four-digit number";
+"GUIDE_TWO"="Ready?";
+"GUIDE_THREE"="GO!";
+"DELETE"="Delete";
+"CLEAR"="Clear";
+"RESTART"="Restart";
+"HINT"="Hint";
+
+//AlertViewController
