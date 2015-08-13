@@ -24,6 +24,12 @@
 #define COCOAPODS_VERSION_MINOR_NuweScoreCharts 0
 #define COCOAPODS_VERSION_PATCH_NuweScoreCharts 0
 
+// RJBlurAlertView
+#define COCOAPODS_POD_AVAILABLE_RJBlurAlertView
+#define COCOAPODS_VERSION_MAJOR_RJBlurAlertView 0
+#define COCOAPODS_VERSION_MINOR_RJBlurAlertView 0
+#define COCOAPODS_VERSION_PATCH_RJBlurAlertView 2
+
 // RWBlurPopover
 #define COCOAPODS_POD_AVAILABLE_RWBlurPopover
 #define COCOAPODS_VERSION_MAJOR_RWBlurPopover 3

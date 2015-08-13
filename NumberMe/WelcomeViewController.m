@@ -6,9 +6,12 @@
 //
 //
 
+#define URLEMail @"mailto:zheliu9328@gmail.com?subject=Bug Report and Suggestions&body="
+
 #import "WelcomeViewController.h"
 #import "GameViewController.h"
 #import "RecordViewController.h"
+#import "RJBlurAlertView.h"
 
 @interface WelcomeViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
@@ -47,6 +50,28 @@
 - (IBAction)showRecord:(id)sender {
     RecordViewController *record = [[RecordViewController alloc] init];
     [self presentViewController:record animated:YES completion:nil];
+}
+
+- (IBAction)settingTap:(id)sender {
+    
+    NSLog(@"tappiong");
+    RJBlurAlertView *alert = [[RJBlurAlertView alloc] initWithTitle:NSLocalizedString(@"STITLE", nil) text:NSLocalizedString(@"SBODY", nil) cancelButton:YES];
+    [alert.okButton setTitle:NSLocalizedString(@"OK", nil) forState:UIControlStateNormal];
+    [alert.cancelButton setTitle:NSLocalizedString(@"CANCEL", nil) forState:UIControlStateNormal];
+    alert.animationType = RJBlurAlertViewAnimationTypeDrop;
+    [alert setCompletionBlock:^(RJBlurAlertView *theAlert, UIButton *button) {
+        if (button == theAlert.okButton)
+        {
+            NSString *url = [URLEMail stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+            [theAlert dismiss];
+        }
+        else
+        {
+            [theAlert dismiss];
+        }
+    }];
+    [alert show];
 }
 
 - (void)didReceiveMemoryWarning {
