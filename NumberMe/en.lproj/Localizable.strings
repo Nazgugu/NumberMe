@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  NumberMe
+
+  Created by Liu Zhe on 15/8/12.
+  Copyright (c) 2015年 Liu Zhe. All rights reserved.
+*/
+
+"GUIDE_ONE"="Please guess a four-digit number";

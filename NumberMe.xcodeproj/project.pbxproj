@@ -36,6 +36,7 @@
 		AE8E228E1B756B9B00A298DE /* YETIMotionLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8E228D1B756B9B00A298DE /* YETIMotionLabel.m */; };
 		AE8E22911B76AE7E00A298DE /* guessGame.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8E22901B76AE7E00A298DE /* guessGame.m */; };
 		AEF8FA801B7C40FF00607CB3 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEF8FA821B7C40FF00607CB3 /* WelcomeViewController.xib */; };
+		AEF8FA961B7C458800607CB3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AEF8FA981B7C458800607CB3 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,8 @@
 		AEF8FA7F1B7C40AF00607CB3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		AEF8FA871B7C411900607CB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/WelcomeViewController.xib; sourceTree = "<group>"; };
 		AEF8FA881B7C411F00607CB3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/WelcomeViewController.xib"; sourceTree = "<group>"; };
+		AEF8FA971B7C458800607CB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AEF8FA991B7C458C00607CB3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D6CD3BC6EB4860751C1445E0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FE5163FF0427C40D0D0FC969 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -188,6 +191,7 @@
 				AE3E41081B6EC28E001E26FE /* Images */,
 				AE26307F1B6EA58000A566AE /* Info.plist */,
 				AE2630801B6EA58000A566AE /* main.m */,
+				AEF8FA981B7C458800607CB3 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -378,6 +382,7 @@
 			files = (
 				AE26308F1B6EA58000A566AE /* LaunchScreen.xib in Resources */,
 				AE21E6EB1B7AAB1D006F4CB6 /* RecordViewController.xib in Resources */,
+				AEF8FA961B7C458800607CB3 /* Localizable.strings in Resources */,
 				AE21E6E61B79C229006F4CB6 /* welcome.png in Resources */,
 				AEF8FA801B7C40FF00607CB3 /* WelcomeViewController.xib in Resources */,
 				AE26308C1B6EA58000A566AE /* Images.xcassets in Resources */,
@@ -488,6 +493,15 @@
 				AEF8FA881B7C411F00607CB3 /* zh-Hans */,
 			);
 			name = WelcomeViewController.xib;
+			sourceTree = "<group>";
+		};
+		AEF8FA981B7C458800607CB3 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AEF8FA971B7C458800607CB3 /* en */,
+				AEF8FA991B7C458C00607CB3 /* zh-Hans */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -128,7 +128,7 @@
     _guideLabel.lineBreakMode = NSLineBreakByWordWrapping;
     _guideLabel.textColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8f];
     _guideLabel.textAlignment = NSTextAlignmentCenter;
-    _guideLabel.text = @"请猜一位四位数";
+    _guideLabel.text = NSLocalizedString(@"GUIDE_ONE", nil);
     
     //initialize a new game
     _game = [[guessGame alloc] init];
