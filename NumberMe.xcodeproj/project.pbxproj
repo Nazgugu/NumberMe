@@ -35,6 +35,7 @@
 		AE8E228B1B756B9500A298DE /* YETILayerAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8E228A1B756B9500A298DE /* YETILayerAnimation.m */; };
 		AE8E228E1B756B9B00A298DE /* YETIMotionLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8E228D1B756B9B00A298DE /* YETIMotionLabel.m */; };
 		AE8E22911B76AE7E00A298DE /* guessGame.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8E22901B76AE7E00A298DE /* guessGame.m */; };
+		AEF27D701B7D0A1800A4AD5B /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF27D6F1B7D0A1800A4AD5B /* iAd.framework */; };
 		AEF8FA961B7C458800607CB3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AEF8FA981B7C458800607CB3 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +97,7 @@
 		AE8E228D1B756B9B00A298DE /* YETIMotionLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YETIMotionLabel.m; sourceTree = "<group>"; };
 		AE8E228F1B76AE7E00A298DE /* guessGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = guessGame.h; path = Model/guessGame.h; sourceTree = "<group>"; };
 		AE8E22901B76AE7E00A298DE /* guessGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = guessGame.m; path = Model/guessGame.m; sourceTree = "<group>"; };
+		AEF27D6F1B7D0A1800A4AD5B /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		AEF8FA971B7C458800607CB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AEF8FA991B7C458C00607CB3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D6CD3BC6EB4860751C1445E0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEF27D701B7D0A1800A4AD5B /* iAd.framework in Frameworks */,
 				AE6758771B77C28100F5A93C /* QuartzCore.framework in Frameworks */,
 				AE6758751B77C25A00F5A93C /* UIKit.framework in Frameworks */,
 				AE6758731B77C24F00F5A93C /* Foundation.framework in Frameworks */,
@@ -127,6 +130,7 @@
 		6E1917FA78D175219BF57EAC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AEF27D6F1B7D0A1800A4AD5B /* iAd.framework */,
 				AE6758761B77C28100F5A93C /* QuartzCore.framework */,
 				AE6758741B77C25A00F5A93C /* UIKit.framework */,
 				AE6758721B77C24F00F5A93C /* Foundation.framework */,
@@ -346,6 +350,7 @@
 					};
 					AE2630931B6EA58000A566AE = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = AQNTGEWRNX;
 						TestTargetID = AE26307A1B6EA58000A566AE;
 					};
 				};
@@ -608,6 +613,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -620,6 +627,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ZL.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NumberMe.app/NumberMe";
 			};
 			name = Debug;
@@ -628,6 +636,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -636,6 +646,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ZL.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NumberMe.app/NumberMe";
 			};
 			name = Release;

@@ -12,11 +12,15 @@
 #import "GameViewController.h"
 #import "RecordViewController.h"
 #import "RJBlurAlertView.h"
+#import <iAd/iAd.h>
 
-@interface WelcomeViewController ()
+@interface WelcomeViewController ()<ADBannerViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIButton *recordButton;
 @property (weak, nonatomic) IBOutlet UIButton *settingButton;
+@property (weak, nonatomic) IBOutlet ADBannerView *adBannerView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomSpaceConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bannerViewSpaceConstraint;
 
 @end
 
@@ -44,6 +48,10 @@
     [_startButton setTitle:NSLocalizedString(@"START", nil) forState:UIControlStateNormal];
     [_recordButton setTitle:NSLocalizedString(@"RD", nil) forState:UIControlStateNormal];
     [_settingButton setTitle:NSLocalizedString(@"ST", nil) forState:UIControlStateNormal];
+    
+    
+    _adBannerView.delegate = self;
+    _adBannerView.alpha = 0;
 }
 
 - (IBAction)startGame:(id)sender {
@@ -82,6 +90,29 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - iAdBanner Delegates
+
+-(void)bannerView:(ADBannerView *)banner
+didFailToReceiveAdWithError:(NSError *)error{
+    NSLog(@"Error in Loading Banner!");
+    self.bannerViewSpaceConstraint.constant = -50;
+    self.bottomSpaceConstraint.constant = 20;
+}
+
+-(void)bannerViewDidLoadAd:(ADBannerView *)banner{
+    NSLog(@"iAd banner Loaded Successfully!");
+    [UIView animateWithDuration:1.0f animations:^{
+        _adBannerView.alpha = 1.0f;
+    }];
+}
+-(void)bannerViewWillLoadAd:(ADBannerView *)banner{
+    NSLog(@"iAd Banner will load!");
+}
+-(void)bannerViewActionDidFinish:(ADBannerView *)banner{
+    NSLog(@"iAd Banner did finish");
+    
 }
 
 /*
