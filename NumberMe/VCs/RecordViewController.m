@@ -197,6 +197,10 @@
         [_gameResultChart scrollToBarAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES];
         [self loadDataAtIndex:0];
     }
+    else
+    {
+        _dataChart.hidden = YES;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated

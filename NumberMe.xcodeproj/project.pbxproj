@@ -76,6 +76,7 @@
 		AE3E41131B6F2BA7001E26FE /* NumberMe-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NumberMe-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		AE4AC8A51B7B2842000D541D /* RWBarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWBarChartView.h; sourceTree = "<group>"; };
 		AE4AC8A61B7B2842000D541D /* RWBarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWBarChartView.m; sourceTree = "<group>"; };
+		AE4C1E6D1B7C669B00AC1FBF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/WelcomeViewController.xib; sourceTree = "<group>"; };
 		AE6758721B77C24F00F5A93C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AE6758741B77C25A00F5A93C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AE6758761B77C28100F5A93C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -491,6 +492,7 @@
 			children = (
 				AEF8FA871B7C411900607CB3 /* en */,
 				AEF8FA881B7C411F00607CB3 /* zh-Hans */,
+				AE4C1E6D1B7C669B00AC1FBF /* Base */,
 			);
 			name = WelcomeViewController.xib;
 			sourceTree = "<group>";

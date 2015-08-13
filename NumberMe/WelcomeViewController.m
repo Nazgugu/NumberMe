@@ -48,13 +48,14 @@
 }
 
 - (IBAction)showRecord:(id)sender {
+    //NSLog(@"tapping record");
     RecordViewController *record = [[RecordViewController alloc] init];
     [self presentViewController:record animated:YES completion:nil];
 }
 
 - (IBAction)settingTap:(id)sender {
     
-    NSLog(@"tappiong");
+    //NSLog(@"tapping");
     RJBlurAlertView *alert = [[RJBlurAlertView alloc] initWithTitle:NSLocalizedString(@"STITLE", nil) text:NSLocalizedString(@"SBODY", nil) cancelButton:YES];
     [alert.okButton setTitle:NSLocalizedString(@"OK", nil) forState:UIControlStateNormal];
     [alert.cancelButton setTitle:NSLocalizedString(@"CANCEL", nil) forState:UIControlStateNormal];
