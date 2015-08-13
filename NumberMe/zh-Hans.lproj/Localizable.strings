@@ -36,6 +36,6 @@
 //RecordViewController
 "RECORDTITLE"="游戏纪录";
 "SCORERECORD"="分数纪录";
-"INFOC"="正确率";
-"INFOT"="用时";
-"INFOS"="游戏分数";
+"INFOC"="Correctness";
+"INFOT"="Time Used";
+"INFOS"="Game Score";

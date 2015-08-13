@@ -176,6 +176,7 @@
         {
             XMCircleTypeView * _textView = (XMCircleTypeView*)[arrayTextViews objectAtIndex:i];
             NSString* _text = [chartDataSource dialChart:self textOfCircleAtIndex:i];
+            //NSLog(@"text = %@",_text);
             _textView.text = _text;
             [_textView setNeedsDisplay];
         }
