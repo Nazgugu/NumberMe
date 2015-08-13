@@ -19,7 +19,6 @@
 		AE26308F1B6EA58000A566AE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE26308D1B6EA58000A566AE /* LaunchScreen.xib */; };
 		AE26309B1B6EA58000A566AE /* NumberMeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AE26309A1B6EA58000A566AE /* NumberMeTests.m */; };
 		AE3E41041B6EC19D001E26FE /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3E41021B6EC19D001E26FE /* WelcomeViewController.m */; };
-		AE3E41051B6EC19D001E26FE /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE3E41031B6EC19D001E26FE /* WelcomeViewController.xib */; };
 		AE3E41101B6ECFD0001E26FE /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3E410E1B6ECFD0001E26FE /* GameViewController.m */; };
 		AE3E41111B6ECFD0001E26FE /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE3E410F1B6ECFD0001E26FE /* GameViewController.xib */; };
 		AE4AC8A71B7B2842000D541D /* RWBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4AC8A61B7B2842000D541D /* RWBarChartView.m */; };
@@ -36,6 +35,7 @@
 		AE8E228B1B756B9500A298DE /* YETILayerAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8E228A1B756B9500A298DE /* YETILayerAnimation.m */; };
 		AE8E228E1B756B9B00A298DE /* YETIMotionLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8E228D1B756B9B00A298DE /* YETIMotionLabel.m */; };
 		AE8E22911B76AE7E00A298DE /* guessGame.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8E22901B76AE7E00A298DE /* guessGame.m */; };
+		AEF8FA801B7C40FF00607CB3 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEF8FA821B7C40FF00607CB3 /* WelcomeViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,7 +68,6 @@
 		AE26309A1B6EA58000A566AE /* NumberMeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NumberMeTests.m; sourceTree = "<group>"; };
 		AE3E41011B6EC19D001E26FE /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		AE3E41021B6EC19D001E26FE /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
-		AE3E41031B6EC19D001E26FE /* WelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 		AE3E410D1B6ECFD0001E26FE /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameViewController.h; path = VCs/GameViewController.h; sourceTree = "<group>"; };
 		AE3E410E1B6ECFD0001E26FE /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameViewController.m; path = VCs/GameViewController.m; sourceTree = "<group>"; };
 		AE3E410F1B6ECFD0001E26FE /* GameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GameViewController.xib; path = VCs/GameViewController.xib; sourceTree = "<group>"; };
@@ -97,6 +96,9 @@
 		AE8E228D1B756B9B00A298DE /* YETIMotionLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YETIMotionLabel.m; sourceTree = "<group>"; };
 		AE8E228F1B76AE7E00A298DE /* guessGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = guessGame.h; path = Model/guessGame.h; sourceTree = "<group>"; };
 		AE8E22901B76AE7E00A298DE /* guessGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = guessGame.m; path = Model/guessGame.m; sourceTree = "<group>"; };
+		AEF8FA7F1B7C40AF00607CB3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		AEF8FA871B7C411900607CB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/WelcomeViewController.xib; sourceTree = "<group>"; };
+		AEF8FA881B7C411F00607CB3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/WelcomeViewController.xib"; sourceTree = "<group>"; };
 		D6CD3BC6EB4860751C1445E0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FE5163FF0427C40D0D0FC969 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -221,7 +223,7 @@
 				AE3E410F1B6ECFD0001E26FE /* GameViewController.xib */,
 				AE3E41011B6EC19D001E26FE /* WelcomeViewController.h */,
 				AE3E41021B6EC19D001E26FE /* WelcomeViewController.m */,
-				AE3E41031B6EC19D001E26FE /* WelcomeViewController.xib */,
+				AEF8FA821B7C40FF00607CB3 /* WelcomeViewController.xib */,
 			);
 			name = VCs;
 			sourceTree = "<group>";
@@ -356,6 +358,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = AE2630721B6EA58000A566AE;
 			productRefGroup = AE26307C1B6EA58000A566AE /* Products */;
@@ -376,7 +379,7 @@
 				AE26308F1B6EA58000A566AE /* LaunchScreen.xib in Resources */,
 				AE21E6EB1B7AAB1D006F4CB6 /* RecordViewController.xib in Resources */,
 				AE21E6E61B79C229006F4CB6 /* welcome.png in Resources */,
-				AE3E41051B6EC19D001E26FE /* WelcomeViewController.xib in Resources */,
+				AEF8FA801B7C40FF00607CB3 /* WelcomeViewController.xib in Resources */,
 				AE26308C1B6EA58000A566AE /* Images.xcassets in Resources */,
 				AE3E41111B6ECFD0001E26FE /* GameViewController.xib in Resources */,
 				AE21E6F11B7ABF0D006F4CB6 /* GameBG.png in Resources */,
@@ -473,8 +476,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				AE26308E1B6EA58000A566AE /* Base */,
+				AEF8FA7F1B7C40AF00607CB3 /* zh-Hans */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		AEF8FA821B7C40FF00607CB3 /* WelcomeViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AEF8FA871B7C411900607CB3 /* en */,
+				AEF8FA881B7C411F00607CB3 /* zh-Hans */,
+			);
+			name = WelcomeViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -77,6 +77,7 @@
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     if ([[UIApplication sharedApplication] currentUserNotificationSettings].types != UIUserNotificationTypeNone)
     {
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
         [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
         [self scheduleLocalNotification];
     }
