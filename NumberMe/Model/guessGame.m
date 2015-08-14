@@ -487,7 +487,7 @@ NSString * const kDateOfGame = @"dateOfGame";
             }
         }
     }
-    _gameScore += secondsLeft * 10 + _availabelHints * 75 - _numberOfTries * 2 - (arc4random() % 25) * (4 - _availabelHints);
+    _gameScore += secondsLeft * 10 + _availabelHints * 75 - _numberOfTries * 5 - (arc4random() % 25) * (4 - _availabelHints);
     
     //NSLog(@"correct number = %ld",_correctNumber);
     

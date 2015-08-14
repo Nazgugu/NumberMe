@@ -70,6 +70,9 @@
 //the game
 @property (nonatomic, strong) guessGame *game;
 
+@property (nonatomic, strong) NSArray *numberArray;
+@property (nonatomic, strong) NSMutableArray *enables;
+
 @end
 
 @implementation GameViewController
@@ -80,6 +83,7 @@
     //first init 10 round digit buttons
     
 //    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
     
     _verticalGap = 20.0f;
     
@@ -133,6 +137,8 @@
     //initialize a new game
     _game = [[guessGame alloc] init];
     
+    _enables = [[NSMutableArray alloc] initWithObjects:@(1),@(1),@(1),@(1), nil];
+    
     [self.view addSubview:_guideLabel];
     [self initButtons];
     [self createBoxes];
@@ -159,6 +165,12 @@
     NSLog(@"restarting game");
     _game = [[guessGame alloc] init];
     _theGlowingBox = 0;
+    
+    for (int i = 0; i < _enables.count; i++)
+    {
+        [_enables replaceObjectAtIndex:i withObject:@(1)];
+    }
+    
     [self revertToWhite];
     [_timer resetTimer];
     [self cancelShake];
@@ -643,6 +655,8 @@
     [_numberNine addTarget:self action:@selector(buttonNormal:) forControlEvents:UIControlEventTouchUpInside];
     _numberNine.titleLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:32.0f];
     [self.view addSubview:_numberNine];
+    
+    _numberArray = [[NSArray alloc] initWithObjects:_numberZero, _numberOne, _numberTwo, _numberThree, _numberFour, _numberFive, _numberSix, _numberSeven, _numberEight, _numberNine, nil];
 
 }
 
@@ -884,15 +898,19 @@
     temp.layer.shadowRadius = 5.0f;
     temp.layer.shadowOpacity = 0.8f;
     [temp shake:10 withDelta:6 speed:0.05 shakeDirection:ShakeDirectionHorizontal];
-    [self performSelector:@selector(glowBlue:) withObject:temp afterDelay:0.4f];
+    [self performSelector:@selector(glowBlue:) withObject:temp afterDelay:0.3f];
 }
 
 - (void)glowBlue:(JTNumberScrollAnimatedView *)view
 {
-    view.layer.borderColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
-    view.layer.shadowColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
-    view.layer.shadowRadius = 5.0f;
-    view.layer.shadowOpacity = 0.8f;
+    if (view.isUserInteractionEnabled)
+    {
+        view.layer.borderColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+        view.layer.shadowColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+        view.layer.shadowRadius = 5.0f;
+        view.layer.shadowOpacity = 0.8f;
+    }
+    return;
 }
 
 - (void)revertToWhite
@@ -1036,98 +1054,20 @@
             return;
         }
     }
-    
-    
-//    switch (index) {
-//        case 1:
-//        {
-//            if (_firstDigit.isUserInteractionEnabled)
-//            {
-//                colorAnimation.toValue = (id)[UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
-//                _firstDigit.layer.borderColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
-//                _firstDigit.layer.shadowColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
-//                _firstDigit.layer.shadowRadius = 5.0f;
-//                _firstDigit.layer.shadowOpacity = 0.8f;
-//                colorAnimation.duration = 1.5f;
-//                colorAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-//                [_firstDigit.layer addAnimation:colorAnimation forKey:@"borderColorChange"];
-//            }
-//            
-//        }
-//            break;
-//        case 2:
-//        {
-//            if (_secondDigit.isUserInteractionEnabled)
-//            {
-//                colorAnimation.toValue = (id)[UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
-//                _secondDigit.layer.borderColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
-//                _secondDigit.layer.shadowColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
-//                _secondDigit.layer.shadowRadius = 5.0f;
-//                _secondDigit.layer.shadowOpacity = 0.8f;
-//                colorAnimation.duration = 1.5f;
-//                colorAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-//                [_secondDigit.layer addAnimation:colorAnimation forKey:@"borderColorChange"];
-//            }
-//        }
-//            break;
-//        case 3:
-//        {
-//            if (_thirdDigit.isUserInteractionEnabled)
-//            {
-//                colorAnimation.toValue = (id)[UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
-//                _thirdDigit.layer.borderColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
-//                _thirdDigit.layer.shadowColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
-//                _thirdDigit.layer.shadowRadius = 5.0f;
-//                _thirdDigit.layer.shadowOpacity = 0.8f;
-//                colorAnimation.duration = 1.5f;
-//                colorAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-//                [_thirdDigit.layer addAnimation:colorAnimation forKey:@"borderColorChange"];
-//            }
-//        }
-//            break;
-//        case 4:
-//        {
-//            if (_forthDigit.isUserInteractionEnabled)
-//            {
-//                colorAnimation.toValue = (id)[UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
-//                _forthDigit.layer.borderColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
-//                _forthDigit.layer.shadowColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
-//                _forthDigit.layer.shadowRadius = 5.0f;
-//                _forthDigit.layer.shadowOpacity = 0.8f;
-//                colorAnimation.duration = 1.5f;
-//                colorAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-//                [_forthDigit.layer addAnimation:colorAnimation forKey:@"borderColorChange"];
-//            }
-//        }
-//            break;
-//        
-//        default:
-//            break;
-//    }
 }
 
 //glow green
 - (void)glowGreenAtIndex:(NSInteger)index
 {
-    //NSLog(@"called glow green at index = %ld",index);
-//    CABasicAnimation *reverseAnimation = [CABasicAnimation animationWithKeyPath:@"colorAnimation"];
-//    reverseAnimation.autoreverses = NO;
-//    reverseAnimation.fromValue = (id)[UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
-//    reverseAnimation.toValue = (id)[UIColor colorWithRed:0.263f green:0.792f blue:0.459f alpha:1.00f].CGColor;
-//    reverseAnimation.duration = 1.5f;
-//    reverseAnimation.removedOnCompletion = YES;
-//    reverseAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    
-    //NSLog(@"index = %ld",index);
     JTNumberScrollAnimatedView *temp = (JTNumberScrollAnimatedView *)[_boxArray objectAtIndex:index];
     
     temp.userInteractionEnabled = NO;
+    
+//    [temp.layer addAnimation:reverseAnimation forKey:@"colorChange"];
     temp.layer.borderColor = [UIColor colorWithRed:0.263f green:0.792f blue:0.459f alpha:1.00f].CGColor;
     temp.layer.shadowColor = [UIColor colorWithRed:0.263f green:0.792f blue:0.459f alpha:1.00f].CGColor;
     temp.layer.shadowRadius = 5.0f;
     temp.layer.shadowOpacity = 0.8;
-    
-//    [temp.layer addAnimation:reverseAnimation forKey:@"colorChange"];
 }
 
 - (void)cancelShake
@@ -1167,6 +1107,7 @@
 
 - (void)buttonHighlighted:(UIButton *)sender
 {
+    [self disableTouchOnOthersExcept:sender.tag];
     sender.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.1f];
     sender.layer.borderColor = [UIColor colorWithRed:0.780f green:0.937f blue:0.965f alpha:1.00f].CGColor;
 }
@@ -1188,6 +1129,7 @@
         //succeed
         //NSLog(@"showing success");
 //        NSLog(@"remain time = %ld",[_timer remainingDurationInSeconds]);
+        [self resumeTouch];
         [_timer pauseTimer];
         [self showSuccess];
         return;
@@ -1195,7 +1137,9 @@
     
     if ([[_game.correctNess objectAtIndex:_theGlowingBox - 1] integerValue] == 1)
     {
+        [self resumeTouch];
         [self glowGreenAtIndex:_theGlowingBox - 1];
+        [_enables replaceObjectAtIndex:_theGlowingBox - 1 withObject:@(0)];
         if (_theGlowingBox < 4)
         {
             [self glowBoxAtIndex:_theGlowingBox + 1];
@@ -1207,6 +1151,7 @@
     }
     else
     {
+        [self resumeTouch];
         [self shakeBoxAtIndex:_theGlowingBox - 1];
     }
 }
@@ -1252,6 +1197,7 @@
 
 - (void)toolButtonHighlighted:(UIButton *)sender
 {
+    [self disableTouchOnOthersExcept:sender.tag];
     switch (sender.tag) {
         //delete button
         case -1:
@@ -1289,6 +1235,7 @@
 
 - (void)toolButtonNormal:(UIButton *)sender
 {
+    [self resumeTouch];
     sender.backgroundColor = [UIColor clearColor];
     switch (sender.tag) {
             //delete button
@@ -1346,6 +1293,90 @@
 - (void)remindTime
 {
     _guideLabel.text = [NSString stringWithFormat:@"There is only %ld seconds remaining",(long)[_timer remainingDurationInSeconds]];
+}
+
+- (void)resumeTouch
+{
+    for (UIButton *number in  _numberArray)
+    {
+        number.userInteractionEnabled = YES;
+    }
+    _deleteOneButton.userInteractionEnabled = YES;
+    _clearButton.userInteractionEnabled = YES;
+    _restartButton.userInteractionEnabled = YES;
+    _hintButton.userInteractionEnabled = YES;
+    
+    for (int i = 0; i < _boxArray.count; i++)
+    {
+        JTNumberScrollAnimatedView *temp = [_boxArray objectAtIndex:i];
+        if ([[_enables objectAtIndex:i] integerValue] != 0)
+        {
+            temp.userInteractionEnabled = YES;
+        }
+    }
+}
+
+- (void)disableTouchOnOthersExcept:(NSInteger)index
+{
+    
+    if (index >= 0)
+    {
+        for (UIButton *number in _numberArray)
+        {
+            if (number.tag != index)
+            {
+                number.userInteractionEnabled = NO;
+            }
+        }
+        _deleteOneButton.userInteractionEnabled = NO;
+        _clearButton.userInteractionEnabled = NO;
+        _restartButton.userInteractionEnabled = NO;
+        _hintButton.userInteractionEnabled = NO;
+    }
+    else
+    {
+        for (UIButton *number in _numberArray)
+        {
+            number.userInteractionEnabled = NO;
+        }
+        switch (index) {
+            case -1:
+            {
+                _clearButton.userInteractionEnabled = NO;
+                _restartButton.userInteractionEnabled = NO;
+                _hintButton.userInteractionEnabled = NO;
+            }
+                break;
+            case -2:
+            {
+                _deleteOneButton.userInteractionEnabled = NO;
+                _restartButton.userInteractionEnabled = NO;
+                _hintButton.userInteractionEnabled = NO;
+            }
+                break;
+            case -3:
+            {
+                _deleteOneButton.userInteractionEnabled = NO;
+                _clearButton.userInteractionEnabled = NO;
+                _hintButton.userInteractionEnabled = NO;
+            }
+                break;
+            case -4:
+            {
+                _deleteOneButton.userInteractionEnabled = NO;
+                _clearButton.userInteractionEnabled = NO;
+                _restartButton.userInteractionEnabled = NO;
+            }
+                break;
+            default:
+                break;
+        }
+    }
+    
+    for (JTNumberScrollAnimatedView *view in _boxArray)
+    {
+        view.userInteractionEnabled = NO;
+    }
 }
 
 #pragma mark - JSKTimerDelegate

@@ -200,6 +200,7 @@
     
     self.sectionTitleSizeCache = [NSMutableDictionary dictionary];
     
+    
     CGFloat width = [self leftIndicatorPadding] + self.fadingAreaWidth;
     NSMutableArray *sectionRects = [NSMutableArray array];
     self.lastItemIndexPath = nil;
@@ -237,7 +238,27 @@
     if (contentWidth < CGRectGetWidth(self.bounds) * 1.5) {
         contentWidth += CGRectGetWidth(self.bounds);
     }
-    self.contentSize = CGSizeMake(contentWidth, self.bounds.size.height);
+    
+    CGFloat height;
+    
+    if (IS_IPHONE_4_OR_LESS)
+    {
+        height = 200.0f;
+    }
+    else if (IS_IPHONE_5)
+    {
+        height = 270.0f;
+    }
+    else if (IS_IPHONE_6)
+    {
+        height = 320.0f;
+    }
+    else
+    {
+        height = 350.0f;
+    }
+    
+    self.contentSize = CGSizeMake(contentWidth, height);
     self.contentInset = UIEdgeInsetsMake(0, self.contentHorizontalMargin, 0, self.contentHorizontalMargin);
     
     if (self.lastItemIndexPath) {
@@ -248,6 +269,7 @@
         //[self setContentOffset:CGPointMake(width - self.bounds.size.width + self.contentHorizontalMargin, 0)];
     }
     [self setNeedsDisplay];
+    
 }
 
 - (NSRange)visibleSectionsInRect:(CGRect)rect
