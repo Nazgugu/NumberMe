@@ -9,6 +9,7 @@
 #import "AlertViewController.h"
 #import "RWBlurPopover.h"
 #import "EGOCache.h"
+#import "OpenShareHeader.h"
 
 @interface AlertViewController ()
 
@@ -127,7 +128,16 @@
         [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameScore] forKey:@"maxScore"];
         _recordLabel.text = NSLocalizedString(@"NORECORD", nil);
     }
-
+    
+    if (![OpenShare isWeixinInstalled])
+    {
+        self.shareCircleButton.hidden = YES;
+    }
+    if (![OpenShare isWeiboInstalled])
+    {
+        self.shareWeiboCircle.hidden = YES;
+    }
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -169,6 +179,52 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (UIImage *)getScreenshot
+{
+    CGRect screenRect = CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT);
+    UIGraphicsBeginImageContextWithOptions(screenRect.size,self.parentViewController.view.opaque,0.0);
+    
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    [[UIColor blackColor] set];
+    CGContextFillRect(ctx, screenRect);
+    
+    [[self.parentViewController.view layer] renderInContext:ctx];
+    
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
+
+
+- (IBAction)shareWechatAction:(id)sender {
+    OSMessage *message = [[OSMessage alloc] init];
+    message.title = [NSString stringWithFormat:@"看，我猜一个四位数只用了%ld秒，得分%ld。你也来试试",_game.duration,_game.gameScore];
+    message.link = @"https://itunes.apple.com/us/app/four4/id1030279451?l=zh&ls=1&mt=8";
+    message.image = UIImageJPEGRepresentation([self getScreenshot], 0.1f);
+    //message.thumbnail = UIImagePNGRepresentation([self getScreenshot]);
+    [OpenShare shareToWeixinTimeline:message Success:^(OSMessage *message) {
+        NSLog(@"分享成功");
+    } Fail:^(OSMessage *message, NSError *error) {
+        NSLog(@"分享失败");
+    }];
+}
+
+- (IBAction)shareWeiboAction:(id)sender {
+    OSMessage *message = [[OSMessage alloc] init];
+    message.title = [NSString stringWithFormat:@"看，我猜一个四位数只用了%ld秒，得分%ld。你也来试试~下载:https://itunes.apple.com/us/app/four4/id1030279451?l=zh&ls=1&mt=8",_game.duration,_game.gameScore];
+    message.image = UIImagePNGRepresentation([self getScreenshot]);
+    [OpenShare shareToWeibo:message Success:^(OSMessage *message) {
+        NSLog(@"分享成功");
+    } Fail:^(OSMessage *message, NSError *error) {
+        NSLog(@"分享失败");
+    }];
+}
+
+- (IBAction)shareFacebookAction:(id)sender {
 }
 
 /*

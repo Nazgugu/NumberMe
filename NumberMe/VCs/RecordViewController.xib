@@ -12,6 +12,9 @@
                 <outlet property="gameRecordLabel" destination="fFc-1u-T7x" id="uOI-4T-7yS"/>
                 <outlet property="gameResultChart" destination="x5q-9J-Vl9" id="i4S-IQ-GWP"/>
                 <outlet property="seperator" destination="S7l-DS-Gob" id="EiV-66-eSF"/>
+                <outlet property="shareFacebookBtn" destination="kup-iA-5eW" id="h3X-U3-OQD"/>
+                <outlet property="shareWechatBtn" destination="k3a-fe-ny6" id="Y3y-bl-egF"/>
+                <outlet property="shareWeiboBtn" destination="PjD-Ds-yLl" id="hV9-9B-sHI"/>
                 <outlet property="spaceConstraintLeft" destination="0pu-FL-RQY" id="DYo-W3-QtB"/>
                 <outlet property="spaceConstraintRight" destination="1Vd-Tm-5w3" id="jtr-Qm-0K9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -69,6 +72,9 @@
                     <state key="normal" image="shareCircle">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="weixinShare:" destination="-1" eventType="touchUpInside" id="qxI-2N-lbk"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PjD-Ds-yLl">
                     <rect key="frame" x="145" y="518" width="30" height="30"/>
@@ -80,6 +86,9 @@
                     <state key="normal" image="shareWeibo">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="weiboShare:" destination="-1" eventType="touchUpInside" id="PpG-cC-Ebf"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kup-iA-5eW">
                     <rect key="frame" x="233" y="523" width="25" height="25"/>

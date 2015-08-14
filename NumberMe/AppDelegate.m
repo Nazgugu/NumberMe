@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "WelcomeViewController.h"
 #import "EGOCache.h"
+#import "OpenShareHeader.h"
 
 @interface AppDelegate ()
 
@@ -38,8 +39,15 @@
     [self.window makeKeyAndVisible];
     
     [self setUpEGOCache];
+    [self registerPlatforms];
     
     return YES;
+}
+
+- (void)registerPlatforms
+{
+    [OpenShare connectWeiboWithAppKey:@"3997311644"];
+    [OpenShare connectWeixinWithAppId:@"wxecd46c32832549fa"];
 }
 
 - (void)setUpEGOCache
@@ -85,6 +93,16 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    if ([OpenShare handleOpenURL:url])
+    {
+        return YES;
+    }
+    
+    return YES;
 }
 
 - (void)scheduleLocalNotification

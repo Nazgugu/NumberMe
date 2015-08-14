@@ -12,6 +12,7 @@
 #import "guessGame.h"
 #import "YETIMotionLabel.h"
 #import "NUDialChart.h"
+#import "OpenShareHeader.h"
 
 @interface RecordViewController ()<UIScrollViewDelegate, RWBarChartViewDataSource, NUDialChartDataSource, NUDialChartDelegate>
 @property (weak, nonatomic) IBOutlet RWBarChartView *gameResultChart;
@@ -40,6 +41,9 @@
 //@property (weak, nonatomic) IBOutlet NSLayoutConstraint *circleLabelWidthConstraint;
 
 @property (nonatomic, strong) guessGame *game;
+@property (weak, nonatomic) IBOutlet UIButton *shareWechatBtn;
+@property (weak, nonatomic) IBOutlet UIButton *shareWeiboBtn;
+@property (weak, nonatomic) IBOutlet UIButton *shareFacebookBtn;
 
 @property (weak, nonatomic) IBOutlet UIView *seperator;
 @end
@@ -200,6 +204,14 @@
     else
     {
         _dataChart.hidden = YES;
+    }
+    if (![OpenShare isWeixinInstalled])
+    {
+        _shareWechatBtn.hidden = YES;
+    }
+    if (![OpenShare isWeiboInstalled])
+    {
+        _shareWeiboBtn.hidden = YES;
     }
 }
 
@@ -457,6 +469,47 @@
     return (int)_game.gameScore;
 }
 
+- (UIImage *)getScreenshot
+{
+    CGRect screenRect = CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT);
+    UIGraphicsBeginImageContextWithOptions(screenRect.size,self.parentViewController.view.opaque,0.0);
+    
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    [[UIColor blackColor] set];
+    CGContextFillRect(ctx, screenRect);
+    
+    [[self.view layer] renderInContext:ctx];
+    
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
+
+- (IBAction)weixinShare:(id)sender {
+        OSMessage *message = [[OSMessage alloc] init];
+        message.title = @"这个游戏简直停不下来，太有意思了";
+        message.link = @"https://itunes.apple.com/us/app/four4/id1030279451?l=zh&ls=1&mt=8";
+        message.image = UIImageJPEGRepresentation([UIImage imageNamed:@"icon"], 0.5f);
+        //message.thumbnail = UIImagePNGRepresentation([self getScreenshot]);
+        [OpenShare shareToWeixinTimeline:message Success:^(OSMessage *message) {
+            NSLog(@"分享成功");
+        } Fail:^(OSMessage *message, NSError *error) {
+            NSLog(@"分享失败");
+        }];
+}
+
+- (IBAction)weiboShare:(id)sender {
+    OSMessage *message = [[OSMessage alloc] init];
+    message.title = @"我猜数字又创新纪录了。你也来试试~下载:https://itunes.apple.com/us/app/four4/id1030279451?l=zh&ls=1&mt=8";
+    message.image = UIImagePNGRepresentation([self getScreenshot]);
+    [OpenShare shareToWeibo:message Success:^(OSMessage *message) {
+        NSLog(@"分享成功");
+    } Fail:^(OSMessage *message, NSError *error) {
+        NSLog(@"分享失败");
+    }];
+}
 #pragma mark - NUDailChartDelegate
 
 - (void)touchNuDialChart:(NUDialChart *)chart

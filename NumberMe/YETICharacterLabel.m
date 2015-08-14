@@ -158,10 +158,13 @@
             
             //Adjust if needed
             if (glyphIndex == glyphKerningRange.location && textLayerIndex != 0) {
-                CATextLayer *previousLayer = self.characterTextLayers[textLayerIndex-1];
-                CGRect frame = previousLayer.frame;
-                frame.size.width = CGRectGetMaxX(glyphRect)-CGRectGetMinX(frame);
-                previousLayer.frame = frame;
+                if ((textLayerIndex - 1) < self.characterTextLayers.count)
+                {
+                    CATextLayer *previousLayer = self.characterTextLayers[textLayerIndex-1];
+                    CGRect frame = previousLayer.frame;
+                    frame.size.width = CGRectGetMaxX(glyphRect)-CGRectGetMinX(frame);
+                    previousLayer.frame = frame;
+                }
             }
             
             //Adjust the location

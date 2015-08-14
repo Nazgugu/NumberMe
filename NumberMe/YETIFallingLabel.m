@@ -86,9 +86,12 @@
             textLayer.opacity = 0;
         } completionBlock:^(BOOL finished) {
             [textLayer removeFromSuperlayer];
-            if (textLayer == self.oldCharacterTextLayers[longestAnimationIndex]) {
-                if (completionBlock) {
-                    completionBlock(finished);
+            if (longestAnimationIndex < self.oldCharacterTextLayers.count)
+            {
+                if (textLayer == self.oldCharacterTextLayers[longestAnimationIndex]) {
+                    if (completionBlock) {
+                        completionBlock(finished);
+                    }
                 }
             }
         }];
