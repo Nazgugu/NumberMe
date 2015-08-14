@@ -96,22 +96,22 @@
 
 -(void)bannerView:(ADBannerView *)banner
 didFailToReceiveAdWithError:(NSError *)error{
-    NSLog(@"Error in Loading Banner!");
+    //NSLog(@"Error in Loading Banner!");
     self.bannerViewSpaceConstraint.constant = -50;
     self.bottomSpaceConstraint.constant = 20;
 }
 
 -(void)bannerViewDidLoadAd:(ADBannerView *)banner{
-    NSLog(@"iAd banner Loaded Successfully!");
+    //NSLog(@"iAd banner Loaded Successfully!");
     [UIView animateWithDuration:1.0f animations:^{
         _adBannerView.alpha = 1.0f;
     }];
 }
 -(void)bannerViewWillLoadAd:(ADBannerView *)banner{
-    NSLog(@"iAd Banner will load!");
+    //NSLog(@"iAd Banner will load!");
 }
 -(void)bannerViewActionDidFinish:(ADBannerView *)banner{
-    NSLog(@"iAd Banner did finish");
+    //NSLog(@"iAd Banner did finish");
     
 }
 

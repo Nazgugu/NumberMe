@@ -21,6 +21,8 @@ CGFloat getAngleBetweenThreePoints(CGPoint centerPoint, CGPoint p1, CGPoint p2);
     CGFloat rPrevAngle;
 }
 
+@property (nonatomic) CGFloat previous;
+
 @end
 
 @implementation PNCircleChart
@@ -39,6 +41,7 @@ CGFloat getAngleBetweenThreePoints(CGPoint centerPoint, CGPoint p1, CGPoint p2);
     if (self) {
         _total = total;
         _current = current;
+        _previous = 0.0f;
         _strokeColor = PNFreshGreen;
         _clockwise = clockwise;
         
@@ -128,21 +131,61 @@ CGFloat getAngleBetweenThreePoints(CGPoint centerPoint, CGPoint p1, CGPoint p2);
     _circleBG.lineWidth = [_lineWidth floatValue];
     _circleBG.strokeEnd = 1.0;
     
-    _circle.strokeColor = _isFrame ? PNLightYellow.CGColor : _strokeColor.CGColor;
-    _circleBorder.strokeColor = _strokeColor.CGColor;
     
-    //Add Animation
-    CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-    pathAnimation.duration = 0.5;
-    pathAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    pathAnimation.fromValue = [NSNumber numberWithFloat:0.0f];
-    pathAnimation.toValue = [NSNumber numberWithFloat:[_current floatValue]/[_total floatValue]];
-    [_circle addAnimation:pathAnimation forKey:@"strokeEndAnimation"];
-    _circle.strokeEnd   = [_current floatValue]/[_total floatValue];
+    CGFloat destVal = [_current floatValue]/[_total floatValue];
+    //NSLog(@"dest = %lf",destVal);
     
-    [_circleBorder addAnimation:pathAnimation forKey:@"strokeEndAnimation"];
-    _circleBorder.strokeEnd   = [_current floatValue]/[_total floatValue];
-    
+    if (_previous == destVal)
+    {
+        //NSLog(@"equal");
+        return;
+    }
+    else
+    {
+        //NSLog(@"go toward");
+//        _circle.strokeColor = _isFrame ? PNLightYellow.CGColor : _strokeColor.CGColor;
+        _circle.strokeColor = _strokeColor.CGColor;
+
+        _circleBorder.strokeColor = _strokeColor.CGColor;
+        
+        //Add Animation
+        CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+        pathAnimation.duration = 0.5;
+        pathAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        pathAnimation.fromValue = [NSNumber numberWithFloat:0.0];
+        pathAnimation.toValue = [NSNumber numberWithFloat:destVal];
+        //_circle.strokeStart = _previous;
+        [_circle addAnimation:pathAnimation forKey:@"strokeEndAnimation"];
+        _circle.strokeEnd   = destVal;
+        
+        //_circleBorder.strokeStart = _previous;
+        [_circleBorder addAnimation:pathAnimation forKey:@"strokeEndAnimation"];
+        _circleBorder.strokeEnd   = destVal;
+    }
+//    else if (_previous > destVal)
+//    {
+//        NSLog(@"go back");
+//        _circle.strokeColor = [UIColor clearColor].CGColor;
+//        
+//        _circleBorder.strokeColor = [UIColor clearColor].CGColor;
+//        
+//        //Add Animation
+//        CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+//        pathAnimation.duration = 0.5;
+//        pathAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+//        pathAnimation.fromValue = [NSNumber numberWithFloat:destVal];
+//        pathAnimation.toValue = [NSNumber numberWithFloat:_previous];
+//        //_circle.strokeStart = _previous;
+//        _circle.strokeStart = destVal;
+//        [_circle addAnimation:pathAnimation forKey:@"strokeEndAnimation"];
+//        _circle.strokeEnd   = _previous;
+//        
+//        _circleBorder.strokeStart = destVal;
+//        [_circleBorder addAnimation:pathAnimation forKey:@"strokeEndAnimation"];
+//        _circleBorder.strokeEnd   = _previous;
+//    }
+    _previous = destVal;
+
     if ( _editable )
         [_gradeLabel countFrom:0 to:[_current floatValue] + _rStart withDuration:0.5];
     else

@@ -204,7 +204,22 @@
     OSMessage *message = [[OSMessage alloc] init];
     message.title = [NSString stringWithFormat:@"看，我猜一个四位数只用了%ld秒，得分%ld。你也来试试",_game.duration,_game.gameScore];
     message.link = @"https://itunes.apple.com/us/app/four4/id1030279451?l=zh&ls=1&mt=8";
-    message.image = UIImageJPEGRepresentation([self getScreenshot], 0.1f);
+    if (IS_IPHONE_4_OR_LESS)
+    {
+        message.image = UIImageJPEGRepresentation([self getScreenshot], 0.1f);
+    }
+    else if (IS_IPHONE_5)
+    {
+        message.image = UIImageJPEGRepresentation([self getScreenshot], 0.08f);
+    }
+    else if (IS_IPHONE_6)
+    {
+        message.image = UIImageJPEGRepresentation([self getScreenshot], 0.06f);
+    }
+    else
+    {
+        message.image = UIImageJPEGRepresentation([self getScreenshot], 0.05f);
+    }
     //message.thumbnail = UIImagePNGRepresentation([self getScreenshot]);
     [OpenShare shareToWeixinTimeline:message Success:^(OSMessage *message) {
         NSLog(@"分享成功");
