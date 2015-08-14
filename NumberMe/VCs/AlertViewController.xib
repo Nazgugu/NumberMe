@@ -112,7 +112,7 @@
                         <action selector="shareWeiboAction:" destination="-1" eventType="touchUpInside" id="Cd2-VX-YgP"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ng-wJ-Ke6">
+                <button hidden="YES" opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ng-wJ-Ke6">
                     <rect key="frame" x="204" y="265" width="30" height="30"/>
                     <animations/>
                     <constraints>
