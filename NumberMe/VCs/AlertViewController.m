@@ -199,6 +199,24 @@
     return newImage;
 }
 
+- (UIImage *)scaleImage:(UIImage *)image toSize:(CGSize)newSize {
+    CGSize actSize = image.size;
+    float scale = actSize.width/actSize.height;
+    
+    if (scale < 1) {
+        newSize.height = newSize.width/scale;
+    } else {
+        newSize.width = newSize.height*scale;
+    }
+    
+    
+    UIGraphicsBeginImageContext(newSize);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
 
 - (IBAction)shareWechatAction:(id)sender {
     OSMessage *message = [[OSMessage alloc] init];
@@ -206,20 +224,22 @@
     message.link = @"https://itunes.apple.com/us/app/four4/id1030279451?l=zh&ls=1&mt=8";
     if (IS_IPHONE_4_OR_LESS)
     {
-        message.image = UIImageJPEGRepresentation([self getScreenshot], 0.1f);
+        message.image = UIImageJPEGRepresentation([self scaleImage:[self getScreenshot] toSize:CGSizeMake(SCREENWIDTH, SCREENHEIGHT)], 0.1f);
     }
     else if (IS_IPHONE_5)
     {
-        message.image = UIImageJPEGRepresentation([self getScreenshot], 0.07f);
+        message.image = UIImageJPEGRepresentation([self scaleImage:[self getScreenshot] toSize:CGSizeMake(SCREENWIDTH, SCREENHEIGHT)], 0.1f);
     }
     else if (IS_IPHONE_6)
     {
-        message.image = UIImageJPEGRepresentation([self getScreenshot], 0.04f);
+        message.image = UIImageJPEGRepresentation([self scaleImage:[self getScreenshot] toSize:CGSizeMake(SCREENWIDTH, SCREENHEIGHT)], 0.1f);
     }
     else
     {
-        message.image = UIImageJPEGRepresentation([self getScreenshot], 0.02f);
+        
+        message.image = UIImageJPEGRepresentation([self scaleImage:[self getScreenshot] toSize:CGSizeMake(SCREENWIDTH, SCREENHEIGHT)], 0.1f);
     }
+    //NSLog(@"file size = %ld",message.image.length);
     //message.thumbnail = UIImagePNGRepresentation([self getScreenshot]);
     [OpenShare shareToWeixinTimeline:message Success:^(OSMessage *message) {
         NSLog(@"分享成功");
