@@ -163,6 +163,7 @@
 - (void)restart
 {
     NSLog(@"restarting game");
+    [self disableTouchOnBox];
     _game = [[guessGame alloc] init];
     _theGlowingBox = 0;
     
@@ -1368,6 +1369,13 @@
                 _restartButton.userInteractionEnabled = NO;
             }
                 break;
+            case -5:
+            {
+                _deleteOneButton.userInteractionEnabled = NO;
+                _clearButton.userInteractionEnabled = NO;
+                _restartButton.userInteractionEnabled = NO;
+                _hintButton.userInteractionEnabled = NO;
+            }
             default:
                 break;
         }

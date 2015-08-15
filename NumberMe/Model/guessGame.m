@@ -465,7 +465,7 @@ NSString * const kDateOfGame = @"dateOfGame";
     
     _duration = 30 - secondsLeft;
     
-    NSInteger baseScore = arc4random() % 200 + 100;
+    NSInteger baseScore = arc4random() % 50 + 100;
     _gameScore += baseScore;
     
     //全部正确的情况
@@ -487,7 +487,15 @@ NSString * const kDateOfGame = @"dateOfGame";
             }
         }
     }
-    _gameScore += secondsLeft * 10 + _availabelHints * 75 - _numberOfTries * 5 - (arc4random() % 25) * (4 - _availabelHints);
+    if (_availabelHints == 4)
+    {
+        _gameScore += secondsLeft * 10 + 100 - _numberOfTries * 20;
+    }
+    else
+    {
+        _gameScore += secondsLeft * 10 - _numberOfTries * 20 - (arc4random() % 25) * (4 - _availabelHints);
+    }
+    
     
     //NSLog(@"correct number = %ld",_correctNumber);
     

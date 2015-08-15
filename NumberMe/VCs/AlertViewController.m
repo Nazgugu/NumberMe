@@ -210,15 +210,15 @@
     }
     else if (IS_IPHONE_5)
     {
-        message.image = UIImageJPEGRepresentation([self getScreenshot], 0.08f);
+        message.image = UIImageJPEGRepresentation([self getScreenshot], 0.07f);
     }
     else if (IS_IPHONE_6)
     {
-        message.image = UIImageJPEGRepresentation([self getScreenshot], 0.06f);
+        message.image = UIImageJPEGRepresentation([self getScreenshot], 0.04f);
     }
     else
     {
-        message.image = UIImageJPEGRepresentation([self getScreenshot], 0.05f);
+        message.image = UIImageJPEGRepresentation([self getScreenshot], 0.02f);
     }
     //message.thumbnail = UIImagePNGRepresentation([self getScreenshot]);
     [OpenShare shareToWeixinTimeline:message Success:^(OSMessage *message) {
