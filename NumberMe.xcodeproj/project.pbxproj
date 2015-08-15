@@ -8,6 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		215550EBC1647E8DE4F792BB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E8ECBE8B2E3D81B32599EE4 /* libPods.a */; };
+		AE1C6A471B7FE4870064E71C /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE1C6A461B7FE4870064E71C /* AdSupport.framework */; };
+		AE1C6A491B7FE48E0064E71C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE1C6A481B7FE48E0064E71C /* AudioToolbox.framework */; };
+		AE1C6A4B1B7FE4960064E71C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE1C6A4A1B7FE4960064E71C /* AVFoundation.framework */; };
+		AE1C6A4D1B7FE49D0064E71C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE1C6A4C1B7FE49D0064E71C /* CoreGraphics.framework */; };
+		AE1C6A4F1B7FE4A50064E71C /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE1C6A4E1B7FE4A50064E71C /* CoreMedia.framework */; };
+		AE1C6A511B7FE4AD0064E71C /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE1C6A501B7FE4AD0064E71C /* CoreTelephony.framework */; };
+		AE1C6A531B7FE4B60064E71C /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE1C6A521B7FE4B60064E71C /* EventKit.framework */; };
+		AE1C6A551B7FE4BD0064E71C /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE1C6A541B7FE4BD0064E71C /* EventKitUI.framework */; };
+		AE1C6A571B7FE4C30064E71C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE1C6A561B7FE4C30064E71C /* MessageUI.framework */; };
+		AE1C6A591B7FE4CB0064E71C /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE1C6A581B7FE4CB0064E71C /* StoreKit.framework */; };
+		AE1C6A5B1B7FE4D50064E71C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE1C6A5A1B7FE4D50064E71C /* SystemConfiguration.framework */; };
 		AE21E6E61B79C229006F4CB6 /* welcome.png in Resources */ = {isa = PBXBuildFile; fileRef = AE21E6E51B79C229006F4CB6 /* welcome.png */; };
 		AE21E6EA1B7AAB1D006F4CB6 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE21E6E81B7AAB1D006F4CB6 /* RecordViewController.m */; };
 		AE21E6EB1B7AAB1D006F4CB6 /* RecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE21E6E91B7AAB1D006F4CB6 /* RecordViewController.xib */; };
@@ -36,7 +47,6 @@
 		AE8E228E1B756B9B00A298DE /* YETIMotionLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8E228D1B756B9B00A298DE /* YETIMotionLabel.m */; };
 		AE8E22911B76AE7E00A298DE /* guessGame.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8E22901B76AE7E00A298DE /* guessGame.m */; };
 		AE90F88A1B7DAEE10039F75E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AE90F8891B7DAEE10039F75E /* icon.png */; };
-		AEF27D701B7D0A1800A4AD5B /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF27D6F1B7D0A1800A4AD5B /* iAd.framework */; };
 		AEF8FA961B7C458800607CB3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AEF8FA981B7C458800607CB3 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +62,17 @@
 
 /* Begin PBXFileReference section */
 		9E8ECBE8B2E3D81B32599EE4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE1C6A461B7FE4870064E71C /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		AE1C6A481B7FE48E0064E71C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		AE1C6A4A1B7FE4960064E71C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		AE1C6A4C1B7FE49D0064E71C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AE1C6A4E1B7FE4A50064E71C /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		AE1C6A501B7FE4AD0064E71C /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		AE1C6A521B7FE4B60064E71C /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		AE1C6A541B7FE4BD0064E71C /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		AE1C6A561B7FE4C30064E71C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		AE1C6A581B7FE4CB0064E71C /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		AE1C6A5A1B7FE4D50064E71C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		AE21E6E51B79C229006F4CB6 /* welcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome.png; sourceTree = "<group>"; };
 		AE21E6E71B7AAB1D006F4CB6 /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordViewController.h; path = VCs/RecordViewController.h; sourceTree = "<group>"; };
 		AE21E6E81B7AAB1D006F4CB6 /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordViewController.m; path = VCs/RecordViewController.m; sourceTree = "<group>"; };
@@ -111,7 +132,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEF27D701B7D0A1800A4AD5B /* iAd.framework in Frameworks */,
+				AE1C6A5B1B7FE4D50064E71C /* SystemConfiguration.framework in Frameworks */,
+				AE1C6A591B7FE4CB0064E71C /* StoreKit.framework in Frameworks */,
+				AE1C6A571B7FE4C30064E71C /* MessageUI.framework in Frameworks */,
+				AE1C6A551B7FE4BD0064E71C /* EventKitUI.framework in Frameworks */,
+				AE1C6A531B7FE4B60064E71C /* EventKit.framework in Frameworks */,
+				AE1C6A511B7FE4AD0064E71C /* CoreTelephony.framework in Frameworks */,
+				AE1C6A4F1B7FE4A50064E71C /* CoreMedia.framework in Frameworks */,
+				AE1C6A4D1B7FE49D0064E71C /* CoreGraphics.framework in Frameworks */,
+				AE1C6A4B1B7FE4960064E71C /* AVFoundation.framework in Frameworks */,
+				AE1C6A491B7FE48E0064E71C /* AudioToolbox.framework in Frameworks */,
+				AE1C6A471B7FE4870064E71C /* AdSupport.framework in Frameworks */,
 				AE6758771B77C28100F5A93C /* QuartzCore.framework in Frameworks */,
 				AE6758751B77C25A00F5A93C /* UIKit.framework in Frameworks */,
 				AE6758731B77C24F00F5A93C /* Foundation.framework in Frameworks */,
@@ -132,6 +163,17 @@
 		6E1917FA78D175219BF57EAC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AE1C6A5A1B7FE4D50064E71C /* SystemConfiguration.framework */,
+				AE1C6A581B7FE4CB0064E71C /* StoreKit.framework */,
+				AE1C6A561B7FE4C30064E71C /* MessageUI.framework */,
+				AE1C6A541B7FE4BD0064E71C /* EventKitUI.framework */,
+				AE1C6A521B7FE4B60064E71C /* EventKit.framework */,
+				AE1C6A501B7FE4AD0064E71C /* CoreTelephony.framework */,
+				AE1C6A4E1B7FE4A50064E71C /* CoreMedia.framework */,
+				AE1C6A4C1B7FE49D0064E71C /* CoreGraphics.framework */,
+				AE1C6A4A1B7FE4960064E71C /* AVFoundation.framework */,
+				AE1C6A481B7FE48E0064E71C /* AudioToolbox.framework */,
+				AE1C6A461B7FE4870064E71C /* AdSupport.framework */,
 				AEF27D6F1B7D0A1800A4AD5B /* iAd.framework */,
 				AE6758761B77C28100F5A93C /* QuartzCore.framework */,
 				AE6758741B77C25A00F5A93C /* UIKit.framework */,

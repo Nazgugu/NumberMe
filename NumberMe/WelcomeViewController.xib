@@ -7,8 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WelcomeViewController">
             <connections>
-                <outlet property="adBannerView" destination="6vI-LZ-1Xh" id="skl-wP-OVb"/>
-                <outlet property="bannerViewSpaceConstraint" destination="pky-g6-lwJ" id="hOP-bF-3cg"/>
+                <outlet property="admobBanner" destination="hLK-NP-4Jf" id="IB9-Rf-Bq1"/>
+                <outlet property="bannerViewSpaceConstraint" destination="hdV-mo-JRv" id="B2a-ZZ-x0d"/>
                 <outlet property="bottomSpaceConstraint" destination="lkw-xO-LFd" id="tBm-uZ-WSJ"/>
                 <outlet property="recordButton" destination="IA1-SY-Bae" id="8e5-tR-9Bc"/>
                 <outlet property="settingButton" destination="RZA-Hm-puU" id="RMn-a7-nlM"/>
@@ -95,33 +95,34 @@
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="6vI-LZ-1Xh">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hLK-NP-4Jf" customClass="GADBannerView">
                     <rect key="frame" x="0.0" y="518" width="320" height="50"/>
                     <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="ccr-hZ-Yxn"/>
+                        <constraint firstAttribute="height" constant="50" id="5eT-kr-Bmd"/>
                     </constraints>
-                </adBannerView>
+                </view>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="f8x-c1-N9k" secondAttribute="centerX" id="2E3-x2-veO"/>
-                <constraint firstItem="6vI-LZ-1Xh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="7GD-lp-V7L"/>
                 <constraint firstItem="IA1-SY-Bae" firstAttribute="top" secondItem="oOh-is-50H" secondAttribute="bottom" constant="40" id="Cv4-y7-gwd"/>
+                <constraint firstItem="hLK-NP-4Jf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="EeH-uy-WVZ"/>
                 <constraint firstItem="mZf-GA-3MV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="51" id="LKC-zQ-aIw"/>
+                <constraint firstAttribute="trailing" secondItem="hLK-NP-4Jf" secondAttribute="trailing" id="Lbe-VH-Vfv"/>
                 <constraint firstItem="RZA-Hm-puU" firstAttribute="top" secondItem="IA1-SY-Bae" secondAttribute="bottom" constant="40" id="Ntp-Ov-MNY"/>
                 <constraint firstAttribute="trailing" secondItem="qEd-H0-AXE" secondAttribute="trailing" id="OyF-7x-0WA"/>
                 <constraint firstItem="qEd-H0-AXE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="SvC-T8-E7j"/>
                 <constraint firstItem="oOh-is-50H" firstAttribute="top" secondItem="mZf-GA-3MV" secondAttribute="bottom" constant="100" id="Yiy-3c-CnX"/>
                 <constraint firstAttribute="centerX" secondItem="mZf-GA-3MV" secondAttribute="centerX" id="det-q1-E3H"/>
                 <constraint firstAttribute="centerX" secondItem="IA1-SY-Bae" secondAttribute="centerX" id="ffC-h2-tuM"/>
+                <constraint firstAttribute="bottom" secondItem="hLK-NP-4Jf" secondAttribute="bottom" id="hdV-mo-JRv"/>
                 <constraint firstAttribute="bottom" secondItem="f8x-c1-N9k" secondAttribute="bottom" constant="65" id="lkw-xO-LFd"/>
-                <constraint firstAttribute="bottom" secondItem="6vI-LZ-1Xh" secondAttribute="bottom" id="pky-g6-lwJ"/>
                 <constraint firstAttribute="bottom" secondItem="qEd-H0-AXE" secondAttribute="bottom" id="uOb-JP-aq6"/>
                 <constraint firstAttribute="centerX" secondItem="oOh-is-50H" secondAttribute="centerX" id="v9m-R4-Web"/>
                 <constraint firstItem="qEd-H0-AXE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="voZ-nm-7LU"/>
-                <constraint firstAttribute="trailing" secondItem="6vI-LZ-1Xh" secondAttribute="trailing" id="zFk-eX-mJp"/>
                 <constraint firstAttribute="centerX" secondItem="RZA-Hm-puU" secondAttribute="centerX" id="zUI-91-LCr"/>
             </constraints>
             <point key="canvasLocation" x="301" y="433"/>

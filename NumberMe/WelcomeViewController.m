@@ -8,19 +8,22 @@
 
 #define URLEMail @"mailto:zheliu9328@gmail.com?subject=Bug Report and Suggestions&body="
 
+@import GoogleMobileAds;
+
 #import "WelcomeViewController.h"
 #import "GameViewController.h"
 #import "RecordViewController.h"
 #import "RJBlurAlertView.h"
-#import <iAd/iAd.h>
+//#import <iAd/iAd.h>
 
-@interface WelcomeViewController ()<ADBannerViewDelegate>
+@interface WelcomeViewController () /*<ADBannerViewDelegate>*/
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIButton *recordButton;
 @property (weak, nonatomic) IBOutlet UIButton *settingButton;
-@property (weak, nonatomic) IBOutlet ADBannerView *adBannerView;
+//@property (weak, nonatomic) IBOutlet ADBannerView *adBannerView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomSpaceConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bannerViewSpaceConstraint;
+@property (weak, nonatomic) IBOutlet GADBannerView *admobBanner;
 
 @end
 
@@ -31,6 +34,8 @@
     // Do any additional setup after loading the view from its nib.
     //setting up button appearance
 //    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
+    [self initializaBannerView];
     
     _startButton.layer.borderWidth = 1.0f;
     _settingButton.layer.borderWidth = 1.0f;
@@ -50,8 +55,23 @@
     [_settingButton setTitle:NSLocalizedString(@"ST", nil) forState:UIControlStateNormal];
     
     
-    _adBannerView.delegate = self;
-    _adBannerView.alpha = 0;
+    
+//    _adBannerView.delegate = self;
+//    _adBannerView.alpha = 0;
+}
+
+
+- (void)initializaBannerView
+{
+    self.admobBanner.adUnitID = @"ca-app-pub-8377978722117647/8470579418";
+    self.admobBanner.rootViewController = self;
+    
+    self.admobBanner.adSize = kGADAdSizeSmartBannerPortrait;
+    
+    GADRequest *request = [GADRequest request];
+    
+    
+    [self.admobBanner loadRequest:request];
 }
 
 - (IBAction)startGame:(id)sender {
@@ -92,28 +112,28 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - iAdBanner Delegates
-
--(void)bannerView:(ADBannerView *)banner
-didFailToReceiveAdWithError:(NSError *)error{
-    //NSLog(@"Error in Loading Banner!");
-    self.bannerViewSpaceConstraint.constant = -50;
-    self.bottomSpaceConstraint.constant = 20;
-}
-
--(void)bannerViewDidLoadAd:(ADBannerView *)banner{
-    //NSLog(@"iAd banner Loaded Successfully!");
-    [UIView animateWithDuration:1.0f animations:^{
-        _adBannerView.alpha = 1.0f;
-    }];
-}
--(void)bannerViewWillLoadAd:(ADBannerView *)banner{
-    //NSLog(@"iAd Banner will load!");
-}
--(void)bannerViewActionDidFinish:(ADBannerView *)banner{
-    //NSLog(@"iAd Banner did finish");
-    
-}
+//#pragma mark - iAdBanner Delegates
+//
+//-(void)bannerView:(ADBannerView *)banner
+//didFailToReceiveAdWithError:(NSError *)error{
+//    //NSLog(@"Error in Loading Banner!");
+//    self.bannerViewSpaceConstraint.constant = -50;
+//    self.bottomSpaceConstraint.constant = 20;
+//}
+//
+//-(void)bannerViewDidLoadAd:(ADBannerView *)banner{
+//    //NSLog(@"iAd banner Loaded Successfully!");
+//    [UIView animateWithDuration:1.0f animations:^{
+//        _adBannerView.alpha = 1.0f;
+//    }];
+//}
+//-(void)bannerViewWillLoadAd:(ADBannerView *)banner{
+//    //NSLog(@"iAd Banner will load!");
+//}
+//-(void)bannerViewActionDidFinish:(ADBannerView *)banner{
+//    //NSLog(@"iAd Banner did finish");
+//    
+//}
 
 /*
 #pragma mark - Navigation
