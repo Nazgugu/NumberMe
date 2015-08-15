@@ -83,6 +83,15 @@
 
 - (void)presentView
 {
+    self.correctnessLabel.adjustsFontSizeToFitWidth = YES;
+    self.scoreLabel.adjustsFontSizeToFitWidth = YES;
+    self.usedTimeLabel.adjustsFontSizeToFitWidth = YES;
+    self.recordLabel.adjustsFontSizeToFitWidth = YES;
+    self.correctnessLabel.minimumScaleFactor = 0.8f;
+    self.scoreLabel.minimumScaleFactor = 0.8f;
+    self.usedTimeLabel.minimumScaleFactor =  0.8f;
+    self.recordLabel.minimumScaleFactor = 0.8f;
+    
     self.playAgainButton.layer.borderWidth = 1.0f;
     self.playAgainButton.layer.borderColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
     self.playAgainButton.layer.cornerRadius = 12.0f;
