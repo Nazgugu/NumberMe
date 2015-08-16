@@ -39,11 +39,11 @@
 }
 
 - (void)_shake:(int)times direction:(int)direction currentTimes:(int)current withDelta:(CGFloat)delta speed:(NSTimeInterval)interval shakeDirection:(ShakeDirection)shakeDirection completion:(void (^)(void))completionHandler {
-	[UIView animateWithDuration:interval animations:^{
+	[UIView animateWithDuration:interval delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
 		self.layer.affineTransform = (shakeDirection == ShakeDirectionHorizontal) ? CGAffineTransformMakeTranslation(delta * direction, 0) : CGAffineTransformMakeTranslation(0, delta * direction);
 	} completion:^(BOOL finished) {
 		if(current >= times) {
-			[UIView animateWithDuration:interval animations:^{
+			[UIView animateWithDuration:interval delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
 				self.layer.affineTransform = CGAffineTransformIdentity;
 			} completion:^(BOOL finished){
 				if (completionHandler != nil) {

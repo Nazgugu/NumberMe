@@ -1079,6 +1079,7 @@
 
 - (void)stopShake
 {
+    NSLog(@"stop shake");
     [_timer.layer removeAllAnimations];
 }
 
