@@ -7,7 +7,7 @@ PODS:
   - pop (1.0.7)
   - RJBlurAlertView (0.0.2)
   - RWBlurPopover (3.1.0)
-  - UIView+Shake (1.0.1)
+  - SCViewShaker (1.0.2)
   - ZCAnimatedLabel (0.0.1)
 
 DEPENDENCIES:
@@ -19,7 +19,7 @@ DEPENDENCIES:
   - pop (~> 1.0.7)
   - RJBlurAlertView (~> 0.0.2)
   - RWBlurPopover (~> 3.1.0)
-  - UIView+Shake (~> 1.0.1)
+  - SCViewShaker (~> 1.0.2)
   - ZCAnimatedLabel (~> 0.0.1)
 
 SPEC CHECKSUMS:
@@ -31,7 +31,7 @@ SPEC CHECKSUMS:
   pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
   RJBlurAlertView: 71403840618e30a5a37560148dc55f3d190cb383
   RWBlurPopover: dc7d91ee0dc8cbc79d6bbebed26c4f688f1661f8
-  UIView+Shake: 59223e4edd82e7a824ea4b14d817da6c310b62eb
+  SCViewShaker: ebd2937cc5ac1de808164bcb5be2a23c8a6e7ab6
   ZCAnimatedLabel: bad3b29dd7fa1deb2159a80da8be79006dccdc06
 
 COCOAPODS: 0.36.3

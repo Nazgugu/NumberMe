@@ -39,7 +39,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-UIView+Shake.xcscheme</key>
+		<key>Pods-SCViewShaker.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -62,57 +62,57 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>13674A9B88E7AFA5F9963011</key>
+		<key>0343ABB867FD8CCFCE5DFD85</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1C541A9B66CFA757DB915CCC</key>
+		<key>3453BE1CEE808B2C4C027EBB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4411005C00D132346CFE46E6</key>
+		<key>4CE64B926F17DFAE931E0752</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>447C5E14B20262FF47C211A6</key>
+		<key>514543FFC522306F9016483C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>56D3CF93BDCACA941A3D71B5</key>
+		<key>681E5921A0214D1A7BFF2F13</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6ADF2F4F1F09E25E52488719</key>
+		<key>686B3F810AAEDB8B652F8F34</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7D384AFCDECE6F2A119DBFF9</key>
+		<key>8AF72150F6619AA3DF1BEB25</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C7AA954441FDC60CDAE450AC</key>
+		<key>A404459CE983B3263C8EFF29</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C92942897370A3E9108F0583</key>
+		<key>C37B4747CB955A054AEB89D0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E42F2EDA9244C3D55FE60353</key>
+		<key>C5E796BCDF6F92367D468C0F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EE240E607A35BDDB99CD02F6</key>
+		<key>E51B9BFC9EF8A56CE0BB01B4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

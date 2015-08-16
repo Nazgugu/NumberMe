@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "56D3CF93BDCACA941A3D71B5"
-               BuildableName = "libPods-UIView+Shake.a"
-               BlueprintName = "Pods-UIView+Shake"
+               BlueprintIdentifier = "A404459CE983B3263C8EFF29"
+               BuildableName = "libPods-SCViewShaker.a"
+               BlueprintName = "Pods-SCViewShaker"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

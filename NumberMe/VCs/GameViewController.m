@@ -850,10 +850,15 @@
 //shake all the boxes
 - (void)answerWrongAndShakeBoxes
 {
-    [_firstDigit shake:14 withDelta:6 speed:0.06 shakeDirection:ShakeDirectionHorizontal];
-    [_secondDigit shake:14 withDelta:6 speed:0.06 shakeDirection:ShakeDirectionHorizontal];
-    [_thirdDigit shake:14 withDelta:6 speed:0.06 shakeDirection:ShakeDirectionHorizontal];
-    [_forthDigit shake:14 withDelta:6 speed:0.06 shakeDirection:ShakeDirectionHorizontal];
+    [_firstDigit shakeWithOptions:SCShakeOptionsDirectionHorizontal force:0.1f duration:0.8f iterationDuration:0.06 completionHandler:nil];
+    [_secondDigit shakeWithOptions:SCShakeOptionsDirectionHorizontal force:0.1f duration:0.8f iterationDuration:0.06 completionHandler:nil];
+    [_thirdDigit shakeWithOptions:SCShakeOptionsDirectionHorizontal force:0.1f duration:0.8f iterationDuration:0.06 completionHandler:nil];
+    [_thirdDigit shakeWithOptions:SCShakeOptionsDirectionHorizontal force:0.1f duration:0.8f iterationDuration:0.06 completionHandler:nil];
+    
+//    [_firstDigit shake:14 withDelta:6 speed:0.06 shakeDirection:ShakeDirectionHorizontal];
+//    [_secondDigit shake:14 withDelta:6 speed:0.06 shakeDirection:ShakeDirectionHorizontal];
+//    [_thirdDigit shake:14 withDelta:6 speed:0.06 shakeDirection:ShakeDirectionHorizontal];
+//    [_forthDigit shake:14 withDelta:6 speed:0.06 shakeDirection:ShakeDirectionHorizontal];
     
     [UIView animateWithDuration:0.72f animations:^{
         //first digit
@@ -898,7 +903,11 @@
     temp.layer.shadowColor = [UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f].CGColor;
     temp.layer.shadowRadius = 5.0f;
     temp.layer.shadowOpacity = 0.8f;
-    [temp shake:10 withDelta:6 speed:0.05 shakeDirection:ShakeDirectionHorizontal];
+    
+    [temp shakeWithOptions:SCShakeOptionsDirectionHorizontal force:0.1f duration:0.3 iterationDuration:0.05 completionHandler:nil];
+    
+//    [temp shake:10 withDelta:6 speed:0.05 shakeDirection:ShakeDirectionHorizontal];
+    
     [self performSelector:@selector(glowBlue:) withObject:temp afterDelay:0.3f];
 }
 
@@ -1079,13 +1088,25 @@
 
 - (void)stopShake
 {
-    NSLog(@"stop shake");
-    [_timer.layer removeAllAnimations];
+//    NSLog(@"stop shake");
+//    for (CALayer *layer in _timer.layer.sublayers)
+//    {
+//        [layer removeAllAnimations];
+//        [layer.presentationLayer removeAllAnimations];
+//    }
+//    
+//    [_timer.layer removeAllAnimations];
+//    [_timer.layer.presentationLayer removeAllAnimations];
+    
+    [_timer endShake];
+    
 }
 
 - (void)shakeTimer
 {
-    [_timer shake:220 withDelta:4.0f speed:0.09 shakeDirection:ShakeDirectionHorizontal];
+    [_timer shakeWithOptions:SCShakeOptionsDirectionHorizontal force:0.08 duration:10 iterationDuration:0.1 completionHandler:nil];
+    
+//    [_timer shake:220 withDelta:4.0f speed:0.09 shakeDirection:ShakeDirectionHorizontal];
 }
 
 - (void)didReceiveMemoryWarning {
