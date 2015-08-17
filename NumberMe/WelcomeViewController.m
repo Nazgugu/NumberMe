@@ -17,7 +17,7 @@
 #import "GameModeSelectionView.h"
 //#import <iAd/iAd.h>
 
-@interface WelcomeViewController () /*<ADBannerViewDelegate>*/
+@interface WelcomeViewController () <GameModeSelectionViewDelegate> /*<ADBannerViewDelegate>*/
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIButton *recordButton;
 @property (weak, nonatomic) IBOutlet UIButton *settingButton;
@@ -77,10 +77,8 @@
 
 - (IBAction)startGame:(id)sender {
     GameModeSelectionView *gameModeSelection = [[GameModeSelectionView alloc] init];
+    gameModeSelection.delegete = self;
     [gameModeSelection show];
-    
-//    GameViewController *gameVC = [[GameViewController alloc] init];
-//    [self presentViewController:gameVC animated:YES completion:nil];
 }
 
 - (IBAction)showRecord:(id)sender {
@@ -109,6 +107,26 @@
         }
     }];
     [alert show];
+}
+
+#pragma mark - GameModeSelectionViewDelegate
+- (void)didSelectGameMode:(NSInteger)gameMode
+{
+    switch (gameMode) {
+        case 0:
+        {
+            GameViewController *gameVC = [[GameViewController alloc] init];
+            [self presentViewController:gameVC animated:YES completion:nil];
+        }
+            break;
+        case 1:
+        {
+            
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)didReceiveMemoryWarning {

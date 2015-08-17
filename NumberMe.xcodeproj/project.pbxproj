@@ -48,6 +48,9 @@
 		AE90F88A1B7DAEE10039F75E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AE90F8891B7DAEE10039F75E /* icon.png */; };
 		AEF8FA961B7C458800607CB3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AEF8FA981B7C458800607CB3 /* Localizable.strings */; };
 		AEFB78ED1B81916E005DEE30 /* GameModeSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEFB78EC1B81916E005DEE30 /* GameModeSelectionView.m */; };
+		AEFB78F11B828C4B005DEE30 /* FlexibleAlignButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AEFB78F01B828C4B005DEE30 /* FlexibleAlignButton.m */; };
+		AEFB78F41B829072005DEE30 /* continueGame.png in Resources */ = {isa = PBXBuildFile; fileRef = AEFB78F21B829072005DEE30 /* continueGame.png */; };
+		AEFB78F51B829072005DEE30 /* normalGame.png in Resources */ = {isa = PBXBuildFile; fileRef = AEFB78F31B829072005DEE30 /* normalGame.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +127,10 @@
 		AEF8FA991B7C458C00607CB3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		AEFB78EB1B81916E005DEE30 /* GameModeSelectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameModeSelectionView.h; path = Views/GameModeSelectionView.h; sourceTree = "<group>"; };
 		AEFB78EC1B81916E005DEE30 /* GameModeSelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameModeSelectionView.m; path = Views/GameModeSelectionView.m; sourceTree = "<group>"; };
+		AEFB78EF1B828C4B005DEE30 /* FlexibleAlignButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlexibleAlignButton.h; sourceTree = "<group>"; };
+		AEFB78F01B828C4B005DEE30 /* FlexibleAlignButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlexibleAlignButton.m; sourceTree = "<group>"; };
+		AEFB78F21B829072005DEE30 /* continueGame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = continueGame.png; sourceTree = "<group>"; };
+		AEFB78F31B829072005DEE30 /* normalGame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = normalGame.png; sourceTree = "<group>"; };
 		D6CD3BC6EB4860751C1445E0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FE5163FF0427C40D0D0FC969 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -287,6 +294,8 @@
 		AE3E41081B6EC28E001E26FE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AEFB78F21B829072005DEE30 /* continueGame.png */,
+				AEFB78F31B829072005DEE30 /* normalGame.png */,
 				AE90F8891B7DAEE10039F75E /* icon.png */,
 				AE21E6F21B7AC517006F4CB6 /* recordBG.png */,
 				AE6E62BC1B7958DC00E0E4E2 /* AlertBG.png */,
@@ -299,6 +308,7 @@
 		AE7E74B91B74688B003E9341 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				AEFB78EE1B828C3A005DEE30 /* AlignButton */,
 				AE21E6EC1B7ABA95006F4CB6 /* Chart */,
 				AE8E227F1B756B6B00A298DE /* AnimateLabel */,
 				AE8E227E1B756B6100A298DE /* AnimateNumber */,
@@ -339,6 +349,15 @@
 				AEFB78EC1B81916E005DEE30 /* GameModeSelectionView.m */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		AEFB78EE1B828C3A005DEE30 /* AlignButton */ = {
+			isa = PBXGroup;
+			children = (
+				AEFB78EF1B828C4B005DEE30 /* FlexibleAlignButton.h */,
+				AEFB78F01B828C4B005DEE30 /* FlexibleAlignButton.m */,
+			);
+			name = AlignButton;
 			sourceTree = "<group>";
 		};
 		C8C3897A91AE30033EF5E5AE /* Pods */ = {
@@ -441,9 +460,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE21E6EB1B7AAB1D006F4CB6 /* RecordViewController.xib in Resources */,
+				AEFB78F51B829072005DEE30 /* normalGame.png in Resources */,
 				AEF8FA961B7C458800607CB3 /* Localizable.strings in Resources */,
 				AE21E6E61B79C229006F4CB6 /* welcome.png in Resources */,
 				AE26308C1B6EA58000A566AE /* Images.xcassets in Resources */,
+				AEFB78F41B829072005DEE30 /* continueGame.png in Resources */,
 				AE3E41111B6ECFD0001E26FE /* GameViewController.xib in Resources */,
 				AE21E6F11B7ABF0D006F4CB6 /* GameBG.png in Resources */,
 				AE90F88A1B7DAEE10039F75E /* icon.png in Resources */,
@@ -503,6 +524,7 @@
 			files = (
 				AE8E228B1B756B9500A298DE /* YETILayerAnimation.m in Sources */,
 				AE8E22851B756B8600A298DE /* YETIFadeLabel.m in Sources */,
+				AEFB78F11B828C4B005DEE30 /* FlexibleAlignButton.m in Sources */,
 				AE3E41101B6ECFD0001E26FE /* GameViewController.m in Sources */,
 				AE2630841B6EA58000A566AE /* AppDelegate.m in Sources */,
 				AE21E6EA1B7AAB1D006F4CB6 /* RecordViewController.m in Sources */,

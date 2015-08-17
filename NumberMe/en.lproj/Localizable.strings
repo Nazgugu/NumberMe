@@ -50,3 +50,7 @@
 "SBODY"="I am glad you find this little game interesting. If you do like it, please recommend it to your friend. If you have any suggestions, feel free to email me. Just press the 'OK' button below.";
 "OK"="OK";
 "CANCEL"="Cancel";
+
+//gameModeSelectionView
+"NORMAL"="Normal Game";
+"CONTINUE"="Unlimited Chanllenge";

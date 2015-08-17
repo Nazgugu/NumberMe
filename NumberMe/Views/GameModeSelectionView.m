@@ -17,6 +17,16 @@
 @property (nonatomic, strong) UIButton *cancelButton;
 @property (nonatomic, strong) UIView *bottomToolBox;
 
+@property (nonatomic) NSInteger gameModesCount;
+
+//game mode
+@property (nonatomic, strong) NSMutableArray *gameModeImageViewArray;
+@property (nonatomic, strong) NSMutableArray *gameModeLabelArray;
+
+//pre initiate
+@property (nonatomic, strong) NSMutableArray *gameModeStringArray;
+@property (nonatomic, strong) NSMutableArray *gameModeImageArray;
+
 @end
 
 @implementation GameModeSelectionView
@@ -36,6 +46,23 @@
     {
         self.opaque = YES;
         self.alpha = 1;
+        self.gameModesCount = 2;
+        if (!_gameModeImageViewArray)
+        {
+            _gameModeImageViewArray = [[NSMutableArray alloc] init];
+        }
+        if (!_gameModeLabelArray)
+        {
+            _gameModeLabelArray = [[NSMutableArray alloc] init];
+        }
+        if (!_gameModeStringArray)
+        {
+            _gameModeStringArray = [[NSMutableArray alloc] initWithObjects:NSLocalizedString(@"NORMAL", nil),NSLocalizedString(@"CONTINUE", nil), nil];
+        }
+        if (!_gameModeImageArray)
+        {
+            _gameModeImageArray = [[NSMutableArray alloc] initWithObjects:[UIImage imageNamed:@"normalGame"],[UIImage imageNamed:@"continueGame"], nil];
+        }
         [self setUpViews];
     }
     return self;
@@ -52,7 +79,7 @@
     tap.numberOfTouchesRequired = 1;
     [_backgroundView addGestureRecognizer:tap];
 //    UIImage *bluredImage = [[self convertViewToImage] applyBlurWithRadius:12 tintColor:[UIColor colorWithRed:0.741f green:0.765f blue:0.780f alpha:0.10f] saturationDeltaFactor:2.0f maskImage:nil];
-    UIImage *bluredImage = [[self convertViewToImage] applyBlurWithRadius:12 tintColor:[UIColor colorWithRed:0.137f green:0.192f blue:0.243f alpha:0.30f] saturationDeltaFactor:1.2f maskImage:nil];
+    UIImage *bluredImage = [[self convertViewToImage] applyBlurWithRadius:12 tintColor:[[UIColor blackColor] colorWithAlphaComponent:0.4f] saturationDeltaFactor:1.0f maskImage:nil];
     [_backgroundView setImage:bluredImage];
     _backgroundView.alpha = 0.0f;
     [self addSubview:_backgroundView];
@@ -63,8 +90,14 @@
 
 - (void)setUpContainerView;
 {
-    _containerView = [[UIView alloc] initWithFrame:CGRectMake(SCREENWIDTH, (SCREENHEIGHT * 3)/8, SCREENWIDTH, SCREENHEIGHT/4)];
-    _containerView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.2];
+    
+    CGFloat horizontalGap = 15.0f;
+    CGFloat topBottomGap = 10.0f;
+    CGFloat gameModeWidth = ((SCREENWIDTH*7)/8 - 5 - 3 * horizontalGap)/2;
+    CGFloat gameModeHeight = SCREENHEIGHT/6 - 2 *topBottomGap;
+    
+    _containerView = [[UIView alloc] initWithFrame:CGRectMake(SCREENWIDTH, (SCREENHEIGHT * 5)/12, SCREENWIDTH, SCREENHEIGHT/6)];
+    _containerView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.2f];
     _containerView.alpha = 0.0f;
     _containerView.tag = 2;
     
@@ -82,9 +115,47 @@
     [_containerView addSubview:_cancelButton];
     
     //need to add things to the containerscrollview
+    //initialize two game modes
     
+    for (int i = 0; i < _gameModesCount; i++)
+    {
+        UIImageView *gameModeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(horizontalGap * (i+1) + gameModeWidth*i, topBottomGap, gameModeWidth, gameModeHeight)];
+        
+        gameModeImageView.contentMode = UIViewContentModeScaleToFill;
+        [gameModeImageView setImage:[_gameModeImageArray objectAtIndex:i]];
+        UILabel *gameModeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, gameModeWidth, gameModeHeight)];
+        gameModeLabel.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2f];
+        gameModeLabel.textAlignment = NSTextAlignmentCenter;
+        gameModeLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:16.0f];
+        gameModeLabel.textColor = [UIColor whiteColor];
+        gameModeLabel.adjustsFontSizeToFitWidth = YES;
+        gameModeLabel.minimumScaleFactor = 0.7f;
+        gameModeImageView.userInteractionEnabled = YES;
+        gameModeLabel.userInteractionEnabled = YES;
+        gameModeLabel.tag = i;
+        UITapGestureRecognizer *selectGameMode = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectedGameMode:)];
+        selectGameMode.numberOfTapsRequired = 1;
+        selectGameMode.numberOfTouchesRequired = 1;
+        [gameModeLabel addGestureRecognizer:selectGameMode];
+        gameModeLabel.text = [_gameModeStringArray objectAtIndex:i];
+        [gameModeImageView addSubview:gameModeLabel];
+        [_containerScrollView addSubview:gameModeImageView];
+        [_gameModeImageViewArray addObject:gameModeImageView];
+        [_gameModeLabelArray addObject:gameModeLabel];
+    }
+
     //continue
     [self addSubview:_containerView];
+}
+
+- (void)selectedGameMode:(UIGestureRecognizer *)touch
+{
+    [self dismiss];
+    UILabel *label = (UILabel *)[touch view];
+    if ([_delegete respondsToSelector:@selector(didSelectGameMode:)])
+    {
+        [_delegete didSelectGameMode:label.tag];
+    }
 }
 
 - (void)show
@@ -104,10 +175,6 @@
         window = [[UIApplication sharedApplication].windows objectAtIndex:0];
     }
     [window addSubview:self];
-}
-
-- (void)commitAnimation
-{
 }
 
 - (void)dismiss
