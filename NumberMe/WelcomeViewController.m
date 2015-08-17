@@ -14,6 +14,7 @@
 #import "GameViewController.h"
 #import "RecordViewController.h"
 #import "RJBlurAlertView.h"
+#import "GameModeSelectionView.h"
 //#import <iAd/iAd.h>
 
 @interface WelcomeViewController () /*<ADBannerViewDelegate>*/
@@ -75,8 +76,11 @@
 }
 
 - (IBAction)startGame:(id)sender {
-    GameViewController *gameVC = [[GameViewController alloc] init];
-    [self presentViewController:gameVC animated:YES completion:nil];
+    GameModeSelectionView *gameModeSelection = [[GameModeSelectionView alloc] init];
+    [gameModeSelection show];
+    
+//    GameViewController *gameVC = [[GameViewController alloc] init];
+//    [self presentViewController:gameVC animated:YES completion:nil];
 }
 
 - (IBAction)showRecord:(id)sender {

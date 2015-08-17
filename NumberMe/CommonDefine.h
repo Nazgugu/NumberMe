@@ -21,6 +21,8 @@
 #define SCREENWIDTH         CGRectGetWidth([UIScreen mainScreen].bounds)
 #define SCREENHEIGHT        CGRectGetHeight([UIScreen mainScreen].bounds)
 
+#define screenBounds [[UIScreen mainScreen] bounds]
+
 #define DEFAULT_FONT        @"STHeitiSC-Medium"
 #define DEFAULT_FONT_LIGHT  @"STHeitiSC-Light"
 

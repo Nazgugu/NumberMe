@@ -48,6 +48,7 @@
 		AE8E22911B76AE7E00A298DE /* guessGame.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8E22901B76AE7E00A298DE /* guessGame.m */; };
 		AE90F88A1B7DAEE10039F75E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AE90F8891B7DAEE10039F75E /* icon.png */; };
 		AEF8FA961B7C458800607CB3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AEF8FA981B7C458800607CB3 /* Localizable.strings */; };
+		AEFB78ED1B81916E005DEE30 /* GameModeSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEFB78EC1B81916E005DEE30 /* GameModeSelectionView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,8 @@
 		AEF27D6F1B7D0A1800A4AD5B /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		AEF8FA971B7C458800607CB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AEF8FA991B7C458C00607CB3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		AEFB78EB1B81916E005DEE30 /* GameModeSelectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameModeSelectionView.h; path = Views/GameModeSelectionView.h; sourceTree = "<group>"; };
+		AEFB78EC1B81916E005DEE30 /* GameModeSelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameModeSelectionView.m; path = Views/GameModeSelectionView.m; sourceTree = "<group>"; };
 		D6CD3BC6EB4860751C1445E0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FE5163FF0427C40D0D0FC969 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -217,6 +220,7 @@
 			children = (
 				AE7E74B91B74688B003E9341 /* Vendor */,
 				AE3E41071B6EC280001E26FE /* Model */,
+				AEFB78EA1B81910B005DEE30 /* View */,
 				AE3E41061B6EC1B9001E26FE /* VCs */,
 				AE2630821B6EA58000A566AE /* AppDelegate.h */,
 				AE2630831B6EA58000A566AE /* AppDelegate.m */,
@@ -330,6 +334,15 @@
 				AE8E228D1B756B9B00A298DE /* YETIMotionLabel.m */,
 			);
 			name = AnimateLabel;
+			sourceTree = "<group>";
+		};
+		AEFB78EA1B81910B005DEE30 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AEFB78EB1B81916E005DEE30 /* GameModeSelectionView.h */,
+				AEFB78EC1B81916E005DEE30 /* GameModeSelectionView.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		C8C3897A91AE30033EF5E5AE /* Pods */ = {
@@ -499,6 +512,7 @@
 				AE8E22881B756B8D00A298DE /* YETIFallingLabel.m in Sources */,
 				AE2630811B6EA58000A566AE /* main.m in Sources */,
 				AE8E22821B756B7E00A298DE /* YETICharacterLabel.m in Sources */,
+				AEFB78ED1B81916E005DEE30 /* GameModeSelectionView.m in Sources */,
 				AE67587B1B7813F400F5A93C /* AlertViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
