@@ -72,9 +72,9 @@ const CGFloat AnimationChangeTimeStep = 0.01f;
 
 - (void)setProgress:(CGFloat)progress animated:(BOOL)animated duration:(CGFloat)duration; {
     progress = [self progressAccordingToBounds:progress];
-    if (_progress == progress) {
-        return;
-    }
+//    if (_progress == progress) {
+//        return;
+//    }
     
     [_animationTimer invalidate];
     _animationTimer = nil;

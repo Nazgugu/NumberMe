@@ -16,6 +16,7 @@
 #import "RWBlurPopover.h"
 #import "RWBlurPopoverView.h"
 #import "AlertViewController.h"
+#import "CircleProgressBar.h"
 //#import <pop/POP.h>
 
 @interface GameViewController ()<JSKTimerViewDelegate>
@@ -24,6 +25,8 @@
 @property (nonatomic) gameMode theGameMode;
 
 @property (nonatomic, assign) NSInteger currentBoxSet;
+
+@property (nonatomic, assign) NSInteger totalTries;
 
 //number buttons
 @property (nonatomic, strong) UIButton *numberZero;
@@ -63,6 +66,9 @@
 
 //timer
 @property (nonatomic, strong) JSKTimerView *timer;
+
+//progress bar
+@property (nonatomic, strong) CircleProgressBar *availableTries;
 
 @property (nonatomic) NSInteger theGlowingBox;
 
@@ -154,7 +160,6 @@
     _guideLabel.lineBreakMode = NSLineBreakByWordWrapping;
     _guideLabel.textColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8f];
     _guideLabel.textAlignment = NSTextAlignmentCenter;
-    _guideLabel.text = NSLocalizedString(@"GUIDE_ONE", nil);
     
     //initialize a new game
     _game = [[guessGame alloc] initWithGameMode:_theGameMode];
@@ -166,7 +171,18 @@
     [self createBoxesOfBoxSet:_currentBoxSet];
     [self createLine];
     [self initToolButton];
-    [self initTimer];
+    
+    if (_theGameMode == gameModeNormal)
+    {
+        _guideLabel.text = NSLocalizedString(@"GUIDE_ONE", nil);
+        [self initTimer];
+    }
+    else if (_theGameMode == gameModeInfinity)
+    {
+        _guideLabel.text = NSLocalizedString(@"INFINITI", nil);
+        _totalTries = _game.availableTries;
+        [self initProgressBar];
+    }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(quit) name:@"quit" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restart) name:@"restart" object:nil];
@@ -188,19 +204,44 @@
     [self disableTouchOnBox];
     _game = [[guessGame alloc] initWithGameMode:_theGameMode];
     _theGlowingBox = 0;
+    _currentBoxSet = 0;
     
-    for (int i = 0; i < _enables.count; i++)
+    if (_theGameMode == gameModeNormal)
     {
-        [_enables replaceObjectAtIndex:i withObject:@(1)];
+        for (int i = 0; i < _enables.count; i++)
+        {
+            [_enables replaceObjectAtIndex:i withObject:@(1)];
+        }
+        
+        [self revertToWhite];
+        [_timer resetTimer];
+        [self cancelShake];
+        _guideLabel.text = NSLocalizedString(@"GUIDE_ONE", nil);
     }
-    
-    [self revertToWhite];
-    [_timer resetTimer];
-    [self cancelShake];
-    _guideLabel.text = NSLocalizedString(@"GUIDE_ONE", nil);
+    else if (_theGameMode == gameModeInfinity)
+    {
+        //first clear all the digit boxes
+        [self moveToBoxToSet:_currentBoxSet];
+        if (_currentBoxSet > 0)
+        {
+            JTNumberScrollAnimatedView *tempDigit;
+            NSInteger i = _boxArray.count - 1;
+            [_boxScrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+            for (;i >= 4;i--)
+            {
+                tempDigit = (JTNumberScrollAnimatedView *)[_boxArray objectAtIndex:i];
+                [tempDigit removeFromSuperview];
+                [_boxArray removeObject:tempDigit];
+            }
+            [_boxScrollView setContentSize:CGSizeMake(SCREENWIDTH, _boxScrollView.frame.size.height)];
+        }
+        _totalTries = _game.availableTries;
+        [self resetProgressBar];
+        [self revertToWhite];
+        _guideLabel.text = NSLocalizedString(@"INFINITI", nil);
+    }
     [self performSelector:@selector(animateReady) withObject:nil afterDelay:1.2f];
     [self animateDigits];
-    
 }
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -233,8 +274,12 @@
 
 - (void)animateGo{
     _guideLabel.text = NSLocalizedString(@"GUIDE_THREE", nil);
-    [_timer startTimer];
-    [self performSelector:@selector(shakeTimer) withObject:nil afterDelay:20];
+    
+    if (_theGameMode == gameModeNormal)
+    {
+        [_timer startTimer];
+        [self performSelector:@selector(shakeTimer) withObject:nil afterDelay:20];
+    }
     _deleteOneButton.enabled = YES;
     _clearButton.enabled = YES;
     _restartButton.enabled = YES;
@@ -450,9 +495,9 @@
     [self disableTouchOnBox];
 }
 
-- (void)moveToBoxOfSet:(NSInteger)set
+- (void)moveToBoxToSet:(NSInteger)set
 {
-    
+    [_boxScrollView setContentOffset:CGPointMake(SCREENWIDTH * set, 0) animated:YES];
 }
 
 - (void)initTimer
@@ -465,6 +510,35 @@
     _timer.labelTextColor = [UIColor colorWithRed:0.678f green:0.663f blue:0.824f alpha:1.00f];
     [_timer setTimerWithDuration:30];
     [self.view addSubview:_timer];
+}
+
+- (void)initProgressBar
+{
+    if (!_availableTries)
+    {
+        _availableTries = [[CircleProgressBar alloc] initWithFrame:CGRectMake(_gapSize, SCREENHEIGHT, _buttonSize, _buttonSize)];
+    }
+    _availableTries.backgroundColor = [UIColor clearColor];
+    _availableTries.progressBarWidth = 4.0f;
+    _availableTries.progressBarTrackColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.4f];
+    _availableTries.progressBarProgressColor = [UIColor colorWithRed:0.263f green:0.792f blue:0.459f alpha:1.00f];
+    _availableTries.hintHidden = NO;
+    _availableTries.hintViewSpacing = 5.0f;
+    _availableTries.hintViewBackgroundColor = [UIColor clearColor];
+    _availableTries.hintTextFont = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:12.0f];
+    _availableTries.hintTextColor = [UIColor whiteColor];
+    [_availableTries setHintTextGenerationBlock:^NSString *(CGFloat progress) {
+        return [NSString stringWithFormat:@"%d",(int)(progress * _totalTries)];
+    }];
+    [_availableTries setProgress:1.0f animated:YES];
+    
+    [self.view addSubview:_availableTries];
+}
+
+- (void)resetProgressBar
+{
+    _availableTries.progressBarProgressColor = [UIColor colorWithRed:0.263f green:0.792f blue:0.459f alpha:1.00f];
+    [_availableTries setProgress:1.0f animated:YES];
 }
 
 - (void)initButtons
@@ -805,7 +879,14 @@
     [UIView animateWithDuration:0.5f delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         [_numberSeven setCenter:CGPointMake(centerX, centerY)];
     }completion:^(BOOL finished) {
-        [self animateTimer];
+        if (_theGameMode == gameModeNormal)
+        {
+            [self animateTimer];
+        }
+        else if (_theGameMode == gameModeInfinity)
+        {
+            [self animateProgressBar];
+        }
         [self animateButtonZero];
     }];
 }
@@ -851,53 +932,16 @@
     }];
 }
 
-//shake all the boxes
-//- (void)answerWrongAndShakeBoxes
-//{
-//    [_firstDigit shakeWithOptions:SCShakeOptionsDirectionHorizontal force:0.1f duration:0.8f iterationDuration:0.06 completionHandler:nil];
-//    [_secondDigit shakeWithOptions:SCShakeOptionsDirectionHorizontal force:0.1f duration:0.8f iterationDuration:0.06 completionHandler:nil];
-//    [_thirdDigit shakeWithOptions:SCShakeOptionsDirectionHorizontal force:0.1f duration:0.8f iterationDuration:0.06 completionHandler:nil];
-//    [_thirdDigit shakeWithOptions:SCShakeOptionsDirectionHorizontal force:0.1f duration:0.8f iterationDuration:0.06 completionHandler:nil];
-//    
-////    [_firstDigit shake:14 withDelta:6 speed:0.06 shakeDirection:ShakeDirectionHorizontal];
-////    [_secondDigit shake:14 withDelta:6 speed:0.06 shakeDirection:ShakeDirectionHorizontal];
-////    [_thirdDigit shake:14 withDelta:6 speed:0.06 shakeDirection:ShakeDirectionHorizontal];
-////    [_forthDigit shake:14 withDelta:6 speed:0.06 shakeDirection:ShakeDirectionHorizontal];
-//    
-//    [UIView animateWithDuration:0.72f animations:^{
-//        //first digit
-//        _firstDigit.layer.borderColor = [[UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f] colorWithAlphaComponent:0.5f].CGColor;
-//        _firstDigit.layer.shadowColor = [UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f].CGColor;
-//        _firstDigit.layer.shadowRadius = 5.0f;
-//        _firstDigit.layer.shadowOpacity = 0.8f;
-//        
-//        //second digit
-//        _secondDigit.layer.borderColor = [[UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f] colorWithAlphaComponent:0.5f].CGColor;
-//        _secondDigit.layer.shadowColor = [UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f].CGColor;
-//        _secondDigit.layer.shadowRadius = 5.0f;
-//        _secondDigit.layer.shadowOpacity = 0.8f;
-//        
-//        //third digit
-//        _thirdDigit.layer.borderColor = [[UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f] colorWithAlphaComponent:0.5f].CGColor;
-//        _thirdDigit.layer.shadowColor = [UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f].CGColor;
-//        _thirdDigit.layer.shadowRadius = 5.0f;
-//        _thirdDigit.layer.shadowOpacity = 0.8f;
-//        
-//        //forth digit
-//        _forthDigit.layer.borderColor = [[UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f] colorWithAlphaComponent:0.5f].CGColor;
-//        _forthDigit.layer.shadowColor = [UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f].CGColor;
-//        _forthDigit.layer.shadowRadius = 5.0f;
-//        _forthDigit.layer.shadowOpacity = 0.8f;
-//        
-//        //shake
-//        } completion:^(BOOL finished) {
-//            
-//            if (finished)
-//            {
-//                [self performSelector:@selector(revertToWhite) withObject:nil afterDelay:0.7f];
-//            }
-//    }];
-//}
+- (void)animateProgressBar
+{
+    CGFloat centerX = _gapSize + _buttonSize/2;
+    CGFloat centerY = SCREENHEIGHT - _verticalGap - _buttonSize/2;
+    [UIView animateWithDuration:0.2 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        [_availableTries setCenter:CGPointMake(centerX, centerY)];
+    } completion:^(BOOL finished) {
+        
+    }];
+}
 
 - (void)shakeBoxAtIndex:(NSInteger)index
 {
@@ -929,54 +973,26 @@
 
 - (void)revertToWhite
 {
-    CABasicAnimation *reverseAnimation = [CABasicAnimation animationWithKeyPath:@"colorAnimation"];
-    reverseAnimation.autoreverses = NO;
-    reverseAnimation.fromValue = (id)[[UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f] colorWithAlphaComponent:0.5f].CGColor;
-    reverseAnimation.toValue = (id)[[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
-    reverseAnimation.duration = 0.3f;
-    reverseAnimation.removedOnCompletion = YES;
-    reverseAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    
-    //first digitt
-    if (_theGameMode == gameModeNormal)
-    {
+//    CABasicAnimation *reverseAnimation = [CABasicAnimation animationWithKeyPath:@"colorAnimation"];
+//    reverseAnimation.autoreverses = NO;
+//    reverseAnimation.fromValue = (id)[[UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f] colorWithAlphaComponent:0.5f].CGColor;
+//    reverseAnimation.toValue = (id)[[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
+//    reverseAnimation.duration = 0.3f;
+//    reverseAnimation.removedOnCompletion = YES;
+//    reverseAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+//    
+//    //first digitt
+//    if (_theGameMode == gameModeNormal)
+//    {
         for (JTNumberScrollAnimatedView *digitBox in _boxArray)
         {
             digitBox.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
             digitBox.layer.shadowColor = [UIColor clearColor].CGColor;
             digitBox.layer.shadowRadius = 0;
             digitBox.layer.shadowOpacity = 0;
-            [digitBox.layer addAnimation:reverseAnimation forKey:@"reverse"];
+//            [digitBox.layer addAnimation:reverseAnimation forKey:@"reverse"];
         }
-    }
-//    _firstDigit.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
-//    _firstDigit.layer.shadowColor = [UIColor clearColor].CGColor;
-//    _firstDigit.layer.shadowRadius = 0;
-//    _firstDigit.layer.shadowOpacity = 0;
-//    [_firstDigit.layer addAnimation:reverseAnimation forKey:@"reverse"];
-//    
-//    //second digit
-//    _secondDigit.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
-//    _secondDigit.layer.shadowColor = [UIColor clearColor].CGColor;
-//    _secondDigit.layer.shadowRadius = 0;
-//    _secondDigit.layer.shadowOpacity = 0;
-//    [_secondDigit.layer addAnimation:reverseAnimation forKey:@"reverse"];
-//    
-//    //third digit
-//    _thirdDigit.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
-//    _thirdDigit.layer.shadowColor = [UIColor clearColor].CGColor;
-//    _thirdDigit.layer.shadowRadius = 0;
-//    _thirdDigit.layer.shadowOpacity = 0;
-//    [_thirdDigit.layer addAnimation:reverseAnimation forKey:@"reverse"];
-//    
-//    //forth digit
-//    _forthDigit.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
-//    _forthDigit.layer.shadowColor = [UIColor clearColor].CGColor;
-//    _forthDigit.layer.shadowRadius = 0;
-//    _forthDigit.layer.shadowOpacity = 0;
-//    [_forthDigit.layer addAnimation:reverseAnimation forKey:@"reverse"];
-    
-    //[self glowBoxAtIndex:_theGlowingBox];
+//    }
 }
 
 - (void)tappedBox:(UIGestureRecognizer *)tap
@@ -1002,88 +1018,83 @@
     
     if (_theGlowingBox == 0)
     {
-        //NSLog(@"zero");
+        NSLog(@"zero");
         temp = (JTNumberScrollAnimatedView *)[_boxArray objectAtIndex:_theGlowingBox];
     }
     else
-    {
+    {   NSLog(@"not zero");
         temp = (JTNumberScrollAnimatedView *)[_boxArray objectAtIndex:_theGlowingBox - 1];
     }
     
 //    [temp.layer removeAllAnimations];
     
-    if (temp.isUserInteractionEnabled == YES)
+    if (_theGameMode == gameModeNormal)
     {
-//        CABasicAnimation *reverseAnimation = [CABasicAnimation animationWithKeyPath:@"colorAnimation"];
-//        reverseAnimation.autoreverses = NO;
-//        reverseAnimation.fromValue = (id)[UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
-//        reverseAnimation.toValue = (id)[[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
-//        reverseAnimation.duration = 1.5f;
-//        reverseAnimation.removedOnCompletion = YES;
-//        reverseAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-        
-        if (_theGlowingBox != 0)
+        NSLog(@"game mode normal");
+        if (temp.isUserInteractionEnabled == YES)
         {
-            if (_theGlowingBox != index)
+            if (_theGlowingBox != 0)
             {
-                //glow back
-                
+                if (_theGlowingBox != index)
+                {
+                    //glow back
+                    
+                    temp.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
+                    temp.layer.shadowColor = [UIColor clearColor].CGColor;
+                    temp.layer.shadowRadius = 0;
+                    temp.layer.shadowOpacity = 0;
+                }
+            }
+            else
+            {
                 temp.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
                 temp.layer.shadowColor = [UIColor clearColor].CGColor;
                 temp.layer.shadowRadius = 0;
                 temp.layer.shadowOpacity = 0;
-//                [temp.layer addAnimation:reverseAnimation forKey:@"reverse"];
             }
+        }
+        
+        temp = [_boxArray objectAtIndex:index - 1];
+        
+        if (temp.isUserInteractionEnabled)
+        {
+            _theGlowingBox = index;
+            temp.layer.borderColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+            temp.layer.shadowColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+            temp.layer.shadowRadius = 5.0f;
+            temp.layer.shadowOpacity = 0.8f;
+            return;
         }
         else
         {
-            temp.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
-            temp.layer.shadowColor = [UIColor clearColor].CGColor;
-            temp.layer.shadowRadius = 0;
-            temp.layer.shadowOpacity = 0;
-//            [temp.layer addAnimation:reverseAnimation forKey:@"reverse"];
+            if (index < 4)
+            {
+                [self glowBoxAtIndex:index + 1];
+                return;
+            }
+            else
+            {
+                [self glowBoxAtIndex:1];
+                return;
+            }
         }
     }
-    
-    
-//    CABasicAnimation *colorAnimation = [CABasicAnimation animationWithKeyPath:@"colorAnimation"];
-//    colorAnimation.autoreverses = YES;
-//    colorAnimation.repeatCount = FLT_MAX;
-//    colorAnimation.fromValue = (id)[[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
-    
-    temp = [_boxArray objectAtIndex:index - 1];
-    
-    if (temp.isUserInteractionEnabled)
+    else if (_theGameMode == gameModeInfinity)
     {
+        NSLog(@"game mode infinity");
         _theGlowingBox = index;
-//        colorAnimation.toValue = (id)[UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
         temp.layer.borderColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
         temp.layer.shadowColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
         temp.layer.shadowRadius = 5.0f;
         temp.layer.shadowOpacity = 0.8f;
-//        colorAnimation.duration = 1.5f;
-//        colorAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-//        [temp.layer addAnimation:colorAnimation forKey:@"borderColorChange"];
-        return;
     }
-    else
-    {
-        if (index < 4)
-        {
-            [self glowBoxAtIndex:index + 1];
-            return;
-        }
-        else
-        {
-            [self glowBoxAtIndex:1];
-            return;
-        }
-    }
+    
 }
 
 //glow green
 - (void)glowGreenAtIndex:(NSInteger)index
 {
+    NSLog(@"glow green at index = %ld",index);
     JTNumberScrollAnimatedView *temp = (JTNumberScrollAnimatedView *)[_boxArray objectAtIndex:index];
     
     temp.userInteractionEnabled = NO;
@@ -1155,40 +1166,99 @@
     sender.backgroundColor = [UIColor clearColor];
     sender.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
     
+    if (_game.gameMode == gameModeInfinity)
+    {
+        if (_boxScrollView.contentOffset.x != SCREENWIDTH*_currentBoxSet)
+        {
+            [self moveToBoxToSet:_currentBoxSet];
+        }
+    }
+    
     //deal with button press
     JTNumberScrollAnimatedView *temp = (JTNumberScrollAnimatedView *)[_boxArray objectAtIndex:_theGlowingBox - 1];
     temp.value = [NSString stringWithFormat:@"%ld",(long)sender.tag];
     
     /* game logic goes here */
     
-    self.guideLabel.text = [_game userAnswersAtBox:_theGlowingBox andAnswer:sender.tag];
-    if (_game.succeed == 2)
+    self.guideLabel.text = [_game userAnswersAtBox:(_theGlowingBox - 4 * _currentBoxSet) % 5 andAnswer:sender.tag];
+    
+    if (_theGameMode == gameModeNormal)
     {
-        //succeed
-        //NSLog(@"showing success");
-//        NSLog(@"remain time = %ld",[_timer remainingDurationInSeconds]);
-        [self resumeTouch];
-        [_timer pauseTimer];
-        [self showSuccess];
-        return;
+        if (_game.succeed == 2)
+        {
+            //succeed
+            //NSLog(@"showing success");
+            //        NSLog(@"remain time = %ld",[_timer remainingDurationInSeconds]);
+            [self resumeTouch];
+            [_timer pauseTimer];
+            [self showSuccess];
+            return;
+        }
+    }
+    else if (_theGameMode == gameModeInfinity)
+    {
+        if (_game.succeed == 3)
+        {
+            NSLog(@"game ended");
+            //do some thing
+            
+            return;
+        }
     }
     
-    if ([[_game.correctNess objectAtIndex:_theGlowingBox - 1] integerValue] == 1)
+    if ([[_game.correctNess objectAtIndex:((_theGlowingBox - 4 * _currentBoxSet) % 5 - 1)] integerValue] == 1)
     {
         [self resumeTouch];
         [self glowGreenAtIndex:_theGlowingBox - 1];
-        [_enables replaceObjectAtIndex:_theGlowingBox - 1 withObject:@(0)];
-        if (_theGlowingBox < 4)
+        
+        if (_theGameMode == gameModeNormal)
         {
-            [self glowBoxAtIndex:_theGlowingBox + 1];
+            [_enables replaceObjectAtIndex:_theGlowingBox - 1 withObject:@(0)];
+            if (_theGlowingBox < 4)
+            {
+                [self glowBoxAtIndex:_theGlowingBox + 1];
+            }
+            else
+            {
+                [self glowBoxAtIndex:1];
+            }
         }
-        else
+        else if (_theGameMode == gameModeInfinity)
         {
-            [self glowBoxAtIndex:1];
+            if (((_theGlowingBox + 1) % 4) == 1)
+            {
+                NSLog(@"this case");
+                _currentBoxSet = (_theGlowingBox) / 4;
+                [self createBoxesOfBoxSet:_currentBoxSet];
+                [self moveToBoxToSet:_currentBoxSet];
+                [_game generateNewAnswer];
+            }
+            NSLog(@"availableTries = %ld",_game.availableTries);
+            _totalTries = _game.availableTries;
+            [_availableTries setProgress:1.0f animated:YES];
+            NSLog(@"glow blue at box = %ld",_theGlowingBox + 1);
+            [self glowBoxAtIndex:_theGlowingBox + 1];
         }
     }
     else
     {
+        if (_theGameMode == gameModeInfinity)
+        {
+            CGFloat progress = (CGFloat)((CGFloat)_game.availableTries/(CGFloat)_totalTries);
+            if (progress < 0.50f)
+            {
+                _availableTries.progressBarProgressColor = [UIColor colorWithRed:0.965f green:0.784f blue:0.208f alpha:1.00f];
+            }
+            else if (progress < 0.25f)
+            {
+                _availableTries.progressBarProgressColor = [UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f];
+            }
+            else if (progress >= 0.50f)
+            {
+                _availableTries.progressBarProgressColor = [UIColor colorWithRed:0.263f green:0.792f blue:0.459f alpha:1.00f];
+            }
+            [_availableTries setProgress:progress animated:YES];
+        }
         [self resumeTouch];
         [self shakeBoxAtIndex:_theGlowingBox - 1];
     }
@@ -1206,32 +1276,6 @@
     pop.tapBlurToDismissEnabled = NO;
     [pop showInViewController:self];
 }
-
-//- (void)verifyAndShake
-//{
-//    if (_game.allWrong)
-//    {
-//        //all wrong then shake them all
-//        //[self answerWrongAndShakeBoxes];
-//    }
-//    else
-//    {
-//        for (int i = 0; i < 4; i++)
-//        {
-//            //0 incorrect, 1 correct
-//            if ([[_game.correctNess objectAtIndex:i] integerValue] == 1)
-//            {
-//                //glow green
-//                [self glowGreenAtIndex:i];
-//            }
-//            else
-//            {
-//                //glow red and shake a bit
-//                [self shakeBoxAtIndex:i];
-//            }
-//        }
-//    }
-//}
 
 - (void)toolButtonHighlighted:(UIButton *)sender
 {
@@ -1298,11 +1342,14 @@
         case -2:
         {
             sender.layer.borderColor = [UIColor colorWithRed:0.890f green:0.494f blue:0.188f alpha:1.00f].CGColor;
-            for (JTNumberScrollAnimatedView *temp in _boxArray)
+            if (_theGameMode == gameModeNormal)
             {
-                if (temp.isUserInteractionEnabled)
+                for (JTNumberScrollAnimatedView *temp in _boxArray)
                 {
-                    temp.value = @"?";
+                    if (temp.isUserInteractionEnabled)
+                    {
+                        temp.value = @"?";
+                    }
                 }
             }
         }
@@ -1318,7 +1365,7 @@
         case -4:
         {
             sender.layer.borderColor = [UIColor colorWithRed:0.263f green:0.792f blue:0.459f alpha:1.00f].CGColor;
-            [_game generateHintOfDigit:_theGlowingBox];
+            [_game generateHintOfDigit:(_theGlowingBox - 4 * _currentBoxSet)%5];
             self.guideLabel.text = _game.hintMessage;
         }
             break;

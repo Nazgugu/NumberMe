@@ -15,6 +15,7 @@
 "GUIDE_ONE"="Please guess a four-digit number";
 "GUIDE_TWO"="Ready?";
 "GUIDE_THREE"="GO!";
+"INFINITI"="This game will never end until you fail too many times.";
 "DELETE"="Delete";
 "CLEAR"="Clear";
 "RESTART"="Restart";
