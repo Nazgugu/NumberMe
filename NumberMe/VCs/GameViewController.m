@@ -164,8 +164,6 @@
     //initialize a new game
     _game = [[guessGame alloc] initWithGameMode:_theGameMode];
     
-    //_enables = [[NSMutableArray alloc] initWithObjects:@(1),@(1),@(1),@(1), nil];
-    
     [self.view addSubview:_guideLabel];
     [self initButtons];
     [self createBoxesOfBoxSet:_currentBoxSet];
@@ -465,12 +463,12 @@
 //        _boxScrollView.layer.borderColor = [UIColor whiteColor].CGColor;
 //        _boxScrollView.layer.masksToBounds = YES;
         [self.view addSubview:_boxScrollView];
+        _boxScrollView.showsHorizontalScrollIndicator = NO;
+        _boxScrollView.showsVerticalScrollIndicator = NO;
+        _boxScrollView.alwaysBounceHorizontal = NO;
+        _boxScrollView.alwaysBounceVertical = NO;
     }
-    _boxScrollView.showsHorizontalScrollIndicator = NO;
-    _boxScrollView.showsVerticalScrollIndicator = NO;
     _boxScrollView.contentSize = CGSizeMake((index + 1) * SCREENWIDTH, _boxScrollView.frame.size.height);
-    _boxScrollView.alwaysBounceHorizontal = NO;
-    _boxScrollView.alwaysBounceVertical = NO;
     for (int i = 0; i < 4; i++)
     {
         JTNumberScrollAnimatedView *digitBox = [[JTNumberScrollAnimatedView alloc] initWithFrame:CGRectMake(_gapSize * 5 * index + _boxWidth * 4 * index + (i + 1) * _gapSize + i * _boxWidth, 0, _boxWidth, _boxHeight)];
@@ -494,15 +492,14 @@
             [digitBox addGestureRecognizer:tap];
             [_enables addObject:@(1)];
         }
-        else
-        {
-            [_enables addObject:@(0)];
-        }
         [_boxArray addObject:digitBox];
         [_boxScrollView addSubview:digitBox];
     }
     _theGlowingBox = 4 * index;
-    [self disableTouchOnBox];
+    if (_currentBoxSet == 0)
+    {
+        [self disableTouchOnBox];
+    }
 }
 
 - (void)moveToBoxToSet:(NSInteger)set
@@ -535,7 +532,7 @@
     _availableTries.hintHidden = NO;
     _availableTries.hintViewSpacing = 5.0f;
     _availableTries.hintViewBackgroundColor = [UIColor clearColor];
-    _availableTries.hintTextFont = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:12.0f];
+    _availableTries.hintTextFont = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:18.0f];
     _availableTries.hintTextColor = [UIColor whiteColor];
     [_availableTries setHintTextGenerationBlock:^NSString *(CGFloat progress) {
         return [NSString stringWithFormat:@"%d",(int)(progress * _totalTries)];
@@ -955,7 +952,7 @@
 
 - (void)shakeBoxAtIndex:(NSInteger)index
 {
-    
+    NSLog(@"shake");
     JTNumberScrollAnimatedView *temp = (JTNumberScrollAnimatedView *)[_boxArray objectAtIndex:index];
     temp.layer.borderColor = [[UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f] colorWithAlphaComponent:0.5f].CGColor;
     temp.layer.shadowColor = [UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f].CGColor;
@@ -1029,11 +1026,11 @@
     
     if (_theGlowingBox == 0)
     {
-        NSLog(@"zero");
+        //NSLog(@"zero");
         temp = (JTNumberScrollAnimatedView *)[_boxArray objectAtIndex:_theGlowingBox];
     }
     else
-    {   NSLog(@"not zero");
+    {   //NSLog(@"not zero");
         if (_theGameMode == gameModeNormal)
         {
             temp = (JTNumberScrollAnimatedView *)[_boxArray objectAtIndex:_theGlowingBox - 1];
@@ -1048,7 +1045,7 @@
     
     if (_theGameMode == gameModeNormal)
     {
-        NSLog(@"game mode normal");
+        //NSLog(@"game mode normal");
         if (temp.isUserInteractionEnabled == YES)
         {
             if (_theGlowingBox != 0)
@@ -1099,7 +1096,7 @@
     }
     else if (_theGameMode == gameModeInfinity)
     {
-        NSLog(@"game mode infinity");
+        //NSLog(@"game mode infinity");
         _theGlowingBox = index;
         temp.layer.borderColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
         temp.layer.shadowColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
@@ -1112,7 +1109,7 @@
 //glow green
 - (void)glowGreenAtIndex:(NSInteger)index
 {
-    NSLog(@"glow green at index = %ld",index);
+    //NSLog(@"glow green at index = %ld",index);
     JTNumberScrollAnimatedView *temp = (JTNumberScrollAnimatedView *)[_boxArray objectAtIndex:index];
     
     temp.userInteractionEnabled = NO;
@@ -1251,23 +1248,14 @@
                 [self moveToBoxToSet:_currentBoxSet];
                 [_game generateNewAnswer];
             }
-            NSLog(@"availableTries = %ld",_game.availableTries);
+            //NSLog(@"availableTries = %ld",_game.availableTries);
             _totalTries = _game.availableTries;
             [_availableTries setProgress:1.0f animated:YES];
-            NSLog(@"glow blue at box = %ld",_theGlowingBox + 1);
+            //NSLog(@"glow blue at box = %ld",_theGlowingBox + 1);
             [self glowBoxAtIndex:_theGlowingBox + 1];
-            
-            //debug
-            
-//            temp = (JTNumberScrollAnimatedView *)[_boxArray objectAtIndex:_theGlowingBox];
-//            _theGlowingBox += 1;
-//            temp.layer.borderColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
-//            temp.layer.shadowColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
-//            temp.layer.shadowRadius = 5.0f;
-//            temp.layer.shadowOpacity = 0.8f;
-            
         }
     }
+    //wrong
     else
     {
         if (_theGameMode == gameModeInfinity)

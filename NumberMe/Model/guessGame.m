@@ -120,6 +120,10 @@ NSString * const kDateOfGame = @"dateOfGame";
     _secondHint = NO;
     _thirdHint = NO;
     _forthHint = NO;
+    for (NSInteger i = 0; i < 4; i++)
+    {
+        [_correctNess replaceObjectAtIndex:i withObject:@(0)];
+    }
     [self calculateDigits];
     NSLog(@"%ld, %ld, %ld, %ld",_answerFirstDigit, _answerSecondDigit, _answerThirdDigit, _answerForthDigit);
 }
