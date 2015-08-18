@@ -1216,7 +1216,7 @@
         {
             NSLog(@"game ended");
             //do some thing
-            
+            [self showSuccess];
             return;
         }
     }
@@ -1282,10 +1282,17 @@
 
 - (void)showSuccess
 {
+    if (_theGameMode == gameModeNormal)
+    {
+        [self cancelShake];
+        [_game endGameWithDuration:[_timer remainingDurationInSeconds]];
+    }
+    else if (_theGameMode == gameModeInfinity)
+    {
+        
+    }
     _guideLabel.text = @"";
-    [self cancelShake];
     [self disableTouchOnBox];
-    [_game endGameWithDuration:[_timer remainingDurationInSeconds]];
     AlertViewController *success = [[AlertViewController alloc] initWithGame:_game];
     RWBlurPopover *pop = [[RWBlurPopover alloc] initWithContentViewController:success];
     pop.throwingGestureEnabled = NO;

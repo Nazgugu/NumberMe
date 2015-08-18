@@ -30,6 +30,12 @@
 #define COCOAPODS_VERSION_MINOR_JSKTimerView 4
 #define COCOAPODS_VERSION_PATCH_JSKTimerView 1
 
+// MZTimerLabel
+#define COCOAPODS_POD_AVAILABLE_MZTimerLabel
+#define COCOAPODS_VERSION_MAJOR_MZTimerLabel 0
+#define COCOAPODS_VERSION_MINOR_MZTimerLabel 5
+#define COCOAPODS_VERSION_PATCH_MZTimerLabel 4
+
 // NuweScoreCharts
 #define COCOAPODS_POD_AVAILABLE_NuweScoreCharts
 #define COCOAPODS_VERSION_MAJOR_NuweScoreCharts 1
@@ -65,10 +71,4 @@
 #define COCOAPODS_VERSION_MAJOR_ZCAnimatedLabel 0
 #define COCOAPODS_VERSION_MINOR_ZCAnimatedLabel 0
 #define COCOAPODS_VERSION_PATCH_ZCAnimatedLabel 1
-
-// pop
-#define COCOAPODS_POD_AVAILABLE_pop
-#define COCOAPODS_VERSION_MAJOR_pop 1
-#define COCOAPODS_VERSION_MINOR_pop 0
-#define COCOAPODS_VERSION_PATCH_pop 7
 

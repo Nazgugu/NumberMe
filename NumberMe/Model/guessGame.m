@@ -191,9 +191,10 @@ NSString * const kDateOfGame = @"dateOfGame";
                 {
                     _availabelHints -= 1;
                 }
-                else
+                else if (_gameMode == 1)
                 {
                     _hintUsed += 1;
+                    _correctNumber += 1;
                 }
             }
             if (sign == 0)
@@ -223,9 +224,10 @@ NSString * const kDateOfGame = @"dateOfGame";
                 {
                     _availabelHints -= 1;
                 }
-                else
+                else if (_gameMode == 1)
                 {
                     _hintUsed += 1;
+                    _correctNumber += 1;
                 }
 
             }
@@ -256,9 +258,10 @@ NSString * const kDateOfGame = @"dateOfGame";
                 {
                     _availabelHints -= 1;
                 }
-                else
+                else if (_gameMode == 1)
                 {
                     _hintUsed += 1;
+                    _correctNumber += 1;
                 }
 
             }
@@ -289,9 +292,10 @@ NSString * const kDateOfGame = @"dateOfGame";
                 {
                     _availabelHints -= 1;
                 }
-                else
+                else if (_gameMode == 1)
                 {
                     _hintUsed += 1;
+                    _correctNumber += 1;
                 }
             }
             if (sign == 0)
@@ -559,5 +563,6 @@ NSString * const kDateOfGame = @"dateOfGame";
     gameData = [NSKeyedArchiver archivedDataWithRootObject:games];
     [[EGOCache globalCache] setData:gameData forKey:@"games"];
 }
+
 
 @end

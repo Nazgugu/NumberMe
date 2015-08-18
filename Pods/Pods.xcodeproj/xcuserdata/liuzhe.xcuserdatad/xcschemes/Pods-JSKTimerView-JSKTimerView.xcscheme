@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "ADBFA6DE83130A51DAB328C8"
+               BlueprintIdentifier = "DCBBDD3D0F7A3797EE1ED449"
                BuildableName = "JSKTimerView.bundle"
                BlueprintName = "Pods-JSKTimerView-JSKTimerView"
                ReferencedContainer = "container:Pods.xcodeproj">

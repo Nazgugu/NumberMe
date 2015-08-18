@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1610C882FB100C9E65A377BC"
-               BuildableName = "libPods-OpenShare.a"
-               BlueprintName = "Pods-OpenShare"
+               BlueprintIdentifier = "056DDEA5CE494927A686FBF6"
+               BuildableName = "libPods-MZTimerLabel.a"
+               BlueprintName = "Pods-MZTimerLabel"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

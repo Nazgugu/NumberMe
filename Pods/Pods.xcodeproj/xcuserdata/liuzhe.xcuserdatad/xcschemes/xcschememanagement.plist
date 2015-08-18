@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-MZTimerLabel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-NuweScoreCharts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -54,11 +59,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-pop.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,62 +67,62 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>04DEE20DD371EF5C56EB515F</key>
+		<key>056DDEA5CE494927A686FBF6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>20756461EA221EC3A9723879</key>
+		<key>0A999F343D76303DE1680C9B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3E0CED6E38272438ADCE8309</key>
+		<key>13423F692414B1BDB903143F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>44C917B310B4D029629F823B</key>
+		<key>1610C882FB100C9E65A377BC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>48C9035CC40DBC7D8133361B</key>
+		<key>2C89B4E6330EFC3ACD54C7FD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>74BA1CF452EB9F56EDDD8A85</key>
+		<key>8412B8CB6B18461F8B052F32</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>779BA99C27E8E858318D8510</key>
+		<key>847C034CB555456264DBEF1D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7A20BFB7552573554E458A1D</key>
+		<key>ADF55AF9C00005E8404B9BF0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ADBFA6DE83130A51DAB328C8</key>
+		<key>B2B3EB18360C494018D24A42</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EC15896105EA7B76427DECD5</key>
+		<key>DCBBDD3D0F7A3797EE1ED449</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F3F2FC9A279DABC06255D6FC</key>
+		<key>E030E57E0B4326B5C9A77002</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F7D7AB0E8151AA0D930B550A</key>
+		<key>E1459CC4C6D9AC368C8C75D0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
