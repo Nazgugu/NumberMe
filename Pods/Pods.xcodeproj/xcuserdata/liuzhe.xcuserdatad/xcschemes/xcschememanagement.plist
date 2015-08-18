@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-CircleProgressBar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-EGOCache.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,57 +67,62 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0343ABB867FD8CCFCE5DFD85</key>
+		<key>04DEE20DD371EF5C56EB515F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3453BE1CEE808B2C4C027EBB</key>
+		<key>20756461EA221EC3A9723879</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4CE64B926F17DFAE931E0752</key>
+		<key>3E0CED6E38272438ADCE8309</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>514543FFC522306F9016483C</key>
+		<key>44C917B310B4D029629F823B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>681E5921A0214D1A7BFF2F13</key>
+		<key>48C9035CC40DBC7D8133361B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>686B3F810AAEDB8B652F8F34</key>
+		<key>74BA1CF452EB9F56EDDD8A85</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8AF72150F6619AA3DF1BEB25</key>
+		<key>779BA99C27E8E858318D8510</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A404459CE983B3263C8EFF29</key>
+		<key>7A20BFB7552573554E458A1D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C37B4747CB955A054AEB89D0</key>
+		<key>ADBFA6DE83130A51DAB328C8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C5E796BCDF6F92367D468C0F</key>
+		<key>EC15896105EA7B76427DECD5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E51B9BFC9EF8A56CE0BB01B4</key>
+		<key>F3F2FC9A279DABC06255D6FC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F7D7AB0E8151AA0D930B550A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

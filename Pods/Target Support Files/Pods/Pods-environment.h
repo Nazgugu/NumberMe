@@ -6,6 +6,12 @@
 // project.
 
 
+// CircleProgressBar
+#define COCOAPODS_POD_AVAILABLE_CircleProgressBar
+#define COCOAPODS_VERSION_MAJOR_CircleProgressBar 0
+#define COCOAPODS_VERSION_MINOR_CircleProgressBar 21
+#define COCOAPODS_VERSION_PATCH_CircleProgressBar 0
+
 // EGOCache
 #define COCOAPODS_POD_AVAILABLE_EGOCache
 #define COCOAPODS_VERSION_MAJOR_EGOCache 2

@@ -65,11 +65,13 @@ NSString * const kDateOfGame = @"dateOfGame";
     return self;
 }
 
-- (instancetype)init
+- (instancetype)initWithGameMode:(NSInteger)gameMode
 {
     self = [super init];
     if (self)
     {
+        _gameMode = gameMode;
+        
         _succeed = 0;
         _userFirstDigit = -1;
         _userSecondDigit = -1;
@@ -77,13 +79,22 @@ NSString * const kDateOfGame = @"dateOfGame";
         _userForthDigit = -1;
         _gameScore = 0;
         _gameAnswer = arc4random() % 10000;
-        _availabelHints = 4;
+        
+        if (gameMode == 0)
+        {
+            _availabelHints = 4;
+            _numberOfTries = 0;
+        }
+        else
+        {
+            _hintUsed = 0;
+            _availableTries = 5;
+        }
+        
         _allWrong = YES;
         _correctNumber = 0;
         
         _correctNess = [[NSMutableArray alloc] initWithObjects:@(0),@(0),@(0),@(0), nil];
-        
-        _numberOfTries = 0;
         
         _firstHint = NO;
         _secondHint = NO;
@@ -94,10 +105,57 @@ NSString * const kDateOfGame = @"dateOfGame";
         
         [self calculateDigits];
         NSLog(@"%ld, %ld, %ld, %ld",_answerFirstDigit, _answerSecondDigit, _answerThirdDigit, _answerForthDigit);
-        
     }
     return self;
 }
+
+- (void)generateNewAnswer
+{
+    _userFirstDigit = -1;
+    _userSecondDigit = -1;
+    _userThirdDigit = -1;
+    _userForthDigit = -1;
+    _gameAnswer = arc4random() % 10000;
+    _firstHint = NO;
+    _secondHint = NO;
+    _thirdHint = NO;
+    _forthHint = NO;
+    [self calculateDigits];
+}
+
+//- (instancetype)init
+//{
+//    self = [super init];
+//    if (self)
+//    {
+//        _succeed = 0;
+//        _userFirstDigit = -1;
+//        _userSecondDigit = -1;
+//        _userThirdDigit = -1;
+//        _userForthDigit = -1;
+//        _gameScore = 0;
+//        _gameAnswer = arc4random() % 10000;
+//        _availabelHints = 4;
+//        _allWrong = YES;
+//        _correctNumber = 0;
+//        
+//        _correctNess = [[NSMutableArray alloc] initWithObjects:@(0),@(0),@(0),@(0), nil];
+//        
+//        _numberOfTries = 0;
+//        
+//        _firstHint = NO;
+//        _secondHint = NO;
+//        _thirdHint = NO;
+//        _forthHint = NO;
+//        
+//        //NSLog(@"correct answer = %ld",(long)_gameAnswer);
+//        
+//        [self calculateDigits];
+//        NSLog(@"%ld, %ld, %ld, %ld",_answerFirstDigit, _answerSecondDigit, _answerThirdDigit, _answerForthDigit);
+//        
+//    }
+//    return self;
+//}
 
 - (void)calculateDigits
 {
@@ -157,8 +215,15 @@ NSString * const kDateOfGame = @"dateOfGame";
         {
             if (!_firstHint)
             {
-                _availabelHints -= 1;
-                _firstHint = YES;
+                 _firstHint = YES;
+                if (_gameMode == 0)
+                {
+                    _availabelHints -= 1;
+                }
+                else
+                {
+                    _hintUsed += 1;
+                }
             }
             if (sign == 0)
             {
@@ -182,8 +247,16 @@ NSString * const kDateOfGame = @"dateOfGame";
         {
             if (!_secondHint)
             {
-                _availabelHints -= 1;
                 _secondHint = YES;
+                if (_gameMode == 0)
+                {
+                    _availabelHints -= 1;
+                }
+                else
+                {
+                    _hintUsed += 1;
+                }
+
             }
             if (sign == 0)
             {
@@ -207,8 +280,16 @@ NSString * const kDateOfGame = @"dateOfGame";
         {
             if (!_thirdHint)
             {
-                _availabelHints -= 1;
                 _thirdHint = YES;
+                if (_gameMode == 0)
+                {
+                    _availabelHints -= 1;
+                }
+                else
+                {
+                    _hintUsed += 1;
+                }
+
             }
             if (sign == 0)
             {
@@ -232,8 +313,15 @@ NSString * const kDateOfGame = @"dateOfGame";
         {
             if (!_forthHint)
             {
-                _availabelHints -= 1;
                 _forthHint = YES;
+                if (_gameMode == 0)
+                {
+                    _availabelHints -= 1;
+                }
+                else
+                {
+                    _hintUsed += 1;
+                }
             }
             if (sign == 0)
             {
@@ -325,7 +413,19 @@ NSString * const kDateOfGame = @"dateOfGame";
 {
     NSString *feedBackString = @"";
     
-    _numberOfTries += 1;
+    if (_gameMode == 0)
+    {
+        _numberOfTries += 1;
+    }
+    else
+    {
+        _availableTries -= 1;
+        if (_availableTries < 0)
+        {
+            _succeed = 3;
+            return feedBackString;
+        }
+    }
     
     NSUInteger difference;
     

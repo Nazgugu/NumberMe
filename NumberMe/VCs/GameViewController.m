@@ -20,6 +20,11 @@
 
 @interface GameViewController ()<JSKTimerViewDelegate>
 
+//0 = gameModenormal, 1 = gameModeInfinity
+@property (nonatomic) gameMode theGameMode;
+
+@property (nonatomic, assign) NSInteger currentBoxSet;
+
 //number buttons
 @property (nonatomic, strong) UIButton *numberZero;
 @property (nonatomic, strong) UIButton *numberOne;
@@ -43,13 +48,7 @@
 @property (nonatomic) CGFloat toolButtonHeight;
 @property (nonatomic) CGFloat toolButtonWidth;
 
-//digit boxes
-@property (nonatomic, strong) JTNumberScrollAnimatedView *firstDigit;
-@property (nonatomic, strong) JTNumberScrollAnimatedView *secondDigit;
-@property (nonatomic, strong) JTNumberScrollAnimatedView *thirdDigit;
-@property (nonatomic, strong) JTNumberScrollAnimatedView *forthDigit;
-
-@property (nonatomic, strong) NSArray *boxArray;
+@property (nonatomic, strong) NSMutableArray *boxArray;
 
 //tool buttons
 @property (nonatomic, strong) UIButton *deleteOneButton;
@@ -73,9 +72,30 @@
 @property (nonatomic, strong) NSArray *numberArray;
 @property (nonatomic, strong) NSMutableArray *enables;
 
+@property (nonatomic, strong) UIScrollView *boxScrollView;
+
 @end
 
 @implementation GameViewController
+
+- (instancetype)initWithGameMode:(gameMode)mode
+{
+    self = [super init];
+    if (self)
+    {
+        self.theGameMode = mode;
+        self.currentBoxSet = 0;
+        if (!_enables)
+        {
+            _enables = [[NSMutableArray alloc] init];
+        }
+        if (!_boxArray)
+        {
+            _boxArray = [[NSMutableArray alloc] init];
+        }
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -123,6 +143,8 @@
         _guideLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:19.0f];
     }
     
+    _boxWidth = (SCREENWIDTH - 5 * _gapSize) / 4;
+    
     //debug puropse
 //    _guideLabel.layer.borderColor = [UIColor whiteColor].CGColor;
 //    _guideLabel.layer.borderWidth = 1.0f;
@@ -135,13 +157,13 @@
     _guideLabel.text = NSLocalizedString(@"GUIDE_ONE", nil);
     
     //initialize a new game
-    _game = [[guessGame alloc] init];
+    _game = [[guessGame alloc] initWithGameMode:_theGameMode];
     
-    _enables = [[NSMutableArray alloc] initWithObjects:@(1),@(1),@(1),@(1), nil];
+    //_enables = [[NSMutableArray alloc] initWithObjects:@(1),@(1),@(1),@(1), nil];
     
     [self.view addSubview:_guideLabel];
     [self initButtons];
-    [self createBoxes];
+    [self createBoxesOfBoxSet:_currentBoxSet];
     [self createLine];
     [self initToolButton];
     [self initTimer];
@@ -164,7 +186,7 @@
 {
     NSLog(@"restarting game");
     [self disableTouchOnBox];
-    _game = [[guessGame alloc] init];
+    _game = [[guessGame alloc] initWithGameMode:_theGameMode];
     _theGlowingBox = 0;
     
     for (int i = 0; i < _enables.count; i++)
@@ -226,10 +248,13 @@
 
 - (void)enableTouchOnBox
 {
-    _firstDigit.userInteractionEnabled = YES;
-    _secondDigit.userInteractionEnabled = YES;
-    _thirdDigit.userInteractionEnabled = YES;
-    _forthDigit.userInteractionEnabled = YES;
+    if (_theGameMode == gameModeNormal)
+    {
+        for (JTNumberScrollAnimatedView *digitBox in _boxArray)
+        {
+            digitBox.userInteractionEnabled = YES;
+        }
+    }
     
     _deleteOneButton.enabled = YES;
     _clearButton.enabled = YES;
@@ -246,15 +271,18 @@
     _numberSeven.userInteractionEnabled = YES;
     _numberEight.userInteractionEnabled = YES;
     _numberNine.userInteractionEnabled = YES;
-    [self glowBoxAtIndex:1];
+    [self glowBoxAtIndex:_currentBoxSet * 4 + 1];
 }
 
 - (void)disableTouchOnBox
 {
-    _firstDigit.userInteractionEnabled = NO;
-    _secondDigit.userInteractionEnabled = NO;
-    _thirdDigit.userInteractionEnabled = NO;
-    _forthDigit.userInteractionEnabled = NO;
+    if (_theGameMode == gameModeNormal)
+    {
+        for (JTNumberScrollAnimatedView *digitBox in _boxArray)
+        {
+            digitBox.userInteractionEnabled = NO;
+        }
+    }
     
     _deleteOneButton.enabled = NO;
     _clearButton.enabled = NO;
@@ -376,83 +404,55 @@
 
 }
 
-//create four boxes
-- (void)createBoxes
+//start from 0
+- (void)createBoxesOfBoxSet:(NSInteger)index
 {
-    _boxWidth = (SCREENWIDTH - 5 * _gapSize) / 4;
-    
-    //add recognizer
-    UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedBox:)];
-    tap1.numberOfTapsRequired = 1;
-    tap1.numberOfTouchesRequired = 1;
-    
-    UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedBox:)];
-    tap1.numberOfTapsRequired = 1;
-    tap1.numberOfTouchesRequired = 1;
-    
-    UITapGestureRecognizer *tap3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedBox:)];
-    tap1.numberOfTapsRequired = 1;
-    tap1.numberOfTouchesRequired = 1;
-    
-    UITapGestureRecognizer *tap4 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedBox:)];
-    tap1.numberOfTapsRequired = 1;
-    tap1.numberOfTouchesRequired = 1;
-    
-    //first digit
-    _firstDigit = [[JTNumberScrollAnimatedView alloc] initWithFrame:CGRectMake(_gapSize, SCREEN_HEIGHT - _verticalGap * 6 - 4 * _buttonSize - _boxHeight, _boxWidth, _boxHeight)];
-    _firstDigit.layer.borderWidth = 1.5f;
-    _firstDigit.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
-    _firstDigit.layer.cornerRadius = 8.0f;
-    _firstDigit.layer.masksToBounds = YES;
-    _firstDigit.textColor = [UIColor whiteColor];
-    _firstDigit.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:35.0f];
-    _firstDigit.minLength = 1;
-    _firstDigit.tag = 1;
-    [_firstDigit addGestureRecognizer:tap1];
-    [self.view addSubview:_firstDigit];
-    
-    //second digit
-    _secondDigit = [[JTNumberScrollAnimatedView alloc] initWithFrame:CGRectMake(_gapSize * 2 + _boxWidth, SCREEN_HEIGHT - _verticalGap * 6 - 4 * _buttonSize - _boxHeight, _boxWidth, _boxHeight)];
-    _secondDigit.layer.borderWidth = 1.5f;
-    _secondDigit.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
-    _secondDigit.layer.cornerRadius = 8.0f;
-    _secondDigit.layer.masksToBounds = YES;
-    _secondDigit.textColor = [UIColor whiteColor];
-    _secondDigit.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:35.0f];
-    _secondDigit.minLength = 1;
-    _secondDigit.tag = 2;
-    [_secondDigit addGestureRecognizer:tap2];
-    [self.view addSubview:_secondDigit];
-    
-    //third digit
-    _thirdDigit = [[JTNumberScrollAnimatedView alloc] initWithFrame:CGRectMake(_gapSize * 3 + _boxWidth * 2, SCREEN_HEIGHT - _verticalGap * 6 - 4 * _buttonSize - _boxHeight, _boxWidth, _boxHeight)];
-    _thirdDigit.layer.borderWidth = 1.5f;
-    _thirdDigit.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
-    _thirdDigit.layer.cornerRadius = 8.0f;
-    _thirdDigit.layer.masksToBounds = YES;
-    _thirdDigit.textColor = [UIColor whiteColor];
-    _thirdDigit.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:35.0f];
-    _thirdDigit.minLength = 1;
-    _thirdDigit.tag = 3;
-    [_thirdDigit addGestureRecognizer:tap3];
-    [self.view addSubview:_thirdDigit];
-    
-    //forth digit
-    _forthDigit = [[JTNumberScrollAnimatedView alloc] initWithFrame:CGRectMake(_gapSize * 4 + _boxWidth * 3, SCREEN_HEIGHT - _verticalGap * 6 - 4 * _buttonSize - _boxHeight, _boxWidth, _boxHeight)];
-    _forthDigit.layer.borderWidth = 1.5f;
-    _forthDigit.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
-    _forthDigit.layer.cornerRadius = 8.0f;
-    _forthDigit.layer.masksToBounds = YES;
-    _forthDigit.textColor = [UIColor whiteColor];
-    _forthDigit.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:35.0f];
-    _forthDigit.minLength = 1;
-    _forthDigit.tag = 4;
-    [_forthDigit addGestureRecognizer:tap4];
-    [self.view addSubview:_forthDigit];
-    
-    _theGlowingBox = 0;
-    _boxArray = [[NSArray alloc] initWithObjects:_firstDigit, _secondDigit, _thirdDigit, _forthDigit, nil];
+    if (!_boxScrollView)
+    {
+        _boxScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - _verticalGap * 6 - 4 * _buttonSize - _boxHeight, SCREENWIDTH, _boxHeight)];
+        //NSLog(@"scrollview frame, x = %lf, y = %lf, width = %lf, height = %lf",_boxScrollView.frame.origin.x,_boxScrollView.frame.origin.y,_boxScrollView.frame.size.width,_boxScrollView.frame.size.height);
+//        _boxScrollView.backgroundColor = [UIColor blackColor];
+//        _boxScrollView.layer.borderWidth = 1.0f;
+//        _boxScrollView.layer.borderColor = [UIColor whiteColor].CGColor;
+//        _boxScrollView.layer.masksToBounds = YES;
+        [self.view addSubview:_boxScrollView];
+    }
+    _boxScrollView.contentSize = CGSizeMake((index + 1) * SCREENWIDTH, _boxScrollView.frame.size.height);
+    _boxScrollView.alwaysBounceHorizontal = NO;
+    _boxScrollView.alwaysBounceVertical = NO;
+    for (int i = 0; i < 4; i++)
+    {
+        JTNumberScrollAnimatedView *digitBox = [[JTNumberScrollAnimatedView alloc] initWithFrame:CGRectMake(_gapSize * 5 * index + _boxWidth * 4 * index + (i + 1) * _gapSize + i * _boxWidth, 0, _boxWidth, _boxHeight)];
+        digitBox.layer.borderWidth = 1.5f;
+        digitBox.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
+        digitBox.layer.cornerRadius = 8.0f;
+        digitBox.layer.masksToBounds = YES;
+        digitBox.textColor = [UIColor whiteColor];
+        digitBox.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:35.0f];
+        digitBox.minLength = 1;
+        digitBox.tag = index * 4 + i + 1;
+        if (_theGameMode == gameModeNormal)
+        {
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedBox:)];
+            tap.numberOfTapsRequired = 1;
+            tap.numberOfTouchesRequired = 1;
+            [digitBox addGestureRecognizer:tap];
+            [_enables addObject:@(1)];
+        }
+        else
+        {
+            [_enables addObject:@(0)];
+        }
+        [_boxArray addObject:digitBox];
+        [_boxScrollView addSubview:digitBox];
+    }
+    _theGlowingBox = 4 * index;
     [self disableTouchOnBox];
+}
+
+- (void)moveToBoxOfSet:(NSInteger)set
+{
+    
 }
 
 - (void)initTimer
@@ -675,8 +675,9 @@
     [self performSelector:@selector(animateDigitFour) withObject:nil afterDelay:0.3f];
     [self performSelector:@selector(animateDigitThree) withObject:nil afterDelay:0.2f];
     [self performSelector:@selector(animateDigitTwo) withObject:nil afterDelay:0.1f];
-    [_firstDigit setValue:@"?"];
-    [_firstDigit startAnimation];
+    JTNumberScrollAnimatedView *firstDigit = (JTNumberScrollAnimatedView *)[_boxArray objectAtIndex:0];
+    [firstDigit setValue:@"?"];
+    [firstDigit startAnimation];
 }
 
 - (void)animateToolButton
@@ -708,20 +709,23 @@
 
 - (void)animateDigitTwo
 {
-    [_secondDigit setValue:@"?"];
-    [_secondDigit startAnimation];
+    JTNumberScrollAnimatedView *secondDigit = (JTNumberScrollAnimatedView *)[_boxArray objectAtIndex:1];
+    [secondDigit setValue:@"?"];
+    [secondDigit startAnimation];
 }
 
 - (void)animateDigitThree
 {
-    [_thirdDigit setValue:@"?"];
-    [_thirdDigit startAnimation];
+    JTNumberScrollAnimatedView *thirdDigit = (JTNumberScrollAnimatedView *)[_boxArray objectAtIndex:2];
+    [thirdDigit setValue:@"?"];
+    [thirdDigit startAnimation];
 }
 
 - (void)animateDigitFour
 {
-    [_forthDigit setValue:@"?"];
-    [_forthDigit startAnimation];
+    JTNumberScrollAnimatedView *forthDigit = (JTNumberScrollAnimatedView *)[_boxArray objectAtIndex:3];
+    [forthDigit setValue:@"?"];
+    [forthDigit startAnimation];
 }
 
 - (void)animatButtonOne
@@ -848,52 +852,52 @@
 }
 
 //shake all the boxes
-- (void)answerWrongAndShakeBoxes
-{
-    [_firstDigit shakeWithOptions:SCShakeOptionsDirectionHorizontal force:0.1f duration:0.8f iterationDuration:0.06 completionHandler:nil];
-    [_secondDigit shakeWithOptions:SCShakeOptionsDirectionHorizontal force:0.1f duration:0.8f iterationDuration:0.06 completionHandler:nil];
-    [_thirdDigit shakeWithOptions:SCShakeOptionsDirectionHorizontal force:0.1f duration:0.8f iterationDuration:0.06 completionHandler:nil];
-    [_thirdDigit shakeWithOptions:SCShakeOptionsDirectionHorizontal force:0.1f duration:0.8f iterationDuration:0.06 completionHandler:nil];
-    
-//    [_firstDigit shake:14 withDelta:6 speed:0.06 shakeDirection:ShakeDirectionHorizontal];
-//    [_secondDigit shake:14 withDelta:6 speed:0.06 shakeDirection:ShakeDirectionHorizontal];
-//    [_thirdDigit shake:14 withDelta:6 speed:0.06 shakeDirection:ShakeDirectionHorizontal];
-//    [_forthDigit shake:14 withDelta:6 speed:0.06 shakeDirection:ShakeDirectionHorizontal];
-    
-    [UIView animateWithDuration:0.72f animations:^{
-        //first digit
-        _firstDigit.layer.borderColor = [[UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f] colorWithAlphaComponent:0.5f].CGColor;
-        _firstDigit.layer.shadowColor = [UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f].CGColor;
-        _firstDigit.layer.shadowRadius = 5.0f;
-        _firstDigit.layer.shadowOpacity = 0.8f;
-        
-        //second digit
-        _secondDigit.layer.borderColor = [[UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f] colorWithAlphaComponent:0.5f].CGColor;
-        _secondDigit.layer.shadowColor = [UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f].CGColor;
-        _secondDigit.layer.shadowRadius = 5.0f;
-        _secondDigit.layer.shadowOpacity = 0.8f;
-        
-        //third digit
-        _thirdDigit.layer.borderColor = [[UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f] colorWithAlphaComponent:0.5f].CGColor;
-        _thirdDigit.layer.shadowColor = [UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f].CGColor;
-        _thirdDigit.layer.shadowRadius = 5.0f;
-        _thirdDigit.layer.shadowOpacity = 0.8f;
-        
-        //forth digit
-        _forthDigit.layer.borderColor = [[UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f] colorWithAlphaComponent:0.5f].CGColor;
-        _forthDigit.layer.shadowColor = [UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f].CGColor;
-        _forthDigit.layer.shadowRadius = 5.0f;
-        _forthDigit.layer.shadowOpacity = 0.8f;
-        
-        //shake
-        } completion:^(BOOL finished) {
-            
-            if (finished)
-            {
-                [self performSelector:@selector(revertToWhite) withObject:nil afterDelay:0.7f];
-            }
-    }];
-}
+//- (void)answerWrongAndShakeBoxes
+//{
+//    [_firstDigit shakeWithOptions:SCShakeOptionsDirectionHorizontal force:0.1f duration:0.8f iterationDuration:0.06 completionHandler:nil];
+//    [_secondDigit shakeWithOptions:SCShakeOptionsDirectionHorizontal force:0.1f duration:0.8f iterationDuration:0.06 completionHandler:nil];
+//    [_thirdDigit shakeWithOptions:SCShakeOptionsDirectionHorizontal force:0.1f duration:0.8f iterationDuration:0.06 completionHandler:nil];
+//    [_thirdDigit shakeWithOptions:SCShakeOptionsDirectionHorizontal force:0.1f duration:0.8f iterationDuration:0.06 completionHandler:nil];
+//    
+////    [_firstDigit shake:14 withDelta:6 speed:0.06 shakeDirection:ShakeDirectionHorizontal];
+////    [_secondDigit shake:14 withDelta:6 speed:0.06 shakeDirection:ShakeDirectionHorizontal];
+////    [_thirdDigit shake:14 withDelta:6 speed:0.06 shakeDirection:ShakeDirectionHorizontal];
+////    [_forthDigit shake:14 withDelta:6 speed:0.06 shakeDirection:ShakeDirectionHorizontal];
+//    
+//    [UIView animateWithDuration:0.72f animations:^{
+//        //first digit
+//        _firstDigit.layer.borderColor = [[UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f] colorWithAlphaComponent:0.5f].CGColor;
+//        _firstDigit.layer.shadowColor = [UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f].CGColor;
+//        _firstDigit.layer.shadowRadius = 5.0f;
+//        _firstDigit.layer.shadowOpacity = 0.8f;
+//        
+//        //second digit
+//        _secondDigit.layer.borderColor = [[UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f] colorWithAlphaComponent:0.5f].CGColor;
+//        _secondDigit.layer.shadowColor = [UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f].CGColor;
+//        _secondDigit.layer.shadowRadius = 5.0f;
+//        _secondDigit.layer.shadowOpacity = 0.8f;
+//        
+//        //third digit
+//        _thirdDigit.layer.borderColor = [[UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f] colorWithAlphaComponent:0.5f].CGColor;
+//        _thirdDigit.layer.shadowColor = [UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f].CGColor;
+//        _thirdDigit.layer.shadowRadius = 5.0f;
+//        _thirdDigit.layer.shadowOpacity = 0.8f;
+//        
+//        //forth digit
+//        _forthDigit.layer.borderColor = [[UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f] colorWithAlphaComponent:0.5f].CGColor;
+//        _forthDigit.layer.shadowColor = [UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f].CGColor;
+//        _forthDigit.layer.shadowRadius = 5.0f;
+//        _forthDigit.layer.shadowOpacity = 0.8f;
+//        
+//        //shake
+//        } completion:^(BOOL finished) {
+//            
+//            if (finished)
+//            {
+//                [self performSelector:@selector(revertToWhite) withObject:nil afterDelay:0.7f];
+//            }
+//    }];
+//}
 
 - (void)shakeBoxAtIndex:(NSInteger)index
 {
@@ -934,32 +938,43 @@
     reverseAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     
     //first digitt
-    _firstDigit.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
-    _firstDigit.layer.shadowColor = [UIColor clearColor].CGColor;
-    _firstDigit.layer.shadowRadius = 0;
-    _firstDigit.layer.shadowOpacity = 0;
-    [_firstDigit.layer addAnimation:reverseAnimation forKey:@"reverse"];
-    
-    //second digit
-    _secondDigit.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
-    _secondDigit.layer.shadowColor = [UIColor clearColor].CGColor;
-    _secondDigit.layer.shadowRadius = 0;
-    _secondDigit.layer.shadowOpacity = 0;
-    [_secondDigit.layer addAnimation:reverseAnimation forKey:@"reverse"];
-    
-    //third digit
-    _thirdDigit.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
-    _thirdDigit.layer.shadowColor = [UIColor clearColor].CGColor;
-    _thirdDigit.layer.shadowRadius = 0;
-    _thirdDigit.layer.shadowOpacity = 0;
-    [_thirdDigit.layer addAnimation:reverseAnimation forKey:@"reverse"];
-    
-    //forth digit
-    _forthDigit.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
-    _forthDigit.layer.shadowColor = [UIColor clearColor].CGColor;
-    _forthDigit.layer.shadowRadius = 0;
-    _forthDigit.layer.shadowOpacity = 0;
-    [_forthDigit.layer addAnimation:reverseAnimation forKey:@"reverse"];
+    if (_theGameMode == gameModeNormal)
+    {
+        for (JTNumberScrollAnimatedView *digitBox in _boxArray)
+        {
+            digitBox.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
+            digitBox.layer.shadowColor = [UIColor clearColor].CGColor;
+            digitBox.layer.shadowRadius = 0;
+            digitBox.layer.shadowOpacity = 0;
+            [digitBox.layer addAnimation:reverseAnimation forKey:@"reverse"];
+        }
+    }
+//    _firstDigit.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
+//    _firstDigit.layer.shadowColor = [UIColor clearColor].CGColor;
+//    _firstDigit.layer.shadowRadius = 0;
+//    _firstDigit.layer.shadowOpacity = 0;
+//    [_firstDigit.layer addAnimation:reverseAnimation forKey:@"reverse"];
+//    
+//    //second digit
+//    _secondDigit.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
+//    _secondDigit.layer.shadowColor = [UIColor clearColor].CGColor;
+//    _secondDigit.layer.shadowRadius = 0;
+//    _secondDigit.layer.shadowOpacity = 0;
+//    [_secondDigit.layer addAnimation:reverseAnimation forKey:@"reverse"];
+//    
+//    //third digit
+//    _thirdDigit.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
+//    _thirdDigit.layer.shadowColor = [UIColor clearColor].CGColor;
+//    _thirdDigit.layer.shadowRadius = 0;
+//    _thirdDigit.layer.shadowOpacity = 0;
+//    [_thirdDigit.layer addAnimation:reverseAnimation forKey:@"reverse"];
+//    
+//    //forth digit
+//    _forthDigit.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
+//    _forthDigit.layer.shadowColor = [UIColor clearColor].CGColor;
+//    _forthDigit.layer.shadowRadius = 0;
+//    _forthDigit.layer.shadowOpacity = 0;
+//    [_forthDigit.layer addAnimation:reverseAnimation forKey:@"reverse"];
     
     //[self glowBoxAtIndex:_theGlowingBox];
 }
@@ -1192,31 +1207,31 @@
     [pop showInViewController:self];
 }
 
-- (void)verifyAndShake
-{
-    if (_game.allWrong)
-    {
-        //all wrong then shake them all
-        [self answerWrongAndShakeBoxes];
-    }
-    else
-    {
-        for (int i = 0; i < 4; i++)
-        {
-            //0 incorrect, 1 correct
-            if ([[_game.correctNess objectAtIndex:i] integerValue] == 1)
-            {
-                //glow green
-                [self glowGreenAtIndex:i];
-            }
-            else
-            {
-                //glow red and shake a bit
-                [self shakeBoxAtIndex:i];
-            }
-        }
-    }
-}
+//- (void)verifyAndShake
+//{
+//    if (_game.allWrong)
+//    {
+//        //all wrong then shake them all
+//        //[self answerWrongAndShakeBoxes];
+//    }
+//    else
+//    {
+//        for (int i = 0; i < 4; i++)
+//        {
+//            //0 incorrect, 1 correct
+//            if ([[_game.correctNess objectAtIndex:i] integerValue] == 1)
+//            {
+//                //glow green
+//                [self glowGreenAtIndex:i];
+//            }
+//            else
+//            {
+//                //glow red and shake a bit
+//                [self shakeBoxAtIndex:i];
+//            }
+//        }
+//    }
+//}
 
 - (void)toolButtonHighlighted:(UIButton *)sender
 {
@@ -1329,12 +1344,15 @@
     _restartButton.userInteractionEnabled = YES;
     _hintButton.userInteractionEnabled = YES;
     
-    for (int i = 0; i < _boxArray.count; i++)
+    if (_theGameMode == gameModeNormal)
     {
-        JTNumberScrollAnimatedView *temp = [_boxArray objectAtIndex:i];
-        if ([[_enables objectAtIndex:i] integerValue] != 0)
+        for (int i = 0; i < _boxArray.count; i++)
         {
-            temp.userInteractionEnabled = YES;
+            JTNumberScrollAnimatedView *temp = [_boxArray objectAtIndex:i];
+            if ([[_enables objectAtIndex:i] integerValue] != 0)
+            {
+                temp.userInteractionEnabled = YES;
+            }
         }
     }
 }
@@ -1402,10 +1420,12 @@
                 break;
         }
     }
-    
-    for (JTNumberScrollAnimatedView *view in _boxArray)
+    if (_theGameMode == gameModeNormal)
     {
-        view.userInteractionEnabled = NO;
+        for (JTNumberScrollAnimatedView *view in _boxArray)
+        {
+            view.userInteractionEnabled = NO;
+        }
     }
 }
 

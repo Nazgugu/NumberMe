@@ -112,21 +112,8 @@
 #pragma mark - GameModeSelectionViewDelegate
 - (void)didSelectGameMode:(NSInteger)gameMode
 {
-    switch (gameMode) {
-        case 0:
-        {
-            GameViewController *gameVC = [[GameViewController alloc] init];
-            [self presentViewController:gameVC animated:YES completion:nil];
-        }
-            break;
-        case 1:
-        {
-            
-        }
-            break;
-        default:
-            break;
-    }
+    GameViewController *gameVC = [[GameViewController alloc] initWithGameMode:gameMode];
+    [self presentViewController:gameVC animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

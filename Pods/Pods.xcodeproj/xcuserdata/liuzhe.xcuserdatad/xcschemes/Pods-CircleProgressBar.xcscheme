@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F7D7AB0E8151AA0D930B550A"
-               BuildableName = "libPods-EGOCache.a"
-               BlueprintName = "Pods-EGOCache"
+               BlueprintIdentifier = "04DEE20DD371EF5C56EB515F"
+               BuildableName = "libPods-CircleProgressBar.a"
+               BlueprintName = "Pods-CircleProgressBar"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
