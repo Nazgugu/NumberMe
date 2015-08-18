@@ -235,6 +235,10 @@
             }
             [_boxScrollView setContentSize:CGSizeMake(SCREENWIDTH, _boxScrollView.frame.size.height)];
         }
+        for (JTNumberScrollAnimatedView *box in _boxArray)
+        {
+            box.value = @"?";
+        }
         _totalTries = _game.availableTries;
         [self resetProgressBar];
         [self revertToWhite];
@@ -462,6 +466,8 @@
 //        _boxScrollView.layer.masksToBounds = YES;
         [self.view addSubview:_boxScrollView];
     }
+    _boxScrollView.showsHorizontalScrollIndicator = NO;
+    _boxScrollView.showsVerticalScrollIndicator = NO;
     _boxScrollView.contentSize = CGSizeMake((index + 1) * SCREENWIDTH, _boxScrollView.frame.size.height);
     _boxScrollView.alwaysBounceHorizontal = NO;
     _boxScrollView.alwaysBounceVertical = NO;
@@ -476,6 +482,10 @@
         digitBox.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:35.0f];
         digitBox.minLength = 1;
         digitBox.tag = index * 4 + i + 1;
+        if (index > 0)
+        {
+            digitBox.value = @"?";
+        }
         if (_theGameMode == gameModeNormal)
         {
             UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedBox:)];
@@ -1016,6 +1026,7 @@
     
     JTNumberScrollAnimatedView *temp;
     
+    
     if (_theGlowingBox == 0)
     {
         NSLog(@"zero");
@@ -1023,7 +1034,14 @@
     }
     else
     {   NSLog(@"not zero");
-        temp = (JTNumberScrollAnimatedView *)[_boxArray objectAtIndex:_theGlowingBox - 1];
+        if (_theGameMode == gameModeNormal)
+        {
+            temp = (JTNumberScrollAnimatedView *)[_boxArray objectAtIndex:_theGlowingBox - 1];
+        }
+        else if (_theGameMode == gameModeInfinity)
+        {
+            temp = (JTNumberScrollAnimatedView *)[_boxArray objectAtIndex:_theGlowingBox];
+        }
     }
     
 //    [temp.layer removeAllAnimations];
@@ -1238,6 +1256,16 @@
             [_availableTries setProgress:1.0f animated:YES];
             NSLog(@"glow blue at box = %ld",_theGlowingBox + 1);
             [self glowBoxAtIndex:_theGlowingBox + 1];
+            
+            //debug
+            
+//            temp = (JTNumberScrollAnimatedView *)[_boxArray objectAtIndex:_theGlowingBox];
+//            _theGlowingBox += 1;
+//            temp.layer.borderColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+//            temp.layer.shadowColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+//            temp.layer.shadowRadius = 5.0f;
+//            temp.layer.shadowOpacity = 0.8f;
+            
         }
     }
     else

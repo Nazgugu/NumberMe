@@ -121,6 +121,7 @@ NSString * const kDateOfGame = @"dateOfGame";
     _thirdHint = NO;
     _forthHint = NO;
     [self calculateDigits];
+    NSLog(@"%ld, %ld, %ld, %ld",_answerFirstDigit, _answerSecondDigit, _answerThirdDigit, _answerForthDigit);
 }
 
 - (void)calculateDigits
