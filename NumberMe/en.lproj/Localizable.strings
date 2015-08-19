@@ -28,7 +28,7 @@
 "FAILED"="Failed";
 "END"="Game end";
 "CORRECTNESS"="Correctness: %ld %%";
-"CORRECTNO"="Correct number: %ld";
+"CORRECTNO"="Correct #: %ld";
 "DURATION"="Time used: %ld s";
 "SCORE"="Game score: %ld";
 "RECORD"="Record: %ld";
@@ -55,5 +55,5 @@
 "CANCEL"="Cancel";
 
 //gameModeSelectionView
-"NORMAL"="Normal Game";
-"CONTINUE"="Unlimited Chanllenge";
+"NORMAL"="Normal Mode";
+"CONTINUE"="Infinity Mode";

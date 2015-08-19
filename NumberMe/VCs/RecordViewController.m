@@ -247,8 +247,18 @@
         {
             NSData *gameData = [[EGOCache globalCache] dataForKey:@"normalGames"];
             _gameResult = [NSKeyedUnarchiver unarchiveObjectWithData:gameData];
+            NSUInteger x = 0;
+            NSUInteger y = _gameResult.count - 1;
+            if (_gameResult.count > 1)
+            {
+                while (x < y) {
+                    [_gameResult exchangeObjectAtIndex:x withObjectAtIndex:y];
+                    x++;
+                    y--;
+                }
+            }
             //process the game data
-            for (int i = 0; i < _gameResult.count; i++)
+            for (NSInteger i = 0; i < _gameResult.count; i++)
             {
                 guessGame *game = [_gameResult objectAtIndex:i];
                 CGFloat ratio = (CGFloat)game.gameScore/(CGFloat)_max;
@@ -269,7 +279,7 @@
                     color = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:0.8f];
                 }
                 RWBarChartItem *singleResult = [RWBarChartItem itemWithSingleSegmentOfRatio:ratio color:color];
-                singleResult.text = [NSString stringWithFormat:@"%d",i];
+                singleResult.text = [NSString stringWithFormat:@"%ld",i];
                 [_dataSource addObject:singleResult];
             }
         }
@@ -291,7 +301,7 @@
 
 - (void)loadDataAtIndex:(NSInteger)index
 {
-    //NSLog(@"loading data");
+    //NSLog(@"loading data at index:%ld",index);
     _currentIndex = index;
     _game = [_gameResult objectAtIndex:index];
     _dateLabel.text = _game.dateString;
@@ -320,6 +330,7 @@
 
 - (id<RWBarChartItemProtocol>)barChartView:(RWBarChartView *)barChartView barChartItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    //NSLog(@"indexpath.row = %ld",indexPath.row);
     return [_dataSource objectAtIndex:indexPath.row];
 }
 
