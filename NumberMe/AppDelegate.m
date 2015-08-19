@@ -10,6 +10,7 @@
 #import "WelcomeViewController.h"
 #import "EGOCache.h"
 #import "OpenShareHeader.h"
+#import "guessGame.h"
 
 @interface AppDelegate ()
 
@@ -55,8 +56,35 @@
     [EGOCache globalCache].defaultTimeoutInterval = INT_MAX;
     if (![[EGOCache globalCache] hasCacheForKey:@"games"])
     {
-        NSData *gameData = [NSKeyedArchiver archivedDataWithRootObject:[NSMutableArray new]];
-        [[EGOCache globalCache] setData:gameData forKey:@"games"];
+        if (![[EGOCache globalCache] hasCacheForKey:@"normalGames"])
+        {
+            NSData *normalGameData = [NSKeyedArchiver archivedDataWithRootObject:[NSMutableArray new]];
+            [[EGOCache globalCache] setData:normalGameData forKey:@"normalGames"];
+        }
+    }
+    else
+    {
+        NSData *normalGameData = [[EGOCache globalCache] dataForKey:@"games"];
+        NSMutableArray *games = [NSKeyedUnarchiver unarchiveObjectWithData:normalGameData];
+        for (guessGame *theGame in games)
+        {
+            theGame.gameMode = gameModeNormal;
+        }
+        normalGameData = [NSKeyedArchiver archivedDataWithRootObject:games];
+        [[EGOCache globalCache] setData:normalGameData forKey:@"normalGames"];
+        [[EGOCache globalCache] removeCacheForKey:@"games"];
+        if ([[EGOCache globalCache] hasCacheForKey:@"maxScore"])
+        {
+            NSString *maxNormal = [[EGOCache globalCache] stringForKey:@"maxScore"];
+            [[EGOCache globalCache] setString:maxNormal forKey:@"maxNormalScore"];
+            [[EGOCache globalCache] removeCacheForKey:@"maxScore"];
+        }
+    }
+    
+    if (![[EGOCache globalCache] hasCacheForKey:@"infinityGames"])
+    {
+        NSData *infinity = [NSKeyedArchiver archivedDataWithRootObject:[NSMutableArray new]];
+        [[EGOCache globalCache] setData:infinity forKey:@"infinityGames"];
     }
 }
 

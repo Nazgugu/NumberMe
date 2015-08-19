@@ -119,23 +119,30 @@
     _usedTimeLabel.text = [NSString stringWithFormat:NSLocalizedString(@"DURATION", nil),_game.duration];
     _scoreLabel.text = [NSString stringWithFormat:NSLocalizedString(@"SCORE", nil),_game.gameScore];
     
-    if ([[EGOCache globalCache] hasCacheForKey:@"maxScore"])
+    if (_game.gameMode == gameModeNormal)
     {
-        NSInteger oldRecord = [[[EGOCache globalCache] stringForKey:@"maxScore"] integerValue];
-        //new record, need to display the record
-        if (oldRecord < _game.gameScore)
+        if ([[EGOCache globalCache] hasCacheForKey:@"maxNormalScore"])
         {
-            _recordSign.hidden = NO;
-            [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameScore] forKey:@"maxScore"];
+            NSInteger oldRecord = [[[EGOCache globalCache] stringForKey:@"maxNormalScore"] integerValue];
+            //new record, need to display the record
+            if (oldRecord < _game.gameScore)
+            {
+                _recordSign.hidden = NO;
+                [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameScore] forKey:@"maxNormalScore"];
+            }
+            _recordLabel.text = [NSString stringWithFormat:NSLocalizedString(@"RECORD", nil),oldRecord];
         }
-        _recordLabel.text = [NSString stringWithFormat:NSLocalizedString(@"RECORD", nil),oldRecord];
+        else
+        {
+            //new record, need to display the record
+            _recordSign.hidden = NO;
+            [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameScore] forKey:@"maxNormalScore"];
+            _recordLabel.text = NSLocalizedString(@"NORECORD", nil);
+        }
     }
-    else
+    else if (_game.gameMode == gameModeInfinity)
     {
-        //new record, need to display the record
-        _recordSign.hidden = NO;
-        [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameScore] forKey:@"maxScore"];
-        _recordLabel.text = NSLocalizedString(@"NORECORD", nil);
+        
     }
     
     if (![OpenShare isWeixinInstalled])

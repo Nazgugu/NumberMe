@@ -9,6 +9,7 @@
 #import "guessGame.h"
 #import "EGOCache.h"
 
+NSString * const kGameMode = @"gameMode";
 NSString * const kGameScore = @"gameScore";
 NSString * const kGameDate = @"gameDate";
 NSString * const kNumberTries = @"numberOfTries";
@@ -25,19 +26,28 @@ NSString * const kDateOfGame = @"dateOfGame";
 {
     [aCoder encodeObject:[NSNumber numberWithInteger:_gameScore] forKey:kGameScore];
     [aCoder encodeObject:_dateString forKey:kGameDate];
-    [aCoder encodeObject:[NSNumber numberWithInteger:_numberOfTries] forKey:kNumberTries];
     [aCoder encodeObject:[NSNumber numberWithInteger:_correctNumber] forKey:kCorrectNumber];
     [aCoder encodeObject:[NSNumber numberWithInteger:_duration] forKey:kGameDuration];
     [aCoder encodeObject:_dateOfGame forKey:kDateOfGame];
-    if (_succeed == 2)
+    [aCoder encodeObject:[NSNumber numberWithInteger:_gameMode] forKey:kGameMode];
+    
+    if (_gameMode == gameModeNormal)
     {
-        [aCoder encodeObject:[NSNumber numberWithBool:YES] forKey:kGameResult];
+        [aCoder encodeObject:[NSNumber numberWithInteger:_numberOfTries] forKey:kNumberTries];
+        if (_succeed == 2)
+        {
+            [aCoder encodeObject:[NSNumber numberWithBool:YES] forKey:kGameResult];
+        }
+        else
+        {
+            [aCoder encodeObject:[NSNumber numberWithBool:NO] forKey:kGameResult];
+        }
+        [aCoder encodeObject:[NSNumber numberWithInteger:(4 - _availabelHints)] forKey:kHintUsed];
     }
-    else
+    else if (_gameMode == gameModeInfinity)
     {
-        [aCoder encodeObject:[NSNumber numberWithBool:NO] forKey:kGameResult];
+        [aCoder encodeObject:[NSNumber numberWithInteger:_hintUsed] forKey:kHintUsed];
     }
-    [aCoder encodeObject:[NSNumber numberWithInteger:(4 - _availabelHints)] forKey:kHintUsed];
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
@@ -45,27 +55,36 @@ NSString * const kDateOfGame = @"dateOfGame";
     self = [super init];
     if (self)
     {
+        self.gameMode = [[aDecoder decodeObjectForKey:kGameMode] integerValue];
         self.gameScore = [[aDecoder decodeObjectForKey:kGameScore] integerValue];
         self.dateString = [aDecoder decodeObjectForKey:kGameDate];
-        self.numberOfTries = [[aDecoder decodeObjectForKey:kNumberTries] integerValue];
         self.correctNumber = [[aDecoder decodeObjectForKey:kCorrectNumber] integerValue];
-        BOOL succeed = [[aDecoder decodeObjectForKey:kGameResult] boolValue];
-        if (succeed)
-        {
-            self.succeed = 2;
-        }
-        else
-        {
-            self.succeed = 1;
-        }
         self.dateOfGame = [aDecoder decodeObjectForKey:kDateOfGame];
         self.duration = [[aDecoder decodeObjectForKey:kGameDuration] integerValue];
-        self.availabelHints = 4 - [[aDecoder decodeObjectForKey:kHintUsed] integerValue];
+        
+        if (_gameMode == gameModeNormal)
+        {
+            self.numberOfTries = [[aDecoder decodeObjectForKey:kNumberTries] integerValue];
+            BOOL succeed = [[aDecoder decodeObjectForKey:kGameResult] boolValue];
+            if (succeed)
+            {
+                self.succeed = 2;
+            }
+            else
+            {
+                self.succeed = 1;
+            }
+            self.availabelHints = 4 - [[aDecoder decodeObjectForKey:kHintUsed] integerValue];
+        }
+        else if (_gameMode == gameModeInfinity)
+        {
+            self.hintUsed = [[aDecoder decodeObjectForKey:kHintUsed] integerValue];
+        }
     }
     return self;
 }
 
-- (instancetype)initWithGameMode:(NSInteger)gameMode
+- (instancetype)initWithGameMode:(gameMode)gameMode
 {
     self = [super init];
     if (self)
@@ -80,12 +99,12 @@ NSString * const kDateOfGame = @"dateOfGame";
         _gameScore = 0;
         _gameAnswer = arc4random() % 10000;
         
-        if (gameMode == 0)
+        if (gameMode == gameModeNormal)
         {
             _availabelHints = 4;
             _numberOfTries = 0;
         }
-        else
+        else if (gameMode == gameModeInfinity)
         {
             _hintUsed = 0;
             _availableTries = 5;
@@ -124,6 +143,7 @@ NSString * const kDateOfGame = @"dateOfGame";
     {
         [_correctNess replaceObjectAtIndex:i withObject:@(0)];
     }
+    _availableTries += 1;
     [self calculateDigits];
     NSLog(@"%ld, %ld, %ld, %ld",_answerFirstDigit, _answerSecondDigit, _answerThirdDigit, _answerForthDigit);
 }
@@ -187,11 +207,11 @@ NSString * const kDateOfGame = @"dateOfGame";
             if (!_firstHint)
             {
                  _firstHint = YES;
-                if (_gameMode == 0)
+                if (_gameMode == gameModeNormal)
                 {
                     _availabelHints -= 1;
                 }
-                else if (_gameMode == 1)
+                else if (_gameMode == gameModeInfinity)
                 {
                     _hintUsed += 1;
                     _correctNumber += 1;
@@ -220,11 +240,11 @@ NSString * const kDateOfGame = @"dateOfGame";
             if (!_secondHint)
             {
                 _secondHint = YES;
-                if (_gameMode == 0)
+                if (_gameMode == gameModeNormal)
                 {
                     _availabelHints -= 1;
                 }
-                else if (_gameMode == 1)
+                else if (_gameMode == gameModeInfinity)
                 {
                     _hintUsed += 1;
                     _correctNumber += 1;
@@ -254,11 +274,11 @@ NSString * const kDateOfGame = @"dateOfGame";
             if (!_thirdHint)
             {
                 _thirdHint = YES;
-                if (_gameMode == 0)
+                if (_gameMode == gameModeNormal)
                 {
                     _availabelHints -= 1;
                 }
-                else if (_gameMode == 1)
+                else if (_gameMode == gameModeInfinity)
                 {
                     _hintUsed += 1;
                     _correctNumber += 1;
@@ -288,11 +308,11 @@ NSString * const kDateOfGame = @"dateOfGame";
             if (!_forthHint)
             {
                 _forthHint = YES;
-                if (_gameMode == 0)
+                if (_gameMode == gameModeNormal)
                 {
                     _availabelHints -= 1;
                 }
-                else if (_gameMode == 1)
+                else if (_gameMode == gameModeInfinity)
                 {
                     _hintUsed += 1;
                     _correctNumber += 1;
@@ -325,7 +345,7 @@ NSString * const kDateOfGame = @"dateOfGame";
 
 - (void)verifyAnswer
 {
-    if (_gameMode == 0)
+    if (_gameMode == gameModeNormal)
     {
         NSInteger userAnswer = _userFirstDigit * 1000 + _userSecondDigit * 100 + _userThirdDigit * 10 + _userForthDigit;
         
@@ -343,7 +363,7 @@ NSString * const kDateOfGame = @"dateOfGame";
             }
         }
     }
-    else if (_gameMode == 1)
+    else if (_gameMode == gameModeInfinity)
     {
         return;
     }
@@ -354,11 +374,11 @@ NSString * const kDateOfGame = @"dateOfGame";
 {
     NSString *feedBackString = @"";
     
-    if (_gameMode == 0)
+    if (_gameMode == gameModeNormal)
     {
         _numberOfTries += 1;
     }
-    else
+    else if (_gameMode == gameModeInfinity)
     {
         _availableTries -= 1;
         if (_availableTries < 0)
@@ -378,7 +398,7 @@ NSString * const kDateOfGame = @"dateOfGame";
             {
                 feedBackString = NSLocalizedString(@"RIGHT", nil);
                 [_correctNess replaceObjectAtIndex:0 withObject:@(1)];
-                if (_gameMode == 1)
+                if (_gameMode ==  gameModeInfinity)
                 {
                     _availableTries += 3;
                 }
@@ -411,7 +431,7 @@ NSString * const kDateOfGame = @"dateOfGame";
             {
                 feedBackString = NSLocalizedString(@"RIGHT", nil);
                 [_correctNess replaceObjectAtIndex:1 withObject:@(1)];
-                if (_gameMode == 1)
+                if (_gameMode == gameModeInfinity)
                 {
                     _availableTries += 3;
                 }
@@ -444,7 +464,7 @@ NSString * const kDateOfGame = @"dateOfGame";
             {
                 feedBackString = NSLocalizedString(@"RIGHT", nil);
                 [_correctNess replaceObjectAtIndex:2 withObject:@(1)];
-                if (_gameMode == 1)
+                if (_gameMode == gameModeInfinity)
                 {
                     _availableTries += 3;
                 }
@@ -477,7 +497,7 @@ NSString * const kDateOfGame = @"dateOfGame";
             {
                 feedBackString = NSLocalizedString(@"RIGHT", nil);
                 [_correctNess replaceObjectAtIndex:3 withObject:@(1)];
-                if (_gameMode == 1)
+                if (_gameMode == gameModeInfinity)
                 {
                     _availableTries += 3;
                 }
@@ -513,55 +533,70 @@ NSString * const kDateOfGame = @"dateOfGame";
 }
 
 //Total score is 1000, for each correct answer we give 100 and for each second past we deduct 10, for each hint used we give 75
-- (void)endGameWithDuration:(NSInteger)secondsLeft
+- (void)endGameWithDuration:(NSInteger)duration
 {
     _dateOfGame = [NSDate date];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd  HH:mm"];
     _dateString = [formatter stringFromDate:[NSDate date]];
     
-    _duration = 30 - secondsLeft;
-    
     NSInteger baseScore = arc4random() % 50 + 100;
     _gameScore += baseScore;
     
-    //全部正确的情况
-    if (_succeed == 2)
+    if (_gameMode == gameModeNormal)
     {
-        _gameScore = 400;
-        _correctNumber = 4;
-    }
-    else
-    {
-        for (NSNumber *correct in _correctNess)
+        _duration = 30 - duration;
+        
+        //全部正确的情况
+        if (_succeed == 2)
         {
-            if ([correct integerValue] == 1)
+            _gameScore = 400;
+            _correctNumber = 4;
+        }
+        else
+        {
+            for (NSNumber *correct in _correctNess)
             {
-                //NSLog(@"one correct");
-                _gameScore += 100;
-                //NSLog(@"game score = %ld",_gameScore);
-                _correctNumber = _correctNumber + 1;
+                if ([correct integerValue] == 1)
+                {
+                    //NSLog(@"one correct");
+                    _gameScore += 100;
+                    //NSLog(@"game score = %ld",_gameScore);
+                    _correctNumber = _correctNumber + 1;
+                }
             }
         }
+        if (_availabelHints == 4)
+        {
+            _gameScore += duration * 10 + 100 - _numberOfTries * 20;
+        }
+        else
+        {
+            _gameScore += duration * 10 - _numberOfTries * 20 - (arc4random() % 25) * (4 - _availabelHints);
+        }
+        
+        
+        //NSLog(@"correct number = %ld",_correctNumber);
+        
+        //record the game
+        NSData *gameData = [[EGOCache globalCache] dataForKey:@"normalGames"];
+        NSMutableArray *games = [NSKeyedUnarchiver unarchiveObjectWithData:gameData];
+        [games addObject:self];
+        gameData = [NSKeyedArchiver archivedDataWithRootObject:games];
+        [[EGOCache globalCache] setData:gameData forKey:@"normalGames"];
     }
-    if (_availabelHints == 4)
+    else if (_gameMode == gameModeInfinity)
     {
-        _gameScore += secondsLeft * 10 + 100 - _numberOfTries * 20;
+        _duration = duration;
+        
+        //for each correct guess scrore increase by 30, for each hint used, deduct the score by 15, then plus 10 * (seconds / correctNumber);
+        _gameScore = 30 * _correctNumber - (_hintUsed) * 15 + 10 * (duration / _correctNumber);
+        NSData *gameData = [[EGOCache globalCache] dataForKey:@"infinityGames"];
+        NSMutableArray *games = [NSKeyedUnarchiver unarchiveObjectWithData:gameData];
+        [games addObject:self];
+        gameData = [NSKeyedArchiver archivedDataWithRootObject:games];
+        [[EGOCache globalCache] setData:gameData forKey:@"infinityGames"];
     }
-    else
-    {
-        _gameScore += secondsLeft * 10 - _numberOfTries * 20 - (arc4random() % 25) * (4 - _availabelHints);
-    }
-    
-    
-    //NSLog(@"correct number = %ld",_correctNumber);
-    
-    //record the game
-    NSData *gameData = [[EGOCache globalCache] dataForKey:@"games"];
-    NSMutableArray *games = [NSKeyedUnarchiver unarchiveObjectWithData:gameData];
-    [games addObject:self];
-    gameData = [NSKeyedArchiver archivedDataWithRootObject:games];
-    [[EGOCache globalCache] setData:gameData forKey:@"games"];
 }
 
 

@@ -10,13 +10,13 @@
 #import "JTNumberScrollAnimatedView.h"
 #import "YETIFallingLabel.h"
 #import <JSKTimerView/JSKTimerView.h>
-#import "guessGame.h"
 #import "UIView+Shake.h"
 #import <QuartzCore/QuartzCore.h>
 #import "RWBlurPopover.h"
 #import "RWBlurPopoverView.h"
 #import "AlertViewController.h"
 #import "CircleProgressBar.h"
+#import "MZTimerLabel.h"
 //#import <pop/POP.h>
 
 @interface GameViewController ()<JSKTimerViewDelegate>
@@ -64,8 +64,11 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 
-//timer
+//timer(for normal mode)
 @property (nonatomic, strong) JSKTimerView *timer;
+
+//timerLabel(for inifinity mode)
+@property (nonatomic, strong) MZTimerLabel *timerLabel;
 
 //progress bar
 @property (nonatomic, strong) CircleProgressBar *availableTries;
@@ -180,6 +183,7 @@
         _guideLabel.text = NSLocalizedString(@"INFINITI", nil);
         _totalTries = _game.availableTries;
         [self initProgressBar];
+        [self initTimerLabel];
     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(quit) name:@"quit" object:nil];
@@ -238,6 +242,7 @@
             box.value = @"?";
         }
         _totalTries = _game.availableTries;
+        [_timerLabel reset];
         [self resetProgressBar];
         [self revertToWhite];
         _guideLabel.text = NSLocalizedString(@"INFINITI", nil);
@@ -281,6 +286,11 @@
     {
         [_timer startTimer];
         [self performSelector:@selector(shakeTimer) withObject:nil afterDelay:20];
+    }
+    else if (_theGameMode == gameModeInfinity)
+    {
+        NSLog(@"calling go");
+        [_timerLabel start];
     }
     _deleteOneButton.enabled = YES;
     _clearButton.enabled = YES;
@@ -517,6 +527,29 @@
     _timer.labelTextColor = [UIColor colorWithRed:0.678f green:0.663f blue:0.824f alpha:1.00f];
     [_timer setTimerWithDuration:30];
     [self.view addSubview:_timer];
+}
+
+- (void)initTimerLabel
+{
+    if (!_timerLabel)
+    {
+        _timerLabel = [[MZTimerLabel alloc] initWithFrame:CGRectMake(_gapSize * 3 + _buttonSize * 2 - 10, SCREENHEIGHT - (_buttonSize - 40)/2 - _verticalGap - (_buttonSize - 40), _buttonSize + 20, _buttonSize - 40)];
+    }
+    
+    //debug purpose
+//    _timerLabel.layer.borderColor = [UIColor whiteColor].CGColor;
+//    _timerLabel.layer.borderWidth = 1.0f;
+//    _timerLabel.layer.masksToBounds = YES;
+    
+    _timerLabel.timerType = MZTimerLabelTypeStopWatch;
+    _timerLabel.backgroundColor = [UIColor clearColor];
+    _timerLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:25.0f];
+    _timerLabel.adjustsFontSizeToFitWidth = YES;
+    _timerLabel.minimumScaleFactor = 0.6f;
+    _timerLabel.textColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5f];
+    _timerLabel.textAlignment = NSTextAlignmentCenter;
+    _timerLabel.alpha = 0.0f;
+    [self.view addSubview:_timerLabel];
 }
 
 - (void)initProgressBar
@@ -886,14 +919,8 @@
     [UIView animateWithDuration:0.5f delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         [_numberSeven setCenter:CGPointMake(centerX, centerY)];
     }completion:^(BOOL finished) {
-        if (_theGameMode == gameModeNormal)
-        {
-            [self animateTimer];
-        }
-        else if (_theGameMode == gameModeInfinity)
-        {
-            [self animateProgressBar];
-        }
+        [self animateTimer];
+        [self animateProgressBar];
         [self animateButtonZero];
     }];
 }
@@ -930,13 +957,22 @@
 
 - (void)animateTimer
 {
-    CGFloat centerX = _gapSize + _buttonSize/2;
-    CGFloat centerY = SCREENHEIGHT - _verticalGap - _buttonSize/2;
-    [UIView animateWithDuration:0.2 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        [_timer setCenter:CGPointMake(centerX, centerY)];
-    } completion:^(BOOL finished) {
-        
-    }];
+    if (_theGameMode == gameModeNormal)
+    {
+        CGFloat centerX = _gapSize + _buttonSize/2;
+        CGFloat centerY = SCREENHEIGHT - _verticalGap - _buttonSize/2;
+        [UIView animateWithDuration:0.2 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            [_timer setCenter:CGPointMake(centerX, centerY)];
+        } completion:^(BOOL finished) {
+            
+        }];
+    }
+    else if (_theGameMode == gameModeInfinity)
+    {
+        [UIView animateWithDuration:0.3f animations:^{
+            _timerLabel.alpha = 1.0f;
+        }];
+    }
 }
 
 - (void)animateProgressBar
@@ -1216,6 +1252,7 @@
         {
             NSLog(@"game ended");
             //do some thing
+            [_timerLabel pause];
             [self showSuccess];
             return;
         }
@@ -1289,7 +1326,7 @@
     }
     else if (_theGameMode == gameModeInfinity)
     {
-        
+        [_game endGameWithDuration:[_timerLabel getCountDownTime]];
     }
     _guideLabel.text = @"";
     [self disableTouchOnBox];

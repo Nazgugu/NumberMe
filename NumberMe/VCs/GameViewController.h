@@ -7,11 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-typedef NS_ENUM(NSInteger, gameMode) {
-    gameModeNormal = 0,
-    gameModeInfinity = 1
-};
+#import "guessGame.h"
 
 @interface GameViewController : UIViewController
 

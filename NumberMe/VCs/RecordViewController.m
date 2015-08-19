@@ -46,6 +46,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *shareFacebookBtn;
 
 @property (weak, nonatomic) IBOutlet UIView *seperator;
+
+@property (nonatomic, assign) gameMode displayForGameMode;
 @end
 
 @implementation RecordViewController
@@ -56,6 +58,8 @@
     _gameResultChart.dataSource = self;
     
     _game = nil;
+    
+    _displayForGameMode = gameModeNormal;
     
     CGFloat labelGap,labelHeight,seperatorHeight;
     
@@ -103,9 +107,12 @@
     
     labelGap = (seperatorHeight - delta - labelHeight * 3)/4.0f;
     
-    if ([[EGOCache globalCache] hasCacheForKey:@"maxScore"])
+    if (_displayForGameMode == gameModeNormal)
     {
-        _max = [[[EGOCache globalCache] stringForKey:@"maxScore"] integerValue];
+        if ([[EGOCache globalCache] hasCacheForKey:@"maxNormalScore"])
+        {
+            _max = [[[EGOCache globalCache] stringForKey:@"maxNormalScore"] integerValue];
+        }
     }
     if (!_dataSource)
     {
@@ -234,39 +241,42 @@
 
 - (void)retrieveGameResult
 {
-    if ([[EGOCache globalCache] hasCacheForKey:@"games"])
+    if (_displayForGameMode == gameModeNormal)
     {
-        NSData *gameData = [[EGOCache globalCache] dataForKey:@"games"];
-        _gameResult = [NSKeyedUnarchiver unarchiveObjectWithData:gameData];
-        //process the game data
-        for (int i = 0; i < _gameResult.count; i++)
+        if ([[EGOCache globalCache] hasCacheForKey:@"normalGames"])
         {
-            guessGame *game = [_gameResult objectAtIndex:i];
-            CGFloat ratio = (CGFloat)game.gameScore/(CGFloat)_max;
-            UIColor *color;
-            //red
-            if (ratio < 0.34)
+            NSData *gameData = [[EGOCache globalCache] dataForKey:@"normalGames"];
+            _gameResult = [NSKeyedUnarchiver unarchiveObjectWithData:gameData];
+            //process the game data
+            for (int i = 0; i < _gameResult.count; i++)
             {
-                color = [UIColor colorWithRed:0.980f green:0.267f blue:0.275f alpha:0.8f];
+                guessGame *game = [_gameResult objectAtIndex:i];
+                CGFloat ratio = (CGFloat)game.gameScore/(CGFloat)_max;
+                UIColor *color;
+                //red
+                if (ratio < 0.34)
+                {
+                    color = [UIColor colorWithRed:0.980f green:0.267f blue:0.275f alpha:0.8f];
+                }
+                //green
+                else if (ratio > 0.67)
+                {
+                    color = [UIColor colorWithRed:0.263f green:0.792f blue:0.459f alpha:0.8f];
+                }
+                //blue
+                else
+                {
+                    color = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:0.8f];
+                }
+                RWBarChartItem *singleResult = [RWBarChartItem itemWithSingleSegmentOfRatio:ratio color:color];
+                singleResult.text = [NSString stringWithFormat:@"%d",i];
+                [_dataSource addObject:singleResult];
             }
-            //green
-            else if (ratio > 0.67)
-            {
-                color = [UIColor colorWithRed:0.263f green:0.792f blue:0.459f alpha:0.8f];
-            }
-            //blue
-            else
-            {
-                color = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:0.8f];
-            }
-            RWBarChartItem *singleResult = [RWBarChartItem itemWithSingleSegmentOfRatio:ratio color:color];
-            singleResult.text = [NSString stringWithFormat:@"%d",i];
-            [_dataSource addObject:singleResult];
         }
-    }
-    else
-    {
-        _gameResult = [[NSMutableArray alloc] init];
+        else
+        {
+            _gameResult = [[NSMutableArray alloc] init];
+        }
     }
 }
 
@@ -286,10 +296,13 @@
     _game = [_gameResult objectAtIndex:index];
     _dateLabel.text = _game.dateString;
     
-    //three labels
-    _correctnessLabel.text = [NSString stringWithFormat:NSLocalizedString(@"CORRECTNESS", nil), _game.correctNumber * 25];
-    _durationLabel.text = [NSString stringWithFormat:NSLocalizedString(@"DURATION", nil),_game.duration];
-    _scoreLabel.text = [NSString stringWithFormat:NSLocalizedString(@"SCORE", nil),_game.gameScore];
+    if (_displayForGameMode == gameModeNormal)
+    {
+        //three labels
+        _correctnessLabel.text = [NSString stringWithFormat:NSLocalizedString(@"CORRECTNESS", nil), _game.correctNumber * 25];
+        _durationLabel.text = [NSString stringWithFormat:NSLocalizedString(@"DURATION", nil),_game.duration];
+        _scoreLabel.text = [NSString stringWithFormat:NSLocalizedString(@"SCORE", nil),_game.gameScore];
+    }
     
     [_dataChart reloadDialWithAnimation:YES];
 }
@@ -318,20 +331,23 @@
 - (BOOL)barChartView:(RWBarChartView *)barChartView shouldShowAxisAtRatios:(out NSArray *__autoreleasing *)axisRatios withLabels:(out NSArray *__autoreleasing *)axisLabels
 {
     *axisRatios = @[@(0.25),@(0.50),@(0.75),@(1.0)];
-    if ([[EGOCache globalCache] hasCacheForKey:@"maxScore"])
+    if (_displayForGameMode == gameModeNormal)
     {
-        NSInteger first = (NSInteger)(((float)_max) * 0.25);
-        NSInteger second = (NSInteger)(((float)_max) * 0.50);
-        NSInteger third = (NSInteger)(((float)_max) * 0.75);
-        NSString *firstString = [NSString stringWithFormat:@"%ld",first];
-        NSString *secondString = [NSString stringWithFormat:@"%ld",second];
-        NSString *thirdString = [NSString stringWithFormat:@"%ld",third];
-        NSString *forthString = [NSString stringWithFormat:@"%ld",_max];
-        *axisLabels = @[firstString,secondString,thirdString,forthString];
-    }
-    else
-    {
-        *axisLabels = @[@"0",@"0",@"0",@"0"];
+        if ([[EGOCache globalCache] hasCacheForKey:@"maxNormalScore"])
+        {
+            NSInteger first = (NSInteger)(((float)_max) * 0.25);
+            NSInteger second = (NSInteger)(((float)_max) * 0.50);
+            NSInteger third = (NSInteger)(((float)_max) * 0.75);
+            NSString *firstString = [NSString stringWithFormat:@"%ld",first];
+            NSString *secondString = [NSString stringWithFormat:@"%ld",second];
+            NSString *thirdString = [NSString stringWithFormat:@"%ld",third];
+            NSString *forthString = [NSString stringWithFormat:@"%ld",_max];
+            *axisLabels = @[firstString,secondString,thirdString,forthString];
+        }
+        else
+        {
+            *axisLabels = @[@"0",@"0",@"0",@"0"];
+        }
     }
     return YES;
 }
@@ -357,27 +373,31 @@
 - (NSNumber *)dialChart:(NUDialChart *)dialChart valueOfCircleAtIndex:(int)_index
 {
     NSNumber *number;
-    switch (_index) {
-        //inner circle: correct number
-        case 0:
-        {
-            number = [NSNumber numberWithInteger:_game.correctNumber * 25];
+    
+    if (_displayForGameMode == gameModeNormal)
+    {
+        switch (_index) {
+                //inner circle: correct number
+            case 0:
+            {
+                number = [NSNumber numberWithInteger:_game.correctNumber * 25];
+            }
+                break;
+                //second circle: use time
+            case 1:
+            {
+                number = [NSNumber numberWithInteger:(_game.duration * 100) / 30];
+            }
+                break;
+                //outter circle: score
+            case 2:
+            {
+                number = [NSNumber numberWithInteger:(_game.gameScore * 100) / _max];
+            }
+                break;
+            default:
+                break;
         }
-            break;
-        //second circle: use time
-        case 1:
-        {
-            number = [NSNumber numberWithInteger:(_game.duration * 100) / 30];
-        }
-            break;
-        //outter circle: score
-        case 2:
-        {
-            number = [NSNumber numberWithInteger:(_game.gameScore * 100) / _max];
-        }
-            break;
-        default:
-            break;
     }
     return number;
 }
@@ -412,27 +432,28 @@
 - (NSString *)dialChart:(NUDialChart *)dialChart textOfCircleAtIndex:(int)_index
 {
     NSString *info;
-    
-    switch (_index) {
-        case 0:
-        {
-            info = NSLocalizedString(@"INFOC", nil);
+    if (_displayForGameMode == gameModeNormal)
+    {
+        switch (_index) {
+            case 0:
+            {
+                info = NSLocalizedString(@"INFOC", nil);
+            }
+                break;
+            case 1:
+            {
+                info = NSLocalizedString(@"INFOT", nil);
+            }
+                break;
+            case 2:
+            {
+                info = NSLocalizedString(@"INFOS", nil);
+            }
+                break;
+            default:
+                break;
         }
-            break;
-        case 1:
-        {
-            info = NSLocalizedString(@"INFOT", nil);
-        }
-            break;
-        case 2:
-        {
-            info = NSLocalizedString(@"INFOS", nil);
-        }
-            break;
-        default:
-            break;
     }
-    
     return info;
 }
 

@@ -6,11 +6,16 @@
 //
 //
 
+typedef NS_ENUM(NSInteger, gameMode) {
+    gameModeNormal = 0,
+    gameModeInfinity = 1
+};
+
 #import <Foundation/Foundation.h>
 
 @interface guessGame : NSObject<NSCoding>
 
-@property (nonatomic) NSInteger gameMode;
+@property (nonatomic) gameMode gameMode;
 
 //for unlimited mode only
 @property (nonatomic) NSInteger availableTries;
@@ -58,7 +63,7 @@
 //0 = incorrect, 1 = correct
 @property (nonatomic, strong) NSMutableArray *correctNess;
 
-- (instancetype)initWithGameMode:(NSInteger)gameMode;
+- (instancetype)initWithGameMode:(gameMode)gameMode;
 
 - (void)generateNewAnswer;
 
@@ -68,6 +73,6 @@
 
 - (void)verifyAnswer;
 
-- (void)endGameWithDuration:(NSInteger)secondsLeft;
+- (void)endGameWithDuration:(NSInteger)duration;
 
 @end
