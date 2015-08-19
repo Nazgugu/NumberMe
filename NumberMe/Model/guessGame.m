@@ -214,7 +214,6 @@ NSString * const kDateOfGame = @"dateOfGame";
                 else if (_gameMode == gameModeInfinity)
                 {
                     _hintUsed += 1;
-                    _correctNumber += 1;
                 }
             }
             if (sign == 0)
@@ -247,7 +246,6 @@ NSString * const kDateOfGame = @"dateOfGame";
                 else if (_gameMode == gameModeInfinity)
                 {
                     _hintUsed += 1;
-                    _correctNumber += 1;
                 }
 
             }
@@ -281,7 +279,6 @@ NSString * const kDateOfGame = @"dateOfGame";
                 else if (_gameMode == gameModeInfinity)
                 {
                     _hintUsed += 1;
-                    _correctNumber += 1;
                 }
 
             }
@@ -315,7 +312,6 @@ NSString * const kDateOfGame = @"dateOfGame";
                 else if (_gameMode == gameModeInfinity)
                 {
                     _hintUsed += 1;
-                    _correctNumber += 1;
                 }
             }
             if (sign == 0)
@@ -381,11 +377,11 @@ NSString * const kDateOfGame = @"dateOfGame";
     else if (_gameMode == gameModeInfinity)
     {
         _availableTries -= 1;
-        if (_availableTries < 0)
-        {
-            _succeed = 3;
-            return feedBackString;
-        }
+//        if (_availableTries == 0)
+//        {
+//            _succeed = 3;
+//            return feedBackString;
+//        }
     }
     
     NSUInteger difference;
@@ -401,6 +397,7 @@ NSString * const kDateOfGame = @"dateOfGame";
                 if (_gameMode ==  gameModeInfinity)
                 {
                     _availableTries += 3;
+                    _correctNumber += 1;
                 }
             }
             else
@@ -421,6 +418,14 @@ NSString * const kDateOfGame = @"dateOfGame";
                 {
                     feedBackString = NSLocalizedString(@"NEAR", nil);
                 }
+                if (_gameMode == gameModeInfinity)
+                {
+                    if (_availableTries == 0)
+                    {
+                        _succeed = 3;
+                        return feedBackString;
+                    }
+                }
             }
         }
             break;
@@ -434,6 +439,7 @@ NSString * const kDateOfGame = @"dateOfGame";
                 if (_gameMode == gameModeInfinity)
                 {
                     _availableTries += 3;
+                    _correctNumber += 1;
                 }
             }
             else
@@ -454,6 +460,14 @@ NSString * const kDateOfGame = @"dateOfGame";
                 {
                     feedBackString = NSLocalizedString(@"NEAR", nil);
                 }
+                if (_gameMode == gameModeInfinity)
+                {
+                    if (_availableTries == 0)
+                    {
+                        _succeed = 3;
+                        return feedBackString;
+                    }
+                }
             }
         }
             break;
@@ -467,6 +481,7 @@ NSString * const kDateOfGame = @"dateOfGame";
                 if (_gameMode == gameModeInfinity)
                 {
                     _availableTries += 3;
+                    _correctNumber += 1;
                 }
             }
             else
@@ -487,6 +502,14 @@ NSString * const kDateOfGame = @"dateOfGame";
                 {
                     feedBackString = NSLocalizedString(@"NEAR", nil);
                 }
+                if (_gameMode == gameModeInfinity)
+                {
+                    if (_availableTries == 0)
+                    {
+                        _succeed = 3;
+                        return feedBackString;
+                    }
+                }
             }
         }
             break;
@@ -500,6 +523,7 @@ NSString * const kDateOfGame = @"dateOfGame";
                 if (_gameMode == gameModeInfinity)
                 {
                     _availableTries += 3;
+                    _correctNumber += 1;
                 }
             }
             else
@@ -519,6 +543,14 @@ NSString * const kDateOfGame = @"dateOfGame";
                 else if (difference < 4 && difference >= 1)
                 {
                     feedBackString = NSLocalizedString(@"NEAR", nil);
+                }
+                if (_gameMode == gameModeInfinity)
+                {
+                    if (_availableTries == 0)
+                    {
+                        _succeed = 3;
+                        return feedBackString;
+                    }
                 }
             }
         }
@@ -540,7 +572,7 @@ NSString * const kDateOfGame = @"dateOfGame";
     [formatter setDateFormat:@"yyyy-MM-dd  HH:mm"];
     _dateString = [formatter stringFromDate:[NSDate date]];
     
-    NSInteger baseScore = arc4random() % 50 + 100;
+    NSInteger baseScore = arc4random() % 25 + 100;
     _gameScore += baseScore;
     
     if (_gameMode == gameModeNormal)
@@ -566,13 +598,22 @@ NSString * const kDateOfGame = @"dateOfGame";
                 }
             }
         }
-        if (_availabelHints == 4)
+        NSInteger punishment;
+        if (_numberOfTries > 18)
         {
-            _gameScore += duration * 10 + 100 - _numberOfTries * 20;
+            punishment = 30;
         }
         else
         {
-            _gameScore += duration * 10 - _numberOfTries * 20 - (arc4random() % 25) * (4 - _availabelHints);
+            punishment = 20;
+        }
+        if (_availabelHints == 4)
+        {
+            _gameScore += duration * 10 + 100 - _numberOfTries * punishment;
+        }
+        else
+        {
+            _gameScore += duration * 10 - _numberOfTries * punishment - (arc4random() % 25) * (4 - _availabelHints);
         }
         
         
@@ -590,7 +631,18 @@ NSString * const kDateOfGame = @"dateOfGame";
         _duration = duration;
         
         //for each correct guess scrore increase by 30, for each hint used, deduct the score by 15, then plus 10 * (seconds / correctNumber);
-        _gameScore = 30 * _correctNumber - (_hintUsed) * 15 + 10 * (duration / _correctNumber);
+        NSInteger bonus;
+        if (_correctNumber > 0)
+        {
+            float quotient = (float)_correctNumber/(float)_duration;
+            bonus = (NSInteger)(100.0f * quotient);
+            //NSLog(@"bonus = %ld",bonus);
+        }
+        else
+        {
+            bonus = 0;
+        }
+        _gameScore += 30 * _correctNumber - (_hintUsed) * 15 + bonus;
         NSData *gameData = [[EGOCache globalCache] dataForKey:@"infinityGames"];
         NSMutableArray *games = [NSKeyedUnarchiver unarchiveObjectWithData:gameData];
         [games addObject:self];

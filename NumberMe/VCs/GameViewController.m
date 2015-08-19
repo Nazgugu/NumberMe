@@ -988,7 +988,7 @@
 
 - (void)shakeBoxAtIndex:(NSInteger)index
 {
-    NSLog(@"shake");
+    //NSLog(@"shake");
     JTNumberScrollAnimatedView *temp = (JTNumberScrollAnimatedView *)[_boxArray objectAtIndex:index];
     temp.layer.borderColor = [[UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f] colorWithAlphaComponent:0.5f].CGColor;
     temp.layer.shadowColor = [UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f].CGColor;
@@ -1326,7 +1326,7 @@
     }
     else if (_theGameMode == gameModeInfinity)
     {
-        [_game endGameWithDuration:[_timerLabel getCountDownTime]];
+        [_game endGameWithDuration:[_timerLabel getTimeCounted]];
     }
     _guideLabel.text = @"";
     [self disableTouchOnBox];

@@ -105,22 +105,29 @@
     if (_game.succeed == 0 || _game.succeed == 1)
     {
 //        self.symbolImage.contentMode = UIViewContentModeTop;
-        self.symbolImage.backgroundColor = [UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:0.7f];
+        //self.symbolImage.backgroundColor = [UIColor clearColor];
+        self.view.backgroundColor = [UIColor colorWithRed:0.945f green:0.290f blue:0.298f alpha:1.00f];
         [_symbolImage setImage:[UIImage imageNamed:@"fail"]];
     }
     //succeed
-    else
+    else if (_game.succeed == 2)
     {
-        self.symbolImage.backgroundColor = [UIColor colorWithRed:0.243f green:0.773f blue:0.420f alpha:0.8f];
+        //self.symbolImage.backgroundColor = [UIColor colorWithRed:0.243f green:0.773f blue:0.420f alpha:0.8f];
+        self.view.backgroundColor = [UIColor colorWithRed:0.235f green:0.753f blue:0.514f alpha:1.00f];
         [_symbolImage setImage:[UIImage imageNamed:@"succeed"]];
     }
+    else if (_game.succeed == 3)
+    {
+        self.view.backgroundColor = [UIColor colorWithRed:0.188f green:0.663f blue:0.929f alpha:1.00f];
+        [_symbolImage setImage:[UIImage imageNamed:@"achievement"]];
+    }
     
-    _correctnessLabel.text = [NSString stringWithFormat:NSLocalizedString(@"CORRECTNESS", nil),_game.correctNumber * 25];
     _usedTimeLabel.text = [NSString stringWithFormat:NSLocalizedString(@"DURATION", nil),_game.duration];
     _scoreLabel.text = [NSString stringWithFormat:NSLocalizedString(@"SCORE", nil),_game.gameScore];
     
     if (_game.gameMode == gameModeNormal)
     {
+        _correctnessLabel.text = [NSString stringWithFormat:NSLocalizedString(@"CORRECTNESS", nil),_game.correctNumber * 25];
         if ([[EGOCache globalCache] hasCacheForKey:@"maxNormalScore"])
         {
             NSInteger oldRecord = [[[EGOCache globalCache] stringForKey:@"maxNormalScore"] integerValue];
@@ -142,7 +149,25 @@
     }
     else if (_game.gameMode == gameModeInfinity)
     {
-        
+        _correctnessLabel.text = [NSString stringWithFormat:NSLocalizedString(@"CORRECTNO", nil),_game.correctNumber];
+        if ([[EGOCache globalCache] hasCacheForKey:@"maxInfinityScore"])
+        {
+            NSInteger oldRecord = [[[EGOCache globalCache] stringForKey:@"maxInfinityScore"] integerValue];
+            //new record, need to display the record
+            if (oldRecord < _game.gameScore)
+            {
+                _recordSign.hidden = NO;
+                [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameScore] forKey:@"maxInfinityScore"];
+            }
+            _recordLabel.text = [NSString stringWithFormat:NSLocalizedString(@"RECORD", nil),oldRecord];
+        }
+        else
+        {
+            //new record, need to display the record
+            _recordSign.hidden = NO;
+            [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameScore] forKey:@"maxInfinityScore"];
+            _recordLabel.text = NSLocalizedString(@"NORECORD", nil);
+        }
     }
     
     if (![OpenShare isWeixinInstalled])
@@ -169,10 +194,15 @@
         _titleLabel.textColor = [UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:0.7f];
         _titleLabel.text = NSLocalizedString(@"SUCCESS", nil);
     }
-    else
+    else if (_game.succeed == 0 || _game.succeed == 1)
     {
         _titleLabel.textColor = [UIColor colorWithRed:1.000f green:0.953f blue:0.216f alpha:1.00f];
         _titleLabel.text = NSLocalizedString(@"FAILED", nil);
+    }
+    else if (_game.succeed == 3)
+    {
+        _titleLabel.textColor = [UIColor colorWithRed:0.996f green:0.906f blue:0.204f alpha:1.00f];
+        _titleLabel.text = NSLocalizedString(@"END", nil);
     }
     //[self.backgroundView addSubview:_titleLabel];
     

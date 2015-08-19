@@ -24,9 +24,11 @@
 //AlertViewController
 "PLAY_AGAIN"="Play Again";
 "QUIT"="Quit";
-"SUCCESS"="Success!";
-"FAILED"="Failed!";
-"CORRECTNESS"="Correctness = %ld %%";
+"SUCCESS"="Success";
+"FAILED"="Failed";
+"END"="Game end";
+"CORRECTNESS"="Correctness: %ld %%";
+"CORRECTNO"="Correct number: %ld";
 "DURATION"="Time used: %ld s";
 "SCORE"="Game score: %ld";
 "RECORD"="Record: %ld";

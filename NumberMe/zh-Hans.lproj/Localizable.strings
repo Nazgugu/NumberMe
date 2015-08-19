@@ -15,7 +15,7 @@
 "GUIDE_ONE"="请猜一个四位数";
 "GUIDE_TWO"="准备?";
 "GUIDE_THREE"="开始！";
-"INFINITI"="只要少出错就可以获得更高分";
+"INFINITI"="用完所有机会前游戏不会结束";
 "DELETE"="删除";
 "CLEAR"="清空";
 "RESTART"="重来";
@@ -24,9 +24,11 @@
 //AlertViewController
 "PLAY_AGAIN"="再来一次";
 "QUIT"="退出";
-"SUCCESS"="成功！";
-"FAILED"="失败！";
-"CORRECTNESS"="正确率 = %ld %%";
+"SUCCESS"="成功";
+"FAILED"="失败";
+"END"="游戏结束";
+"CORRECTNESS"="正确率: %ld %%";
+"CORRECTNO"="猜对个数: %ld";
 "DURATION"="用时: %ld s";
 "SCORE"="得分: %ld";
 "RECORD"="最佳纪录: %ld";
