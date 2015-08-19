@@ -599,7 +599,7 @@ NSString * const kDateOfGame = @"dateOfGame";
             }
         }
         NSInteger punishment;
-        if (_numberOfTries > 18)
+        if (_numberOfTries > 20)
         {
             punishment = 30;
         }
@@ -616,6 +616,10 @@ NSString * const kDateOfGame = @"dateOfGame";
             _gameScore += duration * 10 - _numberOfTries * punishment - (arc4random() % 25) * (4 - _availabelHints);
         }
         
+        if (_gameScore < 0)
+        {
+            _gameScore = 0;
+        }
         
         //NSLog(@"correct number = %ld",_correctNumber);
         
@@ -642,7 +646,14 @@ NSString * const kDateOfGame = @"dateOfGame";
         {
             bonus = 0;
         }
+        
         _gameScore += 30 * _correctNumber - (_hintUsed) * 15 + bonus;
+        
+        if (_gameScore < 0)
+        {
+            _gameScore = 0;
+        }
+        
         NSData *gameData = [[EGOCache globalCache] dataForKey:@"infinityGames"];
         NSMutableArray *games = [NSKeyedUnarchiver unarchiveObjectWithData:gameData];
         [games addObject:self];
