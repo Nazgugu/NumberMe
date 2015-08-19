@@ -16,12 +16,21 @@
 
 @interface RecordViewController ()<UIScrollViewDelegate, RWBarChartViewDataSource, NUDialChartDataSource, NUDialChartDelegate>
 @property (weak, nonatomic) IBOutlet RWBarChartView *gameResultChart;
-@property (nonatomic, strong) NSMutableArray *gameResult;
-@property (weak, nonatomic) IBOutlet UILabel *gameRecordLabel;
 
-@property (nonatomic, strong) NSMutableArray *dataSource;
+@property (nonatomic, strong) NSMutableArray *gameResultNormal;
+@property (nonatomic, strong) NSMutableArray *gameResultInfinity;
 
-@property (nonatomic) NSInteger max;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *gameModeSegmentedControl;
+
+
+@property (nonatomic, strong) NSMutableArray *dataSourceNormal;
+@property (nonatomic, strong) NSMutableArray *dataSourceInfinity;
+
+@property (nonatomic) NSInteger maxNormal;
+@property (nonatomic) NSInteger maxInfinity;
+
+@property (nonatomic) NSInteger maxInifityCorrectNO;
+@property (nonatomic) NSInteger maxInfinityDuration;
 
 @property (nonatomic) NSInteger currentIndex;
 
@@ -107,17 +116,26 @@
     
     labelGap = (seperatorHeight - delta - labelHeight * 3)/4.0f;
     
-    if (_displayForGameMode == gameModeNormal)
+    if ([[EGOCache globalCache] hasCacheForKey:@"maxNormalScore"])
     {
-        if ([[EGOCache globalCache] hasCacheForKey:@"maxNormalScore"])
-        {
-            _max = [[[EGOCache globalCache] stringForKey:@"maxNormalScore"] integerValue];
-        }
+            _maxNormal = [[[EGOCache globalCache] stringForKey:@"maxNormalScore"] integerValue];
     }
-    if (!_dataSource)
+    
+    if ([[EGOCache globalCache] hasCacheForKey:@"maxInfinityScore"])
     {
-        _dataSource = [[NSMutableArray alloc] init];
+            _maxInfinity = [[[EGOCache globalCache] stringForKey:@"maxInfinityScore"] integerValue];
+            _maxInifityCorrectNO = [[[EGOCache globalCache] stringForKey:@"maxInfinityNO"] integerValue];
+            _maxInfinityDuration = [[[EGOCache globalCache] stringForKey:@"maxInfinityDuration"] integerValue];
     }
+    if (!_dataSourceNormal)
+    {
+        _dataSourceNormal = [[NSMutableArray alloc] init];
+    }
+    if (!_dataSourceInfinity)
+    {
+        _dataSourceInfinity = [[NSMutableArray alloc] init];
+    }
+    
     _gameResultChart.alwaysBounceHorizontal = YES;
     _gameResultChart.backgroundColor = [UIColor clearColor];
     _gameResultChart.scrollViewDelegate = self;
@@ -125,7 +143,15 @@
     
     _currentIndex = 0;
     
-    _gameRecordLabel.text = NSLocalizedString(@"RECORDTITLE", nil);
+    [_gameModeSegmentedControl setSelectedSegmentIndex:_displayForGameMode];
+    
+    
+    
+    [_gameModeSegmentedControl setTitle:NSLocalizedString(@"RECORDTITLENORM", nil) forSegmentAtIndex:0];
+    [_gameModeSegmentedControl setTitle:NSLocalizedString(@"RECORDTITLEINFINITY", nil) forSegmentAtIndex:1];
+    
+    [_gameModeSegmentedControl setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"KohinoorDevanagari-Book" size:14.0f], NSFontAttributeName,nil] forState:UIControlStateNormal];
+    
     
     //_gameResultChart.backgroundColor = [UIColor grayColor];
     
@@ -203,14 +229,17 @@
     [self.view addSubview:_durationLabel];
     [self.view addSubview:_scoreLabel];
     
-    if (_gameResult.count > 0)
+    if (_displayForGameMode == gameModeNormal)
     {
-        [_gameResultChart scrollToBarAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES];
-        [self loadDataAtIndex:0];
-    }
-    else
-    {
-        _dataChart.hidden = YES;
+        if (_gameResultNormal.count > 0)
+        {
+            [_gameResultChart scrollToBarAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES];
+            [self loadDataAtIndex:_currentIndex];
+        }
+        else
+        {
+            _dataChart.hidden = YES;
+        }
     }
     if (![OpenShare isWeixinInstalled])
     {
@@ -241,27 +270,25 @@
 
 - (void)retrieveGameResult
 {
-    if (_displayForGameMode == gameModeNormal)
+    if ([[EGOCache globalCache] hasCacheForKey:@"normalGames"])
     {
-        if ([[EGOCache globalCache] hasCacheForKey:@"normalGames"])
-        {
             NSData *gameData = [[EGOCache globalCache] dataForKey:@"normalGames"];
-            _gameResult = [NSKeyedUnarchiver unarchiveObjectWithData:gameData];
+            _gameResultNormal = [NSKeyedUnarchiver unarchiveObjectWithData:gameData];
             NSUInteger x = 0;
-            NSUInteger y = _gameResult.count - 1;
-            if (_gameResult.count > 1)
+            NSUInteger y = _gameResultNormal.count - 1;
+            if (_gameResultNormal.count > 1)
             {
                 while (x < y) {
-                    [_gameResult exchangeObjectAtIndex:x withObjectAtIndex:y];
+                    [_gameResultNormal exchangeObjectAtIndex:x withObjectAtIndex:y];
                     x++;
                     y--;
                 }
             }
             //process the game data
-            for (NSInteger i = 0; i < _gameResult.count; i++)
+            for (NSInteger i = 0; i < _gameResultNormal.count; i++)
             {
-                guessGame *game = [_gameResult objectAtIndex:i];
-                CGFloat ratio = (CGFloat)game.gameScore/(CGFloat)_max;
+                guessGame *game = [_gameResultNormal objectAtIndex:i];
+                CGFloat ratio = (CGFloat)game.gameScore/(CGFloat)_maxNormal;
                 UIColor *color;
                 //red
                 if (ratio < 0.34)
@@ -280,14 +307,57 @@
                 }
                 RWBarChartItem *singleResult = [RWBarChartItem itemWithSingleSegmentOfRatio:ratio color:color];
                 singleResult.text = [NSString stringWithFormat:@"%ld",i];
-                [_dataSource addObject:singleResult];
+                [_dataSourceNormal addObject:singleResult];
+            }
+    }
+    else
+    {
+            _gameResultNormal = [[NSMutableArray alloc] init];
+    }
+    if ([[EGOCache globalCache] hasCacheForKey:@"infinityGames"])
+    {
+            NSData *gameData = [[EGOCache globalCache] dataForKey:@"infinityGames"];
+            _gameResultInfinity = [NSKeyedUnarchiver unarchiveObjectWithData:gameData];
+            NSUInteger x = 0;
+            NSUInteger y = _gameResultInfinity.count - 1;
+            if (_gameResultInfinity.count > 1)
+            {
+                while (x < y) {
+                    [_gameResultInfinity exchangeObjectAtIndex:x withObjectAtIndex:y];
+                    x++;
+                    y--;
+                }
+            }
+            //process the game data
+            for (NSInteger i = 0; i < _gameResultInfinity.count; i++)
+            {
+                guessGame *game = [_gameResultInfinity objectAtIndex:i];
+                CGFloat ratio = (CGFloat)game.gameScore/(CGFloat)_maxInfinity;
+                UIColor *color;
+                //red
+                if (ratio < 0.34)
+                {
+                    color = [UIColor colorWithRed:0.980f green:0.267f blue:0.275f alpha:0.8f];
+                }
+                //green
+                else if (ratio > 0.67)
+                {
+                    color = [UIColor colorWithRed:0.263f green:0.792f blue:0.459f alpha:0.8f];
+                }
+                //blue
+                else
+                {
+                    color = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:0.8f];
+                }
+                RWBarChartItem *singleResult = [RWBarChartItem itemWithSingleSegmentOfRatio:ratio color:color];
+                singleResult.text = [NSString stringWithFormat:@"%ld",i];
+                [_dataSourceInfinity addObject:singleResult];
             }
         }
         else
         {
-            _gameResult = [[NSMutableArray alloc] init];
+            _gameResultInfinity = [[NSMutableArray alloc] init];
         }
-    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -303,7 +373,14 @@
 {
     //NSLog(@"loading data at index:%ld",index);
     _currentIndex = index;
-    _game = [_gameResult objectAtIndex:index];
+    if (_displayForGameMode == gameModeNormal)
+    {
+        _game = [_gameResultNormal objectAtIndex:index];
+    }
+    else if (_displayForGameMode == gameModeInfinity)
+    {
+        _game = [_gameResultInfinity objectAtIndex:index];
+    }
     _dateLabel.text = _game.dateString;
     
     if (_displayForGameMode == gameModeNormal)
@@ -313,8 +390,59 @@
         _durationLabel.text = [NSString stringWithFormat:NSLocalizedString(@"DURATION", nil),_game.duration];
         _scoreLabel.text = [NSString stringWithFormat:NSLocalizedString(@"SCORE", nil),_game.gameScore];
     }
+    else if (_displayForGameMode == gameModeInfinity)
+    {
+        _correctnessLabel.text = [NSString stringWithFormat:NSLocalizedString(@"CORRECTNO", nil), _game.correctNumber];
+        _durationLabel.text = [NSString stringWithFormat:NSLocalizedString(@"DURATION", nil),_game.duration];
+        _scoreLabel.text = [NSString stringWithFormat:NSLocalizedString(@"SCORE", nil),_game.gameScore];
+    }
     
     [_dataChart reloadDialWithAnimation:YES];
+}
+
+- (IBAction)toggleView:(id)sender {
+    _displayForGameMode = _gameModeSegmentedControl.selectedSegmentIndex;
+    _currentIndex = 0;
+    [self displayChange];
+}
+
+- (void)displayChange
+{
+    [_gameResultChart reloadData];
+    if (_displayForGameMode == gameModeNormal)
+    {
+        if (_gameResultNormal.count > 0)
+        {
+            [_gameResultChart scrollToBarAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES];
+            [self loadDataAtIndex:_currentIndex];
+            self.dataChart.hidden = NO;
+        }
+        else
+        {
+            _dataChart.hidden = YES;
+            _dateLabel.text = NSLocalizedString(@"NA", nil);
+            _correctnessLabel.text = NSLocalizedString(@"CORRECTNONA", nil);
+            _durationLabel.text = NSLocalizedString(@"DURATIONNA", nil);
+            _scoreLabel.text = NSLocalizedString(@"SCORENA", nil);
+        }
+    }
+    else if (_displayForGameMode == gameModeInfinity)
+    {
+        if (_gameResultInfinity.count > 0)
+        {
+            [_gameResultChart scrollToBarAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES];
+            [self loadDataAtIndex:_currentIndex];
+            self.dataChart.hidden = NO;
+        }
+        else
+        {
+            _dataChart.hidden = YES;
+            _dateLabel.text = NSLocalizedString(@"NA", nil);
+            _correctnessLabel.text = NSLocalizedString(@"CORRECTNONA", nil);
+            _durationLabel.text = NSLocalizedString(@"DURATIONNA", nil);
+            _scoreLabel.text = NSLocalizedString(@"SCORENA", nil);
+        }
+    }
 }
 
 #pragma mark - RWBarChartViewDelegate
@@ -325,18 +453,43 @@
 
 - (NSInteger)barChartView:(RWBarChartView *)barChartView numberOfBarsInSection:(NSInteger)section
 {
-    return _gameResult.count;
+    if (_displayForGameMode == gameModeNormal)
+    {
+        return _gameResultNormal.count;
+    }
+    else if (_displayForGameMode == gameModeInfinity)
+    {
+        //NSLog(@"infinity number = %ld",_gameResultInfinity.count);
+        return _gameResultInfinity.count;
+    }
+    return 0;
 }
 
 - (id<RWBarChartItemProtocol>)barChartView:(RWBarChartView *)barChartView barChartItemAtIndexPath:(NSIndexPath *)indexPath
 {
     //NSLog(@"indexpath.row = %ld",indexPath.row);
-    return [_dataSource objectAtIndex:indexPath.row];
+    if (_displayForGameMode == gameModeNormal)
+    {
+        return [_dataSourceNormal objectAtIndex:indexPath.row];
+    }
+    else if (_displayForGameMode == gameModeInfinity)
+    {
+        return [_dataSourceInfinity objectAtIndex:indexPath.row];
+    }
+    return nil;
 }
 
 - (NSString *)barChartView:(RWBarChartView *)barChartView titleForSection:(NSInteger)section
 {
-    return NSLocalizedString(@"SCORERECORD", nil);
+    if (_displayForGameMode == gameModeNormal)
+    {
+        return NSLocalizedString(@"NORMALRECORD", nil);
+    }
+    else if (_displayForGameMode == gameModeInfinity)
+    {
+        return NSLocalizedString(@"INFINITYRECORD", nil);
+    }
+    return nil;
 }
 
 - (BOOL)barChartView:(RWBarChartView *)barChartView shouldShowAxisAtRatios:(out NSArray *__autoreleasing *)axisRatios withLabels:(out NSArray *__autoreleasing *)axisLabels
@@ -346,13 +499,31 @@
     {
         if ([[EGOCache globalCache] hasCacheForKey:@"maxNormalScore"])
         {
-            NSInteger first = (NSInteger)(((float)_max) * 0.25);
-            NSInteger second = (NSInteger)(((float)_max) * 0.50);
-            NSInteger third = (NSInteger)(((float)_max) * 0.75);
+            NSInteger first = (NSInteger)(((float)_maxNormal) * 0.25);
+            NSInteger second = (NSInteger)(((float)_maxNormal) * 0.50);
+            NSInteger third = (NSInteger)(((float)_maxNormal) * 0.75);
             NSString *firstString = [NSString stringWithFormat:@"%ld",first];
             NSString *secondString = [NSString stringWithFormat:@"%ld",second];
             NSString *thirdString = [NSString stringWithFormat:@"%ld",third];
-            NSString *forthString = [NSString stringWithFormat:@"%ld",_max];
+            NSString *forthString = [NSString stringWithFormat:@"%ld",_maxNormal];
+            *axisLabels = @[firstString,secondString,thirdString,forthString];
+        }
+        else
+        {
+            *axisLabels = @[@"0",@"0",@"0",@"0"];
+        }
+    }
+    if (_displayForGameMode == gameModeInfinity)
+    {
+        if ([[EGOCache globalCache] hasCacheForKey:@"maxInfinityScore"])
+        {
+            NSInteger first = (NSInteger)(((float)_maxInfinity) * 0.25);
+            NSInteger second = (NSInteger)(((float)_maxInfinity) * 0.50);
+            NSInteger third = (NSInteger)(((float)_maxInfinity) * 0.75);
+            NSString *firstString = [NSString stringWithFormat:@"%ld",first];
+            NSString *secondString = [NSString stringWithFormat:@"%ld",second];
+            NSString *thirdString = [NSString stringWithFormat:@"%ld",third];
+            NSString *forthString = [NSString stringWithFormat:@"%ld",_maxInfinity];
             *axisLabels = @[firstString,secondString,thirdString,forthString];
         }
         else
@@ -403,7 +574,32 @@
                 //outter circle: score
             case 2:
             {
-                number = [NSNumber numberWithInteger:(_game.gameScore * 100) / _max];
+                number = [NSNumber numberWithInteger:(_game.gameScore * 100) / _maxNormal];
+            }
+                break;
+            default:
+                break;
+        }
+    }
+    if (_displayForGameMode == gameModeInfinity)
+    {
+        switch (_index) {
+                //inner circle: correct number
+            case 0:
+            {
+                number = [NSNumber numberWithInteger:(_game.correctNumber * 100) / _maxInifityCorrectNO];
+            }
+                break;
+                //second circle: use time
+            case 1:
+            {
+                number = [NSNumber numberWithInteger:(_game.duration * 100) / _maxInfinityDuration];
+            }
+                break;
+                //outter circle: score
+            case 2:
+            {
+                number = [NSNumber numberWithInteger:(_game.gameScore * 100) / _maxInfinity];
             }
                 break;
             default:
@@ -449,6 +645,28 @@
             case 0:
             {
                 info = NSLocalizedString(@"INFOC", nil);
+            }
+                break;
+            case 1:
+            {
+                info = NSLocalizedString(@"INFOT", nil);
+            }
+                break;
+            case 2:
+            {
+                info = NSLocalizedString(@"INFOS", nil);
+            }
+                break;
+            default:
+                break;
+        }
+    }
+    if (_displayForGameMode == gameModeInfinity)
+    {
+        switch (_index) {
+            case 0:
+            {
+                info = NSLocalizedString(@"INFON", nil);
             }
                 break;
             case 1:

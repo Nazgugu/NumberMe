@@ -168,6 +168,32 @@
             [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameScore] forKey:@"maxInfinityScore"];
             _recordLabel.text = NSLocalizedString(@"NORECORD", nil);
         }
+        if ([[EGOCache globalCache] hasCacheForKey:@"maxInfinityNO"])
+        {
+            NSInteger oldNumber = [[[EGOCache globalCache] stringForKey:@"maxInfinityNO"] integerValue];
+            //new record, need to display the record
+            if (oldNumber < _game.correctNumber)
+            {
+                [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.correctNumber] forKey:@"maxInfinityNO"];
+            }
+        }
+        else
+        {
+            [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.correctNumber] forKey:@"maxInfinityNO"];
+        }
+        if ([[EGOCache globalCache] hasCacheForKey:@"maxInfinityDuration"])
+        {
+            NSInteger oldDuration = [[[EGOCache globalCache] stringForKey:@"maxInfinityDuration"] integerValue];
+            //new record, need to display the record
+            if (oldDuration < _game.duration)
+            {
+                [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.duration] forKey:@"maxInfinityDuration"];
+            }
+        }
+        else
+        {
+            [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.duration] forKey:@"maxInfinityDuration"];
+        }
     }
     
     if (![OpenShare isWeixinInstalled])

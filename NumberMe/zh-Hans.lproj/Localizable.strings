@@ -31,6 +31,11 @@
 "CORRECTNO"="猜对个数: %ld";
 "DURATION"="用时: %ld s";
 "SCORE"="得分: %ld";
+"CORRECTNESSNA"="正确率: 无数据";
+"CORRECTNONA"="猜对个数: 无数据";
+"DURATIONNA"="用时: 无数据";
+"SCORENA"="得分: 无数据";
+"NA"="无记录";
 "RECORD"="最佳纪录: %ld";
 "NORECORD"="暂无记录";
 
@@ -42,9 +47,12 @@
 "RIGHT"="这大概就是答案了吧！";
 
 //RecordViewController
-"RECORDTITLE"="游戏纪录";
-"SCORERECORD"="分数纪录";
+"RECORDTITLENORM"="普通模式";
+"RECORDTITLEINFINITY"="无限挑战";
+"NORMALRECORD"="普通模式分数";
+"INFINITYRECORD"="无限挑战分数";
 "INFOC"="Correctness";
+"INFON"="Correct #";
 "INFOT"="Time Used";
 "INFOS"="Game Score";
 

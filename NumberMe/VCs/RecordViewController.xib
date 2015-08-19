@@ -9,7 +9,7 @@
             <connections>
                 <outlet property="chartHeightConstraint" destination="gyj-cy-hxF" id="mjc-Rp-Fwp"/>
                 <outlet property="dateLabel" destination="fzW-NT-8v4" id="RDw-UP-trq"/>
-                <outlet property="gameRecordLabel" destination="fFc-1u-T7x" id="uOI-4T-7yS"/>
+                <outlet property="gameModeSegmentedControl" destination="OYr-H1-Na0" id="eVz-R1-kXe"/>
                 <outlet property="gameResultChart" destination="x5q-9J-Vl9" id="i4S-IQ-GWP"/>
                 <outlet property="seperator" destination="S7l-DS-Gob" id="EiV-66-eSF"/>
                 <outlet property="shareFacebookBtn" destination="kup-iA-5eW" id="h3X-U3-OQD"/>
@@ -51,17 +51,6 @@
                         <constraint firstAttribute="height" constant="270" id="gyj-cy-hxF"/>
                     </constraints>
                 </scrollView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFc-1u-T7x">
-                    <rect key="frame" x="85" y="10" width="150" height="20"/>
-                    <animations/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="20" id="H37-uY-DVw"/>
-                        <constraint firstAttribute="width" constant="150" id="tKl-cY-R4O"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="KohinoorDevanagari-Book" family="Kohinoor Devanagari" pointSize="22"/>
-                    <color key="textColor" white="1" alpha="0.90000000000000002" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3a-fe-ny6">
                     <rect key="frame" x="57" y="518" width="30" height="30"/>
                     <animations/>
@@ -120,6 +109,22 @@
                         <constraint firstAttribute="width" constant="1" id="zxd-8n-bDS"/>
                     </constraints>
                 </view>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OYr-H1-Na0">
+                    <rect key="frame" x="90.5" y="8" width="140" height="21"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="EUk-D8-7yI"/>
+                        <constraint firstAttribute="width" constant="140" id="HSA-r4-cF2"/>
+                    </constraints>
+                    <segments>
+                        <segment title="First"/>
+                        <segment title="Second"/>
+                    </segments>
+                    <color key="tintColor" white="1" alpha="0.74522276182432434" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <action selector="toggleView:" destination="-1" eventType="valueChanged" id="3aX-7O-VbV"/>
+                    </connections>
+                </segmentedControl>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -135,13 +140,13 @@
                 <constraint firstItem="NUo-oX-YFk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="KI6-bC-gZS"/>
                 <constraint firstItem="fzW-NT-8v4" firstAttribute="top" secondItem="x5q-9J-Vl9" secondAttribute="bottom" constant="-10" id="KvR-kH-bWL"/>
                 <constraint firstAttribute="centerX" secondItem="S7l-DS-Gob" secondAttribute="centerX" constant="0.5" id="LOt-O7-lb9"/>
+                <constraint firstAttribute="centerX" secondItem="OYr-H1-Na0" secondAttribute="centerX" constant="-0.5" id="MSZ-Vw-NPK"/>
                 <constraint firstAttribute="trailing" secondItem="x5q-9J-Vl9" secondAttribute="trailing" id="NcQ-xi-01M"/>
-                <constraint firstItem="fFc-1u-T7x" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="Qmt-M9-vkd"/>
                 <constraint firstItem="x5q-9J-Vl9" firstAttribute="top" secondItem="NUo-oX-YFk" secondAttribute="bottom" constant="20" id="Tpz-Ye-x6K"/>
                 <constraint firstItem="PjD-Ds-yLl" firstAttribute="top" secondItem="S7l-DS-Gob" secondAttribute="bottom" constant="15" id="WAX-TJ-kPM"/>
                 <constraint firstItem="BdV-5v-kLC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="YL8-WR-eet"/>
                 <constraint firstAttribute="trailing" secondItem="BdV-5v-kLC" secondAttribute="trailing" id="alx-W0-MQW"/>
-                <constraint firstAttribute="centerX" secondItem="fFc-1u-T7x" secondAttribute="centerX" id="bdP-gO-xZb"/>
+                <constraint firstItem="OYr-H1-Na0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="dB3-3S-FGt"/>
                 <constraint firstAttribute="bottom" secondItem="k3a-fe-ny6" secondAttribute="bottom" constant="20" id="ggo-r6-Xbp"/>
                 <constraint firstAttribute="bottom" secondItem="kup-iA-5eW" secondAttribute="bottom" constant="20" id="nGl-Fi-JJ3"/>
                 <constraint firstItem="x5q-9J-Vl9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="prM-SA-d35"/>

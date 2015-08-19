@@ -55,6 +55,8 @@
 {
     [EGOCache globalCache].defaultTimeoutInterval = INT_MAX;
     
+    //[[EGOCache globalCache] clearCache];
+    
     if (![[EGOCache globalCache] hasCacheForKey:@"games"])
     {
         if (![[EGOCache globalCache] hasCacheForKey:@"normalGames"])

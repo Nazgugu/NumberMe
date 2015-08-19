@@ -31,6 +31,11 @@
 "CORRECTNO"="Correct #: %ld";
 "DURATION"="Time used: %ld s";
 "SCORE"="Game score: %ld";
+"CORRECTNESSNA"="Correctness: N/A";
+"CORRECTNONA"="Correct #: N/A";
+"DURATIONNA"="Time used: N/A";
+"SCORENA"="Game score: N/A";
+"NA"="N/A";
 "RECORD"="Record: %ld";
 "NORECORD"="No record yet";
 
@@ -42,9 +47,12 @@
 "RIGHT"="This is probably the answer!";
 
 //RecordViewController
-"RECORDTITLE"="Game Record";
-"SCORERECORD"="Score Record";
+"RECORDTITLENORM"="NORMAL";
+"RECORDTITLEINFINITY"="INFINITY";
+"NORMALRECORD"="Normal Score";
+"INFINITYRECORD"="Infinity Score";
 "INFOC"="Correctness";
+"INFON"="Correct #";
 "INFOT"="Time Used";
 "INFOS"="Game Score";
 
