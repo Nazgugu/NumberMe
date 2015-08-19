@@ -102,8 +102,9 @@
     _containerView.tag = 2;
     
     _containerScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, (_containerView.frame.size.width * 7)/8, _containerView.frame.size.height)];
-    [_containerScrollView setContentSize:CGSizeMake(SCREENWIDTH, _containerView.frame.size.height)];
+    [_containerScrollView setContentSize:CGSizeMake(horizontalGap * 3 + 2 * gameModeWidth, _containerView.frame.size.height)];
     _containerScrollView.alwaysBounceHorizontal = YES;
+    _containerScrollView.showsHorizontalScrollIndicator = NO;
     _containerScrollView.backgroundColor = [UIColor clearColor];
     [_containerView addSubview:_containerScrollView];
     
