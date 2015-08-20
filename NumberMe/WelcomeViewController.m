@@ -15,9 +15,11 @@
 #import "RecordViewController.h"
 #import "RJBlurAlertView.h"
 #import "GameModeSelectionView.h"
+#import "CECrossfadeAnimationController.h"
+#import "CEBaseInteractionController.h"
 //#import <iAd/iAd.h>
 
-@interface WelcomeViewController () <GameModeSelectionViewDelegate> /*<ADBannerViewDelegate>*/
+@interface WelcomeViewController () <GameModeSelectionViewDelegate, UIViewControllerTransitioningDelegate> /*<ADBannerViewDelegate>*/
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIButton *recordButton;
 @property (weak, nonatomic) IBOutlet UIButton *settingButton;
@@ -61,6 +63,11 @@
 //    _adBannerView.alpha = 0;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+}
+
 
 - (void)initializaBannerView
 {
@@ -84,6 +91,7 @@
 - (IBAction)showRecord:(id)sender {
     //NSLog(@"tapping record");
     RecordViewController *record = [[RecordViewController alloc] init];
+    record.transitioningDelegate = self;
     [self presentViewController:record animated:YES completion:nil];
 }
 
@@ -119,6 +127,26 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - UIViewControllerTransitioningDelegate
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
+{
+    CECrossfadeAnimationController *crossFade = [[CECrossfadeAnimationController alloc] init];
+    crossFade.duration = 0.3f;
+    crossFade.reverse = NO;
+    
+    return crossFade;
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
+{
+    CECrossfadeAnimationController *crossFade = [[CECrossfadeAnimationController alloc] init];
+    crossFade.duration = 0.3f;
+    crossFade.reverse = YES;
+    
+    return crossFade;
 }
 
 //#pragma mark - iAdBanner Delegates
