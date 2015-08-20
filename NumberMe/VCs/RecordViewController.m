@@ -239,6 +239,10 @@
         else
         {
             _dataChart.hidden = YES;
+            _dateLabel.text = NSLocalizedString(@"NA", nil);
+            _correctnessLabel.text = NSLocalizedString(@"CORRECTNONA", nil);
+            _durationLabel.text = NSLocalizedString(@"DURATIONNA", nil);
+            _scoreLabel.text = NSLocalizedString(@"SCORENA", nil);
         }
     }
     if (![OpenShare isWeixinInstalled])
