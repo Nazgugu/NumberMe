@@ -141,7 +141,7 @@ static const CGFloat RJAlertViewDefaultTextFontSize = 14;
 {
     CAKeyframeAnimation * animation;
     animation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
-    animation.duration = 0.4f;
+    animation.duration = 0.5f;
     //animation.delegate = self;
     animation.removedOnCompletion = NO;
     animation.fillMode = kCAFillModeForwards;
@@ -174,7 +174,7 @@ static const CGFloat RJAlertViewDefaultTextFontSize = 14;
     
     _backgroundView = [[UIImageView alloc]initWithFrame:screenBounds];
     UIImage * image = [self _convertViewToImage];
-    UIImage *blurredSnapshotImage = [image applyBlurWithRadius:8 tintColor:[UIColor colorWithWhite:1.0 alpha:0.2] saturationDeltaFactor:1.8 maskImage:nil];
+    UIImage *blurredSnapshotImage = [image applyBlurWithRadius:8 tintColor:[UIColor colorWithWhite:1.0 alpha:0.1] saturationDeltaFactor:1.8 maskImage:nil];
     [self.backgroundView setImage:blurredSnapshotImage];
     self.backgroundView.alpha = 0.0;
     [self addSubview:self.backgroundView];

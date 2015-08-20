@@ -6,8 +6,11 @@
 //
 //
 
+#define URLEMail @"mailto:zheliu9328@gmail.com?subject=Bug Report and Suggestions&body="
+
 #import "SettingViewController.h"
 #import "EGOCache.h"
+#import "RJBlurAlertView.h"
 
 #define Setting_TitileArray @[@[NSLocalizedString(@"MAXNORMAL",nil),NSLocalizedString(@"MAXINFINITY",nil),NSLocalizedString(@"CLEARCACHE",nil)],@[NSLocalizedString(@"RATE",nil),NSLocalizedString(@"RECOMMEND",nil),NSLocalizedString(@"CONTACT",nil),NSLocalizedString(@"VERSION",nil)]]
 
@@ -225,6 +228,53 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section == 0)
+    {
+            RJBlurAlertView *alert = [[RJBlurAlertView alloc] initWithTitle:NSLocalizedString(@"CAUTION", nil) text:NSLocalizedString(@"WARNING", nil) cancelButton:YES];
+            [alert.okButton setTitle:NSLocalizedString(@"SURE", nil) forState:UIControlStateNormal];
+            [alert.cancelButton setTitle:NSLocalizedString(@"CANCEL", nil) forState:UIControlStateNormal];
+            alert.animationType = RJBlurAlertViewAnimationTypeDrop;
+        alert.okButton.backgroundColor = [UIColor colorWithRed:0.882f green:0.282f blue:0.227f alpha:1.00f];
+        alert.cancelButton.backgroundColor = [UIColor colorWithRed:0.012f green:0.635f blue:0.914f alpha:1.00f];
+            [alert setCompletionBlock:^(RJBlurAlertView *theAlert, UIButton *button) {
+                if (button == theAlert.okButton)
+                {
+                    [[EGOCache globalCache] clearCache];
+                    [self.settingTable reloadData];
+                }
+            }];
+            [alert show];
+
+    }
+    else if (indexPath.section == 1)
+    {
+        switch (indexPath.row) {
+            case 0:
+            {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/us/app/numberme-chanllenge-your-mind/id1030279451?l=zh&ls=1&mt=8"]];
+            }
+                break;
+            case 1:
+            {
+                
+            }
+                break;
+            case 2:
+            {
+                NSString *url = [URLEMail stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+
+            }
+                break;
+            default:
+                break;
+        }
+    }
+}
+
 - (UIImage *) makeThumbnailOfSize:(CGSize)size andImage:(UIImage *)image
 {
     UIGraphicsBeginImageContextWithOptions(size, NO, UIScreen.mainScreen.scale);
@@ -237,6 +287,7 @@
         NSLog(@"could not scale image");
     return newThumbnail;
 }
+
 
 /*
 #pragma mark - Navigation

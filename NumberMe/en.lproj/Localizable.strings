@@ -63,10 +63,10 @@
 "CANCEL"="Cancel";
 "SCTITLE1"="Game";
 "SCTITLE2"="About";
-"MAXNORMAL"="Mode Normal";
-"MAXINFINITY"="Mode Infinity";
+"MAXNORMAL"="Normal mode";
+"MAXINFINITY"="Infinity mode";
 "CLEARCACHE"="Clear record";
-"CAUTION"="Caution";
+"CAUTION"="Caution!";
 "WARNING"="Are you sure you want to clear all the data? Once the records are deleted you can not restore them";
 "SURE"="Sure";
 "RATE"="Rate the app";

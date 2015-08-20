@@ -6,7 +6,7 @@
 //
 //
 
-#define URLEMail @"mailto:zheliu9328@gmail.com?subject=Bug Report and Suggestions&body="
+
 
 @import GoogleMobileAds;
 
