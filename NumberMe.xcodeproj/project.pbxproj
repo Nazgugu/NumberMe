@@ -46,6 +46,8 @@
 		AE8E228E1B756B9B00A298DE /* YETIMotionLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8E228D1B756B9B00A298DE /* YETIMotionLabel.m */; };
 		AE8E22911B76AE7E00A298DE /* guessGame.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8E22901B76AE7E00A298DE /* guessGame.m */; };
 		AE90F88A1B7DAEE10039F75E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AE90F8891B7DAEE10039F75E /* icon.png */; };
+		AE9D118C1B8570B800A36953 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9D118A1B8570B800A36953 /* SettingViewController.m */; };
+		AE9D118D1B8570B800A36953 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE9D118B1B8570B800A36953 /* SettingViewController.xib */; };
 		AEF8FA961B7C458800607CB3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AEF8FA981B7C458800607CB3 /* Localizable.strings */; };
 		AEFB78ED1B81916E005DEE30 /* GameModeSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEFB78EC1B81916E005DEE30 /* GameModeSelectionView.m */; };
 		AEFB78F11B828C4B005DEE30 /* FlexibleAlignButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AEFB78F01B828C4B005DEE30 /* FlexibleAlignButton.m */; };
@@ -122,6 +124,9 @@
 		AE8E228F1B76AE7E00A298DE /* guessGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = guessGame.h; path = Model/guessGame.h; sourceTree = "<group>"; };
 		AE8E22901B76AE7E00A298DE /* guessGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = guessGame.m; path = Model/guessGame.m; sourceTree = "<group>"; };
 		AE90F8891B7DAEE10039F75E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		AE9D11891B8570B800A36953 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingViewController.h; path = VCs/SettingViewController.h; sourceTree = "<group>"; };
+		AE9D118A1B8570B800A36953 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingViewController.m; path = VCs/SettingViewController.m; sourceTree = "<group>"; };
+		AE9D118B1B8570B800A36953 /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingViewController.xib; path = VCs/SettingViewController.xib; sourceTree = "<group>"; };
 		AEF27D6F1B7D0A1800A4AD5B /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		AEF8FA971B7C458800607CB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AEF8FA991B7C458C00607CB3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -278,6 +283,9 @@
 				AE3E41011B6EC19D001E26FE /* WelcomeViewController.h */,
 				AE3E41021B6EC19D001E26FE /* WelcomeViewController.m */,
 				AE4C1E701B7C679E00AC1FBF /* WelcomeViewController.xib */,
+				AE9D11891B8570B800A36953 /* SettingViewController.h */,
+				AE9D118A1B8570B800A36953 /* SettingViewController.m */,
+				AE9D118B1B8570B800A36953 /* SettingViewController.xib */,
 			);
 			name = VCs;
 			sourceTree = "<group>";
@@ -466,6 +474,7 @@
 				AE26308C1B6EA58000A566AE /* Images.xcassets in Resources */,
 				AEFB78F41B829072005DEE30 /* continueGame.png in Resources */,
 				AE3E41111B6ECFD0001E26FE /* GameViewController.xib in Resources */,
+				AE9D118D1B8570B800A36953 /* SettingViewController.xib in Resources */,
 				AE21E6F11B7ABF0D006F4CB6 /* GameBG.png in Resources */,
 				AE90F88A1B7DAEE10039F75E /* icon.png in Resources */,
 				AE4C1E711B7C679E00AC1FBF /* WelcomeViewController.xib in Resources */,
@@ -524,6 +533,7 @@
 			files = (
 				AE8E228B1B756B9500A298DE /* YETILayerAnimation.m in Sources */,
 				AE8E22851B756B8600A298DE /* YETIFadeLabel.m in Sources */,
+				AE9D118C1B8570B800A36953 /* SettingViewController.m in Sources */,
 				AEFB78F11B828C4B005DEE30 /* FlexibleAlignButton.m in Sources */,
 				AE3E41101B6ECFD0001E26FE /* GameViewController.m in Sources */,
 				AE2630841B6EA58000A566AE /* AppDelegate.m in Sources */,

@@ -1287,6 +1287,7 @@
             }
             //NSLog(@"availableTries = %ld",_game.availableTries);
             _totalTries = _game.availableTries;
+            _availableTries.progressBarProgressColor = [UIColor colorWithRed:0.263f green:0.792f blue:0.459f alpha:1.00f];
             [_availableTries setProgress:1.0f animated:YES];
             //NSLog(@"glow blue at box = %ld",_theGlowingBox + 1);
             [self glowBoxAtIndex:_theGlowingBox + 1];
