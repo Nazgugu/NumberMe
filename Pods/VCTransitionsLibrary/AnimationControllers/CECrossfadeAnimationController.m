@@ -19,7 +19,7 @@
     
     // animate
     NSTimeInterval duration = [self transitionDuration:transitionContext];
-    [UIView animateWithDuration:duration delay:0 options:UIViewAnimationCurveEaseInOut animations:^{
+    [UIView animateWithDuration:duration delay:0 options:UIViewAnimationCurveEaseOut animations:^{
         fromView.alpha = 0.0;
     } completion:^(BOOL finished) {
         if ([transitionContext transitionWasCancelled]) {

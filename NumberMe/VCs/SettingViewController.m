@@ -141,7 +141,7 @@
     cell.textLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:14.0f];
     cell.detailTextLabel.textColor = [UIColor lightTextColor];
     cell.detailTextLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:14.0f];
-    NSLog(@"cell text = %@",Setting_TitileArray[indexPath.section][indexPath.row]);
+    //NSLog(@"cell text = %@",Setting_TitileArray[indexPath.section][indexPath.row]);
     cell.textLabel.text = Setting_TitileArray[indexPath.section][indexPath.row];
     cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
     
@@ -244,6 +244,10 @@
                 {
                     [[EGOCache globalCache] clearCache];
                     [self.settingTable reloadData];
+                    NSData *normalGameData = [NSKeyedArchiver archivedDataWithRootObject:[NSMutableArray new]];
+                    [[EGOCache globalCache] setData:normalGameData forKey:@"normalGames"];
+                    NSData *infinity = [NSKeyedArchiver archivedDataWithRootObject:[NSMutableArray new]];
+                    [[EGOCache globalCache] setData:infinity forKey:@"infinityGames"];
                 }
             }];
             [alert show];

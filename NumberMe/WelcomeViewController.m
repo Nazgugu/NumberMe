@@ -93,7 +93,7 @@
 - (IBAction)showRecord:(id)sender {
     //NSLog(@"tapping record");
     RecordViewController *record = [[RecordViewController alloc] init];
-    record.transitioningDelegate = self;
+    //record.transitioningDelegate = self;
     [self presentViewController:record animated:YES completion:nil];
 }
 

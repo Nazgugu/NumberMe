@@ -156,7 +156,7 @@
         </view>
     </objects>
     <resources>
-        <image name="close" width="25" height="25"/>
+        <image name="close" width="20" height="20"/>
         <image name="recordBG.png" width="1242" height="2208"/>
         <image name="shareCircle" width="30" height="30"/>
         <image name="shareFacebook" width="25" height="25"/>
