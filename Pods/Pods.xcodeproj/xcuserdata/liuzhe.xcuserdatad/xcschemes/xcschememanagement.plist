@@ -4,57 +4,37 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-CircleProgressBar.xcscheme</key>
+		<key>CircleProgressBar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-EGOCache.xcscheme</key>
+		<key>EGOCache.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-JSKTimerView-JSKTimerView.xcscheme</key>
+		<key>JSKTimerView-JSKTimerView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-JSKTimerView.xcscheme</key>
+		<key>JSKTimerView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-MZTimerLabel.xcscheme</key>
+		<key>MZTimerLabel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-NuweScoreCharts.xcscheme</key>
+		<key>NuweScoreCharts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-OpenShare.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-RJBlurAlertView.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-RWBlurPopover.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-SCViewShaker.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-ZCAnimatedLabel.xcscheme</key>
+		<key>OpenShare.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -64,65 +44,95 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RJBlurAlertView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RWBlurPopover.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SCViewShaker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>VCTransitionsLibrary.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ZCAnimatedLabel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>056DDEA5CE494927A686FBF6</key>
+		<key>052353732BDD3EF032F5BC7607553CA5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0A999F343D76303DE1680C9B</key>
+		<key>445D4C2EBD728AE6D9224736F5D614D8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>13423F692414B1BDB903143F</key>
+		<key>5C6D014528D6D20C3603F7823934C5DB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1610C882FB100C9E65A377BC</key>
+		<key>5EAED80098ECCE12CF602163697A7C89</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2C89B4E6330EFC3ACD54C7FD</key>
+		<key>5F5ED537FD61BD0464078DD9B2A81741</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8412B8CB6B18461F8B052F32</key>
+		<key>7B21B41E0A79FDEC7ADCCC8EF6CF92E0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>847C034CB555456264DBEF1D</key>
+		<key>8175FDFD3E04762C912E6EF724925377</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ADF55AF9C00005E8404B9BF0</key>
+		<key>8FB5EC799D448A057082731A7879B8A2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B2B3EB18360C494018D24A42</key>
+		<key>C4024C1C2271083F96BC2F03EDDB3B41</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DCBBDD3D0F7A3797EE1ED449</key>
+		<key>C42E0D64040803781EA0456F79F29020</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E030E57E0B4326B5C9A77002</key>
+		<key>C4F3CB618DB7A97C4D3F5716A83C7ED3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E1459CC4C6D9AC368C8C75D0</key>
+		<key>D8EAC11BA738619F34333DBD8244EEEA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F73A6F4D0ABBD422DC8488DA44514A5C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

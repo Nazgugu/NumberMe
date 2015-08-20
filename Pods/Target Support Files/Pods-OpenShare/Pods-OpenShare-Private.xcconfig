@@ -1,6 +1,0 @@
-#include "Pods-OpenShare.xcconfig"
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/OpenShare" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/CircleProgressBar" "${PODS_ROOT}/Headers/Public/EGOCache" "${PODS_ROOT}/Headers/Public/Google-Mobile-Ads-SDK" "${PODS_ROOT}/Headers/Public/JSKTimerView" "${PODS_ROOT}/Headers/Public/MZTimerLabel" "${PODS_ROOT}/Headers/Public/NuweScoreCharts" "${PODS_ROOT}/Headers/Public/OpenShare" "${PODS_ROOT}/Headers/Public/RJBlurAlertView" "${PODS_ROOT}/Headers/Public/RWBlurPopover" "${PODS_ROOT}/Headers/Public/SCViewShaker" "${PODS_ROOT}/Headers/Public/ZCAnimatedLabel"
-OTHER_LDFLAGS = -ObjC
-PODS_ROOT = ${SRCROOT}
-SKIP_INSTALL = YES
