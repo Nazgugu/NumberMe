@@ -12,8 +12,11 @@
 #define Setting_TitileArray @[@[NSLocalizedString(@"MAXNORMAL",nil),NSLocalizedString(@"MAXINFINITY",nil),NSLocalizedString(@"CLEARCACHE",nil)],@[NSLocalizedString(@"RATE",nil),NSLocalizedString(@"RECOMMEND",nil),NSLocalizedString(@"CONTACT",nil),NSLocalizedString(@"VERSION",nil)]]
 
 @interface SettingViewController ()<UITableViewDataSource, UITableViewDelegate>
-@property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
+@property (nonatomic, strong) UIImage *blurImage;
+//@property (nonatomic, strong) UIImage *navImage;
 @property (weak, nonatomic) IBOutlet UITableView *settingTable;
+
+
 
 @end
 
@@ -24,12 +27,7 @@
     self = [super init];
     if (self)
     {
-        [_backgroundImage setImage:image];
-        //_settingTable.backgroundColor = [UIColor clearColor];
-        //_settingTable.backgroundView.backgroundColor = [UIColor clearColor];
-        _settingTable.delegate = self;
-        _settingTable.dataSource = self;
-        [self setNavigationBarStyle];
+        _blurImage = image;
         self.title = NSLocalizedString(@"STITLE", nil);
     }
     return self;
@@ -37,20 +35,42 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setNavigationBarStyle];
     // Do any additional setup after loading the view from its nib.
+    //self.edgesForExtendedLayout = UIRectEdgeNone;
+    _settingTable.backgroundColor = [UIColor clearColor];
+    UIImageView *backGroundImage = [[UIImageView alloc] initWithFrame:self.settingTable.frame];
+    backGroundImage.contentMode = UIViewContentModeScaleToFill;
+    [backGroundImage setImage:_blurImage];
+    _settingTable.backgroundView = backGroundImage;
+    //_settingTable.opaque = NO;
+    _settingTable.delegate = self;
+    _settingTable.dataSource = self;
     [self.settingTable reloadData];
 }
 
 - (void)setNavigationBarStyle
 {
     [[UINavigationBar appearance] setTranslucent:YES];
-    [[UINavigationBar appearance] setBarTintColor:[[UIColor blackColor] colorWithAlphaComponent:0.2f]];
-    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[[UIColor whiteColor] colorWithAlphaComponent:0.8f], NSForegroundColorAttributeName, [UIFont fontWithName:@"KohinoorDevanagari-Book" size:16.0f], NSFontAttributeName,nil]];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
+                             forBarMetrics:UIBarMetricsDefault];
+    //[[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.055f green:0.196f blue:0.341f alpha:0.3f]];
+    //[self.navigationController.navigationBar setBackgroundImage:[self imageFromRect:CGRectMake(0, 0, SCREENWIDTH, self.navigationController.navigationBar.frame.size.height) andImage:_blurImage] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[[UIColor whiteColor] colorWithAlphaComponent:0.9f], NSForegroundColorAttributeName, [UIFont fontWithName:@"KohinoorDevanagari-Book" size:16.0f], NSFontAttributeName,nil]];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+//convenient method
+- (UIImage *)imageFromRect:(CGRect)rect andImage:(UIImage *)image
+{
+    CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], rect);
+    UIImage *croppedImage = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+    return croppedImage;
 }
 
 #pragma mark - UITableViewDataSource
@@ -93,11 +113,12 @@
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"settingCell"];
     }
-    cell.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.2f];
+    cell.backgroundColor = [UIColor clearColor];
     cell.textLabel.textColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8f];
     cell.textLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:16.0f];
     cell.detailTextLabel.textColor = [UIColor lightTextColor];
     cell.detailTextLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:16.0f];
+    NSLog(@"cell text = %@",Setting_TitileArray[indexPath.section][indexPath.row]);
     cell.textLabel.text = Setting_TitileArray[indexPath.section][indexPath.row];
     
     if (indexPath.section == 0)
