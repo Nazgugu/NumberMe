@@ -57,10 +57,24 @@
 "INFOS"="Game Score";
 
 //setting
-"STITLE"="Thank You!";
+"STITLE"="Setting";
 "SBODY"="I am glad you find this little game interesting. If you do like it, please recommend it to your friend. If you have any suggestions, feel free to email me. Just press the 'OK' button below.";
 "OK"="OK";
 "CANCEL"="Cancel";
+"SCTITLE1"="Game";
+"SCTITLE2"="About";
+"MAXNORMAL"="Highest score of game mode normal";
+"MAXINFINITY"="Highest score of game mode infinity";
+"CLEARCACHE"="Clear record";
+"CAUTION"="Caution";
+"WARNING"="Are you sure you want to clear all the data? Once the records are deleted you can not restore them";
+"SURE"="Sure";
+"RATE"="Rate the app";
+"RECOMMEND"="Recomment to your friend";
+"CONTACT"="Contact me";
+"VERSION"="Version";
+
+
 
 //gameModeSelectionView
 "NORMAL"="Normal Mode";

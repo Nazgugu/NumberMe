@@ -57,10 +57,22 @@
 "INFOS"="Game Score";
 
 //setting
-"STITLE"="感谢您!";
+"STITLE"="设置";
 "SBODY"="如果您觉得这个小游戏挺有趣，还请麻烦您推荐给您的好友。如果您对这个小游戏有什么意见或者建议，请随时通过邮件的方式与我联系。按下'确认'按钮即可给我发送邮件。";
 "OK"="确认";
 "CANCEL"="取消";
+"SCTITLE1"="游戏";
+"SCTITLE2"="关于";
+"MAXNORMAL"="普通模式最高分";
+"MAXINFINITY"="无限挑战最高分";
+"CLEARCACHE"="清除纪录";
+"CAUTION"="注意";
+"WARNING"="你确定要清除所有的游戏数据么？一旦清除，你将永远失去之前的游戏记录并且无法复原。";
+"SURE"="确定";
+"RATE"="给我评价";
+"RECOMMEND"="推荐给好友";
+"CONTACT"="与我联系";
+"VERSION"="版本信息";
 
 //gameModeSelectionView
 "NORMAL"="普通模式";

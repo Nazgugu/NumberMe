@@ -17,6 +17,8 @@
 #import "GameModeSelectionView.h"
 #import "CECrossfadeAnimationController.h"
 #import "CEBaseInteractionController.h"
+#import "SettingViewController.h"
+#import "UIImage+ImageEffects.h"
 //#import <iAd/iAd.h>
 
 @interface WelcomeViewController () <GameModeSelectionViewDelegate, UIViewControllerTransitioningDelegate> /*<ADBannerViewDelegate>*/
@@ -98,23 +100,40 @@
 - (IBAction)settingTap:(id)sender {
     
     //NSLog(@"tapping");
-    RJBlurAlertView *alert = [[RJBlurAlertView alloc] initWithTitle:NSLocalizedString(@"STITLE", nil) text:NSLocalizedString(@"SBODY", nil) cancelButton:YES];
-    [alert.okButton setTitle:NSLocalizedString(@"OK", nil) forState:UIControlStateNormal];
-    [alert.cancelButton setTitle:NSLocalizedString(@"CANCEL", nil) forState:UIControlStateNormal];
-    alert.animationType = RJBlurAlertViewAnimationTypeDrop;
-    [alert setCompletionBlock:^(RJBlurAlertView *theAlert, UIButton *button) {
-        if (button == theAlert.okButton)
-        {
-            NSString *url = [URLEMail stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
-            [theAlert dismiss];
-        }
-        else
-        {
-            [theAlert dismiss];
-        }
-    }];
-    [alert show];
+//    RJBlurAlertView *alert = [[RJBlurAlertView alloc] initWithTitle:NSLocalizedString(@"STITLE", nil) text:NSLocalizedString(@"SBODY", nil) cancelButton:YES];
+//    [alert.okButton setTitle:NSLocalizedString(@"OK", nil) forState:UIControlStateNormal];
+//    [alert.cancelButton setTitle:NSLocalizedString(@"CANCEL", nil) forState:UIControlStateNormal];
+//    alert.animationType = RJBlurAlertViewAnimationTypeDrop;
+//    [alert setCompletionBlock:^(RJBlurAlertView *theAlert, UIButton *button) {
+//        if (button == theAlert.okButton)
+//        {
+//            NSString *url = [URLEMail stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+//            [theAlert dismiss];
+//        }
+//        else
+//        {
+//            [theAlert dismiss];
+//        }
+//    }];
+//    [alert show];
+    
+    SettingViewController *setting = [[SettingViewController alloc] initWithImage:[[self convertViewToImage] applyBlurWithRadius:12 tintColor:[[UIColor blackColor] colorWithAlphaComponent:0.4f] saturationDeltaFactor:1.0f maskImage:nil]];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:setting];
+    nav.transitioningDelegate = self;
+    [self presentViewController:nav animated:YES completion:nil];
+}
+
+-(UIImage *)convertViewToImage
+{
+    UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
+    CGRect rect = [keyWindow bounds];
+    UIGraphicsBeginImageContextWithOptions(rect.size,YES,0.0f);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [keyWindow.layer renderInContext:context];
+    UIImage *capturedScreen = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return capturedScreen;
 }
 
 #pragma mark - GameModeSelectionViewDelegate

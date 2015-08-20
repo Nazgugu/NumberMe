@@ -10,4 +10,6 @@
 
 @interface SettingViewController : UIViewController
 
+- (instancetype)initWithImage:(UIImage *)image;
+
 @end
