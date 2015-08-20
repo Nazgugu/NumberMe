@@ -36,6 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setNavigationBarStyle];
+    [self createNavButton];
     // Do any additional setup after loading the view from its nib.
     //self.edgesForExtendedLayout = UIRectEdgeNone;
     _settingTable.backgroundColor = [UIColor clearColor];
@@ -47,6 +48,13 @@
     _settingTable.delegate = self;
     _settingTable.dataSource = self;
     [self.settingTable reloadData];
+}
+
+- (void)createNavButton
+{
+    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithImage:[self makeThumbnailOfSize:CGSizeMake(15, 15) andImage:[UIImage imageNamed:@"close"]] style:UIBarButtonItemStylePlain target:self action:@selector(dismiss)];
+    barButton.tintColor = [[UIColor whiteColor] colorWithAlphaComponent:0.9f];
+    self.navigationItem.leftBarButtonItem = barButton;
 }
 
 - (void)setNavigationBarStyle
@@ -65,12 +73,17 @@
 }
 
 //convenient method
-- (UIImage *)imageFromRect:(CGRect)rect andImage:(UIImage *)image
+//- (UIImage *)imageFromRect:(CGRect)rect andImage:(UIImage *)image
+//{
+//    CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], rect);
+//    UIImage *croppedImage = [UIImage imageWithCGImage:imageRef];
+//    CGImageRelease(imageRef);
+//    return croppedImage;
+//}
+
+- (void)dismiss
 {
-    CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], rect);
-    UIImage *croppedImage = [UIImage imageWithCGImage:imageRef];
-    CGImageRelease(imageRef);
-    return croppedImage;
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - UITableViewDataSource
@@ -106,6 +119,13 @@
     return nil;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
+{
+    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+    header.textLabel.textColor = [UIColor lightGrayColor];
+    header.textLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:13.0f];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"settingCell"];
@@ -114,18 +134,23 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"settingCell"];
     }
     cell.backgroundColor = [UIColor clearColor];
-    cell.textLabel.textColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8f];
-    cell.textLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:16.0f];
+    cell.textLabel.textColor = [[UIColor whiteColor] colorWithAlphaComponent:0.9f];
+    cell.textLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:14.0f];
     cell.detailTextLabel.textColor = [UIColor lightTextColor];
-    cell.detailTextLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:16.0f];
+    cell.detailTextLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:14.0f];
     NSLog(@"cell text = %@",Setting_TitileArray[indexPath.section][indexPath.row]);
     cell.textLabel.text = Setting_TitileArray[indexPath.section][indexPath.row];
+    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
     
     if (indexPath.section == 0)
     {
         switch (indexPath.row) {
             case 0:
             {
+                UIImage *icon = [self makeThumbnailOfSize:CGSizeMake(25, 25) andImage:[UIImage imageNamed:@"succeed"]];
+                [cell.imageView setImage:icon];
+                cell.userInteractionEnabled = NO;
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 if ([[EGOCache globalCache] hasCacheForKey:@"maxNormalScore"])
                 {
                     cell.detailTextLabel.text = [[EGOCache globalCache] stringForKey:@"maxNormalScore"];
@@ -138,6 +163,10 @@
                 break;
             case 1:
             {
+                UIImage *icon = [self makeThumbnailOfSize:CGSizeMake(25, 25) andImage:[UIImage imageNamed:@"achievement"]];
+                [cell.imageView setImage:icon];
+                cell.userInteractionEnabled = NO;
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 if ([[EGOCache globalCache] hasCacheForKey:@"maxInfinityScore"])
                 {
                     cell.detailTextLabel.text = [[EGOCache globalCache] stringForKey:@"maxInfinityScore"];
@@ -148,19 +177,65 @@
                 }
             }
                 break;
+            case 2:
+            {
+                UIImage *icon = [self makeThumbnailOfSize:CGSizeMake(25, 25) andImage:[UIImage imageNamed:@"clear"]];
+                [cell.imageView setImage:icon];
+            }
+                break;
             default:
                 break;
         }
     }
     else if (indexPath.section == 1)
     {
-        if (indexPath.row == 3)
-        {
-            cell.detailTextLabel.text = @"V 1.1";
+        switch (indexPath.row) {
+            case 0:
+            {
+                UIImage *icon = [self makeThumbnailOfSize:CGSizeMake(25, 25) andImage:[UIImage imageNamed:@"rate"]];
+                [cell.imageView setImage:icon];
+            }
+                break;
+            case 1:
+            {
+                UIImage *icon = [self makeThumbnailOfSize:CGSizeMake(25, 25) andImage:[UIImage imageNamed:@"recommend"]];
+                [cell.imageView setImage:icon];
+            }
+                break;
+            case 2:
+            {
+                UIImage *icon = [self makeThumbnailOfSize:CGSizeMake(25, 25) andImage:[UIImage imageNamed:@"contact"]];
+                [cell.imageView setImage:icon];
+            }
+                break;
+            case 3:
+            {
+                UIImage *icon = [self makeThumbnailOfSize:CGSizeMake(25, 25) andImage:[UIImage imageNamed:@"gear"]];
+                cell.userInteractionEnabled = NO;
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                [cell.imageView setImage:icon];
+                cell.detailTextLabel.text = @"V 1.1";
+            }
+                break;
+            default:
+                break;
         }
     }
     
     return cell;
+}
+
+- (UIImage *) makeThumbnailOfSize:(CGSize)size andImage:(UIImage *)image
+{
+    UIGraphicsBeginImageContextWithOptions(size, NO, UIScreen.mainScreen.scale);
+    // draw scaled image into thumbnail context
+    [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    UIImage *newThumbnail = UIGraphicsGetImageFromCurrentImageContext();
+    // pop the context
+    UIGraphicsEndImageContext();
+    if(newThumbnail == nil)
+        NSLog(@"could not scale image");
+    return newThumbnail;
 }
 
 /*

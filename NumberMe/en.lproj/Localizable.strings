@@ -63,8 +63,8 @@
 "CANCEL"="Cancel";
 "SCTITLE1"="Game";
 "SCTITLE2"="About";
-"MAXNORMAL"="Highest score of game mode normal";
-"MAXINFINITY"="Highest score of game mode infinity";
+"MAXNORMAL"="Mode Normal";
+"MAXINFINITY"="Mode Infinity";
 "CLEARCACHE"="Clear record";
 "CAUTION"="Caution";
 "WARNING"="Are you sure you want to clear all the data? Once the records are deleted you can not restore them";
