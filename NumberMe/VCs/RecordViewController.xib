@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecordViewController">
             <connections>
                 <outlet property="chartHeightConstraint" destination="gyj-cy-hxF" id="mjc-Rp-Fwp"/>
+                <outlet property="closeButton" destination="NUo-oX-YFk" id="Syq-Ns-X3K"/>
                 <outlet property="dateLabel" destination="fzW-NT-8v4" id="RDw-UP-trq"/>
                 <outlet property="gameModeSegmentedControl" destination="OYr-H1-Na0" id="eVz-R1-kXe"/>
                 <outlet property="gameResultChart" destination="x5q-9J-Vl9" id="i4S-IQ-GWP"/>
@@ -29,12 +30,12 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <animations/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUo-oX-YFk">
-                    <rect key="frame" x="10" y="10" width="20" height="20"/>
+                <button opaque="NO" alpha="0.69999999999999973" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUo-oX-YFk">
+                    <rect key="frame" x="10" y="10" width="16" height="16"/>
                     <animations/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="20" id="8gD-cx-Rwm"/>
-                        <constraint firstAttribute="height" constant="20" id="aGy-A7-VE3"/>
+                        <constraint firstAttribute="width" constant="16" id="8gD-cx-Rwm"/>
+                        <constraint firstAttribute="height" constant="16" id="aGy-A7-VE3"/>
                     </constraints>
                     <state key="normal" image="close">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -44,7 +45,7 @@
                     </connections>
                 </button>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x5q-9J-Vl9" customClass="RWBarChartView">
-                    <rect key="frame" x="0.0" y="50" width="320" height="270"/>
+                    <rect key="frame" x="0.0" y="46" width="320" height="270"/>
                     <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -91,7 +92,7 @@
                     </state>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzW-NT-8v4" customClass="YETIMotionLabel">
-                    <rect key="frame" x="85" y="310" width="150" height="22"/>
+                    <rect key="frame" x="85" y="306" width="150" height="22"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="22" id="N0n-Y2-gyB"/>
@@ -102,7 +103,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S7l-DS-Gob">
-                    <rect key="frame" x="159" y="352" width="1" height="151"/>
+                    <rect key="frame" x="159" y="348" width="1" height="155"/>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="0.25" colorSpace="calibratedWhite"/>
                     <constraints>

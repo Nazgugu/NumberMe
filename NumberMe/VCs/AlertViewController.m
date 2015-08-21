@@ -10,6 +10,7 @@
 #import "RWBlurPopover.h"
 #import "EGOCache.h"
 #import "OpenShareHeader.h"
+#import "UIView+Shimmer.h"
 
 @interface AlertViewController ()
 
@@ -81,6 +82,11 @@
     [self presentView];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [_scoreLabel stopShimmering];
+}
+
 - (void)presentView
 {
     self.correctnessLabel.adjustsFontSizeToFitWidth = YES;
@@ -135,6 +141,7 @@
             if (oldRecord < _game.gameScore)
             {
                 _recordSign.hidden = NO;
+                [_scoreLabel startShimmering];
                 [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameScore] forKey:@"maxNormalScore"];
             }
             _recordLabel.text = [NSString stringWithFormat:NSLocalizedString(@"RECORD", nil),oldRecord];
@@ -143,6 +150,7 @@
         {
             //new record, need to display the record
             _recordSign.hidden = NO;
+            [_scoreLabel startShimmering];
             [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameScore] forKey:@"maxNormalScore"];
             _recordLabel.text = NSLocalizedString(@"NORECORD", nil);
         }
@@ -157,6 +165,7 @@
             if (oldRecord < _game.gameScore)
             {
                 _recordSign.hidden = NO;
+                [_scoreLabel startShimmering];
                 [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameScore] forKey:@"maxInfinityScore"];
             }
             _recordLabel.text = [NSString stringWithFormat:NSLocalizedString(@"RECORD", nil),oldRecord];
@@ -165,6 +174,7 @@
         {
             //new record, need to display the record
             _recordSign.hidden = NO;
+            [_scoreLabel startShimmering];
             [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameScore] forKey:@"maxInfinityScore"];
             _recordLabel.text = NSLocalizedString(@"NORECORD", nil);
         }

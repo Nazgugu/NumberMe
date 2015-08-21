@@ -116,6 +116,8 @@
     
     _verticalGap = 20.0f;
     
+    _backButton.contentMode = UIViewContentModeScaleAspectFit;
+    
     if (IS_IPHONE_4_OR_LESS)
     {
         _gapSize = 28.0f;

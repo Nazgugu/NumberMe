@@ -61,7 +61,7 @@
         }
         if (!_gameModeImageArray)
         {
-            _gameModeImageArray = [[NSMutableArray alloc] initWithObjects:[UIImage imageNamed:@"normalGame"],[UIImage imageNamed:@"continueGame"], nil];
+            _gameModeImageArray = [[NSMutableArray alloc] initWithObjects:[UIImage imageNamed:@"continueGame"],[UIImage imageNamed:@"normalGame"], nil];
         }
         [self setUpViews];
     }

@@ -11,6 +11,7 @@
 #import "SettingViewController.h"
 #import "EGOCache.h"
 #import "RJBlurAlertView.h"
+#import "UIView+Shimmer.h"
 
 #define Setting_TitileArray @[@[NSLocalizedString(@"MAXNORMAL",nil),NSLocalizedString(@"MAXINFINITY",nil),NSLocalizedString(@"CLEARCACHE",nil)],@[NSLocalizedString(@"RATE",nil),NSLocalizedString(@"RECOMMEND",nil),NSLocalizedString(@"CONTACT",nil),NSLocalizedString(@"VERSION",nil)]]
 
@@ -52,6 +53,19 @@
     _settingTable.dataSource = self;
     [self.settingTable reloadData];
 }
+
+- (void)dealloc
+{
+    //[self stopShimmer];
+}
+
+//- (void)stopShimmer
+//{
+//    UITableViewCell *cell1 = [_settingTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+//    UITableViewCell *cell2 = [_settingTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
+//    [cell1 stopShimmering];
+//    [cell2 stopShimmering];
+//}
 
 - (void)createNavButton
 {

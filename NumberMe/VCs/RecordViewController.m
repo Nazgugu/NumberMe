@@ -56,6 +56,7 @@
 
 @property (weak, nonatomic) IBOutlet UIView *seperator;
 
+@property (weak, nonatomic) IBOutlet UIButton *closeButton;
 @property (nonatomic, assign) gameMode displayForGameMode;
 @end
 
@@ -69,6 +70,8 @@
     _game = nil;
     
     _displayForGameMode = gameModeNormal;
+    
+    _closeButton.contentMode = UIViewContentModeScaleAspectFit;
     
     CGFloat labelGap,labelHeight,seperatorHeight;
     

@@ -19,6 +19,7 @@
 #import "CEBaseInteractionController.h"
 #import "SettingViewController.h"
 #import "UIImage+ImageEffects.h"
+//#import "UIView+Shimmer.h"
 //#import <iAd/iAd.h>
 
 @interface WelcomeViewController () <GameModeSelectionViewDelegate, UIViewControllerTransitioningDelegate> /*<ADBannerViewDelegate>*/
@@ -29,6 +30,9 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomSpaceConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bannerViewSpaceConstraint;
 @property (weak, nonatomic) IBOutlet GADBannerView *admobBanner;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topSpaceToTitle;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *creditLabel;
 
 @end
 
@@ -41,6 +45,11 @@
 //    self.edgesForExtendedLayout = UIRectEdgeNone;
     
     [self initializaBannerView];
+    
+    if (IS_IPHONE_4_OR_LESS)
+    {
+        _topSpaceToTitle.constant = 60;
+    }
     
     _startButton.layer.borderWidth = 1.0f;
     _settingButton.layer.borderWidth = 1.0f;
@@ -56,10 +65,30 @@
     _startButton.layer.masksToBounds = YES;
     
     [_startButton setTitle:NSLocalizedString(@"START", nil) forState:UIControlStateNormal];
+    [_startButton setImage:[UIImage imageNamed:@"start"] forState:UIControlStateNormal];
+    [_startButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -15, 0, 0)];
+    [_startButton setImageEdgeInsets:UIEdgeInsetsMake(0, -40, 0, 0)];
+    
     [_recordButton setTitle:NSLocalizedString(@"RD", nil) forState:UIControlStateNormal];
+    [_recordButton setImage:[UIImage imageNamed:@"stat"] forState:UIControlStateNormal];
+    [_recordButton setImageEdgeInsets:UIEdgeInsetsMake(0, -25, 0, 0)];
+    [_recordButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -12, 0, 0)];
+    
     [_settingButton setTitle:NSLocalizedString(@"ST", nil) forState:UIControlStateNormal];
+    [_settingButton setImage:[UIImage imageNamed:@"setting"] forState:UIControlStateNormal];
+    [_settingButton setImageEdgeInsets:UIEdgeInsetsMake(0, -20, 0, 0)];
+    [_settingButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -8, 0, 0)];
     
     
+    UIImageView *hammerView = [[UIImageView alloc] initWithFrame:CGRectMake(9, 5, 11, 11)];
+    hammerView.layer.cornerRadius = hammerView.frame.size.height / 2;
+    hammerView.layer.masksToBounds = YES;
+    hammerView.alpha = 0.7f;
+    hammerView.contentMode = UIViewContentModeScaleToFill;
+    hammerView.backgroundColor = [UIColor clearColor];
+    [hammerView setImage:[UIImage imageNamed:@"craft"]];
+    
+    [_creditLabel addSubview:hammerView];
     
 //    _adBannerView.delegate = self;
 //    _adBannerView.alpha = 0;
@@ -69,7 +98,6 @@
 {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
 }
-
 
 - (void)initializaBannerView
 {
