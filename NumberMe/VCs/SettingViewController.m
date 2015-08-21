@@ -231,7 +231,7 @@
                 cell.userInteractionEnabled = NO;
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 [cell.imageView setImage:icon];
-                cell.detailTextLabel.text = @"V 1.1";
+                cell.detailTextLabel.text = @"v 1.1.0";
             }
                 break;
             default:
