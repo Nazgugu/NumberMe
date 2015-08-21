@@ -221,9 +221,9 @@
 - (void)shareViaWeibo
 {
     OSMessage *message = [[OSMessage alloc] init];
-    message.title = @"这个游戏简直停不下来，太有意思了";
+    message.title = @"这个游戏简直停不下来，太有意思了,下载:https://itunes.apple.com/us/app/four4/id1030279451?l=zh&ls=1&mt=8";
     message.image = UIImageJPEGRepresentation([UIImage imageNamed:@"icon"], 0.5f);
-    message.link = @"https://itunes.apple.com/us/app/four4/id1030279451?l=zh&ls=1&mt=8";
+    //message.link = @"https://itunes.apple.com/us/app/four4/id1030279451?l=zh&ls=1&mt=8";
     [OpenShare shareToWeibo:message Success:^(OSMessage *message) {
         NSLog(@"分享成功");
     } Fail:^(OSMessage *message, NSError *error) {
