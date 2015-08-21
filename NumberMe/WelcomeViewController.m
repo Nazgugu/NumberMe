@@ -97,7 +97,7 @@
     UIImageView *hammerView = [[UIImageView alloc] initWithFrame:CGRectMake(9, 5, 11, 11)];
     hammerView.layer.cornerRadius = hammerView.frame.size.height / 2;
     hammerView.layer.masksToBounds = YES;
-    hammerView.alpha = 0.7f;
+    hammerView.alpha = 0.6f;
     hammerView.contentMode = UIViewContentModeScaleToFill;
     hammerView.backgroundColor = [UIColor clearColor];
     [hammerView setImage:[UIImage imageNamed:@"craft"]];
