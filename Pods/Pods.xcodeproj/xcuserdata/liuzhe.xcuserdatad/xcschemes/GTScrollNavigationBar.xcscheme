@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FEA580AE8E5A09A82B620777"
-               BuildableName = "libJSKTimerView.a"
-               BlueprintName = "JSKTimerView"
+               BlueprintIdentifier = "FAB354DF6582496AF67F4CE2"
+               BuildableName = "libGTScrollNavigationBar.a"
+               BlueprintName = "GTScrollNavigationBar"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

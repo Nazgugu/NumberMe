@@ -19,6 +19,7 @@
 #import "CEBaseInteractionController.h"
 #import "SettingViewController.h"
 #import "UIImage+ImageEffects.h"
+#import "GTScrollNavigationBar.h"
 //#import "UIView+Shimmer.h"
 //#import <iAd/iAd.h>
 
@@ -69,15 +70,19 @@
     
     [_startButton setTitle:NSLocalizedString(@"START", nil) forState:UIControlStateNormal];
     [_startButton setImage:[UIImage imageNamed:@"start"] forState:UIControlStateNormal];
+    [_startButton setImage:[UIImage imageNamed:@"start"] forState:UIControlStateHighlighted];
+
     
     [_startButton setImageEdgeInsets:UIEdgeInsetsMake(0, -40, 0, 0)];
     
     [_recordButton setTitle:NSLocalizedString(@"RD", nil) forState:UIControlStateNormal];
     [_recordButton setImage:[UIImage imageNamed:@"stat"] forState:UIControlStateNormal];
-        [_recordButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -12, 0, 0)];
+    [_recordButton setImage:[UIImage imageNamed:@"stat"] forState:UIControlStateHighlighted];
+    [_recordButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -12, 0, 0)];
     
     [_settingButton setTitle:NSLocalizedString(@"ST", nil) forState:UIControlStateNormal];
     [_settingButton setImage:[UIImage imageNamed:@"setting"] forState:UIControlStateNormal];
+    [_settingButton setImage:[UIImage imageNamed:@"setting"] forState:UIControlStateHighlighted];
     [_settingButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -8, 0, 0)];
     
     if ([firstLang isEqualToString:@"zh-Hans"])
@@ -161,7 +166,8 @@
 //    [alert show];
     
     SettingViewController *setting = [[SettingViewController alloc] initWithImage:[[self convertViewToImage] applyBlurWithRadius:12 tintColor:[[UIColor blackColor] colorWithAlphaComponent:0.4f] saturationDeltaFactor:1.0f maskImage:nil]];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:setting];
+    UINavigationController *nav = [[UINavigationController alloc] initWithNavigationBarClass:[GTScrollNavigationBar class] toolbarClass:nil];
+    [nav setViewControllers:@[setting] animated:NO];
     nav.transitioningDelegate = self;
     [self presentViewController:nav animated:YES completion:nil];
 }

@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>GTScrollNavigationBar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>JSKTimerView-JSKTimerView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -82,12 +87,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2D7AC0E1F8422CD479C5FD87F9EE2632</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2EB45A969A69333D388D0604B5508655</key>
+		<key>202A9F9A9E3A7E90458B0F8A77D2A9FF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,7 +97,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>56492E0C55B8AFDE961071A2E2A800BF</key>
+		<key>48286E58B556BB196E3C464DEB4FDDAC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5260A9501EB46891105D31FF9EB430BE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>56070DB8B3E1993FD4773C2C495D9908</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -107,12 +117,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>66FA06D7C9275434213000241984AA71</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>72E39D06851F6DB2FF6911E5C808EE30</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8175FDFD3E04762C912E6EF724925377</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>885555A8A9FEC76DB68DB51A441BC229</key>
+		<key>8B903C018532F408E588F6686B2A779B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -127,22 +147,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CB19EB1E4A1E8C260854454872B0440B</key>
+		<key>C4ED453A212F5ED7F062075393B4E2FE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D91D35F33B9A7F5406A4C547DE83FE09</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DDDBC0A7AAC69D7160201FCF23B0892A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EB16456BFCA2D6847C0FAD295E3B753F</key>
+		<key>DF1A8CD3106D2E38CFE3B7ACE30D2479</key>
 		<dict>
 			<key>primary</key>
 			<true/>

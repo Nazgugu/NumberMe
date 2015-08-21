@@ -11,7 +11,8 @@
 #import "SettingViewController.h"
 #import "EGOCache.h"
 #import "RJBlurAlertView.h"
-#import "UIView+Shimmer.h"
+//#import "UIView+Shimmer.h"
+#import "GTScrollNavigationBar.h"
 
 #define Setting_TitileArray @[@[NSLocalizedString(@"MAXNORMAL",nil),NSLocalizedString(@"MAXINFINITY",nil),NSLocalizedString(@"CLEARCACHE",nil)],@[NSLocalizedString(@"RATE",nil),NSLocalizedString(@"RECOMMEND",nil),NSLocalizedString(@"CONTACT",nil),NSLocalizedString(@"VERSION",nil)]]
 
@@ -78,11 +79,25 @@
 {
     [[UINavigationBar appearance] setTranslucent:YES];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
-                             forBarMetrics:UIBarMetricsDefault];
-    //[[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.055f green:0.196f blue:0.341f alpha:0.3f]];
-    //[self.navigationController.navigationBar setBackgroundImage:[self imageFromRect:CGRectMake(0, 0, SCREENWIDTH, self.navigationController.navigationBar.frame.size.height) andImage:_blurImage] forBarMetrics:UIBarMetricsDefault];
+                                                      forBarMetrics:UIBarMetricsDefault];
+        //[[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.055f green:0.196f blue:0.341f alpha:0.3f]];
+        //[self.navigationController.navigationBar setBackgroundImage:[self imageFromRect:CGRectMake(0, 0, SCREENWIDTH, self.navigationController.navigationBar.frame.size.height) andImage:_blurImage] forBarMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[[UIColor whiteColor] colorWithAlphaComponent:0.9f], NSForegroundColorAttributeName, [UIFont fontWithName:@"KohinoorDevanagari-Book" size:16.0f], NSFontAttributeName,nil]];
+    self.navigationController.scrollNavigationBar.scrollView = _settingTable;
 }
+
+//- (UIImage *)imageWithColor:(UIColor *)color
+//{
+//    CGRect rect = CGRectMake(0, 0, 1, 1);
+//    UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
+//    [color setFill];
+//    UIRectFill(rect);
+//    
+//    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    
+//    return image;
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -209,25 +224,25 @@
         switch (indexPath.row) {
             case 0:
             {
-                UIImage *icon = [self makeThumbnailOfSize:CGSizeMake(25, 25) andImage:[UIImage imageNamed:@"rate"]];
+                UIImage *icon = [self makeThumbnailOfSize:CGSizeMake(23, 23) andImage:[UIImage imageNamed:@"rate"]];
                 [cell.imageView setImage:icon];
             }
                 break;
             case 1:
             {
-                UIImage *icon = [self makeThumbnailOfSize:CGSizeMake(25, 25) andImage:[UIImage imageNamed:@"recommend"]];
+                UIImage *icon = [self makeThumbnailOfSize:CGSizeMake(23, 23) andImage:[UIImage imageNamed:@"recommend"]];
                 [cell.imageView setImage:icon];
             }
                 break;
             case 2:
             {
-                UIImage *icon = [self makeThumbnailOfSize:CGSizeMake(25, 25) andImage:[UIImage imageNamed:@"contact"]];
+                UIImage *icon = [self makeThumbnailOfSize:CGSizeMake(23, 23) andImage:[UIImage imageNamed:@"contact"]];
                 [cell.imageView setImage:icon];
             }
                 break;
             case 3:
             {
-                UIImage *icon = [self makeThumbnailOfSize:CGSizeMake(25, 25) andImage:[UIImage imageNamed:@"gear"]];
+                UIImage *icon = [self makeThumbnailOfSize:CGSizeMake(23, 23) andImage:[UIImage imageNamed:@"gear"]];
                 cell.userInteractionEnabled = NO;
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 [cell.imageView setImage:icon];
@@ -304,6 +319,11 @@
     if(newThumbnail == nil)
         NSLog(@"could not scale image");
     return newThumbnail;
+}
+
+- (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView
+{
+    [self.navigationController.scrollNavigationBar resetToDefaultPositionWithAnimation:YES];
 }
 
 

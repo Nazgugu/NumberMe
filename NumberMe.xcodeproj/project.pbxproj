@@ -22,7 +22,6 @@
 		AE21E6EA1B7AAB1D006F4CB6 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE21E6E81B7AAB1D006F4CB6 /* RecordViewController.m */; };
 		AE21E6EB1B7AAB1D006F4CB6 /* RecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE21E6E91B7AAB1D006F4CB6 /* RecordViewController.xib */; };
 		AE21E6F11B7ABF0D006F4CB6 /* GameBG.png in Resources */ = {isa = PBXBuildFile; fileRef = AE21E6F01B7ABF0D006F4CB6 /* GameBG.png */; };
-		AE21E6F31B7AC517006F4CB6 /* recordBG.png in Resources */ = {isa = PBXBuildFile; fileRef = AE21E6F21B7AC517006F4CB6 /* recordBG.png */; };
 		AE2630811B6EA58000A566AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2630801B6EA58000A566AE /* main.m */; };
 		AE2630841B6EA58000A566AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2630831B6EA58000A566AE /* AppDelegate.m */; };
 		AE26308C1B6EA58000A566AE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE26308B1B6EA58000A566AE /* Images.xcassets */; };
@@ -30,6 +29,7 @@
 		AE3E41041B6EC19D001E26FE /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3E41021B6EC19D001E26FE /* WelcomeViewController.m */; };
 		AE3E41101B6ECFD0001E26FE /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3E410E1B6ECFD0001E26FE /* GameViewController.m */; };
 		AE3E41111B6ECFD0001E26FE /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE3E410F1B6ECFD0001E26FE /* GameViewController.xib */; };
+		AE4247971B86F2A50027D9F4 /* recordBG.png in Resources */ = {isa = PBXBuildFile; fileRef = AE4247961B86F2A50027D9F4 /* recordBG.png */; };
 		AE4AC8A71B7B2842000D541D /* RWBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4AC8A61B7B2842000D541D /* RWBarChartView.m */; };
 		AE4C1E711B7C679E00AC1FBF /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE4C1E701B7C679E00AC1FBF /* WelcomeViewController.xib */; };
 		AE6758731B77C24F00F5A93C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6758721B77C24F00F5A93C /* Foundation.framework */; };
@@ -82,7 +82,6 @@
 		AE21E6E81B7AAB1D006F4CB6 /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordViewController.m; path = VCs/RecordViewController.m; sourceTree = "<group>"; };
 		AE21E6E91B7AAB1D006F4CB6 /* RecordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RecordViewController.xib; path = VCs/RecordViewController.xib; sourceTree = "<group>"; };
 		AE21E6F01B7ABF0D006F4CB6 /* GameBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameBG.png; sourceTree = "<group>"; };
-		AE21E6F21B7AC517006F4CB6 /* recordBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recordBG.png; sourceTree = "<group>"; };
 		AE26307B1B6EA58000A566AE /* NumberMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NumberMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE26307F1B6EA58000A566AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE2630801B6EA58000A566AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -99,6 +98,7 @@
 		AE3E410F1B6ECFD0001E26FE /* GameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GameViewController.xib; path = VCs/GameViewController.xib; sourceTree = "<group>"; };
 		AE3E41121B6F2B06001E26FE /* CommonDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonDefine.h; sourceTree = "<group>"; };
 		AE3E41131B6F2BA7001E26FE /* NumberMe-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NumberMe-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		AE4247961B86F2A50027D9F4 /* recordBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recordBG.png; sourceTree = "<group>"; };
 		AE4AC8A51B7B2842000D541D /* RWBarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWBarChartView.h; sourceTree = "<group>"; };
 		AE4AC8A61B7B2842000D541D /* RWBarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWBarChartView.m; sourceTree = "<group>"; };
 		AE4C1E701B7C679E00AC1FBF /* WelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
@@ -303,9 +303,9 @@
 			isa = PBXGroup;
 			children = (
 				AEFB78F21B829072005DEE30 /* continueGame.png */,
+				AE4247961B86F2A50027D9F4 /* recordBG.png */,
 				AEFB78F31B829072005DEE30 /* normalGame.png */,
 				AE90F8891B7DAEE10039F75E /* icon.png */,
-				AE21E6F21B7AC517006F4CB6 /* recordBG.png */,
 				AE6E62BC1B7958DC00E0E4E2 /* AlertBG.png */,
 				AE21E6E51B79C229006F4CB6 /* welcome.png */,
 				AE21E6F01B7ABF0D006F4CB6 /* GameBG.png */,
@@ -476,9 +476,9 @@
 				AE3E41111B6ECFD0001E26FE /* GameViewController.xib in Resources */,
 				AE9D118D1B8570B800A36953 /* SettingViewController.xib in Resources */,
 				AE21E6F11B7ABF0D006F4CB6 /* GameBG.png in Resources */,
+				AE4247971B86F2A50027D9F4 /* recordBG.png in Resources */,
 				AE90F88A1B7DAEE10039F75E /* icon.png in Resources */,
 				AE4C1E711B7C679E00AC1FBF /* WelcomeViewController.xib in Resources */,
-				AE21E6F31B7AC517006F4CB6 /* recordBG.png in Resources */,
 				AE67587C1B7813F400F5A93C /* AlertViewController.xib in Resources */,
 				AE6E62BD1B7958DC00E0E4E2 /* AlertBG.png in Resources */,
 			);
