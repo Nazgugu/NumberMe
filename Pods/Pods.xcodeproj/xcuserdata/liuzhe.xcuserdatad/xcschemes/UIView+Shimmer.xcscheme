@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "102D2EBF653A79E69049A4AC"
-               BuildableName = "libZCAnimatedLabel.a"
-               BlueprintName = "ZCAnimatedLabel"
+               BlueprintIdentifier = "6108DD6BE1B103A2E3F38E7B"
+               BuildableName = "libUIView+Shimmer.a"
+               BlueprintName = "UIView+Shimmer"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

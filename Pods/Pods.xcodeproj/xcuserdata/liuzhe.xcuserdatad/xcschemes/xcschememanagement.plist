@@ -59,6 +59,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>UIView+Shimmer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>VCTransitionsLibrary.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -72,7 +77,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>052353732BDD3EF032F5BC7607553CA5</key>
+		<key>018D5C39CD05505A83186C0AD566ED8E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2D7AC0E1F8422CD479C5FD87F9EE2632</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2EB45A969A69333D388D0604B5508655</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,12 +97,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5C6D014528D6D20C3603F7823934C5DB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5EAED80098ECCE12CF602163697A7C89</key>
+		<key>56492E0C55B8AFDE961071A2E2A800BF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,17 +107,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7B21B41E0A79FDEC7ADCCC8EF6CF92E0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>8175FDFD3E04762C912E6EF724925377</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8FB5EC799D448A057082731A7879B8A2</key>
+		<key>885555A8A9FEC76DB68DB51A441BC229</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -122,17 +127,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C4F3CB618DB7A97C4D3F5716A83C7ED3</key>
+		<key>CB19EB1E4A1E8C260854454872B0440B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D8EAC11BA738619F34333DBD8244EEEA</key>
+		<key>D91D35F33B9A7F5406A4C547DE83FE09</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F73A6F4D0ABBD422DC8488DA44514A5C</key>
+		<key>DDDBC0A7AAC69D7160201FCF23B0892A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EB16456BFCA2D6847C0FAD295E3B753F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
