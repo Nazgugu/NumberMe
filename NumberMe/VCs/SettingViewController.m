@@ -13,6 +13,8 @@
 #import "RJBlurAlertView.h"
 //#import "UIView+Shimmer.h"
 #import "GTScrollNavigationBar.h"
+#import "DOPScrollableActionSheet.h"
+#import "OpenShareHeader.h"
 
 #define Setting_TitileArray @[@[NSLocalizedString(@"MAXNORMAL",nil),NSLocalizedString(@"MAXINFINITY",nil),NSLocalizedString(@"CLEARCACHE",nil)],@[NSLocalizedString(@"RATE",nil),NSLocalizedString(@"RECOMMEND",nil),NSLocalizedString(@"CONTACT",nil),NSLocalizedString(@"VERSION",nil)]]
 
@@ -21,7 +23,11 @@
 //@property (nonatomic, strong) UIImage *navImage;
 @property (weak, nonatomic) IBOutlet UITableView *settingTable;
 
+@property (nonatomic, strong) NSArray *shareAction;
 
+@property (nonatomic, strong) NSString *recommandURLString;
+
+@property (nonatomic, strong) NSString *smsURLString;
 
 @end
 
@@ -52,6 +58,23 @@
     //_settingTable.opaque = NO;
     _settingTable.delegate = self;
     _settingTable.dataSource = self;
+    
+    
+//    NSString* body = @"https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Ffour4%2Fid1030279451%3Fl%3Dzh%26ls%3D1%26mt%3D8";
+//    
+//    _recommandURLString = @"mailto:?subject=";
+//    _recommandURLString = [_recommandURLString stringByAppendingString:NSLocalizedString(@"GGAME", nil)];
+//    _recommandURLString = [_recommandURLString stringByAppendingString:@"&body="];
+//    _recommandURLString = [_recommandURLString stringByAppendingString:NSLocalizedString(@"SHARENOURL", nil)];
+//    _recommandURLString = [_recommandURLString stringByAppendingString:body];
+    
+//    NSLog(@"%@",URLEMail);
+//    NSLog(@"%@",_recommandURLString);
+    
+    _smsURLString = @"sms:&body=";
+    _smsURLString = [_smsURLString stringByAppendingString:NSLocalizedString(@"SHAREMSG", nil)];
+    
+    [self initShareAction];
     [self.settingTable reloadData];
 }
 
@@ -68,6 +91,47 @@
 //    [cell2 stopShimmering];
 //}
 
+- (void)initShareAction
+{
+    //share
+    DOPAction *shareWechatFriend = [[DOPAction alloc] initWithName:NSLocalizedString(@"FRIEND", nil) iconName:@"friend" handler:^{
+        [self shareViaWeChatFriend];
+    }];
+    
+    DOPAction *shareWechatCircle = [[DOPAction alloc] initWithName:NSLocalizedString(@"CIRCLE", nil) iconName:@"circle" handler:^{
+        [self shareViaWeChatCircle];
+    }];
+    
+    DOPAction *shareWeibo = [[DOPAction alloc] initWithName:NSLocalizedString(@"WEIBO", nil) iconName:@"weibo" handler:^{
+        [self shareViaWeibo];
+    }];
+    
+    DOPAction *shareMSG = [[DOPAction alloc] initWithName:NSLocalizedString(@"MSG", nil) iconName:@"msg" handler:^{
+        [self shareViaSMS];
+    }];
+    
+//    DOPAction *shareEmail = [[DOPAction alloc] initWithName:NSLocalizedString(@"EMAIL", nil) iconName:@"email" handler:^{
+//        [self shareViaEmail];
+//    }];
+    
+    if ([OpenShare isWeiboInstalled] && [OpenShare isWeixinInstalled])
+    {
+        _shareAction = @[@"",@[shareWechatFriend, shareWechatCircle, shareWeibo, shareMSG, ]];
+    }
+    else if ([OpenShare isWeixinInstalled] && ![OpenShare isWeiboInstalled])
+    {
+        _shareAction = @[@"",@[shareWechatFriend, shareWechatCircle, shareMSG]];
+    }
+    else if (![OpenShare isWeixinInstalled] && [OpenShare isWeiboInstalled])
+    {
+        _shareAction = @[@"",@[shareWeibo, shareMSG]];
+    }
+    else if (![OpenShare isWeiboInstalled] && ![OpenShare isWeixinInstalled])
+    {
+        _shareAction = @[@"",@[shareMSG]];
+    }
+}
+
 - (void)createNavButton
 {
     UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithImage:[self makeThumbnailOfSize:CGSizeMake(15, 15) andImage:[UIImage imageNamed:@"close"]] style:UIBarButtonItemStylePlain target:self action:@selector(dismiss)];
@@ -78,26 +142,27 @@
 - (void)setNavigationBarStyle
 {
     [[UINavigationBar appearance] setTranslucent:YES];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
-                                                      forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationController.navigationBar setBackgroundImage:[self imageWithColor:[[UIColor lightTextColor] colorWithAlphaComponent:0.5f]] forBarMetrics:UIBarMetricsDefault];
+
         //[[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.055f green:0.196f blue:0.341f alpha:0.3f]];
         //[self.navigationController.navigationBar setBackgroundImage:[self imageFromRect:CGRectMake(0, 0, SCREENWIDTH, self.navigationController.navigationBar.frame.size.height) andImage:_blurImage] forBarMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[[UIColor whiteColor] colorWithAlphaComponent:0.9f], NSForegroundColorAttributeName, [UIFont fontWithName:@"KohinoorDevanagari-Book" size:16.0f], NSFontAttributeName,nil]];
     self.navigationController.scrollNavigationBar.scrollView = _settingTable;
 }
 
-//- (UIImage *)imageWithColor:(UIColor *)color
-//{
-//    CGRect rect = CGRectMake(0, 0, 1, 1);
-//    UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
-//    [color setFill];
-//    UIRectFill(rect);
-//    
-//    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-//    
-//    return image;
-//}
+- (UIImage *)imageWithColor:(UIColor *)color
+{
+    CGRect rect = CGRectMake(0, 0, 1, 1);
+    UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
+    [color setFill];
+    UIRectFill(rect);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -112,6 +177,59 @@
 //    CGImageRelease(imageRef);
 //    return croppedImage;
 //}
+
+- (void)shareViaSMS
+{
+    NSString *url = [_smsURLString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+}
+
+//- (void)shareViaEmail
+//{
+//    NSString *url = [_recommandURLString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+//}
+
+- (void)shareViaWeChatCircle
+{
+    OSMessage *message = [[OSMessage alloc] init];
+    message.title = @"这个游戏简直停不下来，太有意思了";
+    message.link = @"https://itunes.apple.com/us/app/four4/id1030279451?l=zh&ls=1&mt=8";
+    message.image = UIImageJPEGRepresentation([UIImage imageNamed:@"icon"], 0.5f);
+    //message.thumbnail = UIImagePNGRepresentation([self getScreenshot]);
+    [OpenShare shareToWeixinTimeline:message Success:^(OSMessage *message) {
+        NSLog(@"分享成功");
+    } Fail:^(OSMessage *message, NSError *error) {
+        NSLog(@"分享失败");
+    }];
+}
+
+- (void)shareViaWeChatFriend
+{
+    OSMessage *message = [[OSMessage alloc] init];
+    message.title = @"这个游戏简直停不下来，太有意思了";
+    message.link = @"https://itunes.apple.com/us/app/four4/id1030279451?l=zh&ls=1&mt=8";
+    message.image = UIImageJPEGRepresentation([UIImage imageNamed:@"icon"], 0.5f);
+    //message.thumbnail = UIImagePNGRepresentation([self getScreenshot]);
+    [OpenShare shareToWeixinSession:message Success:^(OSMessage *message) {
+        NSLog(@"分享成功");
+    } Fail:^(OSMessage *message, NSError *error) {
+        NSLog(@"分享失败");
+    }];
+}
+
+- (void)shareViaWeibo
+{
+    OSMessage *message = [[OSMessage alloc] init];
+    message.title = @"这个游戏简直停不下来，太有意思了";
+    message.image = UIImageJPEGRepresentation([UIImage imageNamed:@"icon"], 0.5f);
+    message.link = @"https://itunes.apple.com/us/app/four4/id1030279451?l=zh&ls=1&mt=8";
+    [OpenShare shareToWeibo:message Success:^(OSMessage *message) {
+        NSLog(@"分享成功");
+    } Fail:^(OSMessage *message, NSError *error) {
+        NSLog(@"分享失败");
+    }];
+}
 
 - (void)dismiss
 {
@@ -292,6 +410,8 @@
                 break;
             case 1:
             {
+                DOPScrollableActionSheet *share = [[DOPScrollableActionSheet alloc] initWithActionArray:_shareAction];
+                [share show];
                 
             }
                 break;

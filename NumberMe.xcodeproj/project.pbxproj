@@ -48,6 +48,7 @@
 		AE90F88A1B7DAEE10039F75E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AE90F8891B7DAEE10039F75E /* icon.png */; };
 		AE9D118C1B8570B800A36953 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9D118A1B8570B800A36953 /* SettingViewController.m */; };
 		AE9D118D1B8570B800A36953 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE9D118B1B8570B800A36953 /* SettingViewController.xib */; };
+		AEEA93801B87A3FC0004265F /* DOPScrollableActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEA937F1B87A3FC0004265F /* DOPScrollableActionSheet.m */; };
 		AEF8FA961B7C458800607CB3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AEF8FA981B7C458800607CB3 /* Localizable.strings */; };
 		AEFB78ED1B81916E005DEE30 /* GameModeSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEFB78EC1B81916E005DEE30 /* GameModeSelectionView.m */; };
 		AEFB78F11B828C4B005DEE30 /* FlexibleAlignButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AEFB78F01B828C4B005DEE30 /* FlexibleAlignButton.m */; };
@@ -127,6 +128,8 @@
 		AE9D11891B8570B800A36953 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingViewController.h; path = VCs/SettingViewController.h; sourceTree = "<group>"; };
 		AE9D118A1B8570B800A36953 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingViewController.m; path = VCs/SettingViewController.m; sourceTree = "<group>"; };
 		AE9D118B1B8570B800A36953 /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingViewController.xib; path = VCs/SettingViewController.xib; sourceTree = "<group>"; };
+		AEEA937E1B87A3FC0004265F /* DOPScrollableActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOPScrollableActionSheet.h; sourceTree = "<group>"; };
+		AEEA937F1B87A3FC0004265F /* DOPScrollableActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOPScrollableActionSheet.m; sourceTree = "<group>"; };
 		AEF27D6F1B7D0A1800A4AD5B /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		AEF8FA971B7C458800607CB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AEF8FA991B7C458C00607CB3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -316,6 +319,7 @@
 		AE7E74B91B74688B003E9341 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				AEAE96741B8799BB00F6089C /* ActionSheet */,
 				AEFB78EE1B828C3A005DEE30 /* AlignButton */,
 				AE21E6EC1B7ABA95006F4CB6 /* Chart */,
 				AE8E227F1B756B6B00A298DE /* AnimateLabel */,
@@ -348,6 +352,15 @@
 				AE8E228D1B756B9B00A298DE /* YETIMotionLabel.m */,
 			);
 			name = AnimateLabel;
+			sourceTree = "<group>";
+		};
+		AEAE96741B8799BB00F6089C /* ActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				AEEA937E1B87A3FC0004265F /* DOPScrollableActionSheet.h */,
+				AEEA937F1B87A3FC0004265F /* DOPScrollableActionSheet.m */,
+			);
+			name = ActionSheet;
 			sourceTree = "<group>";
 		};
 		AEFB78EA1B81910B005DEE30 /* View */ = {
@@ -545,6 +558,7 @@
 				AE7E74BC1B746896003E9341 /* JTNumberScrollAnimatedView.m in Sources */,
 				AE8E22881B756B8D00A298DE /* YETIFallingLabel.m in Sources */,
 				AE2630811B6EA58000A566AE /* main.m in Sources */,
+				AEEA93801B87A3FC0004265F /* DOPScrollableActionSheet.m in Sources */,
 				AE8E22821B756B7E00A298DE /* YETICharacterLabel.m in Sources */,
 				AEFB78ED1B81916E005DEE30 /* GameModeSelectionView.m in Sources */,
 				AE67587B1B7813F400F5A93C /* AlertViewController.m in Sources */,

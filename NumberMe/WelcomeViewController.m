@@ -35,6 +35,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *creditLabel;
 
+
 @end
 
 @implementation WelcomeViewController
@@ -68,6 +69,7 @@
     NSArray *langArr = [NSLocale  preferredLanguages];
     NSString *firstLang = [langArr firstObject];
     
+    
     [_startButton setTitle:NSLocalizedString(@"START", nil) forState:UIControlStateNormal];
     [_startButton setImage:[UIImage imageNamed:@"start"] forState:UIControlStateNormal];
     [_startButton setImage:[UIImage imageNamed:@"start"] forState:UIControlStateHighlighted];
@@ -78,26 +80,31 @@
     [_recordButton setTitle:NSLocalizedString(@"RD", nil) forState:UIControlStateNormal];
     [_recordButton setImage:[UIImage imageNamed:@"stat"] forState:UIControlStateNormal];
     [_recordButton setImage:[UIImage imageNamed:@"stat"] forState:UIControlStateHighlighted];
-    [_recordButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -12, 0, 0)];
     
     [_settingButton setTitle:NSLocalizedString(@"ST", nil) forState:UIControlStateNormal];
     [_settingButton setImage:[UIImage imageNamed:@"setting"] forState:UIControlStateNormal];
     [_settingButton setImage:[UIImage imageNamed:@"setting"] forState:UIControlStateHighlighted];
-    [_settingButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -8, 0, 0)];
     
     if ([firstLang isEqualToString:@"zh-Hans"])
     {
-        [_startButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -12, 0, 0)];
-        [_recordButton setImageEdgeInsets:UIEdgeInsetsMake(0, -40, 0, 0)];
-        [_settingButton setImageEdgeInsets:UIEdgeInsetsMake(0, -40, 0, 0)];
+            [_startButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -12, 0, 0)];
+            [_recordButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -12, 0, 0)];
+            [_settingButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -12, 0, 0)];
+
+            [_startButton setImageEdgeInsets:UIEdgeInsetsMake(0, -90, 0, 0)];
+            [_recordButton setImageEdgeInsets:UIEdgeInsetsMake(0, -90, 0, 0)];
+            [_settingButton setImageEdgeInsets:UIEdgeInsetsMake(0, -90, 0, 0)];
     }
     else
     {
-        [_recordButton setImageEdgeInsets:UIEdgeInsetsMake(0, -25, 0, 0)];
-        [_settingButton setImageEdgeInsets:UIEdgeInsetsMake(0, -20, 0, 0)];
-        [_startButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -15, 0, 0)];
+            [_startButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -20, 0, 0)];
+            [_recordButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -12, 0, 0)];
+            [_settingButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -12, 0, 0)];
+            
+            [_startButton setImageEdgeInsets:UIEdgeInsetsMake(0, -95, 0, 0)];
+            [_recordButton setImageEdgeInsets:UIEdgeInsetsMake(0, -80, 0, 0)];
+            [_settingButton setImageEdgeInsets:UIEdgeInsetsMake(0, -80, 0, 0)];
     }
-    
     
     UIImageView *hammerView = [[UIImageView alloc] initWithFrame:CGRectMake(9, 5, 11, 11)];
     hammerView.layer.cornerRadius = hammerView.frame.size.height / 2;

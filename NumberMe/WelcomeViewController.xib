@@ -40,10 +40,10 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOh-is-50H">
-                    <rect key="frame" x="90" y="190" width="140" height="33"/>
+                    <rect key="frame" x="70" y="190" width="180" height="33"/>
                     <animations/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="140" id="4Ip-Sa-Bls"/>
+                        <constraint firstAttribute="width" constant="180" id="4Ip-Sa-Bls"/>
                         <constraint firstAttribute="height" constant="33" id="Vhs-mj-lIe"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="KohinoorDevanagari-Light" family="Kohinoor Devanagari" pointSize="20"/>
@@ -57,11 +57,11 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IA1-SY-Bae">
-                    <rect key="frame" x="90" y="263" width="140" height="33"/>
+                    <rect key="frame" x="70" y="263" width="180" height="33"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="33" id="CS1-g0-kyM"/>
-                        <constraint firstAttribute="width" constant="140" id="ypJ-LF-Xae"/>
+                        <constraint firstAttribute="width" constant="180" id="ypJ-LF-Xae"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="KohinoorDevanagari-Light" family="Kohinoor Devanagari" pointSize="20"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -74,11 +74,11 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZA-Hm-puU">
-                    <rect key="frame" x="90" y="336" width="140" height="33"/>
+                    <rect key="frame" x="70" y="336" width="180" height="33"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="33" id="ea8-84-GLT"/>
-                        <constraint firstAttribute="width" constant="140" id="pDj-lP-Pek"/>
+                        <constraint firstAttribute="width" constant="180" id="pDj-lP-Pek"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="KohinoorDevanagari-Light" family="Kohinoor Devanagari" pointSize="20"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

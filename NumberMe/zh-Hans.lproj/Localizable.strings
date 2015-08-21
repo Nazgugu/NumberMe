@@ -73,7 +73,17 @@
 "RECOMMEND"="推荐给好友";
 "CONTACT"="与我联系";
 "VERSION"="版本信息";
+"CIRCLE"="朋友圈";
+"FRIEND"="好友";
+"MSG"="短信";
+"EMAIL"="邮件";
+"WEIBO"="微博";
 
 //gameModeSelectionView
 "NORMAL"="普通模式";
 "CONTINUE"="无限挑战";
+
+//recommend
+"GGAME"="好玩的小游戏";
+"SHARENOURL"="嗨，来看看这个猜数字的小游戏吧，真的太好玩了，实在停不下来。下载点这里:";
+"SHAREMSG"="嗨，来看看这个猜数字的小游戏吧，真的太好玩了，实在停不下来。下载点这里:https://itunes.apple.com/us/app/four4/id1030279451?l=zh&ls=1&mt=8";
