@@ -180,7 +180,7 @@
 
 - (void)dismiss
 {
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
+    //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
     [UIView animateWithDuration:0.1f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
         [self.containerView setCenter:CGPointMake(-SCREENWIDTH/2, SCREENHEIGHT/2)];
         self.containerView.alpha = 0.0f;
