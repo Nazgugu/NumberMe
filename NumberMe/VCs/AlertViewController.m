@@ -302,7 +302,24 @@
 
 - (IBAction)shareWechatAction:(id)sender {
     OSMessage *message = [[OSMessage alloc] init];
-    message.title = [NSString stringWithFormat:@"看，我猜一个四位数只用了%ld秒，得分%ld。你也来试试",_game.duration,_game.gameScore];
+    if (_game.gameMode == gameModeNormal)
+    {
+        message.title = [NSString stringWithFormat:@"看，我猜一个四位数只用了%ld秒，得分%ld。你也来试试",_game.duration,_game.gameScore];
+    }
+    else if (_game.gameMode == gameModeInfinity)
+    {
+        NSInteger minute, seconds;
+        seconds = _game.duration % 60;
+        minute = (_game.duration - seconds) / 60;
+        if (minute > 0)
+        {
+            message.title = [NSString stringWithFormat:@"看，我在%ld分%ld秒内猜对了%ld个数字，得分%ld。你也来试试",minute,seconds,_game.correctNumber,_game.gameScore];
+        }
+        else
+        {
+            message.title = [NSString stringWithFormat:@"看，我在%ld秒内猜对了%ld个数字，得分%ld。你也来试试",_game.duration,_game.correctNumber,_game.gameScore];
+        }
+    }
     message.link = @"https://itunes.apple.com/us/app/four4/id1030279451?l=zh&ls=1&mt=8";
     if (IS_IPHONE_4_OR_LESS)
     {
@@ -318,21 +335,38 @@
     }
     else
     {
-        
+            
         message.image = UIImageJPEGRepresentation([self scaleImage:[self getScreenshot] toSize:CGSizeMake(SCREENWIDTH, SCREENHEIGHT)], 0.1f);
     }
     //NSLog(@"file size = %ld",message.image.length);
     //message.thumbnail = UIImagePNGRepresentation([self getScreenshot]);
     [OpenShare shareToWeixinTimeline:message Success:^(OSMessage *message) {
-        NSLog(@"分享成功");
+            NSLog(@"分享成功");
     } Fail:^(OSMessage *message, NSError *error) {
-        NSLog(@"分享失败");
+            NSLog(@"分享失败");
     }];
 }
 
 - (IBAction)shareWeiboAction:(id)sender {
     OSMessage *message = [[OSMessage alloc] init];
-    message.title = [NSString stringWithFormat:@"看，我猜一个四位数只用了%ld秒，得分%ld。你也来试试~下载:https://itunes.apple.com/us/app/four4/id1030279451?l=zh&ls=1&mt=8",_game.duration,_game.gameScore];
+    if (_game.gameMode == gameModeNormal)
+    {
+        message.title = [NSString stringWithFormat:@"看，我猜一个四位数只用了%ld秒，得分%ld。你也来试试",_game.duration,_game.gameScore];
+    }
+    else if (_game.gameMode == gameModeInfinity)
+    {
+        NSInteger minute, seconds;
+        seconds = _game.duration % 60;
+        minute = (_game.duration - seconds) / 60;
+        if (minute > 0)
+        {
+            message.title = [NSString stringWithFormat:@"看，我在%ld分%ld秒内猜对了%ld个数字，得分%ld。你也来试试",minute,seconds,_game.correctNumber,_game.gameScore];
+        }
+        else
+        {
+            message.title = [NSString stringWithFormat:@"看，我在%ld秒内猜对了%ld个数字，得分%ld。你也来试试",_game.duration,_game.correctNumber,_game.gameScore];
+        }
+    }
     message.image = UIImagePNGRepresentation([self getScreenshot]);
     [OpenShare shareToWeibo:message Success:^(OSMessage *message) {
         NSLog(@"分享成功");
