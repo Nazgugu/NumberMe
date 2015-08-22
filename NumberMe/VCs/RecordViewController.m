@@ -623,17 +623,17 @@
     switch (_index) {
         case 0:
         {
-            color = [UIColor colorWithRed:0.263f green:0.792f blue:0.459f alpha:1.0f];
+            color = [UIColor colorWithRed:0.263f green:0.792f blue:0.459f alpha:0.9f];
         }
             break;
         case 1:
         {
-            color = [UIColor colorWithRed:0.953f green:0.808f blue:0.306f alpha:1.0f];
+            color = [UIColor colorWithRed:0.953f green:0.808f blue:0.306f alpha:0.9f];
         }
             break;
         case 2:
         {
-            color = [UIColor colorWithRed:0.980f green:0.267f blue:0.275f alpha:1.0f];
+            color = [UIColor colorWithRed:0.980f green:0.267f blue:0.275f alpha:0.9f];
         }
             break;
         default:

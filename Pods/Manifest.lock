@@ -5,7 +5,6 @@ PODS:
   - GTScrollNavigationBar (0.2)
   - JSKTimerView (0.4.1)
   - MZTimerLabel (0.5.4)
-  - NuweScoreCharts (1.0.0)
   - OpenShare (0.0.1)
   - RJBlurAlertView (0.0.2)
   - RWBlurPopover (3.1.0)
@@ -21,7 +20,6 @@ DEPENDENCIES:
   - GTScrollNavigationBar (~> 0.2)
   - JSKTimerView (~> 0.4.1)
   - MZTimerLabel (~> 0.5.4)
-  - NuweScoreCharts (~> 1.0.0)
   - OpenShare (~> 0.0.1)
   - RJBlurAlertView (~> 0.0.2)
   - RWBlurPopover (~> 3.1.0)
@@ -37,7 +35,6 @@ SPEC CHECKSUMS:
   GTScrollNavigationBar: eea90e88744d13444d918824ea3d671ee0aeb292
   JSKTimerView: 6e773cc20f87e3af98b9fe242492f38055f55cc8
   MZTimerLabel: cd9bfb9304540ef2a9e163384fca9c978f0dbf83
-  NuweScoreCharts: 62a64772adf4615c8f28eec591a603aee42ca89c
   OpenShare: a560580dbb729d5c0c3cc1ee84cd6aa4a07e94c6
   RJBlurAlertView: 71403840618e30a5a37560148dc55f3d190cb383
   RWBlurPopover: dc7d91ee0dc8cbc79d6bbebed26c4f688f1661f8

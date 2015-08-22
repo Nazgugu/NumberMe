@@ -335,7 +335,7 @@ CGFloat getAngleBetweenThreePoints(CGPoint centerPoint, CGPoint p1, CGPoint p2);
     CGPoint ptStart = CGPointMake(ptCenter.x, ptCenter.y - rRealRadius);
     CGFloat angle = getAngleBetweenThreePoints(ptCenter, ptStart, tapLocation);
     
-    if (fabsf(angle - rPrevAngle) < M_PI)
+    if (fabs(angle - rPrevAngle) < M_PI)
     {
         rPrevAngle = angle;
         

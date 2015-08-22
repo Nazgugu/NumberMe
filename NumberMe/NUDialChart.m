@@ -8,6 +8,7 @@
 
 #import "NUDialChart.h"
 #import <QuartzCore/QuartzCore.h>
+#import "CircleProgressBar.h"
 
 @implementation NUDialChart
 {
@@ -80,7 +81,9 @@
         deltaWidth = lineWidth * 2 + 2;
     }
     else
+    {
         lineWidth = deltaWidth / 2 - 1;
+    }
     overGap = centerLabelWidth - lineWidth;
     
     if ( centerLabelWidth < 1 || overGap < 1 || lineWidth < 1 )
@@ -113,29 +116,60 @@
     for ( int i = 0; i < _count; i++ )
     {
         // Created circle chart view
-        PNCircleChart * _chart = [[PNCircleChart alloc] initWithFrame: CGRectMake(0, 0, overGap + deltaWidth * (i + 1), overGap + deltaWidth * (i + 1))
-                                                             andTotal:[NSNumber numberWithInt: totalValue] andCurrent:0 andClockwise:YES hiddenLabel:(_count > 1 ? YES : NO)];
-        _chart.lineWidth = [NSNumber numberWithFloat:lineWidth];
-        _chart.labelFontSize = centerLabelWidth / 3;
-        _chart.backgroundColor = [UIColor clearColor];
+//        PNCircleChart * _chart = [[PNCircleChart alloc] initWithFrame: CGRectMake(0, 0, overGap + deltaWidth * (i + 1), overGap + deltaWidth * (i + 1))
+//                                                             andTotal:[NSNumber numberWithInt: totalValue] andCurrent:0 andClockwise:YES hiddenLabel:(_count > 1 ? YES : NO)];
         
-        _chart.center = centerPoint;
-        [self addSubview:_chart];
-        [arrayCircles addObject:_chart];
+        
+        CircleProgressBar *bar = [[CircleProgressBar alloc] initWithFrame: CGRectMake(0, 0, overGap + deltaWidth * (i + 1) + lineWidth, overGap + deltaWidth * (i + 1) + lineWidth)];
+        
+        bar.progressBarWidth = lineWidth;
+        bar.progressBarTrackColor = [UIColor clearColor];
+        bar.hintHidden = YES;
+        bar.backgroundColor = [UIColor clearColor];
+        bar.center = centerPoint;
+        
+//        _chart.lineWidth = [NSNumber numberWithFloat:lineWidth];
+//        _chart.labelFontSize = centerLabelWidth / 3;
+//        _chart.backgroundColor = [UIColor clearColor];
+        
+//        _chart.center = centerPoint;
+//        [self addSubview:_chart];
+//        [arrayCircles addObject:_chart];
+        
+        [self addSubview:bar];
+        [arrayCircles addObject:bar];
+
         
         // Create text view
-        XMCircleTypeView * _textView = [[XMCircleTypeView alloc] initWithFrame:CGRectMake(0, 0, _chart.frame.size.width + lineWidth, _chart.frame.size.height + lineWidth)];
+//        XMCircleTypeView * _textView = [[XMCircleTypeView alloc] initWithFrame:CGRectMake(0, 0, _chart.frame.size.width + lineWidth, _chart.frame.size.height + lineWidth)];
+//        _textView.backgroundColor = [UIColor clearColor];
+//        _textView.text = @"test";
+//        _textView.textAttributes = @{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Light" size:lineWidth]};
+//        _textView.textAlignment = NSTextAlignmentLeft;
+//        _textView.verticalTextAlignment = XMCircleTypeVerticalAlignOutside;
+//        
+//        _textView.baseAngle = 270 * M_PI / 180;
+//        _textView.characterSpacing = 0.85;
+//        
+//        _textView.radius = _chart.frame.size.width / 2 - lineWidth / 2;
+//        _textView.center = centerPoint;
+        
+//        XMCircleTypeView * _textView = [[XMCircleTypeView alloc] initWithFrame:CGRectMake(0, 0, bar.frame.size.width + lineWidth, bar.frame.size.height + lineWidth)];
+        XMCircleTypeView * _textView = [[XMCircleTypeView alloc] initWithFrame:CGRectMake(0, 0, bar.frame.size.width, bar.frame.size.height)];
         _textView.backgroundColor = [UIColor clearColor];
         _textView.text = @"test";
         _textView.textAttributes = @{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Light" size:lineWidth]};
         _textView.textAlignment = NSTextAlignmentLeft;
-        _textView.verticalTextAlignment = XMCircleTypeVerticalAlignOutside;
+        _textView.verticalTextAlignment = XMCircleTypeVerticalAlignInside;
         
         _textView.baseAngle = 270 * M_PI / 180;
         _textView.characterSpacing = 0.85;
         
-        _textView.radius = _chart.frame.size.width / 2 - lineWidth / 2;
+        _textView.radius = bar.frame.size.width / 2;
         _textView.center = centerPoint;
+        
+        //_textView.visualDebug = YES;
+        
         [self addSubview:_textView];
         [arrayTextViews addObject:_textView];
     }
@@ -158,18 +192,20 @@
     }
     
     for ( int i = 0; i < circleCount; i++ ){
-        PNCircleChart * _chart = (PNCircleChart*)[arrayCircles objectAtIndex:i];
+        //PNCircleChart * _chart = (PNCircleChart*)[arrayCircles objectAtIndex:i];
+        
+        CircleProgressBar * bar = (CircleProgressBar*)[arrayCircles objectAtIndex:i];
         
         if ( [chartDataSource respondsToSelector:@selector(dialChart:valueOfCircleAtIndex:)] )
         {
             NSNumber* _current = [chartDataSource dialChart:self valueOfCircleAtIndex:i];
-            _chart.current = _current;
+            bar.current = _current;
         }
     
         if ( [chartDataSource respondsToSelector:@selector(dialChart:colorOfCircleAtIndex:)] )
         {
             UIColor* _color = [chartDataSource dialChart:self colorOfCircleAtIndex:i];
-            _chart.strokeColor = _color;
+            bar.progressBarProgressColor = _color;
         }
         
         if ( [chartDataSource respondsToSelector:@selector(dialChart:textOfCircleAtIndex:)] )
@@ -191,11 +227,12 @@
         
         if ( [chartDataSource respondsToSelector:@selector(dialChart:defaultCircleAtIndex:)] )
         {
-            BOOL isDefault = [chartDataSource dialChart:self defaultCircleAtIndex:i];
-            _chart.isFrame = isDefault;
+            //BOOL isDefault = [chartDataSource dialChart:self defaultCircleAtIndex:i];
+            //_chart.isFrame = isDefault;
         }
-        
-        [_chart strokeChart];
+        CGFloat current = [bar.current floatValue];
+        CGFloat percent = current/100.0f;
+        [bar setProgress:percent animated:YES duration:0.1f];
     }
     
     if ( [chartDataSource respondsToSelector:@selector(isShowCenterLabelInDial:)] )

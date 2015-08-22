@@ -25,6 +25,8 @@ typedef NSAttributedString*(^AttributedStringGenerationBlock)(CGFloat progress);
 IB_DESIGNABLE
 @interface CircleProgressBar : UIView
 
+@property (nonatomic, strong) NSNumber *current;
+
 /// @brief Width of Progress Bar
 @property (nonatomic) CGFloat progressBarWidth;
 /// @brief Progress color in Progress Bar

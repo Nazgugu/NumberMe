@@ -34,11 +34,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>NuweScoreCharts.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>OpenShare.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -87,7 +82,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>202A9F9A9E3A7E90458B0F8A77D2A9FF</key>
+		<key>0C7B06939A64850139244D2B4320A19E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3017414BF3655C94246FECB80CD5F976</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,17 +97,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>48286E58B556BB196E3C464DEB4FDDAC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5260A9501EB46891105D31FF9EB430BE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>56070DB8B3E1993FD4773C2C495D9908</key>
+		<key>5B9A566407AEED20A90DA29A87CE1FE0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,22 +107,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>66FA06D7C9275434213000241984AA71</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>72E39D06851F6DB2FF6911E5C808EE30</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>8175FDFD3E04762C912E6EF724925377</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8B903C018532F408E588F6686B2A779B</key>
+		<key>9969877FFE6C99473120CD45D3E469E5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BE008698039590B87BC4A904F87B3448</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C28511824F87F487D68B81C031C5DDC3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -147,12 +137,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C4ED453A212F5ED7F062075393B4E2FE</key>
+		<key>F9A53D859EA674E21AD1F6642536A1F4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DF1A8CD3106D2E38CFE3B7ACE30D2479</key>
+		<key>FD527650F361762AE70E56F1DE79B1E8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
