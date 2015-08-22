@@ -351,7 +351,7 @@
     OSMessage *message = [[OSMessage alloc] init];
     if (_game.gameMode == gameModeNormal)
     {
-        message.title = [NSString stringWithFormat:@"看，我猜一个四位数只用了%ld秒，得分%ld。你也来试试",_game.duration,_game.gameScore];
+        message.title = [NSString stringWithFormat:@"看，我猜一个四位数只用了%ld秒，得分%ld。你也来试试。下载: https://itunes.apple.com/us/app/four4/id1030279451?l=zh&ls=1&mt=8",_game.duration,_game.gameScore];
     }
     else if (_game.gameMode == gameModeInfinity)
     {
@@ -360,11 +360,11 @@
         minute = (_game.duration - seconds) / 60;
         if (minute > 0)
         {
-            message.title = [NSString stringWithFormat:@"看，我在%ld分%ld秒内猜对了%ld个数字，得分%ld。你也来试试",minute,seconds,_game.correctNumber,_game.gameScore];
+            message.title = [NSString stringWithFormat:@"看，我在%ld分%ld秒内猜对了%ld个数字，得分%ld。你也来试试。下载: https://itunes.apple.com/us/app/four4/id1030279451?l=zh&ls=1&mt=8",minute,seconds,_game.correctNumber,_game.gameScore];
         }
         else
         {
-            message.title = [NSString stringWithFormat:@"看，我在%ld秒内猜对了%ld个数字，得分%ld。你也来试试",_game.duration,_game.correctNumber,_game.gameScore];
+            message.title = [NSString stringWithFormat:@"看，我在%ld秒内猜对了%ld个数字，得分%ld。你也来试试。下载: https://itunes.apple.com/us/app/four4/id1030279451?l=zh&ls=1&mt=8",_game.duration,_game.correctNumber,_game.gameScore];
         }
     }
     message.image = UIImagePNGRepresentation([self getScreenshot]);
