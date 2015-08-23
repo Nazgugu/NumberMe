@@ -128,11 +128,11 @@
         [_symbolImage setImage:[UIImage imageNamed:@"achievement"]];
     }
     
-    _usedTimeLabel.text = [NSString stringWithFormat:NSLocalizedString(@"DURATION", nil),_game.duration];
     _scoreLabel.text = [NSString stringWithFormat:NSLocalizedString(@"SCORE", nil),_game.gameScore];
     
     if (_game.gameMode == gameModeNormal)
     {
+        _usedTimeLabel.text = [NSString stringWithFormat:NSLocalizedString(@"DURATION", nil),_game.duration];
         _correctnessLabel.text = [NSString stringWithFormat:NSLocalizedString(@"CORRECTNESS", nil),_game.correctNumber * 25];
         if ([[EGOCache globalCache] hasCacheForKey:@"maxNormalScore"])
         {
@@ -157,6 +157,17 @@
     }
     else if (_game.gameMode == gameModeInfinity)
     {
+        NSInteger minute, seconds;
+        seconds = _game.duration % 60;
+        minute = (_game.duration - seconds) / 60;
+        if (minute > 0)
+        {
+            _usedTimeLabel.text = [NSString stringWithFormat:NSLocalizedString(@"DURATIONMIN", nil),minute,seconds];
+        }
+        else
+        {
+            _usedTimeLabel.text = [NSString stringWithFormat:NSLocalizedString(@"DURATION", nil),_game.duration];
+        }
         _correctnessLabel.text = [NSString stringWithFormat:NSLocalizedString(@"CORRECTNO", nil),_game.correctNumber];
         if ([[EGOCache globalCache] hasCacheForKey:@"maxInfinityScore"])
         {
