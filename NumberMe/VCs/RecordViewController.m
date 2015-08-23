@@ -400,7 +400,17 @@
     else if (_displayForGameMode == gameModeInfinity)
     {
         _correctnessLabel.text = [NSString stringWithFormat:NSLocalizedString(@"CORRECTNO", nil), _game.correctNumber];
-        _durationLabel.text = [NSString stringWithFormat:NSLocalizedString(@"DURATION", nil),_game.duration];
+        NSInteger minute, seconds;
+        seconds = _game.duration % 60;
+        minute = (_game.duration - seconds) / 60;
+        if (minute > 0)
+        {
+            _durationLabel.text = [NSString stringWithFormat:NSLocalizedString(@"DURATIONMIN", nil),minute,seconds];
+        }
+        else
+        {
+            _durationLabel.text = [NSString stringWithFormat:NSLocalizedString(@"DURATION", nil),_game.duration];
+        }
         _scoreLabel.text = [NSString stringWithFormat:NSLocalizedString(@"SCORE", nil),_game.gameScore];
     }
     

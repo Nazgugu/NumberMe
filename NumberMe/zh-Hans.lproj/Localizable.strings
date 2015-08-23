@@ -29,7 +29,7 @@
 "END"="游戏结束";
 "CORRECTNESS"="正确率: %ld %%";
 "CORRECTNO"="猜对个数: %ld";
-"DURATION"="用时: %ld s";
+"DURATION"="用时: %ld秒";
 "SCORE"="得分: %ld";
 "CORRECTNESSNA"="正确率: 无数据";
 "CORRECTNONA"="猜对个数: 无数据";
@@ -47,6 +47,7 @@
 "RIGHT"="这大概就是答案了吧！";
 
 //RecordViewController
+"DURATIONMIN"="用时: %ld分 %ld秒";
 "RECORDTITLENORM"="普通模式";
 "RECORDTITLEINFINITY"="无限挑战";
 "NORMALRECORD"="普通模式分数";

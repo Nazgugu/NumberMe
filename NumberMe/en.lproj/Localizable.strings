@@ -47,6 +47,7 @@
 "RIGHT"="This is probably the answer!";
 
 //RecordViewController
+"DURATIONMIN"="Time used: %ld min %ld s";
 "RECORDTITLENORM"="NORMAL";
 "RECORDTITLEINFINITY"="INFINITY";
 "NORMALRECORD"="Normal Score";
