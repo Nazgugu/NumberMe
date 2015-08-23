@@ -98,10 +98,10 @@
     else
     {
             [_startButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -20, 0, 0)];
-            [_recordButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -12, 0, 0)];
-            [_settingButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -12, 0, 0)];
+            [_recordButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -15, 0, 0)];
+            [_settingButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -15, 0, 0)];
             
-            [_startButton setImageEdgeInsets:UIEdgeInsetsMake(0, -95, 0, 0)];
+            [_startButton setImageEdgeInsets:UIEdgeInsetsMake(0, -100, 0, 0)];
             [_recordButton setImageEdgeInsets:UIEdgeInsetsMake(0, -80, 0, 0)];
             [_settingButton setImageEdgeInsets:UIEdgeInsetsMake(0, -80, 0, 0)];
     }

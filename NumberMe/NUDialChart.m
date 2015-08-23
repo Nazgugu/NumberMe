@@ -232,7 +232,7 @@
         }
         CGFloat current = [bar.current floatValue];
         CGFloat percent = current/100.0f;
-        [bar setProgress:percent animated:YES duration:0.1f];
+        [bar setProgress:percent animated:YES duration:0.3f];
     }
     
     if ( [chartDataSource respondsToSelector:@selector(isShowCenterLabelInDial:)] )
