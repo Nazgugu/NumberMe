@@ -30,7 +30,6 @@
 		AE3E41101B6ECFD0001E26FE /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3E410E1B6ECFD0001E26FE /* GameViewController.m */; };
 		AE3E41111B6ECFD0001E26FE /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE3E410F1B6ECFD0001E26FE /* GameViewController.xib */; };
 		AE4247971B86F2A50027D9F4 /* recordBG.png in Resources */ = {isa = PBXBuildFile; fileRef = AE4247961B86F2A50027D9F4 /* recordBG.png */; };
-		AE4AC8A71B7B2842000D541D /* RWBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4AC8A61B7B2842000D541D /* RWBarChartView.m */; };
 		AE4C1E711B7C679E00AC1FBF /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE4C1E701B7C679E00AC1FBF /* WelcomeViewController.xib */; };
 		AE6758731B77C24F00F5A93C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6758721B77C24F00F5A93C /* Foundation.framework */; };
 		AE6758751B77C25A00F5A93C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6758741B77C25A00F5A93C /* UIKit.framework */; };
@@ -53,6 +52,7 @@
 		AEAF5AB41B88336100D295A8 /* XMCircleTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAF5AB11B88336100D295A8 /* XMCircleTypeView.m */; };
 		AEAF5AB71B8833D400D295A8 /* PNCircleChart.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAF5AB61B8833D400D295A8 /* PNCircleChart.m */; };
 		AEAF5ABA1B8833E500D295A8 /* PNColor.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAF5AB91B8833E500D295A8 /* PNColor.m */; };
+		AEE4C7CC1B8C3E02007957B0 /* RWBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE4C7CB1B8C3E02007957B0 /* RWBarChartView.m */; };
 		AEEA93801B87A3FC0004265F /* DOPScrollableActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEA937F1B87A3FC0004265F /* DOPScrollableActionSheet.m */; };
 		AEF8FA961B7C458800607CB3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AEF8FA981B7C458800607CB3 /* Localizable.strings */; };
 		AEFB78ED1B81916E005DEE30 /* GameModeSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEFB78EC1B81916E005DEE30 /* GameModeSelectionView.m */; };
@@ -105,7 +105,6 @@
 		AE3E41131B6F2BA7001E26FE /* NumberMe-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NumberMe-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		AE4247961B86F2A50027D9F4 /* recordBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recordBG.png; sourceTree = "<group>"; };
 		AE4AC8A51B7B2842000D541D /* RWBarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWBarChartView.h; sourceTree = "<group>"; };
-		AE4AC8A61B7B2842000D541D /* RWBarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWBarChartView.m; sourceTree = "<group>"; };
 		AE4C1E701B7C679E00AC1FBF /* WelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 		AE6758721B77C24F00F5A93C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AE6758741B77C25A00F5A93C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -143,6 +142,7 @@
 		AEAF5AB81B8833E500D295A8 /* PNColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNColor.h; sourceTree = "<group>"; };
 		AEAF5AB91B8833E500D295A8 /* PNColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNColor.m; sourceTree = "<group>"; };
 		AEAF5ABB1B88340000D295A8 /* NuweDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NuweDefine.h; sourceTree = "<group>"; };
+		AEE4C7CB1B8C3E02007957B0 /* RWBarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWBarChartView.m; sourceTree = "<group>"; };
 		AEEA937E1B87A3FC0004265F /* DOPScrollableActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOPScrollableActionSheet.h; sourceTree = "<group>"; };
 		AEEA937F1B87A3FC0004265F /* DOPScrollableActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOPScrollableActionSheet.m; sourceTree = "<group>"; };
 		AEF27D6F1B7D0A1800A4AD5B /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
@@ -214,7 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				AE4AC8A51B7B2842000D541D /* RWBarChartView.h */,
-				AE4AC8A61B7B2842000D541D /* RWBarChartView.m */,
+				AEE4C7CB1B8C3E02007957B0 /* RWBarChartView.m */,
 			);
 			name = Chart;
 			sourceTree = "<group>";
@@ -579,7 +579,6 @@
 				AE8E228E1B756B9B00A298DE /* YETIMotionLabel.m in Sources */,
 				AEAF5ABA1B8833E500D295A8 /* PNColor.m in Sources */,
 				AE8E22911B76AE7E00A298DE /* guessGame.m in Sources */,
-				AE4AC8A71B7B2842000D541D /* RWBarChartView.m in Sources */,
 				AEAF5AB71B8833D400D295A8 /* PNCircleChart.m in Sources */,
 				AE7E74BC1B746896003E9341 /* JTNumberScrollAnimatedView.m in Sources */,
 				AE8E22881B756B8D00A298DE /* YETIFallingLabel.m in Sources */,
@@ -587,6 +586,7 @@
 				AEEA93801B87A3FC0004265F /* DOPScrollableActionSheet.m in Sources */,
 				AE8E22821B756B7E00A298DE /* YETICharacterLabel.m in Sources */,
 				AEFB78ED1B81916E005DEE30 /* GameModeSelectionView.m in Sources */,
+				AEE4C7CC1B8C3E02007957B0 /* RWBarChartView.m in Sources */,
 				AE67587B1B7813F400F5A93C /* AlertViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

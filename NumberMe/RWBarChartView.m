@@ -105,6 +105,18 @@
     }
     
     NSString *title = [self.dataSource barChartView:self titleForSection:section];
+    //NSLog(@"font = %@",self.sectionTitleFont);
+    if (!self.sectionTitleFont)
+    {
+        if (IOS7)
+        {
+            self.sectionTitleFont = [UIFont systemFontOfSize:12.0f];
+        }
+        else if (IOS8_UP)
+        {
+            self.sectionTitleFont = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:12.0f];
+        }
+    }
     CGSize titleSize = [title sizeWithAttributes:@{NSFontAttributeName:self.sectionTitleFont}];
     self.sectionTitleSizeCache[@(section)] = [NSValue valueWithCGSize:titleSize];
     return titleSize;
@@ -507,6 +519,17 @@
 
 - (NSDictionary *)highlightTextAttr
 {
+    if (IOS7)
+    {
+        if (!self.itemTextFont)
+        {
+            self.itemTextFont = [UIFont systemFontOfSize:12.0f];
+        }
+        if (!self.itemTextColor)
+        {
+            self.itemTextColor = [[UIColor whiteColor] colorWithAlphaComponent:0.6f];
+        }
+    }
     NSDictionary *attr = @{NSFontAttributeName:self.itemTextFont, NSForegroundColorAttributeName:self.itemTextColor};
     return attr;
 }
@@ -572,6 +595,17 @@
     
     NSAssert(axisRatios.count == axisLabels.count, @"count of ratios and labels must be equal");
     
+    if (IOS7)
+    {
+        if (!self.axisFont)
+        {
+            self.axisFont = [UIFont systemFontOfSize:12.0f];
+        }
+        if (!self.axisColor)
+        {
+            self.axisColor = [[UIColor whiteColor] colorWithAlphaComponent:0.6f];
+        }
+    }
     NSDictionary *attrs = @{NSFontAttributeName:self.axisFont, NSForegroundColorAttributeName:self.axisColor};
     
     CGFloat y = [self sectionTitleAreaHeight];

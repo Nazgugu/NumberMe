@@ -141,7 +141,14 @@
 
 - (void)setNavigationBarStyle
 {
-    [[UINavigationBar appearance] setTranslucent:YES];
+    if (IOS8_UP)
+    {
+        [[UINavigationBar appearance] setTranslucent:YES];
+    }
+    else
+    {
+        self.navigationController.navigationBar.translucent = YES;
+    }
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
 //    [self.navigationController.navigationBar setBackgroundImage:[self imageWithColor:[[UIColor lightTextColor] colorWithAlphaComponent:0.5f]] forBarMetrics:UIBarMetricsDefault];
 
