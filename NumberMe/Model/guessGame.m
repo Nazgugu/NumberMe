@@ -109,6 +109,12 @@ NSString * const kDateOfGame = @"dateOfGame";
             _hintUsed = 0;
             _availableTries = 5;
         }
+        else if (gameMode == gameModeLevelUp)
+        {
+            _gameLevel = 1;
+            _availableTries = 35;
+            _availabelHints = 4;
+        }
         
         _allWrong = YES;
         _correctNumber = 0;
@@ -339,6 +345,11 @@ NSString * const kDateOfGame = @"dateOfGame";
     _hintMessage = [NSString stringWithFormat:NSLocalizedString(@"HINTMSG", nil),hintNumber];
 }
 
+- (void)levelUp
+{
+    
+}
+
 - (void)verifyAnswer
 {
     if (_gameMode == gameModeNormal)
@@ -382,6 +393,10 @@ NSString * const kDateOfGame = @"dateOfGame";
 //            _succeed = 3;
 //            return feedBackString;
 //        }
+    }
+    else if (_gameMode == gameModeLevelUp)
+    {
+        _availableTries -= 1;
     }
     
     NSUInteger difference;

@@ -187,6 +187,13 @@
         [self initProgressBar];
         [self initTimerLabel];
     }
+    else if (_theGameMode == gameModeLevelUp)
+    {
+        _guideLabel.text = [NSString stringWithFormat:NSLocalizedString(@"GAMELEVEL", nil),_game.gameLevel];
+        _totalTries = _game.availableTries;
+        [self initTimer];
+        [self initProgressBar];
+    }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(quit) name:@"quit" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restart) name:@"restart" object:nil];
@@ -558,7 +565,14 @@
 {
     if (!_availableTries)
     {
-        _availableTries = [[CircleProgressBar alloc] initWithFrame:CGRectMake(_gapSize, SCREENHEIGHT, _buttonSize, _buttonSize)];
+        if (_theGameMode == gameModeInfinity)
+        {
+            _availableTries = [[CircleProgressBar alloc] initWithFrame:CGRectMake(_gapSize, SCREENHEIGHT, _buttonSize, _buttonSize)];
+        }
+        else if (_theGameMode == gameModeLevelUp)
+        {
+            _availableTries = [[CircleProgressBar alloc] initWithFrame:CGRectMake(_gapSize * 3 + _buttonSize * 2, SCREENHEIGHT, _buttonSize, _buttonSize)];
+        }
     }
     _availableTries.backgroundColor = [UIColor clearColor];
     _availableTries.progressBarWidth = 4.0f;
@@ -922,7 +936,10 @@
         [_numberSeven setCenter:CGPointMake(centerX, centerY)];
     }completion:^(BOOL finished) {
         [self animateTimer];
-        [self animateProgressBar];
+        if (_theGameMode == gameModeInfinity || _theGameMode ==  gameModeLevelUp)
+        {
+            [self animateProgressBar];
+        }
         [self animateButtonZero];
     }];
 }
@@ -979,8 +996,17 @@
 
 - (void)animateProgressBar
 {
-    CGFloat centerX = _gapSize + _buttonSize/2;
-    CGFloat centerY = SCREENHEIGHT - _verticalGap - _buttonSize/2;
+    CGFloat centerX;
+    CGFloat centerY;
+    if (_theGameMode == gameModeInfinity)
+    {
+        centerX = _gapSize + _buttonSize/2;
+        centerY = SCREENHEIGHT - _verticalGap - _buttonSize/2;
+    }
+    else if (_theGameMode == gameModeLevelUp)
+    {
+        
+    }
     [UIView animateWithDuration:0.2 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         [_availableTries setCenter:CGPointMake(centerX, centerY)];
     } completion:^(BOOL finished) {

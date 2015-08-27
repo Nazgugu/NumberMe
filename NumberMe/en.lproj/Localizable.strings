@@ -16,6 +16,7 @@
 "GUIDE_TWO"="Ready?";
 "GUIDE_THREE"="GO!";
 "INFINITI"="This game will never end until you fail too many times.";
+"GAMELEVEL"="This is a level up game, current level is %ld";
 "DELETE"="Delete";
 "CLEAR"="Clear";
 "RESTART"="Restart";

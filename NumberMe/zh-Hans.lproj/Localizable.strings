@@ -16,6 +16,7 @@
 "GUIDE_TWO"="准备?";
 "GUIDE_THREE"="开始！";
 "INFINITI"="用完所有机会前游戏不会结束";
+"GAMELEVEL"="现在是晋级模式, 当前难度等级为 %ld";
 "DELETE"="删除";
 "CLEAR"="清空";
 "RESTART"="重来";
@@ -83,7 +84,7 @@
 //gameModeSelectionView
 "NORMAL"="普通模式";
 "CONTINUE"="无限挑战";
-"LEVEL"="闯关模式";
+"LEVEL"="晋级模式";
 
 //recommend
 "GGAME"="好玩的小游戏";
