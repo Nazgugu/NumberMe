@@ -80,7 +80,7 @@
     [_startButton setImage:[UIImage imageNamed:@"start"] forState:UIControlStateHighlighted];
 
     
-    [_startButton setImageEdgeInsets:UIEdgeInsetsMake(0, -40, 0, 0)];
+    //[_startButton setImageEdgeInsets:UIEdgeInsetsMake(0, -40, 0, 0)];
     
     [_recordButton setTitle:NSLocalizedString(@"RD", nil) forState:UIControlStateNormal];
     [_recordButton setImage:[UIImage imageNamed:@"stat"] forState:UIControlStateNormal];
