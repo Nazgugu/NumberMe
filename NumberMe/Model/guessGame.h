@@ -62,6 +62,7 @@ typedef NS_ENUM(NSInteger, gameMode) {
 @property (nonatomic) BOOL forthHint;
 
 @property (nonatomic) NSInteger gameLevel;
+@property (nonatomic) NSInteger gameLevelTime;
 
 //0 = incorrect, 1 = correct
 @property (nonatomic, strong) NSMutableArray *correctNess;
@@ -70,7 +71,7 @@ typedef NS_ENUM(NSInteger, gameMode) {
 
 - (void)generateNewAnswer;
 
-- (void)levelUp;
+- (void)levelUpWithDuration:(NSInteger)duration;
 
 - (void)generateHintOfDigit:(NSInteger)digit;
 

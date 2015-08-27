@@ -166,7 +166,7 @@
     localNotification.alertBody = @"Hi there, long time no see. Why not give yourself a break and guess some numbers";
     localNotification.timeZone = [NSTimeZone defaultTimeZone];
     localNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
-    [[UIApplication sharedApplication] scheduledLocalNotifications];
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 }
 
 @end

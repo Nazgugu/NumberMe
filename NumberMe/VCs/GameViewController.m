@@ -301,6 +301,11 @@
         NSLog(@"calling go");
         [_timerLabel start];
     }
+    else if (_theGameMode == gameModeLevelUp)
+    {
+        [_timer startTimer];
+        [self performSelector:@selector(shakeTimer) withObject:nil afterDelay:_game.gameLevelTime - 10];
+    }
     _deleteOneButton.enabled = YES;
     _clearButton.enabled = YES;
     _restartButton.enabled = YES;
@@ -314,7 +319,7 @@
 
 - (void)enableTouchOnBox
 {
-    if (_theGameMode == gameModeNormal)
+    if (_theGameMode == gameModeNormal || _theGameMode == gameModeLevelUp)
     {
         for (JTNumberScrollAnimatedView *digitBox in _boxArray)
         {
@@ -342,7 +347,7 @@
 
 - (void)disableTouchOnBox
 {
-    if (_theGameMode == gameModeNormal)
+    if (_theGameMode == gameModeNormal || _theGameMode == gameModeLevelUp)
     {
         for (JTNumberScrollAnimatedView *digitBox in _boxArray)
         {
@@ -503,7 +508,7 @@
         {
             digitBox.value = @"?";
         }
-        if (_theGameMode == gameModeNormal)
+        if (_theGameMode == gameModeNormal || _theGameMode == gameModeLevelUp)
         {
             UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedBox:)];
             tap.numberOfTapsRequired = 1;
@@ -534,7 +539,14 @@
     }
     _timer.delegate = self;
     _timer.labelTextColor = [UIColor colorWithRed:0.678f green:0.663f blue:0.824f alpha:1.00f];
-    [_timer setTimerWithDuration:30];
+    if (_theGameMode == gameModeNormal)
+    {
+        [_timer setTimerWithDuration:30];
+    }
+    else if (_theGameMode == gameModeLevelUp)
+    {
+        [_timer setTimerWithDuration:_game.gameLevelTime];
+    }
     [self.view addSubview:_timer];
 }
 
@@ -976,7 +988,7 @@
 
 - (void)animateTimer
 {
-    if (_theGameMode == gameModeNormal)
+    if (_theGameMode == gameModeNormal || _theGameMode == gameModeLevelUp)
     {
         CGFloat centerX = _gapSize + _buttonSize/2;
         CGFloat centerY = SCREENHEIGHT - _verticalGap - _buttonSize/2;
@@ -1005,7 +1017,8 @@
     }
     else if (_theGameMode == gameModeLevelUp)
     {
-        
+        centerX = _gapSize * 3 + _buttonSize * 2 + _buttonSize/2;
+        centerY = SCREENHEIGHT - _verticalGap - _buttonSize/2;
     }
     [UIView animateWithDuration:0.2 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         [_availableTries setCenter:CGPointMake(centerX, centerY)];
@@ -1095,7 +1108,7 @@
     }
     else
     {   //NSLog(@"not zero");
-        if (_theGameMode == gameModeNormal)
+        if (_theGameMode == gameModeNormal || _theGameMode == gameModeLevelUp)
         {
             temp = (JTNumberScrollAnimatedView *)[_boxArray objectAtIndex:_theGlowingBox - 1];
         }
@@ -1107,7 +1120,7 @@
     
 //    [temp.layer removeAllAnimations];
     
-    if (_theGameMode == gameModeNormal)
+    if (_theGameMode == gameModeNormal || _theGameMode == gameModeLevelUp)
     {
         //NSLog(@"game mode normal");
         if (temp.isUserInteractionEnabled == YES)
@@ -1245,6 +1258,8 @@
     sender.backgroundColor = [UIColor clearColor];
     sender.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
     
+    CGFloat progress;
+    
     if (_game.gameMode == gameModeInfinity)
     {
         if (_boxScrollView.contentOffset.x != SCREENWIDTH*_currentBoxSet)
@@ -1285,6 +1300,16 @@
             return;
         }
     }
+    else if (_theGameMode == gameModeLevelUp)
+    {
+        if (_game.succeed == 2)
+        {
+            [self resumeTouch];
+            [_timer pauseTimer];
+            [self showSuccess];
+            return;
+        }
+    }
     
     if ([[_game.correctNess objectAtIndex:((_theGlowingBox - 4 * _currentBoxSet) % 5 - 1)] integerValue] == 1)
     {
@@ -1320,13 +1345,56 @@
             //NSLog(@"glow blue at box = %ld",_theGlowingBox + 1);
             [self glowBoxAtIndex:_theGlowingBox + 1];
         }
+        else if (_theGameMode == gameModeLevelUp)
+        {
+            [_enables replaceObjectAtIndex:_theGlowingBox - 1 withObject:@(0)];
+            if (_theGlowingBox < 4)
+            {
+                [self glowBoxAtIndex:_theGlowingBox + 1];
+            }
+            else
+            {
+                [self glowBoxAtIndex:1];
+            }
+            progress = (CGFloat)((CGFloat)_game.availableTries/(CGFloat)_totalTries);
+            if (progress < 0.50f)
+            {
+                _availableTries.progressBarProgressColor = [UIColor colorWithRed:0.965f green:0.784f blue:0.208f alpha:1.00f];
+            }
+            else if (progress < 0.25f)
+            {
+                _availableTries.progressBarProgressColor = [UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f];
+            }
+            else if (progress >= 0.50f)
+            {
+                _availableTries.progressBarProgressColor = [UIColor colorWithRed:0.263f green:0.792f blue:0.459f alpha:1.00f];
+            }
+            [_availableTries setProgress:progress animated:YES];
+        }
     }
     //wrong
     else
     {
         if (_theGameMode == gameModeInfinity)
         {
-            CGFloat progress = (CGFloat)((CGFloat)_game.availableTries/(CGFloat)_totalTries);
+            progress = (CGFloat)((CGFloat)_game.availableTries/(CGFloat)_totalTries);
+            if (progress < 0.50f)
+            {
+                _availableTries.progressBarProgressColor = [UIColor colorWithRed:0.965f green:0.784f blue:0.208f alpha:1.00f];
+            }
+            else if (progress < 0.25f)
+            {
+                _availableTries.progressBarProgressColor = [UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:1.00f];
+            }
+            else if (progress >= 0.50f)
+            {
+                _availableTries.progressBarProgressColor = [UIColor colorWithRed:0.263f green:0.792f blue:0.459f alpha:1.00f];
+            }
+            [_availableTries setProgress:progress animated:YES];
+        }
+        else if (_theGameMode == gameModeLevelUp)
+        {
+            progress = (CGFloat)((CGFloat)_game.availableTries/(CGFloat)_totalTries);
             if (progress < 0.50f)
             {
                 _availableTries.progressBarProgressColor = [UIColor colorWithRed:0.965f green:0.784f blue:0.208f alpha:1.00f];
@@ -1356,6 +1424,10 @@
     else if (_theGameMode == gameModeInfinity)
     {
         [_game endGameWithDuration:[_timerLabel getTimeCounted]];
+    }
+    else if (_theGameMode == gameModeLevelUp)
+    {
+        [_game levelUpWithDuration:[_timer remainingDurationInSeconds]];
     }
     _guideLabel.text = @"";
     [self disableTouchOnBox];
@@ -1431,7 +1503,7 @@
         case -2:
         {
             sender.layer.borderColor = [UIColor colorWithRed:0.890f green:0.494f blue:0.188f alpha:1.00f].CGColor;
-            if (_theGameMode == gameModeNormal)
+            if (_theGameMode == gameModeNormal || _theGameMode == gameModeLevelUp)
             {
                 for (JTNumberScrollAnimatedView *temp in _boxArray)
                 {
@@ -1480,7 +1552,7 @@
     _restartButton.userInteractionEnabled = YES;
     _hintButton.userInteractionEnabled = YES;
     
-    if (_theGameMode == gameModeNormal)
+    if (_theGameMode == gameModeNormal || _theGameMode == gameModeLevelUp)
     {
         for (int i = 0; i < _boxArray.count; i++)
         {
@@ -1556,7 +1628,7 @@
                 break;
         }
     }
-    if (_theGameMode == gameModeNormal)
+    if (_theGameMode == gameModeNormal || _theGameMode == gameModeLevelUp)
     {
         for (JTNumberScrollAnimatedView *view in _boxArray)
         {

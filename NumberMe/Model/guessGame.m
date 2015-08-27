@@ -114,6 +114,7 @@ NSString * const kDateOfGame = @"dateOfGame";
             _gameLevel = 1;
             _availableTries = 35;
             _availabelHints = 4;
+            _gameLevelTime = 45;
         }
         
         _allWrong = YES;
@@ -345,11 +346,6 @@ NSString * const kDateOfGame = @"dateOfGame";
     _hintMessage = [NSString stringWithFormat:NSLocalizedString(@"HINTMSG", nil),hintNumber];
 }
 
-- (void)levelUp
-{
-    
-}
-
 - (void)verifyAnswer
 {
     if (_gameMode == gameModeNormal)
@@ -577,6 +573,11 @@ NSString * const kDateOfGame = @"dateOfGame";
     [self verifyAnswer];
     
     return feedBackString;
+}
+
+- (void)levelUpWithDuration:(NSInteger)duration
+{
+    
 }
 
 //Total score is 1000, for each correct answer we give 100 and for each second past we deduct 10, for each hint used we give 75
