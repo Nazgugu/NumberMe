@@ -27,6 +27,7 @@
 @property (nonatomic, assign) NSInteger currentBoxSet;
 
 @property (nonatomic, assign) NSInteger totalTries;
+@property (weak, nonatomic) IBOutlet UIImageView *backgrounImageView;
 
 //number buttons
 @property (nonatomic, strong) UIButton *numberZero;
@@ -113,6 +114,8 @@
     
 //    self.edgesForExtendedLayout = UIRectEdgeNone;
     
+    self.backgrounImageView.contentMode = UIViewContentModeScaleAspectFill;
+    
     
     _verticalGap = 20.0f;
     
@@ -179,6 +182,7 @@
     {
         _guideLabel.text = NSLocalizedString(@"GUIDE_ONE", nil);
         [self initTimer];
+        [_backgrounImageView setImage:[UIImage imageNamed:@"GBGNORM"]];
     }
     else if (_theGameMode == gameModeInfinity)
     {
@@ -186,6 +190,7 @@
         _totalTries = _game.availableTries;
         [self initProgressBar];
         [self initTimerLabel];
+        [_backgrounImageView setImage:[UIImage imageNamed:@"GBGINFI"]];
     }
     else if (_theGameMode == gameModeLevelUp)
     {
@@ -193,6 +198,7 @@
         _totalTries = _game.availableTries;
         [self initTimer];
         [self initProgressBar];
+        [_backgrounImageView setImage:[UIImage imageNamed:@"GBGLV"]];
     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(quit) name:@"quit" object:nil];

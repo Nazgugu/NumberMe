@@ -125,7 +125,7 @@
         gameModeImageView.contentMode = UIViewContentModeScaleToFill;
         [gameModeImageView setImage:[_gameModeImageArray objectAtIndex:i]];
         UILabel *gameModeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, gameModeWidth, gameModeHeight)];
-        gameModeLabel.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2f];
+        gameModeLabel.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.1f];
         gameModeLabel.textAlignment = NSTextAlignmentCenter;
         gameModeLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:16.0f];
         gameModeLabel.textColor = [UIColor whiteColor];

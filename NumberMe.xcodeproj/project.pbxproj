@@ -21,7 +21,6 @@
 		AE21E6E61B79C229006F4CB6 /* welcome.png in Resources */ = {isa = PBXBuildFile; fileRef = AE21E6E51B79C229006F4CB6 /* welcome.png */; };
 		AE21E6EA1B7AAB1D006F4CB6 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE21E6E81B7AAB1D006F4CB6 /* RecordViewController.m */; };
 		AE21E6EB1B7AAB1D006F4CB6 /* RecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE21E6E91B7AAB1D006F4CB6 /* RecordViewController.xib */; };
-		AE21E6F11B7ABF0D006F4CB6 /* GameBG.png in Resources */ = {isa = PBXBuildFile; fileRef = AE21E6F01B7ABF0D006F4CB6 /* GameBG.png */; };
 		AE2630811B6EA58000A566AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2630801B6EA58000A566AE /* main.m */; };
 		AE2630841B6EA58000A566AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2630831B6EA58000A566AE /* AppDelegate.m */; };
 		AE26308C1B6EA58000A566AE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE26308B1B6EA58000A566AE /* Images.xcassets */; };
@@ -47,7 +46,10 @@
 		AE90F88A1B7DAEE10039F75E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AE90F8891B7DAEE10039F75E /* icon.png */; };
 		AE9D118C1B8570B800A36953 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9D118A1B8570B800A36953 /* SettingViewController.m */; };
 		AE9D118D1B8570B800A36953 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE9D118B1B8570B800A36953 /* SettingViewController.xib */; };
-		AEA03C451B8E70F9001ACCEA /* levelGame.png in Resources */ = {isa = PBXBuildFile; fileRef = AEA03C441B8E70F9001ACCEA /* levelGame.png */; };
+		AEA03C471B8EDBBE001ACCEA /* levelGame.png in Resources */ = {isa = PBXBuildFile; fileRef = AEA03C461B8EDBBE001ACCEA /* levelGame.png */; };
+		AEA03C4B1B8EE02D001ACCEA /* GBGINFI.png in Resources */ = {isa = PBXBuildFile; fileRef = AEA03C481B8EE02D001ACCEA /* GBGINFI.png */; };
+		AEA03C4C1B8EE02D001ACCEA /* GBGLV.png in Resources */ = {isa = PBXBuildFile; fileRef = AEA03C491B8EE02D001ACCEA /* GBGLV.png */; };
+		AEA03C4D1B8EE02D001ACCEA /* GBGNORM.png in Resources */ = {isa = PBXBuildFile; fileRef = AEA03C4A1B8EE02D001ACCEA /* GBGNORM.png */; };
 		AEAF5AB21B88336100D295A8 /* NUDialChart.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAF5AAD1B88336100D295A8 /* NUDialChart.m */; };
 		AEAF5AB31B88336100D295A8 /* UICountingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAF5AAF1B88336100D295A8 /* UICountingLabel.m */; };
 		AEAF5AB41B88336100D295A8 /* XMCircleTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAF5AB11B88336100D295A8 /* XMCircleTypeView.m */; };
@@ -87,7 +89,6 @@
 		AE21E6E71B7AAB1D006F4CB6 /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordViewController.h; path = VCs/RecordViewController.h; sourceTree = "<group>"; };
 		AE21E6E81B7AAB1D006F4CB6 /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordViewController.m; path = VCs/RecordViewController.m; sourceTree = "<group>"; };
 		AE21E6E91B7AAB1D006F4CB6 /* RecordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RecordViewController.xib; path = VCs/RecordViewController.xib; sourceTree = "<group>"; };
-		AE21E6F01B7ABF0D006F4CB6 /* GameBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameBG.png; sourceTree = "<group>"; };
 		AE26307B1B6EA58000A566AE /* NumberMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NumberMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE26307F1B6EA58000A566AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE2630801B6EA58000A566AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -132,7 +133,10 @@
 		AE9D11891B8570B800A36953 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingViewController.h; path = VCs/SettingViewController.h; sourceTree = "<group>"; };
 		AE9D118A1B8570B800A36953 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingViewController.m; path = VCs/SettingViewController.m; sourceTree = "<group>"; };
 		AE9D118B1B8570B800A36953 /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingViewController.xib; path = VCs/SettingViewController.xib; sourceTree = "<group>"; };
-		AEA03C441B8E70F9001ACCEA /* levelGame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = levelGame.png; sourceTree = "<group>"; };
+		AEA03C461B8EDBBE001ACCEA /* levelGame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = levelGame.png; sourceTree = "<group>"; };
+		AEA03C481B8EE02D001ACCEA /* GBGINFI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GBGINFI.png; sourceTree = "<group>"; };
+		AEA03C491B8EE02D001ACCEA /* GBGLV.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GBGLV.png; sourceTree = "<group>"; };
+		AEA03C4A1B8EE02D001ACCEA /* GBGNORM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GBGNORM.png; sourceTree = "<group>"; };
 		AEAF5AAC1B88336100D295A8 /* NUDialChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NUDialChart.h; sourceTree = "<group>"; };
 		AEAF5AAD1B88336100D295A8 /* NUDialChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NUDialChart.m; sourceTree = "<group>"; };
 		AEAF5AAE1B88336100D295A8 /* UICountingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICountingLabel.h; sourceTree = "<group>"; };
@@ -320,14 +324,16 @@
 		AE3E41081B6EC28E001E26FE /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				AEA03C441B8E70F9001ACCEA /* levelGame.png */,
+				AEA03C481B8EE02D001ACCEA /* GBGINFI.png */,
+				AEA03C491B8EE02D001ACCEA /* GBGLV.png */,
+				AEA03C4A1B8EE02D001ACCEA /* GBGNORM.png */,
+				AEA03C461B8EDBBE001ACCEA /* levelGame.png */,
 				AEFB78F21B829072005DEE30 /* continueGame.png */,
 				AE4247961B86F2A50027D9F4 /* recordBG.png */,
 				AEFB78F31B829072005DEE30 /* normalGame.png */,
 				AE90F8891B7DAEE10039F75E /* icon.png */,
 				AE6E62BC1B7958DC00E0E4E2 /* AlertBG.png */,
 				AE21E6E51B79C229006F4CB6 /* welcome.png */,
-				AE21E6F01B7ABF0D006F4CB6 /* GameBG.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -509,16 +515,18 @@
 				AEFB78F51B829072005DEE30 /* normalGame.png in Resources */,
 				AEF8FA961B7C458800607CB3 /* Localizable.strings in Resources */,
 				AE21E6E61B79C229006F4CB6 /* welcome.png in Resources */,
+				AEA03C4B1B8EE02D001ACCEA /* GBGINFI.png in Resources */,
 				AE26308C1B6EA58000A566AE /* Images.xcassets in Resources */,
 				AEFB78F41B829072005DEE30 /* continueGame.png in Resources */,
 				AE3E41111B6ECFD0001E26FE /* GameViewController.xib in Resources */,
 				AE9D118D1B8570B800A36953 /* SettingViewController.xib in Resources */,
-				AE21E6F11B7ABF0D006F4CB6 /* GameBG.png in Resources */,
 				AE4247971B86F2A50027D9F4 /* recordBG.png in Resources */,
 				AE90F88A1B7DAEE10039F75E /* icon.png in Resources */,
+				AEA03C4D1B8EE02D001ACCEA /* GBGNORM.png in Resources */,
 				AE4C1E711B7C679E00AC1FBF /* WelcomeViewController.xib in Resources */,
 				AE67587C1B7813F400F5A93C /* AlertViewController.xib in Resources */,
-				AEA03C451B8E70F9001ACCEA /* levelGame.png in Resources */,
+				AEA03C4C1B8EE02D001ACCEA /* GBGLV.png in Resources */,
+				AEA03C471B8EDBBE001ACCEA /* levelGame.png in Resources */,
 				AE6E62BD1B7958DC00E0E4E2 /* AlertBG.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
