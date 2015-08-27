@@ -47,6 +47,7 @@
 		AE90F88A1B7DAEE10039F75E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AE90F8891B7DAEE10039F75E /* icon.png */; };
 		AE9D118C1B8570B800A36953 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9D118A1B8570B800A36953 /* SettingViewController.m */; };
 		AE9D118D1B8570B800A36953 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE9D118B1B8570B800A36953 /* SettingViewController.xib */; };
+		AEA03C451B8E70F9001ACCEA /* levelGame.png in Resources */ = {isa = PBXBuildFile; fileRef = AEA03C441B8E70F9001ACCEA /* levelGame.png */; };
 		AEAF5AB21B88336100D295A8 /* NUDialChart.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAF5AAD1B88336100D295A8 /* NUDialChart.m */; };
 		AEAF5AB31B88336100D295A8 /* UICountingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAF5AAF1B88336100D295A8 /* UICountingLabel.m */; };
 		AEAF5AB41B88336100D295A8 /* XMCircleTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAF5AB11B88336100D295A8 /* XMCircleTypeView.m */; };
@@ -131,6 +132,7 @@
 		AE9D11891B8570B800A36953 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingViewController.h; path = VCs/SettingViewController.h; sourceTree = "<group>"; };
 		AE9D118A1B8570B800A36953 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingViewController.m; path = VCs/SettingViewController.m; sourceTree = "<group>"; };
 		AE9D118B1B8570B800A36953 /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingViewController.xib; path = VCs/SettingViewController.xib; sourceTree = "<group>"; };
+		AEA03C441B8E70F9001ACCEA /* levelGame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = levelGame.png; sourceTree = "<group>"; };
 		AEAF5AAC1B88336100D295A8 /* NUDialChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NUDialChart.h; sourceTree = "<group>"; };
 		AEAF5AAD1B88336100D295A8 /* NUDialChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NUDialChart.m; sourceTree = "<group>"; };
 		AEAF5AAE1B88336100D295A8 /* UICountingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICountingLabel.h; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 		AE3E41081B6EC28E001E26FE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AEA03C441B8E70F9001ACCEA /* levelGame.png */,
 				AEFB78F21B829072005DEE30 /* continueGame.png */,
 				AE4247961B86F2A50027D9F4 /* recordBG.png */,
 				AEFB78F31B829072005DEE30 /* normalGame.png */,
@@ -515,6 +518,7 @@
 				AE90F88A1B7DAEE10039F75E /* icon.png in Resources */,
 				AE4C1E711B7C679E00AC1FBF /* WelcomeViewController.xib in Resources */,
 				AE67587C1B7813F400F5A93C /* AlertViewController.xib in Resources */,
+				AEA03C451B8E70F9001ACCEA /* levelGame.png in Resources */,
 				AE6E62BD1B7958DC00E0E4E2 /* AlertBG.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

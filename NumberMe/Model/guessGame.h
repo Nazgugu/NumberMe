@@ -8,7 +8,8 @@
 
 typedef NS_ENUM(NSInteger, gameMode) {
     gameModeNormal = 0,
-    gameModeInfinity = 1
+    gameModeInfinity = 1,
+    gameModeLevelUp = 2
 };
 
 #import <Foundation/Foundation.h>

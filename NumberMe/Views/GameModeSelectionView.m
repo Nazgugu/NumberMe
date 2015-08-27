@@ -46,7 +46,7 @@
     {
         self.opaque = YES;
         self.alpha = 1;
-        self.gameModesCount = 2;
+        self.gameModesCount = 3;
         if (!_gameModeImageViewArray)
         {
             _gameModeImageViewArray = [[NSMutableArray alloc] init];
@@ -57,11 +57,11 @@
         }
         if (!_gameModeStringArray)
         {
-            _gameModeStringArray = [[NSMutableArray alloc] initWithObjects:NSLocalizedString(@"NORMAL", nil),NSLocalizedString(@"CONTINUE", nil), nil];
+            _gameModeStringArray = [[NSMutableArray alloc] initWithObjects:NSLocalizedString(@"NORMAL", nil),NSLocalizedString(@"CONTINUE", nil), NSLocalizedString(@"LEVEL", nil),nil];
         }
         if (!_gameModeImageArray)
         {
-            _gameModeImageArray = [[NSMutableArray alloc] initWithObjects:[UIImage imageNamed:@"continueGame"],[UIImage imageNamed:@"normalGame"], nil];
+            _gameModeImageArray = [[NSMutableArray alloc] initWithObjects:[UIImage imageNamed:@"continueGame"],[UIImage imageNamed:@"normalGame"], [UIImage imageNamed:@"levelGame"],nil];
         }
         [self setUpViews];
     }
@@ -102,7 +102,7 @@
     _containerView.tag = 2;
     
     _containerScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, (_containerView.frame.size.width * 7)/8, _containerView.frame.size.height)];
-    [_containerScrollView setContentSize:CGSizeMake(horizontalGap * 3 + 2 * gameModeWidth, _containerView.frame.size.height)];
+    [_containerScrollView setContentSize:CGSizeMake(horizontalGap * (_gameModesCount + 1) + _gameModesCount * gameModeWidth, _containerView.frame.size.height)];
     _containerScrollView.alwaysBounceHorizontal = YES;
     _containerScrollView.showsHorizontalScrollIndicator = NO;
     _containerScrollView.backgroundColor = [UIColor clearColor];

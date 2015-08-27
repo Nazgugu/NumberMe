@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>ARTransitionAnimator.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>CircleProgressBar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -82,12 +87,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0C7B06939A64850139244D2B4320A19E</key>
+		<key>079CAA7565382048A427B7D8AB378AA5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3017414BF3655C94246FECB80CD5F976</key>
+		<key>0843C6283C6CA4002A5CDC6A27F22D81</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3D32488135CCD86C305DE7BDEF656613</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3FD60E311968BB31C883AD53D4D0B4C4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,7 +112,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5B9A566407AEED20A90DA29A87CE1FE0</key>
+		<key>5D0545F4CF2C5E6138E056D0BFBE75D6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -107,22 +122,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>6BA49CEA0964D17E63011736AC086137</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8175FDFD3E04762C912E6EF724925377</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9969877FFE6C99473120CD45D3E469E5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>BE008698039590B87BC4A904F87B3448</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C28511824F87F487D68B81C031C5DDC3</key>
+		<key>91D53B27CC45243FFB9A64A8136064A5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -137,12 +147,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F9A53D859EA674E21AD1F6642536A1F4</key>
+		<key>E379068AF54B1BC97002C59C72531239</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FD527650F361762AE70E56F1DE79B1E8</key>
+		<key>ED62AAB46175CE410267A49448A4C978</key>
 		<dict>
 			<key>primary</key>
 			<true/>

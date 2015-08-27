@@ -83,6 +83,7 @@
 //gameModeSelectionView
 "NORMAL"="Normal Mode";
 "CONTINUE"="Infinity Mode";
+"LEVEL"="Level Mode";
 
 //recommend
 "GGAME"="Great Game";

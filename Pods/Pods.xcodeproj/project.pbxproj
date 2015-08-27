@@ -7,398 +7,420 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		007066584A7EADB6E163A9B646B4EBA1 /* OpenShare+Weixin.h in Headers */ = {isa = PBXBuildFile; fileRef = A4B3CED10B002647BC7FD8DAD9DA400E /* OpenShare+Weixin.h */; };
 		00C68A800348536474EBB2D6660B4827 /* ZCTransparencyLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 013D694B0260CF3A952696D42E232209 /* ZCTransparencyLabel.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		015D40C334D86BB06B2213DF612A2C8C /* OpenShare-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BFCECB4DFD332540AE2451045509C3D3 /* OpenShare-dummy.m */; };
-		023B0E6ADD57F8D29DD0E09863B15631 /* OpenShare+Renren.h in Headers */ = {isa = PBXBuildFile; fileRef = F11A7A0E9DC6733B38ED2F0E81FCFC0A /* OpenShare+Renren.h */; };
+		00E93BF5E5FF6FE91B972602683D6CDE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A83515DDCC36B61CF630CAD84DFAA4D /* Foundation.framework */; };
 		0677B2FD3E98B25429C2E4F2A7EA9BDA /* CEReversibleAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 996478B7CD4DCAE7861FD48EA12DFB2E /* CEReversibleAnimationController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		07B24E3FCC98EEC473A203F563F90EFF /* CECubeAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C44FC8814CEC137F6F3335BF8AF20A9 /* CECubeAnimationController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		0887BEF7A650679EDFC875A019ED4C7E /* ZCDashLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D6FBDFD4A66BF5EFE82A36FE5F04A6 /* ZCDashLabel.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		0A0B7180E7F4DB43C3AF0F47AE91B662 /* ZCAnimatedLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2842177CA30FBC785F285D6771B4C2 /* ZCAnimatedLabel.h */; };
+		0A3DB6FDB6289336D9835DB53DAD9E88 /* ARBasicAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 39AFC49FE008D07709E0F6151FC19029 /* ARBasicAnimation.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		0A55340B5C5741FB6B5E8BA4492EE7F9 /* CEFoldAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAE4127EA79EFF31872A882BB97243E /* CEFoldAnimationController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		0B84C3A93F859432752B045374A679AE /* CEExplodeAnimationController.h in Headers */ = {isa = PBXBuildFile; fileRef = A48B24B693583B7F37ECD31FEB823C62 /* CEExplodeAnimationController.h */; };
-		0E075F4EB223E311FF19DE6E31AD5B44 /* OpenShare.h in Headers */ = {isa = PBXBuildFile; fileRef = 3794E2588DE68668E175980276EBC796 /* OpenShare.h */; };
+		0EA6B75619AD91BC05E4BBA458CDCC2F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F11195DF8BC9BF3F00A3524953ADC7CB /* QuartzCore.framework */; };
 		10A677328F0AF810533B7DB818214B68 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A83515DDCC36B61CF630CAD84DFAA4D /* Foundation.framework */; };
-		122943174575D94E5C23A67399B6B514 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93FEAF9A9A2F491B15A38CBA500F2F7A /* UIKit.framework */; };
-		126C1623C730B31A0FBE9C5DB54AAEFE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A83515DDCC36B61CF630CAD84DFAA4D /* Foundation.framework */; };
+		11DB685E652E411EDD61EDBCC63CDA39 /* OpenShare+Weibo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C850C0E638F183C9CFF0936B9C6A676 /* OpenShare+Weibo.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		147C78A497CAC7DBB6FD0847AC42386D /* ZCFallLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEF8377655C7536053F29CF69F8DA3E /* ZCFallLabel.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		14CA9ECCD381F8D9181D0EF687610258 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A83515DDCC36B61CF630CAD84DFAA4D /* Foundation.framework */; };
-		15772A59B91F7EC5589CEEF9C12CCC0B /* img3.png in Resources */ = {isa = PBXBuildFile; fileRef = 75CD3AF83B92EF5D8CCEAF17F98CF7AD /* img3.png */; };
 		15D585B144DC273E96838C379162914E /* CECardsAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE91A5C6BBFAFBF41843FA0A0E40B03 /* CECardsAnimationController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		16305D087A4A170276F25335FE11964C /* CEBaseInteractionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CDC7D41BDF808111C69D4912F1510D1 /* CEBaseInteractionController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		1796649C145D97662CEEFDD69E957604 /* ZCSpinLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FE7A2256E18BF8AD428BF62E277FD08 /* ZCSpinLabel.h */; };
 		18D5CD6BFF3EED71129470A5C8719B84 /* RJBlurAlertView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E647481E107EB341DE2AE7CDA272EA4C /* RJBlurAlertView-dummy.m */; };
 		192E7651BBC39FC2F5F2BAEBC11037C1 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B4E658D44C829F40237C1481B417C7 /* CoreText.framework */; };
-		193E57014AE028452E8FDE2F3AD35EFA /* JSKTimerView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F3427367C5A5049913802E56C25B7B66 /* JSKTimerView-dummy.m */; };
-		1945F454D11430B07A42B00B36754D00 /* JSKTimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 722F2C9F0388385CF83E2DEADB69CD85 /* JSKTimerView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		1BE7F364F58823C971DC8BBC0DBAC721 /* CENatGeoAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2694A252940844C39D00BC05BBFB4D62 /* CENatGeoAnimationController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		1E2683605793CACC40345324DB0AD6C1 /* MZTimerLabel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C8978210AEF96EBD8D7DF69871E033D5 /* MZTimerLabel-dummy.m */; };
+		1C95280B406D73E62D159A1FC77AD97A /* img3.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C61D5025503ACF2EEBBCB807F24573 /* img3.png */; };
+		1E4DE410F3EA9E788A35E772205642F5 /* img2.png in Resources */ = {isa = PBXBuildFile; fileRef = B1E3402F327CBC05E82EFA636B9EB48E /* img2.png */; };
 		1E8A202781098AA61AD6988080522F01 /* UIView+Shake.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C153C1CADA348B60D2F32163E75FEC /* UIView+Shake.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		1E9E2824598DC78EF2069F65C7F9AF98 /* ZCShapeshiftLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E101C889C131E031D85CA1589909F5 /* ZCShapeshiftLabel.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		23894A3A7C52063C92D2EC830401CB83 /* img1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B25E638E0217FD97E44432A3DCEEF9D /* img1.png */; };
-		25032DD7BB095765003970C234BA33E4 /* JSKTimerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B5D96F011066377EEA1CE56D5812DEA /* JSKTimerView.h */; };
+		2028068F04D98290C1DA146FB3475ED4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A83515DDCC36B61CF630CAD84DFAA4D /* Foundation.framework */; };
+		250A96C7182428DBBE7FE1E8FBD06671 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A984D839A56BE3E556BD879C0F6B40F3 /* UIKit.framework */; };
+		2669591A13325D042E2F269C7F9F1B8C /* ARTransitionAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A5972B95811EAAEC66BAC0472F6A390 /* ARTransitionAnimator.h */; };
 		2A281CC70E2C07469637591819B7C05A /* CEReversibleAnimationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5584ED9B26333FB3B0D513056C61610B /* CEReversibleAnimationController.h */; };
 		2B389B6E69936D231B847A50748A5266 /* UIView+Shake.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F5008E150D016A99A1F1EE8E4040B1D /* UIView+Shake.h */; };
-		30EBAAE7AD3DE402E56029807B652958 /* EGOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8897C5E3A58570DF2AD91FB7C0256BAB /* EGOCache.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		2CE103B26F368E023365A4EC4ED0BC6D /* ARTransitionAnimator-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BFA96AAA1C9E3419D856EA3DA006F9 /* ARTransitionAnimator-dummy.m */; };
 		311EB36C552396062D005DECC4005072 /* CEFoldAnimationController.h in Headers */ = {isa = PBXBuildFile; fileRef = AE67F986C27E3F12B4B28C210FE919D7 /* CEFoldAnimationController.h */; };
 		31BF5AE1837AD82C93F6643F39FF2F50 /* ZCShapeshiftLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 38D284B46E16E86119C31864AC5A806A /* ZCShapeshiftLabel.h */; };
+		32D3794064916C7177BD75CE9CAEF939 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A83515DDCC36B61CF630CAD84DFAA4D /* Foundation.framework */; };
 		34EA3D7718CE8F7BC266E7709E92D3DC /* CEExplodeAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6677093DB4793D1D56C4C312180DA672 /* CEExplodeAnimationController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		370750157D8CE20053096684774AF241 /* MZTimerLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = B7430B39D0FEFA58563FF3CF9EB106F5 /* MZTimerLabel.h */; };
 		37CE7A4C72ACEB780E6CA71DACF9B001 /* ZCRevealLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DC3E510B13EF879170D1B85AE1F3BF7 /* ZCRevealLabel.h */; };
+		39839E3A7A980689845AF1CC6D13626F /* ARTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDCABB8BA3D7BB1CB09FB69A96B7AD6 /* ARTransitionAnimator.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		3B3729CB16A74FBB12C30EA2F3DC6E06 /* ZCSpinLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C795F75E70179F959333738D2F3DC6 /* ZCSpinLabel.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		3B75C80C2A0F9E09FE0F3EA4E6327711 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A83515DDCC36B61CF630CAD84DFAA4D /* Foundation.framework */; };
-		40CCEA3BC30D9A6EE0B55767327006B3 /* GTScrollNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 83B475AAC8FC36D8FEEF5E343FB13FBA /* GTScrollNavigationBar.h */; };
-		427AA67754575516FA7CEF5ED947B2CE /* OpenShare.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C2A5FC5ADE35AD6BDFFBD236BA5843 /* OpenShare.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		43700E5E5FB84EC123A1CC00D8D56051 /* CEPinchInteractionController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CB9BADFEE8B9693805017C29E49F013 /* CEPinchInteractionController.h */; };
 		444EBECF412433508E9A62C8E60624AC /* RJBlurAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4EA6D7128D57FDE8A16BC9179CDFD2 /* RJBlurAlertView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		465E4E2561EA6FB000ACE568AC82EA0A /* JSKTimerView.h in Headers */ = {isa = PBXBuildFile; fileRef = F1C4CE05E6DDF3579DDDE02A68793516 /* JSKTimerView.h */; };
 		46A7A3E5295EFB0A935E134A48A2F536 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A83515DDCC36B61CF630CAD84DFAA4D /* Foundation.framework */; };
 		46B447D62B65E24DE39DBE0259C095FA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A83515DDCC36B61CF630CAD84DFAA4D /* Foundation.framework */; };
-		48166AD2E05F58D56B9A2EE1147859ED /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74CC77633DA276A3D5B192B3E6E4EE21 /* QuartzCore.framework */; };
 		4EB4933B005BF7E4A0DC742569F4E457 /* ZCCoreTextLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A28234330EC9FBCA28391B4D8335447 /* ZCCoreTextLayout.h */; };
 		4EC45E8ECD2F812DE2CAE5FA93C1AFC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A83515DDCC36B61CF630CAD84DFAA4D /* Foundation.framework */; };
+		51AF1E383B56A86D0CA78C29B57536DB /* OpenShare-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6455CE79EBA1F5F0683C916EF4BBA112 /* OpenShare-dummy.m */; };
 		550A58D6F3FEB99C2958E1C77A885E99 /* UIImage+ImageEffects.h in Headers */ = {isa = PBXBuildFile; fileRef = 1769ADF176984015251702B4FAB7628E /* UIImage+ImageEffects.h */; };
-		5E562870A082E0D8FE1FA657977B5D6D /* EGOCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 91DCB8E26128967C1B113733D5276E8F /* EGOCache.h */; };
+		5B2C3955B4B1E7E71FDC0A4E26ADA52D /* OpenShare+Alipay.h in Headers */ = {isa = PBXBuildFile; fileRef = CDC6050C65AE7F293EC94235DC0DE381 /* OpenShare+Alipay.h */; };
+		5D8B4C47D87681B7DB9D6D9E1C789950 /* GTScrollNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F8671FAFE2433C07B99C30C669D3AC /* GTScrollNavigationBar.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		5E78C4DB6B61C44AE788B7F923A1D526 /* ARBasicAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = EE298B878A5CFDAC19F15F84AEC3B7E0 /* ARBasicAnimation.h */; };
+		6031ACCF4F47EB482D90D0FF16305283 /* OpenShare+Weixin.h in Headers */ = {isa = PBXBuildFile; fileRef = 505CFDB76C7EAF3DBCDC1DA1AFD94836 /* OpenShare+Weixin.h */; };
 		6456165889377F259E041E3FB42D3D8D /* ZCFlyinLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84179F5BD4C74A80E2809495DDBF963A /* ZCFlyinLabel.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		6491C9694C97A6C07BC6C28271784D62 /* GTScrollNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 110A06E47DBD24D825D5F7F02782AFE6 /* GTScrollNavigationBar.h */; };
+		658FEE3D7FEF044D4A44B2238E42C149 /* OpenShare+Renren.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D98FBFC2113986275476C8E5598B2D8 /* OpenShare+Renren.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		66517232FCC63BFCE3FD41BF12B81C1B /* ZCFocusLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 83DC3EC761E5E658A842DD50A21696AC /* ZCFocusLabel.h */; };
 		66EE1953E14CB2B302A6FA489150167F /* CECrossfadeAnimationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 086A52226B02086CFD35F4E1AC8ADF8C /* CECrossfadeAnimationController.h */; };
 		67DD1DE0D5FDEA8C5885BA59B6A744FF /* CETurnAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 719B1E4148EBCEA87FC2C9FC05126A41 /* CETurnAnimationController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		68784833633BE3AE1C4911A4081BCC3A /* OpenShare+QQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 980BCF0B8E90C41300BC5A3D89EAE21D /* OpenShare+QQ.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		69449759ECCA11953845C1247D9AE04C /* RJBlurAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 379CC3070E42200C2D9E1EDFF89DE970 /* RJBlurAlertView.h */; };
 		6B893553406E4C3B2F18DA9BDC52A7A7 /* ZCRevealLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A20FC4B54C67D16C7971DCD0F1591F /* ZCRevealLabel.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		7055E22D2907C4A661B72E0415A03C94 /* EGOCache-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 30448B554327814DB813E2366B87766E /* EGOCache-dummy.m */; };
-		70D335C10AD5BA70E61C2268AE70AB43 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 79490804E14AB35ECCCDFDBE8BF2B2CC /* Pods-dummy.m */; };
+		6DE0E1B490F3CD9A365719CFC26DAFC5 /* img1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF6029CA185F84CDC68DEF83C74824F /* img1.png */; };
+		733692E5A21E19A3C77A6923E3156E35 /* OpenShare+QQ.h in Headers */ = {isa = PBXBuildFile; fileRef = E1DA917C1220FFBB79D49DC674B7367A /* OpenShare+QQ.h */; };
 		77FCE1778EAC80A110A1451D18B1923C /* ZCEasingUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BA10746810D02CEBFFE1B871878DAFC /* ZCEasingUtil.h */; };
-		7F6D3E69412DBCA47A689C5255FE4DD0 /* OpenShareHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 718B77AEE4035C85A94E30A308B8F241 /* OpenShareHeader.h */; };
-		8071E2EAF16CF381069F2BF9E17C73CA /* OpenShare+Renren.m in Sources */ = {isa = PBXBuildFile; fileRef = DFBEBB890685E9768152183BFFF43D8F /* OpenShare+Renren.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		7892E9FEE76EE8DFF3257F80C6DE66BD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A83515DDCC36B61CF630CAD84DFAA4D /* Foundation.framework */; };
+		7B3F1F6CE59A819FFB999C774B331F14 /* OpenShareHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A2FAFA64AD8467F2900C096F5EFA7E /* OpenShareHeader.h */; };
+		7E6BE510541755A3CBD494F350132967 /* OpenShare+Alipay.m in Sources */ = {isa = PBXBuildFile; fileRef = C7BE13DBE4365DAB56C2D8D6BFBD8093 /* OpenShare+Alipay.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		800EA6AD093D9CFE8250B92A58D41B7B /* OpenShare+Weixin.m in Sources */ = {isa = PBXBuildFile; fileRef = 79C2C32102D79CCFDBB0C0D87008649E /* OpenShare+Weixin.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		84B322661E09E68CFB1ACFFE4E7D6F2A /* CEPanAnimationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF19FB82268C1ACF3FF5A74EF3CA971 /* CEPanAnimationController.h */; };
 		85653D0B1AA1F4272CE680501322EEA3 /* CEPanAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D4FCAC3D62A76958E2BA6B1AFB875E /* CEPanAnimationController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		862B4D4ECAD546513DE17A65E5C6CB89 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBBF103C12E75BCC49BD0388357A059E /* CoreGraphics.framework */; };
+		868B7761047796C14ADDAA3611447D7E /* MZTimerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE48503A19863D5595B9C7B738AA89F /* MZTimerLabel.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		86A3917FD62AA146CF836F09A1083521 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A83515DDCC36B61CF630CAD84DFAA4D /* Foundation.framework */; };
+		87186D60D57E4E560F286946BC0CF92D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A83515DDCC36B61CF630CAD84DFAA4D /* Foundation.framework */; };
 		87CAD1A2AE50B1E60E65D60920376DB3 /* ZCAnimatedLabel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 74ACF384991B76045F0106CB7A5FA95E /* ZCAnimatedLabel-dummy.m */; };
-		8AE41450425459ED4EE4C3536EC8EB1B /* MZTimerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CEB70C8D340B65FF081DA1A7765129 /* MZTimerLabel.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		8B70FF58184FDA884148B107751E321E /* CEPortalAnimationController.h in Headers */ = {isa = PBXBuildFile; fileRef = CDD9FADEFFC4514B7742B71E90A709B2 /* CEPortalAnimationController.h */; };
 		8B7D27F18D475B443C8C4667E2E340FB /* CEPortalAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7714F8BC8D01269EB9882407647EBC68 /* CEPortalAnimationController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		8C707B7BE20184266A90ACBFEEC5C50E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2920F46FD468AE45D6D31660BCAFB89B /* CoreGraphics.framework */; };
+		8D89EE20E3E9443681B14375766E2E0B /* JSKTimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1C412739D33DEC5A72E1C0AFA81372 /* JSKTimerView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		8E89FDC9865FA4B20739973DA3E8657A /* ZCThrownLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E32260DC27C334735FB3083E2F3E0451 /* ZCThrownLabel.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		8EE26C48CE838EE412ADC3DE730401BA /* OpenShare+Weibo.h in Headers */ = {isa = PBXBuildFile; fileRef = 9938B1BBADA14F4713C076E34C181F5F /* OpenShare+Weibo.h */; };
 		903256E6DB480A704C12A6095985D85B /* VCTransitionsLibrary-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A036AEF9E6DC720BAC6E6147BCB71D4B /* VCTransitionsLibrary-dummy.m */; };
-		946367271BD579F219DCFD003F69BF0A /* CircleProgressBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C5275C34532B1DE268F96E7637DD3C1 /* CircleProgressBar.h */; };
-		973D0FA66070EC5BAE92D0B8B6FACF63 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A83515DDCC36B61CF630CAD84DFAA4D /* Foundation.framework */; };
+		974957B76004A1F2E4A7940D51A4F1D7 /* JSKTimerView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AF07F473FC10DB7D7F9FB7A8FA9CD8 /* JSKTimerView-dummy.m */; };
 		975FDA32DF4B5B6EC3A2963C09E25897 /* ZCDuangLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = D5713A602D1C05C99E99F824B0FB81B8 /* ZCDuangLabel.h */; };
 		990FAF8810989DC2633E341257218A49 /* CEVerticalSwipeInteractionController.h in Headers */ = {isa = PBXBuildFile; fileRef = B56315FCC38556000C9F06A44DE297D6 /* CEVerticalSwipeInteractionController.h */; };
+		99258B494EBA8F0F65D443E7823B4A4E /* EGOCache.h in Headers */ = {isa = PBXBuildFile; fileRef = DC8CE4092F21BB73887D2293C45D2DF9 /* EGOCache.h */; };
+		9B85CF9A80438B94AC80703076D89110 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A83515DDCC36B61CF630CAD84DFAA4D /* Foundation.framework */; };
 		9D036393BACA3F417C8C10719EFC0056 /* RWBlurPopover.h in Headers */ = {isa = PBXBuildFile; fileRef = D6F3D244DF7B6B19E05435EA8CD95E6E /* RWBlurPopover.h */; };
-		9E18B5D1DC22F58D2FBAF293ED1BFFDA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93FEAF9A9A2F491B15A38CBA500F2F7A /* UIKit.framework */; };
+		9F5FFD391DD723D0154F7DA0C9A14ADD /* EGOCache-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 615163DE555352EF234FF0F50D785674 /* EGOCache-dummy.m */; };
 		A2F3BD1C76E22FF5BDDAC9EE34C7C568 /* CETurnAnimationController.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F0C167D30E62D402F59CF86903C77D /* CETurnAnimationController.h */; };
+		A301A6331FDA4C5C5F0CDA525D82CC24 /* OpenShare.h in Headers */ = {isa = PBXBuildFile; fileRef = 76C13A1C610C85A9E94AA4469E72DD73 /* OpenShare.h */; };
+		A8D3B6691C4086E640CCF9D15013020F /* OpenShare+Renren.h in Headers */ = {isa = PBXBuildFile; fileRef = 04A08AA2CF62EBF64B941DAF632644EB /* OpenShare+Renren.h */; };
 		A99AB41B44B4246C00D4E2EF010D693E /* ZCTransparencyLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D2F567B04DD8D4BA94E274C3D0B1A4D /* ZCTransparencyLabel.h */; };
+		AA13A6A11EE6F3304B6EBA71EB5E2ABC /* EGOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A61CA2A9082DBBFCD437D0967478FCF /* EGOCache.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		AA3196CE17EED170A699384AB37CADFC /* CEFlipAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF15D03E09ABE9281510A68EE6EC04CE /* CEFlipAnimationController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		ACC60E70B03DED4C369C87624CA6A473 /* CEPinchInteractionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3D76D69220DEF2B5B46AD6CABA0FFA /* CEPinchInteractionController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		AF7916FB5D1E08C10F9CB4973E85259C /* CEVerticalSwipeInteractionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A275A0456B69E681D017D6101EDE94E /* CEVerticalSwipeInteractionController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		B01B334E9160725B2533CC1FC94BF6D6 /* CECardsAnimationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 05F48EBF73463C237E07473E8FAAA9F6 /* CECardsAnimationController.h */; };
-		B094C2AB02C31EE953FB4CFD0F34BAAA /* OpenShare+Alipay.h in Headers */ = {isa = PBXBuildFile; fileRef = 0412185F6BB75DC3777E2D2120B0D91E /* OpenShare+Alipay.h */; };
-		B12C38849EBEC3C7578BF67532D4177A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A83515DDCC36B61CF630CAD84DFAA4D /* Foundation.framework */; };
-		B44F233987F82DA6C168AE70D02913F9 /* OpenShare+QQ.h in Headers */ = {isa = PBXBuildFile; fileRef = 04BEA1A881139033BA28E0423AF465CD /* OpenShare+QQ.h */; };
-		B55CFA6F3DE8190750D5609964CAD843 /* GTScrollNavigationBar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DF74E5553CABF6DD3BDB9E138791280E /* GTScrollNavigationBar-dummy.m */; };
-		B5D0242B5C227290F6502021E2AF603F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A83515DDCC36B61CF630CAD84DFAA4D /* Foundation.framework */; };
+		B1A2C45929A68AE7E9B14B62D1F6A94D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A83515DDCC36B61CF630CAD84DFAA4D /* Foundation.framework */; };
+		B39B45D864EA90105F217C8BF0B7C153 /* MZTimerLabel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 026BC245777FECFFB872BF6F4C309230 /* MZTimerLabel-dummy.m */; };
+		B635915C988BD8468A27A99BFC06FEFB /* GTScrollNavigationBar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D8282DBE0A69393D464ECE8AF0CCAA06 /* GTScrollNavigationBar-dummy.m */; };
 		B71191ABCBBECA6255425C6A36583225 /* ZCCoreTextLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 78AC49C8823AA32A106F54D140D3D59D /* ZCCoreTextLayout.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		B72ED1874296E840D424E9B16C1AC829 /* CircleProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C2F53E70F92CDA936FCA53569C06E6 /* CircleProgressBar.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		B79242709A43279FC3D880859D762187 /* SCViewShaker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0E66F75A20F24FDF83B2CD40B73F16 /* SCViewShaker-dummy.m */; };
 		B79FEB4063D278A082BE631C4CC377F9 /* ZCFocusLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB4032717F1F965F947A1421416AC05 /* ZCFocusLabel.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		B8AA9CA032223427818F7373A048E310 /* OpenShare+Alipay.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F82C4F71F808E711465C3F516D10AFB /* OpenShare+Alipay.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		BB7159030C8338909EB700B4253E589A /* CircleProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6522138B05E58C56576D2AAC9FA83F9F /* CircleProgressBar.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		BC946FB671A7F6488A6BB679CAB021BE /* CECrossfadeAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7183341BF7339D7D1DEE9EB82DFE06 /* CECrossfadeAnimationController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		BD9705915EFAFF161119387E4768C0D6 /* CEHorizontalSwipeInteractionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E4A776BDF41ADF087D3C70F4B479C4 /* CEHorizontalSwipeInteractionController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		BDFB31BE8E222A0D84436A22FF467D0C /* ZCDashLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = F8F3EA4E317FB43AB328771F1F68862C /* ZCDashLabel.h */; };
 		BF6CE5E32E834B8CE4B5E838C4259E9B /* ZCFlyinLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D2DCA7D62D0DC71C4637B99FB5849D0 /* ZCFlyinLabel.h */; };
+		C1FFF6791AE169270B7BBD7A73CB5ED6 /* OpenShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F323FF55BD966ACEDEBA354556370BB /* OpenShare.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		C3F76D3EA627B058DC8CE082888EA7C7 /* ZCDuangLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E31575BB24AE4CEA00240599CEBB6541 /* ZCDuangLabel.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		C413A8DAEF65D27E5CD210A88A9ED828 /* CircleProgressBar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7E74A935F4E514F6D4FEC7BD743BD4 /* CircleProgressBar-dummy.m */; };
-		C424DC81D3239B38900C9B1E1AB1AC62 /* MZTimerLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = EB4CE6BBF15BAEBAD156B3B9769F7B56 /* MZTimerLabel.h */; };
 		C511033680415CAB808F46FCA11E7DB1 /* RWBlurPopover-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C706660776D895A0CA52E758E174C0B /* RWBlurPopover-dummy.m */; };
 		C5BE9BE2D94C12603BBF8D6BAB359B6C /* ZCThrownLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D30EEF2DCE53C8F6EC27F84A0DB25EA /* ZCThrownLabel.h */; };
-		C7C555B6DAEE91A17FB76170B5979765 /* GTScrollNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E26F4110FBA094DFFD6D9C5A72133FC0 /* GTScrollNavigationBar.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		C95C10410DC218A359E28C702497782D /* OpenShare+Weibo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B223E955CDEF8E67D51D2F6150787E4 /* OpenShare+Weibo.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		C62007B75A72A2AA1E240298D909E2BB /* OpenShare+QQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B09CD87AC00FA2C2421769FDD279740 /* OpenShare+QQ.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		C9C813AC4B4484177B2EA991FB8AF571 /* UIView+Shimmer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6135C7BAA321DC92D469E45AE45F4A19 /* UIView+Shimmer.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		CB5104ABCF2F34E38F2CA1848AD910D9 /* CENatGeoAnimationController.h in Headers */ = {isa = PBXBuildFile; fileRef = F9B0223E155E48C1E5F3A9BB136674C0 /* CENatGeoAnimationController.h */; };
 		CB9E1F3DD569A49734D16D2F0CBCD1BB /* ZCEasingUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = B8068D7356434B6BC0669F53EA2388BF /* ZCEasingUtil.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		CE7BD7A1D756FD219F7FE6E9766B2C48 /* ZCAnimatedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C6C7E05A968D4E8B2F226FCA3DEC9449 /* ZCAnimatedLabel.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		D0815BDB3CF1A6E2DE5780671CB595A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A83515DDCC36B61CF630CAD84DFAA4D /* Foundation.framework */; };
 		D1B57999EC67579FC0529171D6F519B5 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BBC057AF711808F945A9A0EC93F815 /* UIImage+ImageEffects.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		D59802DC52904CBBB37FF9426675DA1C /* CECubeAnimationController.h in Headers */ = {isa = PBXBuildFile; fileRef = F74366AC8CB57E96A03C43323D6E1A78 /* CECubeAnimationController.h */; };
-		DC0EDCBA039516575DEF3550E1B7639A /* img2.png in Resources */ = {isa = PBXBuildFile; fileRef = EA3C8AC687C7044F43B3E403D142B51B /* img2.png */; };
-		DD6134EE92CAAC3AF1F6CDAC29F011A4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A83515DDCC36B61CF630CAD84DFAA4D /* Foundation.framework */; };
+		DC2A9CC84584785B8A20D8FA2015F2CA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A984D839A56BE3E556BD879C0F6B40F3 /* UIKit.framework */; };
+		DC857026686599465D34375AF080C505 /* OpenShare+Weibo.h in Headers */ = {isa = PBXBuildFile; fileRef = DF395C16E9042AF1EC5EF159C68DD554 /* OpenShare+Weibo.h */; };
 		DD97FAB2BCE1BDA82BB0092F44CA4079 /* UIView+Shimmer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C26EDEB240C590DE8AAA704F6AD60DBD /* UIView+Shimmer-dummy.m */; };
 		DEFBEF108B62156C1AFDB96F55961025 /* RWBlurPopoverView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E0AEEFCCEC735D723DBCCE8EA377C4F /* RWBlurPopoverView.h */; };
-		E614367E6053B7AB85E1D4D4F8FD5571 /* OpenShare+Weixin.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BC5ABB67D0F62AE997DD482577E72E /* OpenShare+Weixin.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		E64D07DD43E44C6E8C2E856400D80FD4 /* CEFlipAnimationController.h in Headers */ = {isa = PBXBuildFile; fileRef = D27B06BBE304E948288A57A19F45A93F /* CEFlipAnimationController.h */; };
-		E69B5927C1A5B6A8CB56DBDDFCFA60A6 /* img0.png in Resources */ = {isa = PBXBuildFile; fileRef = E47BC0C38D22FDCD48B784443C0C9603 /* img0.png */; };
 		EBEEC3BF08EA83A00FA89A847BA62AC7 /* CEHorizontalSwipeInteractionController.h in Headers */ = {isa = PBXBuildFile; fileRef = 21B2E1EEF841D1E73CEEDC829DDE36C6 /* CEHorizontalSwipeInteractionController.h */; };
 		F07D049F3AF6E302DDE1399A7B84FC24 /* RWBlurPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A3F74DFF80370E8CABD3BD9737F0C5 /* RWBlurPopoverView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F0847F7F2C4EE193BEDC033091B5514F /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF5D3A2A8821AD5FBEB6352C8AA794C /* Pods-dummy.m */; };
+		F1A10B2FA36BE1DBA3EEB1C6841B5D02 /* CircleProgressBar.h in Headers */ = {isa = PBXBuildFile; fileRef = C9A8A0C6BF0BB30C4B9CD89F4116E811 /* CircleProgressBar.h */; };
 		F1C40C0D77550F128E26F8C47B731E23 /* CEBaseInteractionController.h in Headers */ = {isa = PBXBuildFile; fileRef = 283C0591045D80D70BCFD92ED3A7A4CC /* CEBaseInteractionController.h */; };
-		F514FD1C3427D6292288166B28F26EE5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A83515DDCC36B61CF630CAD84DFAA4D /* Foundation.framework */; };
 		F9CD3921D7259457EAD9D24FE92194C2 /* RWBlurPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = C7EAD04BE5702F5433203974587B8BAD /* RWBlurPopover.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		FB882A30FA9AB875DDB199A92E32E767 /* CircleProgressBar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4182D3FFFDC80A175ECEA670491D3B6C /* CircleProgressBar-dummy.m */; };
+		FE45F9AF37E74639D6DFD08A6AD34808 /* img0.png in Resources */ = {isa = PBXBuildFile; fileRef = 72227FF98A556C4993EF81B763331B59 /* img0.png */; };
 		FE67D9D605B109145BFFA32DFBD04A4A /* ZCFallLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = C759FB64924BAA9C7EABF78A046B436B /* ZCFallLabel.h */; };
 		FF9680DACAB381B99E666323B178A85A /* UIView+Shimmer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DCCD239BC4D2025AC1C245F97CDB0A7 /* UIView+Shimmer.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0E5950456C13172FE9AC46C029349676 /* PBXContainerItemProxy */ = {
+		09B0EB372F9DFD677A2DAF21D2E80915 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E379068AF54B1BC97002C59C72531239;
+			remoteInfo = CircleProgressBar;
+		};
+		2D8B58AFFE54B3128B38B6DA026D172F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 079CAA7565382048A427B7D8AB378AA5;
+			remoteInfo = "JSKTimerView-JSKTimerView";
+		};
+		38E51FEBE47900A1B9049E964AAEFB9B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6BA49CEA0964D17E63011736AC086137;
+			remoteInfo = GTScrollNavigationBar;
+		};
+		546778C8F2350BBA0317677807ECA7E9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 8175FDFD3E04762C912E6EF724925377;
 			remoteInfo = ZCAnimatedLabel;
 		};
-		2D75A151B5836438F3E5B17B7A12BE0F /* PBXContainerItemProxy */ = {
+		5D45F594EA07115A48B74852FDF1F20E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 445D4C2EBD728AE6D9224736F5D614D8;
 			remoteInfo = RJBlurAlertView;
 		};
-		4BC1E6EE0A258A68FECF8DEC8B71189F /* PBXContainerItemProxy */ = {
+		7DB2B57689F6525BF7E63E93BE24C967 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 5F5ED537FD61BD0464078DD9B2A81741;
 			remoteInfo = SCViewShaker;
 		};
-		4E11FB430BD950B159539F8BDED01C82 /* PBXContainerItemProxy */ = {
+		AA8D2EE4B188F515C41CEB4BF33564D6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = F9A53D859EA674E21AD1F6642536A1F4;
-			remoteInfo = CircleProgressBar;
-		};
-		4FEC7AD2AC8C2AEF93A52F44B78B9852 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C4024C1C2271083F96BC2F03EDDB3B41;
-			remoteInfo = VCTransitionsLibrary;
-		};
-		A21EAA50215F8A06DBE349D5F5D69F77 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0C7B06939A64850139244D2B4320A19E;
-			remoteInfo = "JSKTimerView-JSKTimerView";
-		};
-		A718D72F717C04EDCF321231A7C74699 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FD527650F361762AE70E56F1DE79B1E8;
-			remoteInfo = JSKTimerView;
-		};
-		BF6C64B91E468EFD0B803EC9FFD71BAC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9969877FFE6C99473120CD45D3E469E5;
-			remoteInfo = MZTimerLabel;
-		};
-		D0F70415302C64E92696F40C6C96F2D8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3017414BF3655C94246FECB80CD5F976;
-			remoteInfo = GTScrollNavigationBar;
-		};
-		E30D83FC380E9024E25AABA8F96A9E09 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5B9A566407AEED20A90DA29A87CE1FE0;
+			remoteGlobalIDString = 3D32488135CCD86C305DE7BDEF656613;
 			remoteInfo = EGOCache;
 		};
-		EC5F92D1BAD7C92256B980A243BEC74A /* PBXContainerItemProxy */ = {
+		ADC772F467CD3ED92F2B7B6AB8113D66 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED62AAB46175CE410267A49448A4C978;
+			remoteInfo = OpenShare;
+		};
+		AF5AD0521B3588BF165B2DABC178D512 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 018D5C39CD05505A83186C0AD566ED8E;
 			remoteInfo = "UIView+Shimmer";
 		};
-		ECD9573CBFBF5BECAB4ABC5B3778533D /* PBXContainerItemProxy */ = {
+		B07BCF53579D6B1086F3B95899BBCE89 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5D0545F4CF2C5E6138E056D0BFBE75D6;
+			remoteInfo = MZTimerLabel;
+		};
+		B12185F163C71F7D42B8A53E71367E60 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = C42E0D64040803781EA0456F79F29020;
 			remoteInfo = RWBlurPopover;
 		};
-		EFFC8A2A9ABE64E55F5D8B374182D4E2 /* PBXContainerItemProxy */ = {
+		CBC9587ED0F7AADF3F20AA0CBE7FDC2C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C28511824F87F487D68B81C031C5DDC3;
-			remoteInfo = OpenShare;
+			remoteGlobalIDString = 0843C6283C6CA4002A5CDC6A27F22D81;
+			remoteInfo = JSKTimerView;
+		};
+		CDEDFA202118ADF58CFC0406EB2CAD35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C4024C1C2271083F96BC2F03EDDB3B41;
+			remoteInfo = VCTransitionsLibrary;
+		};
+		FC1F44BC0E001940C0637D0D3A90EA85 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3FD60E311968BB31C883AD53D4D0B4C4;
+			remoteInfo = ARTransitionAnimator;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		002D090B4BD85547560639275BD1A7E3 /* OpenShare-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OpenShare-prefix.pch"; sourceTree = "<group>"; };
 		013D694B0260CF3A952696D42E232209 /* ZCTransparencyLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZCTransparencyLabel.m; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCTransparencyLabel.m; sourceTree = "<group>"; };
-		01A41D68F919B98F3D9F38DA1BF673F2 /* JSKTimerView.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSKTimerView.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		0412185F6BB75DC3777E2D2120B0D91E /* OpenShare+Alipay.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "OpenShare+Alipay.h"; path = "openshare/OpenShare+Alipay.h"; sourceTree = "<group>"; };
-		04BEA1A881139033BA28E0423AF465CD /* OpenShare+QQ.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "OpenShare+QQ.h"; path = "openshare/OpenShare+QQ.h"; sourceTree = "<group>"; };
-		05BC5ABB67D0F62AE997DD482577E72E /* OpenShare+Weixin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "OpenShare+Weixin.m"; path = "openshare/OpenShare+Weixin.m"; sourceTree = "<group>"; };
+		015BE6BC3E55A041E7F7EE3576F19126 /* ZCAnimatedLabel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ZCAnimatedLabel.xcconfig; sourceTree = "<group>"; };
+		026BC245777FECFFB872BF6F4C309230 /* MZTimerLabel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MZTimerLabel-dummy.m"; sourceTree = "<group>"; };
+		03FE5BF341DB63701BA90C2F91F703F3 /* libARTransitionAnimator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libARTransitionAnimator.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		04A08AA2CF62EBF64B941DAF632644EB /* OpenShare+Renren.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "OpenShare+Renren.h"; path = "openshare/OpenShare+Renren.h"; sourceTree = "<group>"; };
 		05F48EBF73463C237E07473E8FAAA9F6 /* CECardsAnimationController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CECardsAnimationController.h; path = AnimationControllers/CECardsAnimationController.h; sourceTree = "<group>"; };
 		086A52226B02086CFD35F4E1AC8ADF8C /* CECrossfadeAnimationController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CECrossfadeAnimationController.h; path = AnimationControllers/CECrossfadeAnimationController.h; sourceTree = "<group>"; };
-		0B97FC77D55853C0EA29A3B6699DC07D /* ZCAnimatedLabel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ZCAnimatedLabel.xcconfig; sourceTree = "<group>"; };
-		0C5275C34532B1DE268F96E7637DD3C1 /* CircleProgressBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CircleProgressBar.h; path = CircleProgressBarDemo/CircleProgressBar/CircleProgressBar.h; sourceTree = "<group>"; };
 		0C706660776D895A0CA52E758E174C0B /* RWBlurPopover-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RWBlurPopover-dummy.m"; sourceTree = "<group>"; };
-		0CFEFD998F65197650BAB65D9CAF89DD /* SCViewShaker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SCViewShaker.xcconfig; sourceTree = "<group>"; };
+		110A06E47DBD24D825D5F7F02782AFE6 /* GTScrollNavigationBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTScrollNavigationBar.h; path = GTScrollNavigationBar/GTScrollNavigationBar.h; sourceTree = "<group>"; };
 		12D8ADC905885DAE6EE5944FF2F6C540 /* RWBlurPopover-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "RWBlurPopover-Private.xcconfig"; sourceTree = "<group>"; };
 		13C153C1CADA348B60D2F32163E75FEC /* UIView+Shake.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIView+Shake.m"; sourceTree = "<group>"; };
 		15A529C27057E4A57D259CBC6E6CE49C /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
 		1769ADF176984015251702B4FAB7628E /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageEffects.h"; path = "RJBlurAlertViews/UIImage+ImageEffects.h"; sourceTree = "<group>"; };
-		18577AEEAE954B31BB492CD864E45CC9 /* libOpenShare.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOpenShare.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		176FB50F516A2C0A7B1FEA96727E9490 /* libEGOCache.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEGOCache.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B74C7DAFA72DE66BA2CF9A6970A84C5 /* EGOCache-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EGOCache-prefix.pch"; sourceTree = "<group>"; };
+		1D74107F274D7FB5AA41CDCE23B325E5 /* OpenShare.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OpenShare.xcconfig; sourceTree = "<group>"; };
 		1DCCD239BC4D2025AC1C245F97CDB0A7 /* UIView+Shimmer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+Shimmer.h"; path = "Classes/UIView+Shimmer.h"; sourceTree = "<group>"; };
+		1EDCABB8BA3D7BB1CB09FB69A96B7AD6 /* ARTransitionAnimator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ARTransitionAnimator.m; path = ARTransitionAnimator/ARTransitionAnimator.m; sourceTree = "<group>"; };
 		1EF19FB82268C1ACF3FF5A74EF3CA971 /* CEPanAnimationController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CEPanAnimationController.h; path = AnimationControllers/CEPanAnimationController.h; sourceTree = "<group>"; };
 		1FE7A2256E18BF8AD428BF62E277FD08 /* ZCSpinLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZCSpinLabel.h; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCSpinLabel.h; sourceTree = "<group>"; };
+		21468B69929D7DE4E8C3FEB68DE6CFDA /* EGOCache.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EGOCache.xcconfig; sourceTree = "<group>"; };
 		21B2E1EEF841D1E73CEEDC829DDE36C6 /* CEHorizontalSwipeInteractionController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CEHorizontalSwipeInteractionController.h; path = InteractionControllers/CEHorizontalSwipeInteractionController.h; sourceTree = "<group>"; };
-		24D362992600F8E4610B063693DC18F9 /* RWBlurPopover-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RWBlurPopover-prefix.pch"; sourceTree = "<group>"; };
+		24D44AFC7C42C2EA8947781604BFEA64 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		258C0D1A7BB47770CC27120C30EF2220 /* ARTransitionAnimator.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ARTransitionAnimator.xcconfig; sourceTree = "<group>"; };
+		26421C202EC21D189A3D736DA20C1710 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = "GoogleMobileAdsSdkiOS-7.4.1/GoogleMobileAds.framework"; sourceTree = "<group>"; };
 		2694A252940844C39D00BC05BBFB4D62 /* CENatGeoAnimationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CENatGeoAnimationController.m; path = AnimationControllers/CENatGeoAnimationController.m; sourceTree = "<group>"; };
 		26E101C889C131E031D85CA1589909F5 /* ZCShapeshiftLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZCShapeshiftLabel.m; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCShapeshiftLabel.m; sourceTree = "<group>"; };
 		27E4A776BDF41ADF087D3C70F4B479C4 /* CEHorizontalSwipeInteractionController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CEHorizontalSwipeInteractionController.m; path = InteractionControllers/CEHorizontalSwipeInteractionController.m; sourceTree = "<group>"; };
 		283C0591045D80D70BCFD92ED3A7A4CC /* CEBaseInteractionController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CEBaseInteractionController.h; path = InteractionControllers/CEBaseInteractionController.h; sourceTree = "<group>"; };
-		2920F46FD468AE45D6D31660BCAFB89B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
-		29762B6A2F331266C6E27BE9A37FE375 /* MZTimerLabel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MZTimerLabel-prefix.pch"; sourceTree = "<group>"; };
-		29CFB6484792509BD0858CA32068B32A /* GTScrollNavigationBar.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GTScrollNavigationBar.xcconfig; sourceTree = "<group>"; };
-		29D19B5D1FE8C0CBFDA725BF98F867AA /* EGOCache-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "EGOCache-Private.xcconfig"; sourceTree = "<group>"; };
+		2B09CD87AC00FA2C2421769FDD279740 /* OpenShare+QQ.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "OpenShare+QQ.m"; path = "openshare/OpenShare+QQ.m"; sourceTree = "<group>"; };
 		2D2F567B04DD8D4BA94E274C3D0B1A4D /* ZCTransparencyLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZCTransparencyLabel.h; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCTransparencyLabel.h; sourceTree = "<group>"; };
 		2E0AEEFCCEC735D723DBCCE8EA377C4F /* RWBlurPopoverView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RWBlurPopoverView.h; path = RWBlurPopover/RWBlurPopoverView.h; sourceTree = "<group>"; };
 		2E3D76D69220DEF2B5B46AD6CABA0FFA /* CEPinchInteractionController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CEPinchInteractionController.m; path = InteractionControllers/CEPinchInteractionController.m; sourceTree = "<group>"; };
-		30448B554327814DB813E2366B87766E /* EGOCache-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "EGOCache-dummy.m"; sourceTree = "<group>"; };
+		2FE48503A19863D5595B9C7B738AA89F /* MZTimerLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MZTimerLabel.m; path = MZTimerLabel/MZTimerLabel.m; sourceTree = "<group>"; };
 		30966C44222FCA1F4DA97F42470BCEE8 /* libZCAnimatedLabel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libZCAnimatedLabel.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		30FDA4E93D6DCD6EC9B536D6276C6D19 /* SCViewShaker-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "SCViewShaker-Private.xcconfig"; sourceTree = "<group>"; };
-		33244B7B9916A60510E00F8FC26DECF1 /* libJSKTimerView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJSKTimerView.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		3794E2588DE68668E175980276EBC796 /* OpenShare.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OpenShare.h; path = openshare/OpenShare.h; sourceTree = "<group>"; };
+		324AFF2EBF0E63D65B7ECB882CF1DDB3 /* RJBlurAlertView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RJBlurAlertView-prefix.pch"; sourceTree = "<group>"; };
+		335FF8D179430329A1F44F0E2032126E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
 		379CC3070E42200C2D9E1EDFF89DE970 /* RJBlurAlertView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RJBlurAlertView.h; path = RJBlurAlertViews/RJBlurAlertView.h; sourceTree = "<group>"; };
 		38D284B46E16E86119C31864AC5A806A /* ZCShapeshiftLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZCShapeshiftLabel.h; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCShapeshiftLabel.h; sourceTree = "<group>"; };
+		39AFC49FE008D07709E0F6151FC19029 /* ARBasicAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ARBasicAnimation.m; path = ARTransitionAnimator/ARBasicAnimation.m; sourceTree = "<group>"; };
 		3A2842177CA30FBC785F285D6771B4C2 /* ZCAnimatedLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZCAnimatedLabel.h; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCAnimatedLabel.h; sourceTree = "<group>"; };
-		3B5D96F011066377EEA1CE56D5812DEA /* JSKTimerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSKTimerView.h; path = Pod/Classes/JSKTimerView.h; sourceTree = "<group>"; };
 		3BA10746810D02CEBFFE1B871878DAFC /* ZCEasingUtil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZCEasingUtil.h; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCEasingUtil.h; sourceTree = "<group>"; };
 		3CB9BADFEE8B9693805017C29E49F013 /* CEPinchInteractionController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CEPinchInteractionController.h; path = InteractionControllers/CEPinchInteractionController.h; sourceTree = "<group>"; };
 		3CDC7D41BDF808111C69D4912F1510D1 /* CEBaseInteractionController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CEBaseInteractionController.m; path = InteractionControllers/CEBaseInteractionController.m; sourceTree = "<group>"; };
+		3D98FBFC2113986275476C8E5598B2D8 /* OpenShare+Renren.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "OpenShare+Renren.m"; path = "openshare/OpenShare+Renren.m"; sourceTree = "<group>"; };
 		3DC3E510B13EF879170D1B85AE1F3BF7 /* ZCRevealLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZCRevealLabel.h; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCRevealLabel.h; sourceTree = "<group>"; };
+		3E2ECF96FEBCEB2AFF59DF4A5F07E800 /* CircleProgressBar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CircleProgressBar-prefix.pch"; sourceTree = "<group>"; };
+		3F323FF55BD966ACEDEBA354556370BB /* OpenShare.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OpenShare.m; path = openshare/OpenShare.m; sourceTree = "<group>"; };
+		4182D3FFFDC80A175ECEA670491D3B6C /* CircleProgressBar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CircleProgressBar-dummy.m"; sourceTree = "<group>"; };
 		43C5DF190322E445F24524FF3BB08D77 /* libRJBlurAlertView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRJBlurAlertView.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		4808EF4936474219204157FF4C48E748 /* OpenShare.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OpenShare.xcconfig; sourceTree = "<group>"; };
+		4422084D2BD870C173B0BE45567573C7 /* libOpenShare.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOpenShare.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		496849452D7CBD78F53C4E208BDA06DE /* MZTimerLabel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MZTimerLabel-prefix.pch"; sourceTree = "<group>"; };
 		496D1274229197816B334BCEA0394F3B /* UIView+Shimmer-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "UIView+Shimmer-Private.xcconfig"; sourceTree = "<group>"; };
 		49D4FCAC3D62A76958E2BA6B1AFB875E /* CEPanAnimationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CEPanAnimationController.m; path = AnimationControllers/CEPanAnimationController.m; sourceTree = "<group>"; };
+		4A5972B95811EAAEC66BAC0472F6A390 /* ARTransitionAnimator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ARTransitionAnimator.h; path = ARTransitionAnimator/ARTransitionAnimator.h; sourceTree = "<group>"; };
+		4A61CA2A9082DBBFCD437D0967478FCF /* EGOCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = EGOCache.m; sourceTree = "<group>"; };
+		4B031B0DC2A1584354216CA29A881D64 /* CircleProgressBar.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CircleProgressBar.xcconfig; sourceTree = "<group>"; };
 		4B7183341BF7339D7D1DEE9EB82DFE06 /* CECrossfadeAnimationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CECrossfadeAnimationController.m; path = AnimationControllers/CECrossfadeAnimationController.m; sourceTree = "<group>"; };
 		4CAE4127EA79EFF31872A882BB97243E /* CEFoldAnimationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CEFoldAnimationController.m; path = AnimationControllers/CEFoldAnimationController.m; sourceTree = "<group>"; };
-		4DDA48C4E5BA9113F60305B832BEF2FB /* GTScrollNavigationBar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GTScrollNavigationBar-prefix.pch"; sourceTree = "<group>"; };
-		4F179DF66727DFA5E79BF96E72D4B24A /* CircleProgressBar.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CircleProgressBar.xcconfig; sourceTree = "<group>"; };
-		4FAF00FEDA9AEF1A6C601C3BFAD9E230 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
-		50F56DF183F8AFE51BE6CD03F1228E87 /* CircleProgressBar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CircleProgressBar-prefix.pch"; sourceTree = "<group>"; };
+		4DF5D3A2A8821AD5FBEB6352C8AA794C /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
+		4DF6FB9CA3BCB4754EC920A55700812A /* VCTransitionsLibrary.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = VCTransitionsLibrary.xcconfig; sourceTree = "<group>"; };
+		4F1C412739D33DEC5A72E1C0AFA81372 /* JSKTimerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSKTimerView.m; path = Pod/Classes/JSKTimerView.m; sourceTree = "<group>"; };
+		505CFDB76C7EAF3DBCDC1DA1AFD94836 /* OpenShare+Weixin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "OpenShare+Weixin.h"; path = "openshare/OpenShare+Weixin.h"; sourceTree = "<group>"; };
 		5584ED9B26333FB3B0D513056C61610B /* CEReversibleAnimationController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CEReversibleAnimationController.h; path = AnimationControllers/CEReversibleAnimationController.h; sourceTree = "<group>"; };
-		57356991CA64D53C31765D5252DFE80A /* libEGOCache.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEGOCache.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		577D4F9F7C12956535A50C1F15CBD3AA /* RJBlurAlertView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RJBlurAlertView-prefix.pch"; sourceTree = "<group>"; };
-		58CAAF73B6F60739347E33F79681369C /* CircleProgressBar-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "CircleProgressBar-Private.xcconfig"; sourceTree = "<group>"; };
+		575E946642B85D0E96464A0B9B39FC15 /* ZCAnimatedLabel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ZCAnimatedLabel-prefix.pch"; sourceTree = "<group>"; };
 		5B0C4DC13FD8EBA6643D684ECDAA15AC /* libVCTransitionsLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libVCTransitionsLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C44FC8814CEC137F6F3335BF8AF20A9 /* CECubeAnimationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CECubeAnimationController.m; path = AnimationControllers/CECubeAnimationController.m; sourceTree = "<group>"; };
+		5DF6029CA185F84CDC68DEF83C74824F /* img1.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = img1.png; path = Pod/Assets/img1.png; sourceTree = "<group>"; };
 		5FB4032717F1F965F947A1421416AC05 /* ZCFocusLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZCFocusLabel.m; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCFocusLabel.m; sourceTree = "<group>"; };
-		608BF9C1940A61250A602A9CB055C4FD /* libCircleProgressBar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCircleProgressBar.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6135C7BAA321DC92D469E45AE45F4A19 /* UIView+Shimmer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+Shimmer.m"; path = "Classes/UIView+Shimmer.m"; sourceTree = "<group>"; };
-		62154B49C959B26907B5C71A4F15E30C /* MZTimerLabel-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "MZTimerLabel-Private.xcconfig"; sourceTree = "<group>"; };
+		615163DE555352EF234FF0F50D785674 /* EGOCache-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "EGOCache-dummy.m"; sourceTree = "<group>"; };
+		63C6C3CB6FF75B2FDADC3E0462F9AD76 /* RWBlurPopover-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RWBlurPopover-prefix.pch"; sourceTree = "<group>"; };
 		641AE05DD55E5E6AC1590CD7B4A18F97 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
-		6522138B05E58C56576D2AAC9FA83F9F /* CircleProgressBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CircleProgressBar.m; path = CircleProgressBarDemo/CircleProgressBar/CircleProgressBar.m; sourceTree = "<group>"; };
+		6455CE79EBA1F5F0683C916EF4BBA112 /* OpenShare-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "OpenShare-dummy.m"; sourceTree = "<group>"; };
 		6677093DB4793D1D56C4C312180DA672 /* CEExplodeAnimationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CEExplodeAnimationController.m; path = AnimationControllers/CEExplodeAnimationController.m; sourceTree = "<group>"; };
+		669F56D005D25962654904C2A5CE4067 /* JSKTimerView.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSKTimerView.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		66A10415B8D470E8801364AAF6C58973 /* ZCAnimatedLabel-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "ZCAnimatedLabel-Private.xcconfig"; sourceTree = "<group>"; };
-		67A987F596561587C853DAC09CFFB3FA /* RJBlurAlertView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RJBlurAlertView.xcconfig; sourceTree = "<group>"; };
+		68C2F53E70F92CDA936FCA53569C06E6 /* CircleProgressBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CircleProgressBar.m; path = CircleProgressBarDemo/CircleProgressBar/CircleProgressBar.m; sourceTree = "<group>"; };
 		69BBC057AF711808F945A9A0EC93F815 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ImageEffects.m"; path = "RJBlurAlertViews/UIImage+ImageEffects.m"; sourceTree = "<group>"; };
-		6B223E955CDEF8E67D51D2F6150787E4 /* OpenShare+Weibo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "OpenShare+Weibo.m"; path = "openshare/OpenShare+Weibo.m"; sourceTree = "<group>"; };
+		6A6C78CE67C9DEA0A72C7FE13C3AD153 /* GTScrollNavigationBar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GTScrollNavigationBar-prefix.pch"; sourceTree = "<group>"; };
+		6A7145EA493C7E4366F5EF2F8D95200A /* libCircleProgressBar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCircleProgressBar.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DB22E704B4647604DBCC76254776677 /* VCTransitionsLibrary-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "VCTransitionsLibrary-Private.xcconfig"; sourceTree = "<group>"; };
-		7050CD92EEEA9936B487FB5912BF7FCE /* MZTimerLabel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MZTimerLabel.xcconfig; sourceTree = "<group>"; };
-		718B77AEE4035C85A94E30A308B8F241 /* OpenShareHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OpenShareHeader.h; path = openshare/OpenShareHeader.h; sourceTree = "<group>"; };
+		6FAFAB0926803EA78C8A2196BBBE403C /* ARTransitionAnimator-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ARTransitionAnimator-prefix.pch"; sourceTree = "<group>"; };
+		706FBA334C23AE2CC5D0F94EDA0A6558 /* UIView+Shimmer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIView+Shimmer-prefix.pch"; sourceTree = "<group>"; };
+		713E0CEEA2AA1D51D9B863CCE9068387 /* ARTransitionAnimator-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "ARTransitionAnimator-Private.xcconfig"; sourceTree = "<group>"; };
 		719B1E4148EBCEA87FC2C9FC05126A41 /* CETurnAnimationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CETurnAnimationController.m; path = AnimationControllers/CETurnAnimationController.m; sourceTree = "<group>"; };
-		722F2C9F0388385CF83E2DEADB69CD85 /* JSKTimerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSKTimerView.m; path = Pod/Classes/JSKTimerView.m; sourceTree = "<group>"; };
+		72227FF98A556C4993EF81B763331B59 /* img0.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = img0.png; path = Pod/Assets/img0.png; sourceTree = "<group>"; };
 		727AE4078E034627B2A04CF5065F4E41 /* libRWBlurPopover.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRWBlurPopover.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		74ACF384991B76045F0106CB7A5FA95E /* ZCAnimatedLabel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ZCAnimatedLabel-dummy.m"; sourceTree = "<group>"; };
-		74CC77633DA276A3D5B192B3E6E4EE21 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		75CD3AF83B92EF5D8CCEAF17F98CF7AD /* img3.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = img3.png; path = Pod/Assets/img3.png; sourceTree = "<group>"; };
+		76C13A1C610C85A9E94AA4469E72DD73 /* OpenShare.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OpenShare.h; path = openshare/OpenShare.h; sourceTree = "<group>"; };
 		7714F8BC8D01269EB9882407647EBC68 /* CEPortalAnimationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CEPortalAnimationController.m; path = AnimationControllers/CEPortalAnimationController.m; sourceTree = "<group>"; };
 		78AC49C8823AA32A106F54D140D3D59D /* ZCCoreTextLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZCCoreTextLayout.m; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCCoreTextLayout.m; sourceTree = "<group>"; };
-		79490804E14AB35ECCCDFDBE8BF2B2CC /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
-		7B6950BA66C92A06D2419F3971A96446 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		83B475AAC8FC36D8FEEF5E343FB13FBA /* GTScrollNavigationBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTScrollNavigationBar.h; path = GTScrollNavigationBar/GTScrollNavigationBar.h; sourceTree = "<group>"; };
+		79C2C32102D79CCFDBB0C0D87008649E /* OpenShare+Weixin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "OpenShare+Weixin.m"; path = "openshare/OpenShare+Weixin.m"; sourceTree = "<group>"; };
 		83DC3EC761E5E658A842DD50A21696AC /* ZCFocusLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZCFocusLabel.h; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCFocusLabel.h; sourceTree = "<group>"; };
 		84179F5BD4C74A80E2809495DDBF963A /* ZCFlyinLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZCFlyinLabel.m; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCFlyinLabel.m; sourceTree = "<group>"; };
 		84D6FBDFD4A66BF5EFE82A36FE5F04A6 /* ZCDashLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZCDashLabel.m; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCDashLabel.m; sourceTree = "<group>"; };
+		8558A5A693ABDB904F28C3E15034E834 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		85F8671FAFE2433C07B99C30C669D3AC /* GTScrollNavigationBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTScrollNavigationBar.m; path = GTScrollNavigationBar/GTScrollNavigationBar.m; sourceTree = "<group>"; };
+		8613284A84C9E3ABF4DB57276810007B /* MZTimerLabel-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "MZTimerLabel-Private.xcconfig"; sourceTree = "<group>"; };
 		882297EF839944506170A2575D4A5CFF /* libUIView+Shimmer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libUIView+Shimmer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8897C5E3A58570DF2AD91FB7C0256BAB /* EGOCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = EGOCache.m; sourceTree = "<group>"; };
-		890C982BBDB23F6426B62A56FE1BA671 /* OpenShare-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OpenShare-prefix.pch"; sourceTree = "<group>"; };
 		8A275A0456B69E681D017D6101EDE94E /* CEVerticalSwipeInteractionController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CEVerticalSwipeInteractionController.m; path = InteractionControllers/CEVerticalSwipeInteractionController.m; sourceTree = "<group>"; };
 		8A28234330EC9FBCA28391B4D8335447 /* ZCCoreTextLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZCCoreTextLayout.h; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCCoreTextLayout.h; sourceTree = "<group>"; };
 		8A83515DDCC36B61CF630CAD84DFAA4D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		8AE30D7F0A624499094EC094CFD675CF /* EGOCache-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EGOCache-prefix.pch"; sourceTree = "<group>"; };
-		90323AC12E446E9AE3B9A1A11DD9C1A5 /* RWBlurPopover.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RWBlurPopover.xcconfig; sourceTree = "<group>"; };
-		91DCB8E26128967C1B113733D5276E8F /* EGOCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = EGOCache.h; sourceTree = "<group>"; };
-		93FEAF9A9A2F491B15A38CBA500F2F7A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		980BCF0B8E90C41300BC5A3D89EAE21D /* OpenShare+QQ.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "OpenShare+QQ.m"; path = "openshare/OpenShare+QQ.m"; sourceTree = "<group>"; };
-		9938B1BBADA14F4713C076E34C181F5F /* OpenShare+Weibo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "OpenShare+Weibo.h"; path = "openshare/OpenShare+Weibo.h"; sourceTree = "<group>"; };
+		8AF966163134301DB1EAF8D779E59513 /* GTScrollNavigationBar.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GTScrollNavigationBar.xcconfig; sourceTree = "<group>"; };
+		8BD0337C83570C7E6C8EE0B8A0A9C7B9 /* libJSKTimerView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJSKTimerView.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C850C0E638F183C9CFF0936B9C6A676 /* OpenShare+Weibo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "OpenShare+Weibo.m"; path = "openshare/OpenShare+Weibo.m"; sourceTree = "<group>"; };
+		92839D56EFA5750017D70583CBD06503 /* libGTScrollNavigationBar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGTScrollNavigationBar.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A2FAFA64AD8467F2900C096F5EFA7E /* OpenShareHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OpenShareHeader.h; path = openshare/OpenShareHeader.h; sourceTree = "<group>"; };
+		96CE7CC9091DDF7C5241D0DFEBD071E7 /* JSKTimerView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JSKTimerView-prefix.pch"; sourceTree = "<group>"; };
 		996478B7CD4DCAE7861FD48EA12DFB2E /* CEReversibleAnimationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CEReversibleAnimationController.m; path = AnimationControllers/CEReversibleAnimationController.m; sourceTree = "<group>"; };
-		9B25E638E0217FD97E44432A3DCEEF9D /* img1.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = img1.png; path = Pod/Assets/img1.png; sourceTree = "<group>"; };
+		9CA49C99FD20B2AADA678CDD1E2EC380 /* RWBlurPopover.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RWBlurPopover.xcconfig; sourceTree = "<group>"; };
 		9D2DCA7D62D0DC71C4637B99FB5849D0 /* ZCFlyinLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZCFlyinLabel.h; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCFlyinLabel.h; sourceTree = "<group>"; };
 		9D30EEF2DCE53C8F6EC27F84A0DB25EA /* ZCThrownLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZCThrownLabel.h; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCThrownLabel.h; sourceTree = "<group>"; };
 		9F5008E150D016A99A1F1EE8E4040B1D /* UIView+Shake.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIView+Shake.h"; sourceTree = "<group>"; };
-		9F82C4F71F808E711465C3F516D10AFB /* OpenShare+Alipay.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "OpenShare+Alipay.m"; path = "openshare/OpenShare+Alipay.m"; sourceTree = "<group>"; };
 		A036AEF9E6DC720BAC6E6147BCB71D4B /* VCTransitionsLibrary-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "VCTransitionsLibrary-dummy.m"; sourceTree = "<group>"; };
-		A1D11EFBE5CC82A07D040C47F016B216 /* VCTransitionsLibrary.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = VCTransitionsLibrary.xcconfig; sourceTree = "<group>"; };
 		A48B24B693583B7F37ECD31FEB823C62 /* CEExplodeAnimationController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CEExplodeAnimationController.h; path = AnimationControllers/CEExplodeAnimationController.h; sourceTree = "<group>"; };
-		A4B3CED10B002647BC7FD8DAD9DA400E /* OpenShare+Weixin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "OpenShare+Weixin.h"; path = "openshare/OpenShare+Weixin.h"; sourceTree = "<group>"; };
 		A4C795F75E70179F959333738D2F3DC6 /* ZCSpinLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZCSpinLabel.m; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCSpinLabel.m; sourceTree = "<group>"; };
-		AA55B112E8AA30A582178CF6A0AEB750 /* OpenShare-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "OpenShare-Private.xcconfig"; sourceTree = "<group>"; };
-		AC94DC9D8A544A7B893B7BACF6292746 /* GTScrollNavigationBar-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "GTScrollNavigationBar-Private.xcconfig"; sourceTree = "<group>"; };
+		A91853ADA3CB037B1BB1F5B9DDD9579A /* GTScrollNavigationBar-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "GTScrollNavigationBar-Private.xcconfig"; sourceTree = "<group>"; };
+		A984D839A56BE3E556BD879C0F6B40F3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		A9E8604D8CA1555FA77BFB8BAC6E68D0 /* OpenShare-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "OpenShare-Private.xcconfig"; sourceTree = "<group>"; };
+		AD0D44B73C1B51D90529EB87D2E71BD1 /* JSKTimerView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JSKTimerView.xcconfig; sourceTree = "<group>"; };
 		AE67F986C27E3F12B4B28C210FE919D7 /* CEFoldAnimationController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CEFoldAnimationController.h; path = AnimationControllers/CEFoldAnimationController.h; sourceTree = "<group>"; };
 		AF15D03E09ABE9281510A68EE6EC04CE /* CEFlipAnimationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CEFlipAnimationController.m; path = AnimationControllers/CEFlipAnimationController.m; sourceTree = "<group>"; };
-		AF609950BCA9E002B7290C274C427C2A /* VCTransitionsLibrary-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "VCTransitionsLibrary-prefix.pch"; sourceTree = "<group>"; };
 		B0A20FC4B54C67D16C7971DCD0F1591F /* ZCRevealLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZCRevealLabel.m; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCRevealLabel.m; sourceTree = "<group>"; };
-		B290541789C413B2F26B8E0E7C132A82 /* JSKTimerView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JSKTimerView-prefix.pch"; sourceTree = "<group>"; };
-		B3E0E5BCE479FC7AED6D1D1A8AE1E43C /* ZCAnimatedLabel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ZCAnimatedLabel-prefix.pch"; sourceTree = "<group>"; };
+		B1E3402F327CBC05E82EFA636B9EB48E /* img2.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = img2.png; path = Pod/Assets/img2.png; sourceTree = "<group>"; };
+		B278DD12451BB554B147AD5D2C9813B9 /* libMZTimerLabel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMZTimerLabel.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B56315FCC38556000C9F06A44DE297D6 /* CEVerticalSwipeInteractionController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CEVerticalSwipeInteractionController.h; path = InteractionControllers/CEVerticalSwipeInteractionController.h; sourceTree = "<group>"; };
-		B5C2A5FC5ADE35AD6BDFFBD236BA5843 /* OpenShare.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OpenShare.m; path = openshare/OpenShare.m; sourceTree = "<group>"; };
-		B6CEB70C8D340B65FF081DA1A7765129 /* MZTimerLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MZTimerLabel.m; path = MZTimerLabel/MZTimerLabel.m; sourceTree = "<group>"; };
+		B6AF07F473FC10DB7D7F9FB7A8FA9CD8 /* JSKTimerView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JSKTimerView-dummy.m"; sourceTree = "<group>"; };
+		B7430B39D0FEFA58563FF3CF9EB106F5 /* MZTimerLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MZTimerLabel.h; path = MZTimerLabel/MZTimerLabel.h; sourceTree = "<group>"; };
 		B8068D7356434B6BC0669F53EA2388BF /* ZCEasingUtil.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZCEasingUtil.m; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCEasingUtil.m; sourceTree = "<group>"; };
+		B9BFA96AAA1C9E3419D856EA3DA006F9 /* ARTransitionAnimator-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ARTransitionAnimator-dummy.m"; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BB0E66F75A20F24FDF83B2CD40B73F16 /* SCViewShaker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SCViewShaker-dummy.m"; sourceTree = "<group>"; };
-		BE7E74A935F4E514F6D4FEC7BD743BD4 /* CircleProgressBar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CircleProgressBar-dummy.m"; sourceTree = "<group>"; };
 		BEE91A5C6BBFAFBF41843FA0A0E40B03 /* CECardsAnimationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CECardsAnimationController.m; path = AnimationControllers/CECardsAnimationController.m; sourceTree = "<group>"; };
 		BF59BC15D23E1E1912C8F334E7236813 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
-		BFCECB4DFD332540AE2451045509C3D3 /* OpenShare-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "OpenShare-dummy.m"; sourceTree = "<group>"; };
+		C1C61D5025503ACF2EEBBCB807F24573 /* img3.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = img3.png; path = Pod/Assets/img3.png; sourceTree = "<group>"; };
 		C26EDEB240C590DE8AAA704F6AD60DBD /* UIView+Shimmer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIView+Shimmer-dummy.m"; sourceTree = "<group>"; };
 		C6C7E05A968D4E8B2F226FCA3DEC9449 /* ZCAnimatedLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZCAnimatedLabel.m; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCAnimatedLabel.m; sourceTree = "<group>"; };
 		C759FB64924BAA9C7EABF78A046B436B /* ZCFallLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZCFallLabel.h; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCFallLabel.h; sourceTree = "<group>"; };
+		C75F404C2823FDA5FC9A0E3697DB9640 /* JSKTimerView-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "JSKTimerView-Private.xcconfig"; sourceTree = "<group>"; };
+		C7BE13DBE4365DAB56C2D8D6BFBD8093 /* OpenShare+Alipay.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "OpenShare+Alipay.m"; path = "openshare/OpenShare+Alipay.m"; sourceTree = "<group>"; };
 		C7EAD04BE5702F5433203974587B8BAD /* RWBlurPopover.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RWBlurPopover.m; path = RWBlurPopover/RWBlurPopover.m; sourceTree = "<group>"; };
-		C8978210AEF96EBD8D7DF69871E033D5 /* MZTimerLabel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MZTimerLabel-dummy.m"; sourceTree = "<group>"; };
+		C8AF878F6A4528048A7BDA47A14F751B /* VCTransitionsLibrary-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "VCTransitionsLibrary-prefix.pch"; sourceTree = "<group>"; };
+		C9A8A0C6BF0BB30C4B9CD89F4116E811 /* CircleProgressBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CircleProgressBar.h; path = CircleProgressBarDemo/CircleProgressBar/CircleProgressBar.h; sourceTree = "<group>"; };
+		CDC6050C65AE7F293EC94235DC0DE381 /* OpenShare+Alipay.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "OpenShare+Alipay.h"; path = "openshare/OpenShare+Alipay.h"; sourceTree = "<group>"; };
 		CDD9FADEFFC4514B7742B71E90A709B2 /* CEPortalAnimationController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CEPortalAnimationController.h; path = AnimationControllers/CEPortalAnimationController.h; sourceTree = "<group>"; };
+		CF6B2D369BA20127A01B7BD4D1A2742D /* CircleProgressBar-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "CircleProgressBar-Private.xcconfig"; sourceTree = "<group>"; };
 		D1F0C167D30E62D402F59CF86903C77D /* CETurnAnimationController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CETurnAnimationController.h; path = AnimationControllers/CETurnAnimationController.h; sourceTree = "<group>"; };
 		D27B06BBE304E948288A57A19F45A93F /* CEFlipAnimationController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CEFlipAnimationController.h; path = AnimationControllers/CEFlipAnimationController.h; sourceTree = "<group>"; };
+		D3EC8DD3E596C3A5C83D65BCE1277A95 /* EGOCache-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "EGOCache-Private.xcconfig"; sourceTree = "<group>"; };
 		D5713A602D1C05C99E99F824B0FB81B8 /* ZCDuangLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZCDuangLabel.h; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCDuangLabel.h; sourceTree = "<group>"; };
 		D5E7618CE7365F2332EEC08975A3EFCA /* libSCViewShaker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSCViewShaker.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6F3D244DF7B6B19E05435EA8CD95E6E /* RWBlurPopover.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RWBlurPopover.h; path = RWBlurPopover/RWBlurPopover.h; sourceTree = "<group>"; };
-		D87FFD86CCA37064CFAEC8DDD386685E /* JSKTimerView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JSKTimerView.xcconfig; sourceTree = "<group>"; };
+		D8282DBE0A69393D464ECE8AF0CCAA06 /* GTScrollNavigationBar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GTScrollNavigationBar-dummy.m"; sourceTree = "<group>"; };
 		D8B4E658D44C829F40237C1481B417C7 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
 		DA4EA6D7128D57FDE8A16BC9179CDFD2 /* RJBlurAlertView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RJBlurAlertView.m; path = RJBlurAlertViews/RJBlurAlertView.m; sourceTree = "<group>"; };
-		DCDE8DD57E9A1369D43455A2DB2164AD /* libMZTimerLabel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMZTimerLabel.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		DF74E5553CABF6DD3BDB9E138791280E /* GTScrollNavigationBar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GTScrollNavigationBar-dummy.m"; sourceTree = "<group>"; };
-		DFBEBB890685E9768152183BFFF43D8F /* OpenShare+Renren.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "OpenShare+Renren.m"; path = "openshare/OpenShare+Renren.m"; sourceTree = "<group>"; };
-		E26F4110FBA094DFFD6D9C5A72133FC0 /* GTScrollNavigationBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTScrollNavigationBar.m; path = GTScrollNavigationBar/GTScrollNavigationBar.m; sourceTree = "<group>"; };
+		DBE18D76159C257E73F1FE30C1AB13DC /* UIView+Shimmer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "UIView+Shimmer.xcconfig"; sourceTree = "<group>"; };
+		DC8CE4092F21BB73887D2293C45D2DF9 /* EGOCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = EGOCache.h; sourceTree = "<group>"; };
+		DF395C16E9042AF1EC5EF159C68DD554 /* OpenShare+Weibo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "OpenShare+Weibo.h"; path = "openshare/OpenShare+Weibo.h"; sourceTree = "<group>"; };
+		E1758A7149EF081B6F455CA699E90F12 /* RJBlurAlertView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RJBlurAlertView.xcconfig; sourceTree = "<group>"; };
+		E1DA917C1220FFBB79D49DC674B7367A /* OpenShare+QQ.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "OpenShare+QQ.h"; path = "openshare/OpenShare+QQ.h"; sourceTree = "<group>"; };
 		E31575BB24AE4CEA00240599CEBB6541 /* ZCDuangLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZCDuangLabel.m; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCDuangLabel.m; sourceTree = "<group>"; };
 		E32260DC27C334735FB3083E2F3E0451 /* ZCThrownLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZCThrownLabel.m; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCThrownLabel.m; sourceTree = "<group>"; };
-		E47BC0C38D22FDCD48B784443C0C9603 /* img0.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = img0.png; path = Pod/Assets/img0.png; sourceTree = "<group>"; };
-		E4FF2B2EA15D0D8D49AA601203B3843D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		E4C3757F91DFFBDD05CE800EE7A04BD4 /* SCViewShaker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SCViewShaker-prefix.pch"; sourceTree = "<group>"; };
 		E647481E107EB341DE2AE7CDA272EA4C /* RJBlurAlertView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RJBlurAlertView-dummy.m"; sourceTree = "<group>"; };
-		EA3C8AC687C7044F43B3E403D142B51B /* img2.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = img2.png; path = Pod/Assets/img2.png; sourceTree = "<group>"; };
-		EAAAC140A54D70A57B22E339856665AB /* JSKTimerView-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "JSKTimerView-Private.xcconfig"; sourceTree = "<group>"; };
-		EB4CE6BBF15BAEBAD156B3B9769F7B56 /* MZTimerLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MZTimerLabel.h; path = MZTimerLabel/MZTimerLabel.h; sourceTree = "<group>"; };
-		EFEB194C1AEA8D4459DF9F154B9CA1B0 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = "GoogleMobileAdsSdkiOS-7.4.1/GoogleMobileAds.framework"; sourceTree = "<group>"; };
-		F11A7A0E9DC6733B38ED2F0E81FCFC0A /* OpenShare+Renren.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "OpenShare+Renren.h"; path = "openshare/OpenShare+Renren.h"; sourceTree = "<group>"; };
+		EE298B878A5CFDAC19F15F84AEC3B7E0 /* ARBasicAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ARBasicAnimation.h; path = ARTransitionAnimator/ARBasicAnimation.h; sourceTree = "<group>"; };
+		F11195DF8BC9BF3F00A3524953ADC7CB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		F1A3D8C86E02B441EA1F2FC0F9ACF379 /* RJBlurAlertView-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "RJBlurAlertView-Private.xcconfig"; sourceTree = "<group>"; };
-		F307BFA68EEB564A24B98B1D668C3E65 /* UIView+Shimmer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIView+Shimmer-prefix.pch"; sourceTree = "<group>"; };
-		F3427367C5A5049913802E56C25B7B66 /* JSKTimerView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JSKTimerView-dummy.m"; sourceTree = "<group>"; };
-		F3F45DB924B868CBDE27783CCA596DAF /* SCViewShaker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SCViewShaker-prefix.pch"; sourceTree = "<group>"; };
-		F4C8DF8F21B51185A344A4D67DD88DE5 /* libGTScrollNavigationBar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGTScrollNavigationBar.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1C4CE05E6DDF3579DDDE02A68793516 /* JSKTimerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSKTimerView.h; path = Pod/Classes/JSKTimerView.h; sourceTree = "<group>"; };
 		F6A3F74DFF80370E8CABD3BD9737F0C5 /* RWBlurPopoverView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RWBlurPopoverView.m; path = RWBlurPopover/RWBlurPopoverView.m; sourceTree = "<group>"; };
+		F6EE65A8384BCEB613498706205267F2 /* SCViewShaker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SCViewShaker.xcconfig; sourceTree = "<group>"; };
 		F74366AC8CB57E96A03C43323D6E1A78 /* CECubeAnimationController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CECubeAnimationController.h; path = AnimationControllers/CECubeAnimationController.h; sourceTree = "<group>"; };
-		F7BC6178EE6F78B46AA62F9084365818 /* UIView+Shimmer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "UIView+Shimmer.xcconfig"; sourceTree = "<group>"; };
 		F8F3EA4E317FB43AB328771F1F68862C /* ZCDashLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZCDashLabel.h; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCDashLabel.h; sourceTree = "<group>"; };
 		F9B0223E155E48C1E5F3A9BB136674C0 /* CENatGeoAnimationController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CENatGeoAnimationController.h; path = AnimationControllers/CENatGeoAnimationController.h; sourceTree = "<group>"; };
-		FAD30B629D5C6F1510E87BC004102251 /* EGOCache.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EGOCache.xcconfig; sourceTree = "<group>"; };
+		FBBF103C12E75BCC49BD0388357A059E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		FCCD917CE6D4F0473591A711CE21F2FB /* MZTimerLabel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MZTimerLabel.xcconfig; sourceTree = "<group>"; };
 		FDEF8377655C7536053F29CF69F8DA3E /* ZCFallLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZCFallLabel.m; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCFallLabel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -411,29 +433,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5A60641B1C34F7DD6E81CEE5FEE30A0A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2028068F04D98290C1DA146FB3475ED4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		615FAB840016EE06401478A96181A470 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				10A677328F0AF810533B7DB818214B68 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		68DED2812FBCC8B116F8A219068F9128 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DD6134EE92CAAC3AF1F6CDAC29F011A4 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		76750B6DAF7E03C461098C127B543781 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8C707B7BE20184266A90ACBFEEC5C50E /* CoreGraphics.framework in Frameworks */,
-				D0815BDB3CF1A6E2DE5780671CB595A9 /* Foundation.framework in Frameworks */,
-				122943174575D94E5C23A67399B6B514 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,11 +458,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9C248801D32BF25C568C6B0A30A59242 /* Frameworks */ = {
+		7A011FE8B53BF634C639ED4C5C9589A1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F514FD1C3427D6292288166B28F26EE5 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,14 +481,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A9BC2BE6850F573D10E2BECD37F30574 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				126C1623C730B31A0FBE9C5DB54AAEFE /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		AA4F37FE5C04D976FD666ED086CD0559 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -486,86 +489,159 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B82AF86DFDD931717D1D076E5BE7665B /* Frameworks */ = {
+		AD537E15920434CF26BF68E71D437432 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				973D0FA66070EC5BAE92D0B8B6FACF63 /* Foundation.framework in Frameworks */,
-				48166AD2E05F58D56B9A2EE1147859ED /* QuartzCore.framework in Frameworks */,
-				9E18B5D1DC22F58D2FBAF293ED1BFFDA /* UIKit.framework in Frameworks */,
+				862B4D4ECAD546513DE17A65E5C6CB89 /* CoreGraphics.framework in Frameworks */,
+				9B85CF9A80438B94AC80703076D89110 /* Foundation.framework in Frameworks */,
+				250A96C7182428DBBE7FE1E8FBD06671 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C4C08894CC7C41BD45B2A1945646E799 /* Frameworks */ = {
+		B3C24DFF7E0092F31B4E5C832D0B003C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5D0242B5C227290F6502021E2AF603F /* Foundation.framework in Frameworks */,
+				86A3917FD62AA146CF836F09A1083521 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D09F0BAD40289FF1348C9EB8FC98C2A5 /* Frameworks */ = {
+		CA51778EC552AFDC6938E64D499D9682 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B12C38849EBEC3C7578BF67532D4177A /* Foundation.framework in Frameworks */,
+				87186D60D57E4E560F286946BC0CF92D /* Foundation.framework in Frameworks */,
+				0EA6B75619AD91BC05E4BBA458CDCC2F /* QuartzCore.framework in Frameworks */,
+				DC2A9CC84584785B8A20D8FA2015F2CA /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D9DC07512422A2F43473959CB7E43B93 /* Frameworks */ = {
+		D87164F891F751C1444F7845FC43155E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32D3794064916C7177BD75CE9CAEF939 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E321F559541DB66CB83BA4122B70A95F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1A2C45929A68AE7E9B14B62D1F6A94D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E53F1233806B30F369F197E5D9A1EDF5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00E93BF5E5FF6FE91B972602683D6CDE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA7247A8F66C29FB6B3193AB1214DF9B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7892E9FEE76EE8DFF3257F80C6DE66BD /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		08AD538F930415527E9CBC78E9D31C95 /* Support Files */ = {
+		0284428D73671EE7D17384DE91C553CC /* ZCAnimatedLabel */ = {
 			isa = PBXGroup;
 			children = (
-				A1D11EFBE5CC82A07D040C47F016B216 /* VCTransitionsLibrary.xcconfig */,
+				3A2842177CA30FBC785F285D6771B4C2 /* ZCAnimatedLabel.h */,
+				C6C7E05A968D4E8B2F226FCA3DEC9449 /* ZCAnimatedLabel.m */,
+				8A28234330EC9FBCA28391B4D8335447 /* ZCCoreTextLayout.h */,
+				78AC49C8823AA32A106F54D140D3D59D /* ZCCoreTextLayout.m */,
+				F8F3EA4E317FB43AB328771F1F68862C /* ZCDashLabel.h */,
+				84D6FBDFD4A66BF5EFE82A36FE5F04A6 /* ZCDashLabel.m */,
+				D5713A602D1C05C99E99F824B0FB81B8 /* ZCDuangLabel.h */,
+				E31575BB24AE4CEA00240599CEBB6541 /* ZCDuangLabel.m */,
+				3BA10746810D02CEBFFE1B871878DAFC /* ZCEasingUtil.h */,
+				B8068D7356434B6BC0669F53EA2388BF /* ZCEasingUtil.m */,
+				C759FB64924BAA9C7EABF78A046B436B /* ZCFallLabel.h */,
+				FDEF8377655C7536053F29CF69F8DA3E /* ZCFallLabel.m */,
+				9D2DCA7D62D0DC71C4637B99FB5849D0 /* ZCFlyinLabel.h */,
+				84179F5BD4C74A80E2809495DDBF963A /* ZCFlyinLabel.m */,
+				83DC3EC761E5E658A842DD50A21696AC /* ZCFocusLabel.h */,
+				5FB4032717F1F965F947A1421416AC05 /* ZCFocusLabel.m */,
+				3DC3E510B13EF879170D1B85AE1F3BF7 /* ZCRevealLabel.h */,
+				B0A20FC4B54C67D16C7971DCD0F1591F /* ZCRevealLabel.m */,
+				38D284B46E16E86119C31864AC5A806A /* ZCShapeshiftLabel.h */,
+				26E101C889C131E031D85CA1589909F5 /* ZCShapeshiftLabel.m */,
+				1FE7A2256E18BF8AD428BF62E277FD08 /* ZCSpinLabel.h */,
+				A4C795F75E70179F959333738D2F3DC6 /* ZCSpinLabel.m */,
+				9D30EEF2DCE53C8F6EC27F84A0DB25EA /* ZCThrownLabel.h */,
+				E32260DC27C334735FB3083E2F3E0451 /* ZCThrownLabel.m */,
+				2D2F567B04DD8D4BA94E274C3D0B1A4D /* ZCTransparencyLabel.h */,
+				013D694B0260CF3A952696D42E232209 /* ZCTransparencyLabel.m */,
+				120014B8EF05459E60DEA443E3F1F5FC /* Support Files */,
+			);
+			path = ZCAnimatedLabel;
+			sourceTree = "<group>";
+		};
+		0FD45FA17E5FB9554E5ED0B95D60CA09 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				4DF6FB9CA3BCB4754EC920A55700812A /* VCTransitionsLibrary.xcconfig */,
 				6DB22E704B4647604DBCC76254776677 /* VCTransitionsLibrary-Private.xcconfig */,
 				A036AEF9E6DC720BAC6E6147BCB71D4B /* VCTransitionsLibrary-dummy.m */,
-				AF609950BCA9E002B7290C274C427C2A /* VCTransitionsLibrary-prefix.pch */,
+				C8AF878F6A4528048A7BDA47A14F751B /* VCTransitionsLibrary-prefix.pch */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/VCTransitionsLibrary";
 			sourceTree = "<group>";
 		};
-		09270E3A07EF5A8EC27FB474FE4A7828 /* Support Files */ = {
+		1004267CB9423A4E5AC0096DEC996267 /* CircleProgressBar */ = {
 			isa = PBXGroup;
 			children = (
-				FAD30B629D5C6F1510E87BC004102251 /* EGOCache.xcconfig */,
-				29D19B5D1FE8C0CBFDA725BF98F867AA /* EGOCache-Private.xcconfig */,
-				30448B554327814DB813E2366B87766E /* EGOCache-dummy.m */,
-				8AE30D7F0A624499094EC094CFD675CF /* EGOCache-prefix.pch */,
+				C9A8A0C6BF0BB30C4B9CD89F4116E811 /* CircleProgressBar.h */,
+				68C2F53E70F92CDA936FCA53569C06E6 /* CircleProgressBar.m */,
+				472A98F8F0EF12475D3EEB50884B688D /* Support Files */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/EGOCache";
+			path = CircleProgressBar;
 			sourceTree = "<group>";
 		};
-		1862695514B3C4993B3DC99BB41AF0C7 /* EGOCache */ = {
+		1166BE6E205F00745A06D6D199415A7D /* ARTransitionAnimator */ = {
 			isa = PBXGroup;
 			children = (
-				91DCB8E26128967C1B113733D5276E8F /* EGOCache.h */,
-				8897C5E3A58570DF2AD91FB7C0256BAB /* EGOCache.m */,
-				09270E3A07EF5A8EC27FB474FE4A7828 /* Support Files */,
+				EE298B878A5CFDAC19F15F84AEC3B7E0 /* ARBasicAnimation.h */,
+				39AFC49FE008D07709E0F6151FC19029 /* ARBasicAnimation.m */,
+				4A5972B95811EAAEC66BAC0472F6A390 /* ARTransitionAnimator.h */,
+				1EDCABB8BA3D7BB1CB09FB69A96B7AD6 /* ARTransitionAnimator.m */,
+				687305ABBA9DD9E66F0EFB085C1E6AE0 /* Support Files */,
 			);
-			path = EGOCache;
+			path = ARTransitionAnimator;
 			sourceTree = "<group>";
 		};
-		194A435D9F839ACECFD6CF944CC12A1D /* Support Files */ = {
+		120014B8EF05459E60DEA443E3F1F5FC /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				7050CD92EEEA9936B487FB5912BF7FCE /* MZTimerLabel.xcconfig */,
-				62154B49C959B26907B5C71A4F15E30C /* MZTimerLabel-Private.xcconfig */,
-				C8978210AEF96EBD8D7DF69871E033D5 /* MZTimerLabel-dummy.m */,
-				29762B6A2F331266C6E27BE9A37FE375 /* MZTimerLabel-prefix.pch */,
+				015BE6BC3E55A041E7F7EE3576F19126 /* ZCAnimatedLabel.xcconfig */,
+				66A10415B8D470E8801364AAF6C58973 /* ZCAnimatedLabel-Private.xcconfig */,
+				74ACF384991B76045F0106CB7A5FA95E /* ZCAnimatedLabel-dummy.m */,
+				575E946642B85D0E96464A0B9B39FC15 /* ZCAnimatedLabel-prefix.pch */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/MZTimerLabel";
+			path = "../Target Support Files/ZCAnimatedLabel";
+			sourceTree = "<group>";
+		};
+		1A3E10B81E07DF727FDD93FC0E2AF62F /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				AD0D44B73C1B51D90529EB87D2E71BD1 /* JSKTimerView.xcconfig */,
+				C75F404C2823FDA5FC9A0E3697DB9640 /* JSKTimerView-Private.xcconfig */,
+				B6AF07F473FC10DB7D7F9FB7A8FA9CD8 /* JSKTimerView-dummy.m */,
+				96CE7CC9091DDF7C5241D0DFEBD071E7 /* JSKTimerView-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/JSKTimerView";
 			sourceTree = "<group>";
 		};
 		20B56609144CE204DFA8221F742B2D76 /* Frameworks */ = {
@@ -576,104 +652,212 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		2BED93BC720EA285EEC45A0AA2F10DC2 /* Support Files */ = {
+		2104403225B24A90242619AE70F92228 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				D87FFD86CCA37064CFAEC8DDD386685E /* JSKTimerView.xcconfig */,
-				EAAAC140A54D70A57B22E339856665AB /* JSKTimerView-Private.xcconfig */,
-				F3427367C5A5049913802E56C25B7B66 /* JSKTimerView-dummy.m */,
-				B290541789C413B2F26B8E0E7C132A82 /* JSKTimerView-prefix.pch */,
+				E1758A7149EF081B6F455CA699E90F12 /* RJBlurAlertView.xcconfig */,
+				F1A3D8C86E02B441EA1F2FC0F9ACF379 /* RJBlurAlertView-Private.xcconfig */,
+				E647481E107EB341DE2AE7CDA272EA4C /* RJBlurAlertView-dummy.m */,
+				324AFF2EBF0E63D65B7ECB882CF1DDB3 /* RJBlurAlertView-prefix.pch */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/JSKTimerView";
+			path = "../Target Support Files/RJBlurAlertView";
 			sourceTree = "<group>";
 		};
-		4404ED8225D4E27F8FFA43D8CC4F1711 /* Support Files */ = {
+		2AEF93B225F07CAA4310C4D71A8D57B4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				90323AC12E446E9AE3B9A1A11DD9C1A5 /* RWBlurPopover.xcconfig */,
-				12D8ADC905885DAE6EE5944FF2F6C540 /* RWBlurPopover-Private.xcconfig */,
-				0C706660776D895A0CA52E758E174C0B /* RWBlurPopover-dummy.m */,
-				24D362992600F8E4610B063693DC18F9 /* RWBlurPopover-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/RWBlurPopover";
-			sourceTree = "<group>";
-		};
-		4523080E3A4BF14E835A25335A11718C /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				E47BC0C38D22FDCD48B784443C0C9603 /* img0.png */,
-				9B25E638E0217FD97E44432A3DCEEF9D /* img1.png */,
-				EA3C8AC687C7044F43B3E403D142B51B /* img2.png */,
-				75CD3AF83B92EF5D8CCEAF17F98CF7AD /* img3.png */,
+				72227FF98A556C4993EF81B763331B59 /* img0.png */,
+				5DF6029CA185F84CDC68DEF83C74824F /* img1.png */,
+				B1E3402F327CBC05E82EFA636B9EB48E /* img2.png */,
+				C1C61D5025503ACF2EEBBCB807F24573 /* img3.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		55408F8C67FC335EEAAF820C3CECBDA3 /* CircleProgressBar */ = {
+		302C9F567CD43B162D7AC35C13D9A0D5 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				0C5275C34532B1DE268F96E7637DD3C1 /* CircleProgressBar.h */,
-				6522138B05E58C56576D2AAC9FA83F9F /* CircleProgressBar.m */,
-				D0CE870D702B9E1D5FB9C1D6334CF99A /* Support Files */,
+				F6EE65A8384BCEB613498706205267F2 /* SCViewShaker.xcconfig */,
+				30FDA4E93D6DCD6EC9B536D6276C6D19 /* SCViewShaker-Private.xcconfig */,
+				BB0E66F75A20F24FDF83B2CD40B73F16 /* SCViewShaker-dummy.m */,
+				E4C3757F91DFFBDD05CE800EE7A04BD4 /* SCViewShaker-prefix.pch */,
 			);
-			path = CircleProgressBar;
+			name = "Support Files";
+			path = "../Target Support Files/SCViewShaker";
+			sourceTree = "<group>";
+		};
+		30F6EB59365BF24EF5F8F81CFDBFF471 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1166BE6E205F00745A06D6D199415A7D /* ARTransitionAnimator */,
+				1004267CB9423A4E5AC0096DEC996267 /* CircleProgressBar */,
+				B761AC19ECA515427834AE13711906EF /* EGOCache */,
+				FF0A75847910502497D8BCC93F74E139 /* GTScrollNavigationBar */,
+				768BC0686A8F233B774DFF87E77AD3A9 /* Google-Mobile-Ads-SDK */,
+				7D024E820A134C25155B7EFE0875017D /* JSKTimerView */,
+				5AF5E6294799B94C722B5606C522E3BA /* MZTimerLabel */,
+				470506116BBB68F99D3F6C4C59F7F971 /* OpenShare */,
+				A53FF0B2E420B4336C49F5E277C60EA3 /* RJBlurAlertView */,
+				DC58FCC7B7D990972ED47E0BCEFBF6BB /* RWBlurPopover */,
+				EB33B69A19C2418CEE544DE3B2B33253 /* SCViewShaker */,
+				3D30F7817E158CCEAE1F9684C3D0D284 /* UIView+Shimmer */,
+				AFB92AFD57D9D00EFE2FCE9F64B6EFB3 /* VCTransitionsLibrary */,
+				0284428D73671EE7D17384DE91C553CC /* ZCAnimatedLabel */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		310D3737A94D2CEC20DB963FA2833B79 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				26421C202EC21D189A3D736DA20C1710 /* GoogleMobileAds.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		34EDF931934DA0D493CE1BE2C7BB82EF /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				DBE18D76159C257E73F1FE30C1AB13DC /* UIView+Shimmer.xcconfig */,
+				496D1274229197816B334BCEA0394F3B /* UIView+Shimmer-Private.xcconfig */,
+				C26EDEB240C590DE8AAA704F6AD60DBD /* UIView+Shimmer-dummy.m */,
+				706FBA334C23AE2CC5D0F94EDA0A6558 /* UIView+Shimmer-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/UIView+Shimmer";
+			sourceTree = "<group>";
+		};
+		377C67F8F1CB847D22D345374910F1FD /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8AF966163134301DB1EAF8D779E59513 /* GTScrollNavigationBar.xcconfig */,
+				A91853ADA3CB037B1BB1F5B9DDD9579A /* GTScrollNavigationBar-Private.xcconfig */,
+				D8282DBE0A69393D464ECE8AF0CCAA06 /* GTScrollNavigationBar-dummy.m */,
+				6A6C78CE67C9DEA0A72C7FE13C3AD153 /* GTScrollNavigationBar-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/GTScrollNavigationBar";
+			sourceTree = "<group>";
+		};
+		3ABD4E46ADCEAB891A3E99C02EC69585 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FCCD917CE6D4F0473591A711CE21F2FB /* MZTimerLabel.xcconfig */,
+				8613284A84C9E3ABF4DB57276810007B /* MZTimerLabel-Private.xcconfig */,
+				026BC245777FECFFB872BF6F4C309230 /* MZTimerLabel-dummy.m */,
+				496849452D7CBD78F53C4E208BDA06DE /* MZTimerLabel-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/MZTimerLabel";
+			sourceTree = "<group>";
+		};
+		3D30F7817E158CCEAE1F9684C3D0D284 /* UIView+Shimmer */ = {
+			isa = PBXGroup;
+			children = (
+				1DCCD239BC4D2025AC1C245F97CDB0A7 /* UIView+Shimmer.h */,
+				6135C7BAA321DC92D469E45AE45F4A19 /* UIView+Shimmer.m */,
+				34EDF931934DA0D493CE1BE2C7BB82EF /* Support Files */,
+			);
+			path = "UIView+Shimmer";
+			sourceTree = "<group>";
+		};
+		470506116BBB68F99D3F6C4C59F7F971 /* OpenShare */ = {
+			isa = PBXGroup;
+			children = (
+				76C13A1C610C85A9E94AA4469E72DD73 /* OpenShare.h */,
+				3F323FF55BD966ACEDEBA354556370BB /* OpenShare.m */,
+				CDC6050C65AE7F293EC94235DC0DE381 /* OpenShare+Alipay.h */,
+				C7BE13DBE4365DAB56C2D8D6BFBD8093 /* OpenShare+Alipay.m */,
+				E1DA917C1220FFBB79D49DC674B7367A /* OpenShare+QQ.h */,
+				2B09CD87AC00FA2C2421769FDD279740 /* OpenShare+QQ.m */,
+				04A08AA2CF62EBF64B941DAF632644EB /* OpenShare+Renren.h */,
+				3D98FBFC2113986275476C8E5598B2D8 /* OpenShare+Renren.m */,
+				DF395C16E9042AF1EC5EF159C68DD554 /* OpenShare+Weibo.h */,
+				8C850C0E638F183C9CFF0936B9C6A676 /* OpenShare+Weibo.m */,
+				505CFDB76C7EAF3DBCDC1DA1AFD94836 /* OpenShare+Weixin.h */,
+				79C2C32102D79CCFDBB0C0D87008649E /* OpenShare+Weixin.m */,
+				93A2FAFA64AD8467F2900C096F5EFA7E /* OpenShareHeader.h */,
+				653E12D1F75DB14B13964681E4D5CA9C /* Support Files */,
+			);
+			path = OpenShare;
+			sourceTree = "<group>";
+		};
+		472A98F8F0EF12475D3EEB50884B688D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				4B031B0DC2A1584354216CA29A881D64 /* CircleProgressBar.xcconfig */,
+				CF6B2D369BA20127A01B7BD4D1A2742D /* CircleProgressBar-Private.xcconfig */,
+				4182D3FFFDC80A175ECEA670491D3B6C /* CircleProgressBar-dummy.m */,
+				3E2ECF96FEBCEB2AFF59DF4A5F07E800 /* CircleProgressBar-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/CircleProgressBar";
+			sourceTree = "<group>";
+		};
+		5AF5E6294799B94C722B5606C522E3BA /* MZTimerLabel */ = {
+			isa = PBXGroup;
+			children = (
+				B7430B39D0FEFA58563FF3CF9EB106F5 /* MZTimerLabel.h */,
+				2FE48503A19863D5595B9C7B738AA89F /* MZTimerLabel.m */,
+				3ABD4E46ADCEAB891A3E99C02EC69585 /* Support Files */,
+			);
+			path = MZTimerLabel;
 			sourceTree = "<group>";
 		};
 		6169D5CC70045BF98F072CE58EB48579 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				2920F46FD468AE45D6D31660BCAFB89B /* CoreGraphics.framework */,
+				FBBF103C12E75BCC49BD0388357A059E /* CoreGraphics.framework */,
 				D8B4E658D44C829F40237C1481B417C7 /* CoreText.framework */,
 				8A83515DDCC36B61CF630CAD84DFAA4D /* Foundation.framework */,
-				74CC77633DA276A3D5B192B3E6E4EE21 /* QuartzCore.framework */,
-				93FEAF9A9A2F491B15A38CBA500F2F7A /* UIKit.framework */,
+				F11195DF8BC9BF3F00A3524953ADC7CB /* QuartzCore.framework */,
+				A984D839A56BE3E556BD879C0F6B40F3 /* UIKit.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		6D43973C26C3E44456DEF5EE954D661E /* MZTimerLabel */ = {
+		653E12D1F75DB14B13964681E4D5CA9C /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				EB4CE6BBF15BAEBAD156B3B9769F7B56 /* MZTimerLabel.h */,
-				B6CEB70C8D340B65FF081DA1A7765129 /* MZTimerLabel.m */,
-				194A435D9F839ACECFD6CF944CC12A1D /* Support Files */,
+				1D74107F274D7FB5AA41CDCE23B325E5 /* OpenShare.xcconfig */,
+				A9E8604D8CA1555FA77BFB8BAC6E68D0 /* OpenShare-Private.xcconfig */,
+				6455CE79EBA1F5F0683C916EF4BBA112 /* OpenShare-dummy.m */,
+				002D090B4BD85547560639275BD1A7E3 /* OpenShare-prefix.pch */,
 			);
-			path = MZTimerLabel;
+			name = "Support Files";
+			path = "../Target Support Files/OpenShare";
 			sourceTree = "<group>";
 		};
-		7A7A9907F5732B9DC0D44014678CA282 /* RWBlurPopover */ = {
+		687305ABBA9DD9E66F0EFB085C1E6AE0 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				D6F3D244DF7B6B19E05435EA8CD95E6E /* RWBlurPopover.h */,
-				C7EAD04BE5702F5433203974587B8BAD /* RWBlurPopover.m */,
-				2E0AEEFCCEC735D723DBCCE8EA377C4F /* RWBlurPopoverView.h */,
-				F6A3F74DFF80370E8CABD3BD9737F0C5 /* RWBlurPopoverView.m */,
-				4404ED8225D4E27F8FFA43D8CC4F1711 /* Support Files */,
+				258C0D1A7BB47770CC27120C30EF2220 /* ARTransitionAnimator.xcconfig */,
+				713E0CEEA2AA1D51D9B863CCE9068387 /* ARTransitionAnimator-Private.xcconfig */,
+				B9BFA96AAA1C9E3419D856EA3DA006F9 /* ARTransitionAnimator-dummy.m */,
+				6FAFAB0926803EA78C8A2196BBBE403C /* ARTransitionAnimator-prefix.pch */,
 			);
-			path = RWBlurPopover;
+			name = "Support Files";
+			path = "../Target Support Files/ARTransitionAnimator";
 			sourceTree = "<group>";
 		};
-		7B6015729352B03F98EDDDCA06C385E9 /* OpenShare */ = {
+		768BC0686A8F233B774DFF87E77AD3A9 /* Google-Mobile-Ads-SDK */ = {
 			isa = PBXGroup;
 			children = (
-				3794E2588DE68668E175980276EBC796 /* OpenShare.h */,
-				B5C2A5FC5ADE35AD6BDFFBD236BA5843 /* OpenShare.m */,
-				0412185F6BB75DC3777E2D2120B0D91E /* OpenShare+Alipay.h */,
-				9F82C4F71F808E711465C3F516D10AFB /* OpenShare+Alipay.m */,
-				04BEA1A881139033BA28E0423AF465CD /* OpenShare+QQ.h */,
-				980BCF0B8E90C41300BC5A3D89EAE21D /* OpenShare+QQ.m */,
-				F11A7A0E9DC6733B38ED2F0E81FCFC0A /* OpenShare+Renren.h */,
-				DFBEBB890685E9768152183BFFF43D8F /* OpenShare+Renren.m */,
-				9938B1BBADA14F4713C076E34C181F5F /* OpenShare+Weibo.h */,
-				6B223E955CDEF8E67D51D2F6150787E4 /* OpenShare+Weibo.m */,
-				A4B3CED10B002647BC7FD8DAD9DA400E /* OpenShare+Weixin.h */,
-				05BC5ABB67D0F62AE997DD482577E72E /* OpenShare+Weixin.m */,
-				718B77AEE4035C85A94E30A308B8F241 /* OpenShareHeader.h */,
-				96C0064F829547126A0A694791078D54 /* Support Files */,
+				310D3737A94D2CEC20DB963FA2833B79 /* Frameworks */,
 			);
-			path = OpenShare;
+			path = "Google-Mobile-Ads-SDK";
+			sourceTree = "<group>";
+		};
+		7D024E820A134C25155B7EFE0875017D /* JSKTimerView */ = {
+			isa = PBXGroup;
+			children = (
+				F1C4CE05E6DDF3579DDDE02A68793516 /* JSKTimerView.h */,
+				4F1C412739D33DEC5A72E1C0AFA81372 /* JSKTimerView.m */,
+				2AEF93B225F07CAA4310C4D71A8D57B4 /* Resources */,
+				1A3E10B81E07DF727FDD93FC0E2AF62F /* Support Files */,
+			);
+			path = JSKTimerView;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -681,13 +865,51 @@
 			children = (
 				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
 				20B56609144CE204DFA8221F742B2D76 /* Frameworks */,
-				CBF6E37BF457D81A323A57BCEED776F5 /* Pods */,
+				30F6EB59365BF24EF5F8F81CFDBFF471 /* Pods */,
 				CCA510CFBEA2D207524CDA0D73C3B561 /* Products */,
 				D2411A5FE7F7A004607BED49990C37F4 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		8733C83CDF5E4EEAE8CD3561FEEC82E9 /* VCTransitionsLibrary */ = {
+		952EEBFAF8F7E620423C9F156F25A506 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				15A529C27057E4A57D259CBC6E6CE49C /* Pods-acknowledgements.markdown */,
+				BF59BC15D23E1E1912C8F334E7236813 /* Pods-acknowledgements.plist */,
+				4DF5D3A2A8821AD5FBEB6352C8AA794C /* Pods-dummy.m */,
+				641AE05DD55E5E6AC1590CD7B4A18F97 /* Pods-resources.sh */,
+				335FF8D179430329A1F44F0E2032126E /* Pods.debug.xcconfig */,
+				8558A5A693ABDB904F28C3E15034E834 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			path = "Target Support Files/Pods";
+			sourceTree = "<group>";
+		};
+		A341E93098C63830236A690DC18F4F17 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9CA49C99FD20B2AADA678CDD1E2EC380 /* RWBlurPopover.xcconfig */,
+				12D8ADC905885DAE6EE5944FF2F6C540 /* RWBlurPopover-Private.xcconfig */,
+				0C706660776D895A0CA52E758E174C0B /* RWBlurPopover-dummy.m */,
+				63C6C3CB6FF75B2FDADC3E0462F9AD76 /* RWBlurPopover-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/RWBlurPopover";
+			sourceTree = "<group>";
+		};
+		A53FF0B2E420B4336C49F5E277C60EA3 /* RJBlurAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				379CC3070E42200C2D9E1EDFF89DE970 /* RJBlurAlertView.h */,
+				DA4EA6D7128D57FDE8A16BC9179CDFD2 /* RJBlurAlertView.m */,
+				1769ADF176984015251702B4FAB7628E /* UIImage+ImageEffects.h */,
+				69BBC057AF711808F945A9A0EC93F815 /* UIImage+ImageEffects.m */,
+				2104403225B24A90242619AE70F92228 /* Support Files */,
+			);
+			path = RJBlurAlertView;
+			sourceTree = "<group>";
+		};
+		AFB92AFD57D9D00EFE2FCE9F64B6EFB3 /* VCTransitionsLibrary */ = {
 			isa = PBXGroup;
 			children = (
 				283C0591045D80D70BCFD92ED3A7A4CC /* CEBaseInteractionController.h */,
@@ -720,189 +942,33 @@
 				719B1E4148EBCEA87FC2C9FC05126A41 /* CETurnAnimationController.m */,
 				B56315FCC38556000C9F06A44DE297D6 /* CEVerticalSwipeInteractionController.h */,
 				8A275A0456B69E681D017D6101EDE94E /* CEVerticalSwipeInteractionController.m */,
-				08AD538F930415527E9CBC78E9D31C95 /* Support Files */,
+				0FD45FA17E5FB9554E5ED0B95D60CA09 /* Support Files */,
 			);
 			path = VCTransitionsLibrary;
 			sourceTree = "<group>";
 		};
-		8F243124292CB385447CD040283CD583 /* Support Files */ = {
+		B761AC19ECA515427834AE13711906EF /* EGOCache */ = {
 			isa = PBXGroup;
 			children = (
-				F7BC6178EE6F78B46AA62F9084365818 /* UIView+Shimmer.xcconfig */,
-				496D1274229197816B334BCEA0394F3B /* UIView+Shimmer-Private.xcconfig */,
-				C26EDEB240C590DE8AAA704F6AD60DBD /* UIView+Shimmer-dummy.m */,
-				F307BFA68EEB564A24B98B1D668C3E65 /* UIView+Shimmer-prefix.pch */,
+				DC8CE4092F21BB73887D2293C45D2DF9 /* EGOCache.h */,
+				4A61CA2A9082DBBFCD437D0967478FCF /* EGOCache.m */,
+				F01055EDBA13EC1E5EB6B5C7DE10C5C6 /* Support Files */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/UIView+Shimmer";
-			sourceTree = "<group>";
-		};
-		952EEBFAF8F7E620423C9F156F25A506 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				15A529C27057E4A57D259CBC6E6CE49C /* Pods-acknowledgements.markdown */,
-				BF59BC15D23E1E1912C8F334E7236813 /* Pods-acknowledgements.plist */,
-				79490804E14AB35ECCCDFDBE8BF2B2CC /* Pods-dummy.m */,
-				641AE05DD55E5E6AC1590CD7B4A18F97 /* Pods-resources.sh */,
-				4FAF00FEDA9AEF1A6C601C3BFAD9E230 /* Pods.debug.xcconfig */,
-				E4FF2B2EA15D0D8D49AA601203B3843D /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			path = "Target Support Files/Pods";
-			sourceTree = "<group>";
-		};
-		96B9E7B998E93FABD1AC295BB12C5067 /* RJBlurAlertView */ = {
-			isa = PBXGroup;
-			children = (
-				379CC3070E42200C2D9E1EDFF89DE970 /* RJBlurAlertView.h */,
-				DA4EA6D7128D57FDE8A16BC9179CDFD2 /* RJBlurAlertView.m */,
-				1769ADF176984015251702B4FAB7628E /* UIImage+ImageEffects.h */,
-				69BBC057AF711808F945A9A0EC93F815 /* UIImage+ImageEffects.m */,
-				D129BA2C21CCF18D95DBF2FECCB9D095 /* Support Files */,
-			);
-			path = RJBlurAlertView;
-			sourceTree = "<group>";
-		};
-		96C0064F829547126A0A694791078D54 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				4808EF4936474219204157FF4C48E748 /* OpenShare.xcconfig */,
-				AA55B112E8AA30A582178CF6A0AEB750 /* OpenShare-Private.xcconfig */,
-				BFCECB4DFD332540AE2451045509C3D3 /* OpenShare-dummy.m */,
-				890C982BBDB23F6426B62A56FE1BA671 /* OpenShare-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/OpenShare";
-			sourceTree = "<group>";
-		};
-		9AECCE27B1F587B331EFCDAD7AA05FEC /* UIView+Shimmer */ = {
-			isa = PBXGroup;
-			children = (
-				1DCCD239BC4D2025AC1C245F97CDB0A7 /* UIView+Shimmer.h */,
-				6135C7BAA321DC92D469E45AE45F4A19 /* UIView+Shimmer.m */,
-				8F243124292CB385447CD040283CD583 /* Support Files */,
-			);
-			path = "UIView+Shimmer";
-			sourceTree = "<group>";
-		};
-		9BC7480112828D95E4401A21928D94CA /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				EFEB194C1AEA8D4459DF9F154B9CA1B0 /* GoogleMobileAds.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A20776AD84259668C286946DC86FC351 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				29CFB6484792509BD0858CA32068B32A /* GTScrollNavigationBar.xcconfig */,
-				AC94DC9D8A544A7B893B7BACF6292746 /* GTScrollNavigationBar-Private.xcconfig */,
-				DF74E5553CABF6DD3BDB9E138791280E /* GTScrollNavigationBar-dummy.m */,
-				4DDA48C4E5BA9113F60305B832BEF2FB /* GTScrollNavigationBar-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/GTScrollNavigationBar";
-			sourceTree = "<group>";
-		};
-		A6033D9D95573F86916C611A503A3C02 /* ZCAnimatedLabel */ = {
-			isa = PBXGroup;
-			children = (
-				3A2842177CA30FBC785F285D6771B4C2 /* ZCAnimatedLabel.h */,
-				C6C7E05A968D4E8B2F226FCA3DEC9449 /* ZCAnimatedLabel.m */,
-				8A28234330EC9FBCA28391B4D8335447 /* ZCCoreTextLayout.h */,
-				78AC49C8823AA32A106F54D140D3D59D /* ZCCoreTextLayout.m */,
-				F8F3EA4E317FB43AB328771F1F68862C /* ZCDashLabel.h */,
-				84D6FBDFD4A66BF5EFE82A36FE5F04A6 /* ZCDashLabel.m */,
-				D5713A602D1C05C99E99F824B0FB81B8 /* ZCDuangLabel.h */,
-				E31575BB24AE4CEA00240599CEBB6541 /* ZCDuangLabel.m */,
-				3BA10746810D02CEBFFE1B871878DAFC /* ZCEasingUtil.h */,
-				B8068D7356434B6BC0669F53EA2388BF /* ZCEasingUtil.m */,
-				C759FB64924BAA9C7EABF78A046B436B /* ZCFallLabel.h */,
-				FDEF8377655C7536053F29CF69F8DA3E /* ZCFallLabel.m */,
-				9D2DCA7D62D0DC71C4637B99FB5849D0 /* ZCFlyinLabel.h */,
-				84179F5BD4C74A80E2809495DDBF963A /* ZCFlyinLabel.m */,
-				83DC3EC761E5E658A842DD50A21696AC /* ZCFocusLabel.h */,
-				5FB4032717F1F965F947A1421416AC05 /* ZCFocusLabel.m */,
-				3DC3E510B13EF879170D1B85AE1F3BF7 /* ZCRevealLabel.h */,
-				B0A20FC4B54C67D16C7971DCD0F1591F /* ZCRevealLabel.m */,
-				38D284B46E16E86119C31864AC5A806A /* ZCShapeshiftLabel.h */,
-				26E101C889C131E031D85CA1589909F5 /* ZCShapeshiftLabel.m */,
-				1FE7A2256E18BF8AD428BF62E277FD08 /* ZCSpinLabel.h */,
-				A4C795F75E70179F959333738D2F3DC6 /* ZCSpinLabel.m */,
-				9D30EEF2DCE53C8F6EC27F84A0DB25EA /* ZCThrownLabel.h */,
-				E32260DC27C334735FB3083E2F3E0451 /* ZCThrownLabel.m */,
-				2D2F567B04DD8D4BA94E274C3D0B1A4D /* ZCTransparencyLabel.h */,
-				013D694B0260CF3A952696D42E232209 /* ZCTransparencyLabel.m */,
-				DD63DA1923C0D0EA6A9F435E685B8CC7 /* Support Files */,
-			);
-			path = ZCAnimatedLabel;
-			sourceTree = "<group>";
-		};
-		C124C1BE5B02693BFD7D8EC8EA595052 /* SCViewShaker */ = {
-			isa = PBXGroup;
-			children = (
-				9F5008E150D016A99A1F1EE8E4040B1D /* UIView+Shake.h */,
-				13C153C1CADA348B60D2F32163E75FEC /* UIView+Shake.m */,
-				C595B4A6D42DE5BA9739A2767DDECB15 /* Support Files */,
-			);
-			path = SCViewShaker;
-			sourceTree = "<group>";
-		};
-		C476B5EA38B43FD56F8F49B075498CAD /* JSKTimerView */ = {
-			isa = PBXGroup;
-			children = (
-				3B5D96F011066377EEA1CE56D5812DEA /* JSKTimerView.h */,
-				722F2C9F0388385CF83E2DEADB69CD85 /* JSKTimerView.m */,
-				4523080E3A4BF14E835A25335A11718C /* Resources */,
-				2BED93BC720EA285EEC45A0AA2F10DC2 /* Support Files */,
-			);
-			path = JSKTimerView;
-			sourceTree = "<group>";
-		};
-		C595B4A6D42DE5BA9739A2767DDECB15 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				0CFEFD998F65197650BAB65D9CAF89DD /* SCViewShaker.xcconfig */,
-				30FDA4E93D6DCD6EC9B536D6276C6D19 /* SCViewShaker-Private.xcconfig */,
-				BB0E66F75A20F24FDF83B2CD40B73F16 /* SCViewShaker-dummy.m */,
-				F3F45DB924B868CBDE27783CCA596DAF /* SCViewShaker-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/SCViewShaker";
-			sourceTree = "<group>";
-		};
-		CBF6E37BF457D81A323A57BCEED776F5 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				55408F8C67FC335EEAAF820C3CECBDA3 /* CircleProgressBar */,
-				1862695514B3C4993B3DC99BB41AF0C7 /* EGOCache */,
-				EBE2CC572FD3DCDC75E4DFA42B45822A /* GTScrollNavigationBar */,
-				DD31F0CCA84BC227997F1835EF97FDA4 /* Google-Mobile-Ads-SDK */,
-				C476B5EA38B43FD56F8F49B075498CAD /* JSKTimerView */,
-				6D43973C26C3E44456DEF5EE954D661E /* MZTimerLabel */,
-				7B6015729352B03F98EDDDCA06C385E9 /* OpenShare */,
-				96B9E7B998E93FABD1AC295BB12C5067 /* RJBlurAlertView */,
-				7A7A9907F5732B9DC0D44014678CA282 /* RWBlurPopover */,
-				C124C1BE5B02693BFD7D8EC8EA595052 /* SCViewShaker */,
-				9AECCE27B1F587B331EFCDAD7AA05FEC /* UIView+Shimmer */,
-				8733C83CDF5E4EEAE8CD3561FEEC82E9 /* VCTransitionsLibrary */,
-				A6033D9D95573F86916C611A503A3C02 /* ZCAnimatedLabel */,
-			);
-			name = Pods;
+			path = EGOCache;
 			sourceTree = "<group>";
 		};
 		CCA510CFBEA2D207524CDA0D73C3B561 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				01A41D68F919B98F3D9F38DA1BF673F2 /* JSKTimerView.bundle */,
-				608BF9C1940A61250A602A9CB055C4FD /* libCircleProgressBar.a */,
-				57356991CA64D53C31765D5252DFE80A /* libEGOCache.a */,
-				F4C8DF8F21B51185A344A4D67DD88DE5 /* libGTScrollNavigationBar.a */,
-				33244B7B9916A60510E00F8FC26DECF1 /* libJSKTimerView.a */,
-				DCDE8DD57E9A1369D43455A2DB2164AD /* libMZTimerLabel.a */,
-				18577AEEAE954B31BB492CD864E45CC9 /* libOpenShare.a */,
-				7B6950BA66C92A06D2419F3971A96446 /* libPods.a */,
+				669F56D005D25962654904C2A5CE4067 /* JSKTimerView.bundle */,
+				03FE5BF341DB63701BA90C2F91F703F3 /* libARTransitionAnimator.a */,
+				6A7145EA493C7E4366F5EF2F8D95200A /* libCircleProgressBar.a */,
+				176FB50F516A2C0A7B1FEA96727E9490 /* libEGOCache.a */,
+				92839D56EFA5750017D70583CBD06503 /* libGTScrollNavigationBar.a */,
+				8BD0337C83570C7E6C8EE0B8A0A9C7B9 /* libJSKTimerView.a */,
+				B278DD12451BB554B147AD5D2C9813B9 /* libMZTimerLabel.a */,
+				4422084D2BD870C173B0BE45567573C7 /* libOpenShare.a */,
+				24D44AFC7C42C2EA8947781604BFEA64 /* libPods.a */,
 				43C5DF190322E445F24524FF3BB08D77 /* libRJBlurAlertView.a */,
 				727AE4078E034627B2A04CF5065F4E41 /* libRWBlurPopover.a */,
 				D5E7618CE7365F2332EEC08975A3EFCA /* libSCViewShaker.a */,
@@ -913,30 +979,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D0CE870D702B9E1D5FB9C1D6334CF99A /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				4F179DF66727DFA5E79BF96E72D4B24A /* CircleProgressBar.xcconfig */,
-				58CAAF73B6F60739347E33F79681369C /* CircleProgressBar-Private.xcconfig */,
-				BE7E74A935F4E514F6D4FEC7BD743BD4 /* CircleProgressBar-dummy.m */,
-				50F56DF183F8AFE51BE6CD03F1228E87 /* CircleProgressBar-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/CircleProgressBar";
-			sourceTree = "<group>";
-		};
-		D129BA2C21CCF18D95DBF2FECCB9D095 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				67A987F596561587C853DAC09CFFB3FA /* RJBlurAlertView.xcconfig */,
-				F1A3D8C86E02B441EA1F2FC0F9ACF379 /* RJBlurAlertView-Private.xcconfig */,
-				E647481E107EB341DE2AE7CDA272EA4C /* RJBlurAlertView-dummy.m */,
-				577D4F9F7C12956535A50C1F15CBD3AA /* RJBlurAlertView-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/RJBlurAlertView";
-			sourceTree = "<group>";
-		};
 		D2411A5FE7F7A004607BED49990C37F4 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -945,32 +987,46 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		DD31F0CCA84BC227997F1835EF97FDA4 /* Google-Mobile-Ads-SDK */ = {
+		DC58FCC7B7D990972ED47E0BCEFBF6BB /* RWBlurPopover */ = {
 			isa = PBXGroup;
 			children = (
-				9BC7480112828D95E4401A21928D94CA /* Frameworks */,
+				D6F3D244DF7B6B19E05435EA8CD95E6E /* RWBlurPopover.h */,
+				C7EAD04BE5702F5433203974587B8BAD /* RWBlurPopover.m */,
+				2E0AEEFCCEC735D723DBCCE8EA377C4F /* RWBlurPopoverView.h */,
+				F6A3F74DFF80370E8CABD3BD9737F0C5 /* RWBlurPopoverView.m */,
+				A341E93098C63830236A690DC18F4F17 /* Support Files */,
 			);
-			path = "Google-Mobile-Ads-SDK";
+			path = RWBlurPopover;
 			sourceTree = "<group>";
 		};
-		DD63DA1923C0D0EA6A9F435E685B8CC7 /* Support Files */ = {
+		EB33B69A19C2418CEE544DE3B2B33253 /* SCViewShaker */ = {
 			isa = PBXGroup;
 			children = (
-				0B97FC77D55853C0EA29A3B6699DC07D /* ZCAnimatedLabel.xcconfig */,
-				66A10415B8D470E8801364AAF6C58973 /* ZCAnimatedLabel-Private.xcconfig */,
-				74ACF384991B76045F0106CB7A5FA95E /* ZCAnimatedLabel-dummy.m */,
-				B3E0E5BCE479FC7AED6D1D1A8AE1E43C /* ZCAnimatedLabel-prefix.pch */,
+				9F5008E150D016A99A1F1EE8E4040B1D /* UIView+Shake.h */,
+				13C153C1CADA348B60D2F32163E75FEC /* UIView+Shake.m */,
+				302C9F567CD43B162D7AC35C13D9A0D5 /* Support Files */,
+			);
+			path = SCViewShaker;
+			sourceTree = "<group>";
+		};
+		F01055EDBA13EC1E5EB6B5C7DE10C5C6 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				21468B69929D7DE4E8C3FEB68DE6CFDA /* EGOCache.xcconfig */,
+				D3EC8DD3E596C3A5C83D65BCE1277A95 /* EGOCache-Private.xcconfig */,
+				615163DE555352EF234FF0F50D785674 /* EGOCache-dummy.m */,
+				1B74C7DAFA72DE66BA2CF9A6970A84C5 /* EGOCache-prefix.pch */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/ZCAnimatedLabel";
+			path = "../Target Support Files/EGOCache";
 			sourceTree = "<group>";
 		};
-		EBE2CC572FD3DCDC75E4DFA42B45822A /* GTScrollNavigationBar */ = {
+		FF0A75847910502497D8BCC93F74E139 /* GTScrollNavigationBar */ = {
 			isa = PBXGroup;
 			children = (
-				83B475AAC8FC36D8FEEF5E343FB13FBA /* GTScrollNavigationBar.h */,
-				E26F4110FBA094DFFD6D9C5A72133FC0 /* GTScrollNavigationBar.m */,
-				A20776AD84259668C286946DC86FC351 /* Support Files */,
+				110A06E47DBD24D825D5F7F02782AFE6 /* GTScrollNavigationBar.h */,
+				85F8671FAFE2433C07B99C30C669D3AC /* GTScrollNavigationBar.m */,
+				377C67F8F1CB847D22D345374910F1FD /* Support Files */,
 			);
 			path = GTScrollNavigationBar;
 			sourceTree = "<group>";
@@ -1007,6 +1063,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3C5D820BAE6496B43DE3A84E5DA0F6DF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1A10B2FA36BE1DBA3EEB1C6841B5D02 /* CircleProgressBar.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3D486BEEDC47A1995DD1CC34B848062A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -1015,33 +1079,42 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		42767F65A6AC1906A55DA2AB593BBE0A /* Headers */ = {
+		5107169A9FB8780138EE14530915F6B1 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				946367271BD579F219DCFD003F69BF0A /* CircleProgressBar.h in Headers */,
+				6491C9694C97A6C07BC6C28271784D62 /* GTScrollNavigationBar.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4A90D6E303371365664956F8E93E950D /* Headers */ = {
+		5C296BBF520D3732C7F53C7B97ED397B /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B094C2AB02C31EE953FB4CFD0F34BAAA /* OpenShare+Alipay.h in Headers */,
-				B44F233987F82DA6C168AE70D02913F9 /* OpenShare+QQ.h in Headers */,
-				023B0E6ADD57F8D29DD0E09863B15631 /* OpenShare+Renren.h in Headers */,
-				8EE26C48CE838EE412ADC3DE730401BA /* OpenShare+Weibo.h in Headers */,
-				007066584A7EADB6E163A9B646B4EBA1 /* OpenShare+Weixin.h in Headers */,
-				0E075F4EB223E311FF19DE6E31AD5B44 /* OpenShare.h in Headers */,
-				7F6D3E69412DBCA47A689C5255FE4DD0 /* OpenShareHeader.h in Headers */,
+				370750157D8CE20053096684774AF241 /* MZTimerLabel.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4C2E928CA56C9690653881B93BE27326 /* Headers */ = {
+		94D6893D40E123CD3315BF10DD79D4D0 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C424DC81D3239B38900C9B1E1AB1AC62 /* MZTimerLabel.h in Headers */,
+				5B2C3955B4B1E7E71FDC0A4E26ADA52D /* OpenShare+Alipay.h in Headers */,
+				733692E5A21E19A3C77A6923E3156E35 /* OpenShare+QQ.h in Headers */,
+				A8D3B6691C4086E640CCF9D15013020F /* OpenShare+Renren.h in Headers */,
+				DC857026686599465D34375AF080C505 /* OpenShare+Weibo.h in Headers */,
+				6031ACCF4F47EB482D90D0FF16305283 /* OpenShare+Weixin.h in Headers */,
+				A301A6331FDA4C5C5F0CDA525D82CC24 /* OpenShare.h in Headers */,
+				7B3F1F6CE59A819FFB999C774B331F14 /* OpenShareHeader.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B9D82EA95F558F8F005A2771B08FF23 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E78C4DB6B61C44AE788B7F923A1D526 /* ARBasicAnimation.h in Headers */,
+				2669591A13325D042E2F269C7F9F1B8C /* ARTransitionAnimator.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1076,14 +1149,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D4F70B8A847859885EE351FDD970771A /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				25032DD7BB095765003970C234BA33E4 /* JSKTimerView.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D7557C77ED9962B038F3F62AF190CA83 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -1092,19 +1157,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ED4921A70FDFF3AE6B3BC84A13F6F52C /* Headers */ = {
+		E2F36B980464C398C584712C73C9BB07 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E562870A082E0D8FE1FA657977B5D6D /* EGOCache.h in Headers */,
+				99258B494EBA8F0F65D443E7823B4A4E /* EGOCache.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F7D9E110FAC3369A687AA7DAD0193F2C /* Headers */ = {
+		E415C806FF4171C0A5BD587307F363AE /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40CCEA3BC30D9A6EE0B55767327006B3 /* GTScrollNavigationBar.h in Headers */,
+				465E4E2561EA6FB000ACE568AC82EA0A /* JSKTimerView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1128,13 +1193,13 @@
 			productReference = 882297EF839944506170A2575D4A5CFF /* libUIView+Shimmer.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		0C7B06939A64850139244D2B4320A19E /* JSKTimerView-JSKTimerView */ = {
+		079CAA7565382048A427B7D8AB378AA5 /* JSKTimerView-JSKTimerView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7AA94FC40AA57A6DFFD88FF0FD7A0575 /* Build configuration list for PBXNativeTarget "JSKTimerView-JSKTimerView" */;
+			buildConfigurationList = 7DA34D81427B797DF99AB9DEAF0AF7F7 /* Build configuration list for PBXNativeTarget "JSKTimerView-JSKTimerView" */;
 			buildPhases = (
-				79EC9B5D5F271875177DCFD30A5619B7 /* Sources */,
-				D9DC07512422A2F43473959CB7E43B93 /* Frameworks */,
-				529619ED8D560CB0AD102047DA57AA04 /* Resources */,
+				10DD80933B9E4565979C5450B0546A34 /* Sources */,
+				7A011FE8B53BF634C639ED4C5C9589A1 /* Frameworks */,
+				03BAB0E2D05A8E45057EA4C9E3774841 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -1142,24 +1207,59 @@
 			);
 			name = "JSKTimerView-JSKTimerView";
 			productName = "JSKTimerView-JSKTimerView";
-			productReference = 01A41D68F919B98F3D9F38DA1BF673F2 /* JSKTimerView.bundle */;
+			productReference = 669F56D005D25962654904C2A5CE4067 /* JSKTimerView.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
-		3017414BF3655C94246FECB80CD5F976 /* GTScrollNavigationBar */ = {
+		0843C6283C6CA4002A5CDC6A27F22D81 /* JSKTimerView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4338DD97848D55ADABD6BBE66A436C1B /* Build configuration list for PBXNativeTarget "GTScrollNavigationBar" */;
+			buildConfigurationList = DF37705E0ABD9E1DA5F5B3911EEAEAD1 /* Build configuration list for PBXNativeTarget "JSKTimerView" */;
 			buildPhases = (
-				79380ADEAA0C9478254D648E04C5D290 /* Sources */,
-				D09F0BAD40289FF1348C9EB8FC98C2A5 /* Frameworks */,
-				F7D9E110FAC3369A687AA7DAD0193F2C /* Headers */,
+				BB5ED52E093E029E1121E0627411DDD5 /* Sources */,
+				AD537E15920434CF26BF68E71D437432 /* Frameworks */,
+				E415C806FF4171C0A5BD587307F363AE /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04ADAEE20D31C34FC27E80B15A29A5D1 /* PBXTargetDependency */,
+			);
+			name = JSKTimerView;
+			productName = JSKTimerView;
+			productReference = 8BD0337C83570C7E6C8EE0B8A0A9C7B9 /* libJSKTimerView.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		3D32488135CCD86C305DE7BDEF656613 /* EGOCache */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 245CEB4040C7179DFEEE4B1E14DD42A6 /* Build configuration list for PBXNativeTarget "EGOCache" */;
+			buildPhases = (
+				F597F80B8785B8808EF92A7D49021B7D /* Sources */,
+				B3C24DFF7E0092F31B4E5C832D0B003C /* Frameworks */,
+				E2F36B980464C398C584712C73C9BB07 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = GTScrollNavigationBar;
-			productName = GTScrollNavigationBar;
-			productReference = F4C8DF8F21B51185A344A4D67DD88DE5 /* libGTScrollNavigationBar.a */;
+			name = EGOCache;
+			productName = EGOCache;
+			productReference = 176FB50F516A2C0A7B1FEA96727E9490 /* libEGOCache.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		3FD60E311968BB31C883AD53D4D0B4C4 /* ARTransitionAnimator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F821882A215184DFFC6D501F57A8129C /* Build configuration list for PBXNativeTarget "ARTransitionAnimator" */;
+			buildPhases = (
+				18CD2302F84883EBDEB70BAF5B788A3D /* Sources */,
+				E321F559541DB66CB83BA4122B70A95F /* Frameworks */,
+				9B9D82EA95F558F8F005A2771B08FF23 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ARTransitionAnimator;
+			productName = ARTransitionAnimator;
+			productReference = 03FE5BF341DB63701BA90C2F91F703F3 /* libARTransitionAnimator.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		445D4C2EBD728AE6D9224736F5D614D8 /* RJBlurAlertView */ = {
@@ -1179,21 +1279,21 @@
 			productReference = 43C5DF190322E445F24524FF3BB08D77 /* libRJBlurAlertView.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		5B9A566407AEED20A90DA29A87CE1FE0 /* EGOCache */ = {
+		5D0545F4CF2C5E6138E056D0BFBE75D6 /* MZTimerLabel */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7048916E6B2024A07AE80A4B8BCB8E10 /* Build configuration list for PBXNativeTarget "EGOCache" */;
+			buildConfigurationList = E17FDFD8210133129A9D5BAC95F8BB49 /* Build configuration list for PBXNativeTarget "MZTimerLabel" */;
 			buildPhases = (
-				98DF0AC0CAD0654957EBC8CE478C2F7E /* Sources */,
-				C4C08894CC7C41BD45B2A1945646E799 /* Frameworks */,
-				ED4921A70FDFF3AE6B3BC84A13F6F52C /* Headers */,
+				B04A8BD090DFEE9494F921ED06327140 /* Sources */,
+				5A60641B1C34F7DD6E81CEE5FEE30A0A /* Frameworks */,
+				5C296BBF520D3732C7F53C7B97ED397B /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = EGOCache;
-			productName = EGOCache;
-			productReference = 57356991CA64D53C31765D5252DFE80A /* libEGOCache.a */;
+			name = MZTimerLabel;
+			productName = MZTimerLabel;
+			productReference = B278DD12451BB554B147AD5D2C9813B9 /* libMZTimerLabel.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		5F5ED537FD61BD0464078DD9B2A81741 /* SCViewShaker */ = {
@@ -1213,6 +1313,23 @@
 			productReference = D5E7618CE7365F2332EEC08975A3EFCA /* libSCViewShaker.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		6BA49CEA0964D17E63011736AC086137 /* GTScrollNavigationBar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 61ED913173C78FE9A457069AED4121B2 /* Build configuration list for PBXNativeTarget "GTScrollNavigationBar" */;
+			buildPhases = (
+				BA041375FE31932B058FDB44CB563B2E /* Sources */,
+				D87164F891F751C1444F7845FC43155E /* Frameworks */,
+				5107169A9FB8780138EE14530915F6B1 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GTScrollNavigationBar;
+			productName = GTScrollNavigationBar;
+			productReference = 92839D56EFA5750017D70583CBD06503 /* libGTScrollNavigationBar.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		8175FDFD3E04762C912E6EF724925377 /* ZCAnimatedLabel */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A5EE006691CE961AEEDA524E203CB947 /* Build configuration list for PBXNativeTarget "ZCAnimatedLabel" */;
@@ -1230,66 +1347,33 @@
 			productReference = 30966C44222FCA1F4DA97F42470BCEE8 /* libZCAnimatedLabel.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		9969877FFE6C99473120CD45D3E469E5 /* MZTimerLabel */ = {
+		91D53B27CC45243FFB9A64A8136064A5 /* Pods */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 218873CB8DD56CABE40C268670177C33 /* Build configuration list for PBXNativeTarget "MZTimerLabel" */;
+			buildConfigurationList = 85710A899A652E1F172DD4012E4D2613 /* Build configuration list for PBXNativeTarget "Pods" */;
 			buildPhases = (
-				86237B672CF47EC4956D90F9F5744688 /* Sources */,
-				68DED2812FBCC8B116F8A219068F9128 /* Frameworks */,
-				4C2E928CA56C9690653881B93BE27326 /* Headers */,
+				78698086812E7DBA1B6B8FDB4BEF770D /* Sources */,
+				FA7247A8F66C29FB6B3193AB1214DF9B /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-			);
-			name = MZTimerLabel;
-			productName = MZTimerLabel;
-			productReference = DCDE8DD57E9A1369D43455A2DB2164AD /* libMZTimerLabel.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		BE008698039590B87BC4A904F87B3448 /* Pods */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A2C579ABEA895A89C7560E81A2414DD1 /* Build configuration list for PBXNativeTarget "Pods" */;
-			buildPhases = (
-				EA6C55779AC9539006C32C0EF1060795 /* Sources */,
-				9C248801D32BF25C568C6B0A30A59242 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DB684F1FD07E922BC2A7FF539069B02D /* PBXTargetDependency */,
-				EBCC8E2C1CB1AD6C18419E8D4AB0856E /* PBXTargetDependency */,
-				30BD229F9A6737F80FB7B9C22CDD1B4C /* PBXTargetDependency */,
-				E64F7E8CEAAD0D74AE82B4E58241FD1E /* PBXTargetDependency */,
-				9176CBA8F83C4E37CD06791FCAB92C47 /* PBXTargetDependency */,
-				784ACE1D67884914F2467B7F014D9A72 /* PBXTargetDependency */,
-				089467BCA0C9A1124CB4C277390736F7 /* PBXTargetDependency */,
-				9C6EEEE59AB021E6889F59EF5EC6F1EC /* PBXTargetDependency */,
-				834DE477F086FC47B4DCA95B0FF5D418 /* PBXTargetDependency */,
-				0C5A052E15D1368F9FC60C6C7FB2490E /* PBXTargetDependency */,
-				A874C71937573C76ABA930A2F3B4DCC3 /* PBXTargetDependency */,
-				1D0BF2337FD2EECA46E698E5535474F0 /* PBXTargetDependency */,
+				3A4B74E10901171F36C6D75B38CE0755 /* PBXTargetDependency */,
+				7ECE3C9915AFD65253E6C59876DF60C3 /* PBXTargetDependency */,
+				5AE68156CC5F35F3651DCD82B5ACE2BC /* PBXTargetDependency */,
+				B09ED34117795EB73AAEA679226FA6ED /* PBXTargetDependency */,
+				DDA617011FDA4A59C7810355789A9035 /* PBXTargetDependency */,
+				C02D85611C8ABDEEB924FA9E95AD185D /* PBXTargetDependency */,
+				CDD02CB7A1930A423E2DD1E15AF91578 /* PBXTargetDependency */,
+				D7DADA036C8DA2657A17A4E1701758A9 /* PBXTargetDependency */,
+				63F0D4A8F95F77D9752A39DF43F16EA0 /* PBXTargetDependency */,
+				F75FFA665771F60BACD00E4F598257D6 /* PBXTargetDependency */,
+				37C7BEBF9E8E06BC28BA5892772DA3E1 /* PBXTargetDependency */,
+				F3F9AA71508501683E4190D0198D86F0 /* PBXTargetDependency */,
+				F260D6B22BFF24439FB6B805C57610B4 /* PBXTargetDependency */,
 			);
 			name = Pods;
 			productName = Pods;
-			productReference = 7B6950BA66C92A06D2419F3971A96446 /* libPods.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		C28511824F87F487D68B81C031C5DDC3 /* OpenShare */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 33D2E7DE8996AD6EF5F86F4C3B969783 /* Build configuration list for PBXNativeTarget "OpenShare" */;
-			buildPhases = (
-				07C665216F4E3591C0300EC34EF16DDC /* Sources */,
-				A9BC2BE6850F573D10E2BECD37F30574 /* Frameworks */,
-				4A90D6E303371365664956F8E93E950D /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = OpenShare;
-			productName = OpenShare;
-			productReference = 18577AEEAE954B31BB492CD864E45CC9 /* libOpenShare.a */;
+			productReference = 24D44AFC7C42C2EA8947781604BFEA64 /* libPods.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		C4024C1C2271083F96BC2F03EDDB3B41 /* VCTransitionsLibrary */ = {
@@ -1326,13 +1410,13 @@
 			productReference = 727AE4078E034627B2A04CF5065F4E41 /* libRWBlurPopover.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		F9A53D859EA674E21AD1F6642536A1F4 /* CircleProgressBar */ = {
+		E379068AF54B1BC97002C59C72531239 /* CircleProgressBar */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 75E1947652D384D7EF62571D067CE8A2 /* Build configuration list for PBXNativeTarget "CircleProgressBar" */;
+			buildConfigurationList = CBE22BEF1614E58C62AD6CF080899ADA /* Build configuration list for PBXNativeTarget "CircleProgressBar" */;
 			buildPhases = (
-				643E76AD1CF9E0C949C730F3D964060D /* Sources */,
-				B82AF86DFDD931717D1D076E5BE7665B /* Frameworks */,
-				42767F65A6AC1906A55DA2AB593BBE0A /* Headers */,
+				9EE59A5CEC4744D38A12419DB554154B /* Sources */,
+				CA51778EC552AFDC6938E64D499D9682 /* Frameworks */,
+				3C5D820BAE6496B43DE3A84E5DA0F6DF /* Headers */,
 			);
 			buildRules = (
 			);
@@ -1340,25 +1424,24 @@
 			);
 			name = CircleProgressBar;
 			productName = CircleProgressBar;
-			productReference = 608BF9C1940A61250A602A9CB055C4FD /* libCircleProgressBar.a */;
+			productReference = 6A7145EA493C7E4366F5EF2F8D95200A /* libCircleProgressBar.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		FD527650F361762AE70E56F1DE79B1E8 /* JSKTimerView */ = {
+		ED62AAB46175CE410267A49448A4C978 /* OpenShare */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B9823726FC01D4912FAEE40F87C2C450 /* Build configuration list for PBXNativeTarget "JSKTimerView" */;
+			buildConfigurationList = 7FCA9384E4B68EC8B13C06058D8B3575 /* Build configuration list for PBXNativeTarget "OpenShare" */;
 			buildPhases = (
-				DD57AC1E5304327CC015F2ECF5D82256 /* Sources */,
-				76750B6DAF7E03C461098C127B543781 /* Frameworks */,
-				D4F70B8A847859885EE351FDD970771A /* Headers */,
+				E0BCA95625EC294260C87CFD4181F7AE /* Sources */,
+				E53F1233806B30F369F197E5D9A1EDF5 /* Frameworks */,
+				94D6893D40E123CD3315BF10DD79D4D0 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				2920058DED92581F2C4CBA358123B264 /* PBXTargetDependency */,
 			);
-			name = JSKTimerView;
-			productName = JSKTimerView;
-			productReference = 33244B7B9916A60510E00F8FC26DECF1 /* libJSKTimerView.a */;
+			name = OpenShare;
+			productName = OpenShare;
+			productReference = 4422084D2BD870C173B0BE45567573C7 /* libOpenShare.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -1382,14 +1465,15 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F9A53D859EA674E21AD1F6642536A1F4 /* CircleProgressBar */,
-				5B9A566407AEED20A90DA29A87CE1FE0 /* EGOCache */,
-				3017414BF3655C94246FECB80CD5F976 /* GTScrollNavigationBar */,
-				FD527650F361762AE70E56F1DE79B1E8 /* JSKTimerView */,
-				0C7B06939A64850139244D2B4320A19E /* JSKTimerView-JSKTimerView */,
-				9969877FFE6C99473120CD45D3E469E5 /* MZTimerLabel */,
-				C28511824F87F487D68B81C031C5DDC3 /* OpenShare */,
-				BE008698039590B87BC4A904F87B3448 /* Pods */,
+				3FD60E311968BB31C883AD53D4D0B4C4 /* ARTransitionAnimator */,
+				E379068AF54B1BC97002C59C72531239 /* CircleProgressBar */,
+				3D32488135CCD86C305DE7BDEF656613 /* EGOCache */,
+				6BA49CEA0964D17E63011736AC086137 /* GTScrollNavigationBar */,
+				0843C6283C6CA4002A5CDC6A27F22D81 /* JSKTimerView */,
+				079CAA7565382048A427B7D8AB378AA5 /* JSKTimerView-JSKTimerView */,
+				5D0545F4CF2C5E6138E056D0BFBE75D6 /* MZTimerLabel */,
+				ED62AAB46175CE410267A49448A4C978 /* OpenShare */,
+				91D53B27CC45243FFB9A64A8136064A5 /* Pods */,
 				445D4C2EBD728AE6D9224736F5D614D8 /* RJBlurAlertView */,
 				C42E0D64040803781EA0456F79F29020 /* RWBlurPopover */,
 				5F5ED537FD61BD0464078DD9B2A81741 /* SCViewShaker */,
@@ -1401,34 +1485,20 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		529619ED8D560CB0AD102047DA57AA04 /* Resources */ = {
+		03BAB0E2D05A8E45057EA4C9E3774841 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E69B5927C1A5B6A8CB56DBDDFCFA60A6 /* img0.png in Resources */,
-				23894A3A7C52063C92D2EC830401CB83 /* img1.png in Resources */,
-				DC0EDCBA039516575DEF3550E1B7639A /* img2.png in Resources */,
-				15772A59B91F7EC5589CEEF9C12CCC0B /* img3.png in Resources */,
+				FE45F9AF37E74639D6DFD08A6AD34808 /* img0.png in Resources */,
+				6DE0E1B490F3CD9A365719CFC26DAFC5 /* img1.png in Resources */,
+				1E4DE410F3EA9E788A35E772205642F5 /* img2.png in Resources */,
+				1C95280B406D73E62D159A1FC77AD97A /* img3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		07C665216F4E3591C0300EC34EF16DDC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B8AA9CA032223427818F7373A048E310 /* OpenShare+Alipay.m in Sources */,
-				68784833633BE3AE1C4911A4081BCC3A /* OpenShare+QQ.m in Sources */,
-				8071E2EAF16CF381069F2BF9E17C73CA /* OpenShare+Renren.m in Sources */,
-				C95C10410DC218A359E28C702497782D /* OpenShare+Weibo.m in Sources */,
-				E614367E6053B7AB85E1D4D4F8FD5571 /* OpenShare+Weixin.m in Sources */,
-				015D40C334D86BB06B2213DF612A2C8C /* OpenShare-dummy.m in Sources */,
-				427AA67754575516FA7CEF5ED947B2CE /* OpenShare.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		0DC741E0858E807F93CFE125B797DE1A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1436,6 +1506,23 @@
 				18D5CD6BFF3EED71129470A5C8719B84 /* RJBlurAlertView-dummy.m in Sources */,
 				444EBECF412433508E9A62C8E60624AC /* RJBlurAlertView.m in Sources */,
 				D1B57999EC67579FC0529171D6F519B5 /* UIImage+ImageEffects.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10DD80933B9E4565979C5450B0546A34 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18CD2302F84883EBDEB70BAF5B788A3D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A3DB6FDB6289336D9835DB53DAD9E88 /* ARBasicAnimation.m in Sources */,
+				2CE103B26F368E023365A4EC4ED0BC6D /* ARTransitionAnimator-dummy.m in Sources */,
+				39839E3A7A980689845AF1CC6D13626F /* ARTransitionAnimator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1492,28 +1579,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		643E76AD1CF9E0C949C730F3D964060D /* Sources */ = {
+		78698086812E7DBA1B6B8FDB4BEF770D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C413A8DAEF65D27E5CD210A88A9ED828 /* CircleProgressBar-dummy.m in Sources */,
-				BB7159030C8338909EB700B4253E589A /* CircleProgressBar.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		79380ADEAA0C9478254D648E04C5D290 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B55CFA6F3DE8190750D5609964CAD843 /* GTScrollNavigationBar-dummy.m in Sources */,
-				C7C555B6DAEE91A17FB76170B5979765 /* GTScrollNavigationBar.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		79EC9B5D5F271875177DCFD30A5619B7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				F0847F7F2C4EE193BEDC033091B5514F /* Pods-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1536,125 +1606,171 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		86237B672CF47EC4956D90F9F5744688 /* Sources */ = {
+		9EE59A5CEC4744D38A12419DB554154B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E2683605793CACC40345324DB0AD6C1 /* MZTimerLabel-dummy.m in Sources */,
-				8AE41450425459ED4EE4C3536EC8EB1B /* MZTimerLabel.m in Sources */,
+				FB882A30FA9AB875DDB199A92E32E767 /* CircleProgressBar-dummy.m in Sources */,
+				B72ED1874296E840D424E9B16C1AC829 /* CircleProgressBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		98DF0AC0CAD0654957EBC8CE478C2F7E /* Sources */ = {
+		B04A8BD090DFEE9494F921ED06327140 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7055E22D2907C4A661B72E0415A03C94 /* EGOCache-dummy.m in Sources */,
-				30EBAAE7AD3DE402E56029807B652958 /* EGOCache.m in Sources */,
+				B39B45D864EA90105F217C8BF0B7C153 /* MZTimerLabel-dummy.m in Sources */,
+				868B7761047796C14ADDAA3611447D7E /* MZTimerLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DD57AC1E5304327CC015F2ECF5D82256 /* Sources */ = {
+		BA041375FE31932B058FDB44CB563B2E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				193E57014AE028452E8FDE2F3AD35EFA /* JSKTimerView-dummy.m in Sources */,
-				1945F454D11430B07A42B00B36754D00 /* JSKTimerView.m in Sources */,
+				B635915C988BD8468A27A99BFC06FEFB /* GTScrollNavigationBar-dummy.m in Sources */,
+				5D8B4C47D87681B7DB9D6D9E1C789950 /* GTScrollNavigationBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EA6C55779AC9539006C32C0EF1060795 /* Sources */ = {
+		BB5ED52E093E029E1121E0627411DDD5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70D335C10AD5BA70E61C2268AE70AB43 /* Pods-dummy.m in Sources */,
+				974957B76004A1F2E4A7940D51A4F1D7 /* JSKTimerView-dummy.m in Sources */,
+				8D89EE20E3E9443681B14375766E2E0B /* JSKTimerView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0BCA95625EC294260C87CFD4181F7AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E6BE510541755A3CBD494F350132967 /* OpenShare+Alipay.m in Sources */,
+				C62007B75A72A2AA1E240298D909E2BB /* OpenShare+QQ.m in Sources */,
+				658FEE3D7FEF044D4A44B2238E42C149 /* OpenShare+Renren.m in Sources */,
+				11DB685E652E411EDD61EDBCC63CDA39 /* OpenShare+Weibo.m in Sources */,
+				800EA6AD093D9CFE8250B92A58D41B7B /* OpenShare+Weixin.m in Sources */,
+				51AF1E383B56A86D0CA78C29B57536DB /* OpenShare-dummy.m in Sources */,
+				C1FFF6791AE169270B7BBD7A73CB5ED6 /* OpenShare.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F597F80B8785B8808EF92A7D49021B7D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F5FFD391DD723D0154F7DA0C9A14ADD /* EGOCache-dummy.m in Sources */,
+				AA13A6A11EE6F3304B6EBA71EB5E2ABC /* EGOCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		089467BCA0C9A1124CB4C277390736F7 /* PBXTargetDependency */ = {
+		04ADAEE20D31C34FC27E80B15A29A5D1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = RJBlurAlertView;
-			target = 445D4C2EBD728AE6D9224736F5D614D8 /* RJBlurAlertView */;
-			targetProxy = 2D75A151B5836438F3E5B17B7A12BE0F /* PBXContainerItemProxy */;
+			name = "JSKTimerView-JSKTimerView";
+			target = 079CAA7565382048A427B7D8AB378AA5 /* JSKTimerView-JSKTimerView */;
+			targetProxy = 2D8B58AFFE54B3128B38B6DA026D172F /* PBXContainerItemProxy */;
 		};
-		0C5A052E15D1368F9FC60C6C7FB2490E /* PBXTargetDependency */ = {
+		37C7BEBF9E8E06BC28BA5892772DA3E1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "UIView+Shimmer";
 			target = 018D5C39CD05505A83186C0AD566ED8E /* UIView+Shimmer */;
-			targetProxy = EC5F92D1BAD7C92256B980A243BEC74A /* PBXContainerItemProxy */;
+			targetProxy = AF5AD0521B3588BF165B2DABC178D512 /* PBXContainerItemProxy */;
 		};
-		1D0BF2337FD2EECA46E698E5535474F0 /* PBXTargetDependency */ = {
+		3A4B74E10901171F36C6D75B38CE0755 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = ZCAnimatedLabel;
-			target = 8175FDFD3E04762C912E6EF724925377 /* ZCAnimatedLabel */;
-			targetProxy = 0E5950456C13172FE9AC46C029349676 /* PBXContainerItemProxy */;
+			name = ARTransitionAnimator;
+			target = 3FD60E311968BB31C883AD53D4D0B4C4 /* ARTransitionAnimator */;
+			targetProxy = FC1F44BC0E001940C0637D0D3A90EA85 /* PBXContainerItemProxy */;
 		};
-		2920058DED92581F2C4CBA358123B264 /* PBXTargetDependency */ = {
+		5AE68156CC5F35F3651DCD82B5ACE2BC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "JSKTimerView-JSKTimerView";
-			target = 0C7B06939A64850139244D2B4320A19E /* JSKTimerView-JSKTimerView */;
-			targetProxy = A21EAA50215F8A06DBE349D5F5D69F77 /* PBXContainerItemProxy */;
+			name = EGOCache;
+			target = 3D32488135CCD86C305DE7BDEF656613 /* EGOCache */;
+			targetProxy = AA8D2EE4B188F515C41CEB4BF33564D6 /* PBXContainerItemProxy */;
 		};
-		30BD229F9A6737F80FB7B9C22CDD1B4C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = GTScrollNavigationBar;
-			target = 3017414BF3655C94246FECB80CD5F976 /* GTScrollNavigationBar */;
-			targetProxy = D0F70415302C64E92696F40C6C96F2D8 /* PBXContainerItemProxy */;
-		};
-		784ACE1D67884914F2467B7F014D9A72 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = OpenShare;
-			target = C28511824F87F487D68B81C031C5DDC3 /* OpenShare */;
-			targetProxy = EFFC8A2A9ABE64E55F5D8B374182D4E2 /* PBXContainerItemProxy */;
-		};
-		834DE477F086FC47B4DCA95B0FF5D418 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SCViewShaker;
-			target = 5F5ED537FD61BD0464078DD9B2A81741 /* SCViewShaker */;
-			targetProxy = 4BC1E6EE0A258A68FECF8DEC8B71189F /* PBXContainerItemProxy */;
-		};
-		9176CBA8F83C4E37CD06791FCAB92C47 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = MZTimerLabel;
-			target = 9969877FFE6C99473120CD45D3E469E5 /* MZTimerLabel */;
-			targetProxy = BF6C64B91E468EFD0B803EC9FFD71BAC /* PBXContainerItemProxy */;
-		};
-		9C6EEEE59AB021E6889F59EF5EC6F1EC /* PBXTargetDependency */ = {
+		63F0D4A8F95F77D9752A39DF43F16EA0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = RWBlurPopover;
 			target = C42E0D64040803781EA0456F79F29020 /* RWBlurPopover */;
-			targetProxy = ECD9573CBFBF5BECAB4ABC5B3778533D /* PBXContainerItemProxy */;
+			targetProxy = B12185F163C71F7D42B8A53E71367E60 /* PBXContainerItemProxy */;
 		};
-		A874C71937573C76ABA930A2F3B4DCC3 /* PBXTargetDependency */ = {
+		7ECE3C9915AFD65253E6C59876DF60C3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CircleProgressBar;
+			target = E379068AF54B1BC97002C59C72531239 /* CircleProgressBar */;
+			targetProxy = 09B0EB372F9DFD677A2DAF21D2E80915 /* PBXContainerItemProxy */;
+		};
+		B09ED34117795EB73AAEA679226FA6ED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GTScrollNavigationBar;
+			target = 6BA49CEA0964D17E63011736AC086137 /* GTScrollNavigationBar */;
+			targetProxy = 38E51FEBE47900A1B9049E964AAEFB9B /* PBXContainerItemProxy */;
+		};
+		C02D85611C8ABDEEB924FA9E95AD185D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MZTimerLabel;
+			target = 5D0545F4CF2C5E6138E056D0BFBE75D6 /* MZTimerLabel */;
+			targetProxy = B07BCF53579D6B1086F3B95899BBCE89 /* PBXContainerItemProxy */;
+		};
+		CDD02CB7A1930A423E2DD1E15AF91578 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OpenShare;
+			target = ED62AAB46175CE410267A49448A4C978 /* OpenShare */;
+			targetProxy = ADC772F467CD3ED92F2B7B6AB8113D66 /* PBXContainerItemProxy */;
+		};
+		D7DADA036C8DA2657A17A4E1701758A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RJBlurAlertView;
+			target = 445D4C2EBD728AE6D9224736F5D614D8 /* RJBlurAlertView */;
+			targetProxy = 5D45F594EA07115A48B74852FDF1F20E /* PBXContainerItemProxy */;
+		};
+		DDA617011FDA4A59C7810355789A9035 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JSKTimerView;
+			target = 0843C6283C6CA4002A5CDC6A27F22D81 /* JSKTimerView */;
+			targetProxy = CBC9587ED0F7AADF3F20AA0CBE7FDC2C /* PBXContainerItemProxy */;
+		};
+		F260D6B22BFF24439FB6B805C57610B4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ZCAnimatedLabel;
+			target = 8175FDFD3E04762C912E6EF724925377 /* ZCAnimatedLabel */;
+			targetProxy = 546778C8F2350BBA0317677807ECA7E9 /* PBXContainerItemProxy */;
+		};
+		F3F9AA71508501683E4190D0198D86F0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = VCTransitionsLibrary;
 			target = C4024C1C2271083F96BC2F03EDDB3B41 /* VCTransitionsLibrary */;
-			targetProxy = 4FEC7AD2AC8C2AEF93A52F44B78B9852 /* PBXContainerItemProxy */;
+			targetProxy = CDEDFA202118ADF58CFC0406EB2CAD35 /* PBXContainerItemProxy */;
 		};
-		DB684F1FD07E922BC2A7FF539069B02D /* PBXTargetDependency */ = {
+		F75FFA665771F60BACD00E4F598257D6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = CircleProgressBar;
-			target = F9A53D859EA674E21AD1F6642536A1F4 /* CircleProgressBar */;
-			targetProxy = 4E11FB430BD950B159539F8BDED01C82 /* PBXContainerItemProxy */;
-		};
-		E64F7E8CEAAD0D74AE82B4E58241FD1E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = JSKTimerView;
-			target = FD527650F361762AE70E56F1DE79B1E8 /* JSKTimerView */;
-			targetProxy = A718D72F717C04EDCF321231A7C74699 /* PBXContainerItemProxy */;
-		};
-		EBCC8E2C1CB1AD6C18419E8D4AB0856E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = EGOCache;
-			target = 5B9A566407AEED20A90DA29A87CE1FE0 /* EGOCache */;
-			targetProxy = E30D83FC380E9024E25AABA8F96A9E09 /* PBXContainerItemProxy */;
+			name = SCViewShaker;
+			target = 5F5ED537FD61BD0464078DD9B2A81741 /* SCViewShaker */;
+			targetProxy = 7DB2B57689F6525BF7E63E93BE24C967 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		02551F9A8D0EBF37E83D5F2FC2604CD3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A91853ADA3CB037B1BB1F5B9DDD9579A /* GTScrollNavigationBar-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/GTScrollNavigationBar/GTScrollNavigationBar-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
 		052A17875CB827423D627183396CEB60 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1689,32 +1805,16 @@
 			};
 			name = Release;
 		};
-		0ACB06737D221176C2A1C2122A28A99F /* Release */ = {
+		14DF969C6E2944ECAB5B9DD6F3889539 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E4FF2B2EA15D0D8D49AA601203B3843D /* Pods.release.xcconfig */;
+			baseConfigurationReference = 335FF8D179430329A1F44F0E2032126E /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		1AA11D1B3A42567633C2DD6DA6658D38 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = AA55B112E8AA30A582178CF6A0AEB750 /* OpenShare-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/OpenShare/OpenShare-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1727,6 +1827,54 @@
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/ZCAnimatedLabel/ZCAnimatedLabel-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		1F758F8C09FE44BEC36EDDF0B8D1CBE2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF6B2D369BA20127A01B7BD4D1A2742D /* CircleProgressBar-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/CircleProgressBar/CircleProgressBar-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		29A2E95C5D3391E889FE0D6D780F2648 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8613284A84C9E3ABF4DB57276810007B /* MZTimerLabel-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MZTimerLabel/MZTimerLabel-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		3060E6F012815F95EB99CF4DB25A239B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9E8604D8CA1555FA77BFB8BAC6E68D0 /* OpenShare-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/OpenShare/OpenShare-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
@@ -1753,44 +1901,12 @@
 			};
 			name = Release;
 		};
-		3C6284E275B4E265451F2142CA8948AD /* Debug */ = {
+		4B708C45077F8D32EE30C57E73A3EC5C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC94DC9D8A544A7B893B7BACF6292746 /* GTScrollNavigationBar-Private.xcconfig */;
+			baseConfigurationReference = CF6B2D369BA20127A01B7BD4D1A2742D /* CircleProgressBar-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/GTScrollNavigationBar/GTScrollNavigationBar-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		3ED932CB9D3E8AB87576D08D9ED9C39B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 29D19B5D1FE8C0CBFDA725BF98F867AA /* EGOCache-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/EGOCache/EGOCache-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		4DCAD3E673F8CD1CBB3E666A4B34073A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = EAAAC140A54D70A57B22E339856665AB /* JSKTimerView-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/JSKTimerView/JSKTimerView-prefix.pch";
+				GCC_PREFIX_HEADER = "Target Support Files/CircleProgressBar/CircleProgressBar-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
@@ -1807,6 +1923,54 @@
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/UIView+Shimmer/UIView+Shimmer-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		52D1FB5049632FDD946FB3960EF5A577 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9E8604D8CA1555FA77BFB8BAC6E68D0 /* OpenShare-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/OpenShare/OpenShare-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		586F9B75E57D3E8400340F6BD39F92F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C75F404C2823FDA5FC9A0E3697DB9640 /* JSKTimerView-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/JSKTimerView/JSKTimerView-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		63DBB54571000256BAA7CED032E56F65 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3EC8DD3E596C3A5C83D65BCE1277A95 /* EGOCache-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/EGOCache/EGOCache-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
@@ -1849,28 +2013,28 @@
 			};
 			name = Debug;
 		};
-		7BAC5878911874417DD0F9B779EDA69C /* Debug */ = {
+		827C0251862AADE433557F6F4B84A778 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4FAF00FEDA9AEF1A6C601C3BFAD9E230 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 713E0CEEA2AA1D51D9B863CCE9068387 /* ARTransitionAnimator-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/ARTransitionAnimator/ARTransitionAnimator-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
-		9884B547F82AC056B2C4E56EFEE94536 /* Release */ = {
+		8B2B33CE9D3D533B9D924FE4ED182050 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 58CAAF73B6F60739347E33F79681369C /* CircleProgressBar-Private.xcconfig */;
+			baseConfigurationReference = A91853ADA3CB037B1BB1F5B9DDD9579A /* GTScrollNavigationBar-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/CircleProgressBar/CircleProgressBar-prefix.pch";
+				GCC_PREFIX_HEADER = "Target Support Files/GTScrollNavigationBar/GTScrollNavigationBar-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
@@ -1881,21 +2045,33 @@
 			};
 			name = Release;
 		};
-		9964DBCF30D7B6909F68B09FD4F0CCA4 /* Debug */ = {
+		92A25EA34716789472CD070A0C2655DD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 58CAAF73B6F60739347E33F79681369C /* CircleProgressBar-Private.xcconfig */;
+			baseConfigurationReference = D3EC8DD3E596C3A5C83D65BCE1277A95 /* EGOCache-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/CircleProgressBar/CircleProgressBar-prefix.pch";
+				GCC_PREFIX_HEADER = "Target Support Files/EGOCache/EGOCache-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
-			name = Debug;
+			name = Release;
+		};
+		9A5881552CBD69EA9074FDB6C8E264C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C75F404C2823FDA5FC9A0E3697DB9640 /* JSKTimerView-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = JSKTimerView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
 		};
 		A0637CC7A8AE85BC4E75C502DF2A0953 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1913,12 +2089,12 @@
 			};
 			name = Release;
 		};
-		A493AAEDAF7674F3BFFDEBAC218118E6 /* Release */ = {
+		A4CA3F2F63B755F70F08EF70744ED2F5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AA55B112E8AA30A582178CF6A0AEB750 /* OpenShare-Private.xcconfig */;
+			baseConfigurationReference = 713E0CEEA2AA1D51D9B863CCE9068387 /* ARTransitionAnimator-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/OpenShare/OpenShare-prefix.pch";
+				GCC_PREFIX_HEADER = "Target Support Files/ARTransitionAnimator/ARTransitionAnimator-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
@@ -1928,22 +2104,6 @@
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
-		};
-		A6CEC74960F56F37562D4A9B3F6E8909 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 62154B49C959B26907B5C71A4F15E30C /* MZTimerLabel-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/MZTimerLabel/MZTimerLabel-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
 		};
 		B37F0F91F85060E28F1DAAB522DC7EC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1984,22 +2144,6 @@
 			};
 			name = Debug;
 		};
-		B4067A145B8A072A325BC19829415694 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC94DC9D8A544A7B893B7BACF6292746 /* GTScrollNavigationBar-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/GTScrollNavigationBar/GTScrollNavigationBar-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 		B489B816541319ABD376A388A4023DDC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F1A3D8C86E02B441EA1F2FC0F9ACF379 /* RJBlurAlertView-Private.xcconfig */;
@@ -2032,12 +2176,44 @@
 			};
 			name = Debug;
 		};
+		BE57A94006CCB9E1D978A2DFF38DC3B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8613284A84C9E3ABF4DB57276810007B /* MZTimerLabel-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MZTimerLabel/MZTimerLabel-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		BF6FAD4B596739A058B3C37CA7DB582D /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 12D8ADC905885DAE6EE5944FF2F6C540 /* RWBlurPopover-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/RWBlurPopover/RWBlurPopover-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		C26B95AF86B3F67E7685FECA722C1E63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C75F404C2823FDA5FC9A0E3697DB9640 /* JSKTimerView-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/JSKTimerView/JSKTimerView-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
@@ -2064,9 +2240,9 @@
 			};
 			name = Release;
 		};
-		CBE925A0474237230C28F34DF3579688 /* Debug */ = {
+		CF275B59E5B08B1D6FE9DE26E5B0B174 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EAAAC140A54D70A57B22E339856665AB /* JSKTimerView-Private.xcconfig */;
+			baseConfigurationReference = C75F404C2823FDA5FC9A0E3697DB9640 /* JSKTimerView-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				PRODUCT_NAME = JSKTimerView;
@@ -2076,31 +2252,19 @@
 			};
 			name = Debug;
 		};
-		D959698A2CB1531A5E70A7DE51896FF1 /* Debug */ = {
+		D20203421C1CA0125A8E86B9FC43EC6B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EAAAC140A54D70A57B22E339856665AB /* JSKTimerView-Private.xcconfig */;
+			baseConfigurationReference = 8558A5A693ABDB904F28C3E15034E834 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/JSKTimerView/JSKTimerView-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		DA13139E637A57CE317FDF7343B4F8FA /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = EAAAC140A54D70A57B22E339856665AB /* JSKTimerView-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				PRODUCT_NAME = JSKTimerView;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
 		};
@@ -2119,38 +2283,6 @@
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
-		};
-		E740EA0E85D984CEDB6FCFD84377756D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 29D19B5D1FE8C0CBFDA725BF98F867AA /* EGOCache-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/EGOCache/EGOCache-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		F3B674341372ED6A66D6F798B5CB4779 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 62154B49C959B26907B5C71A4F15E30C /* MZTimerLabel-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/MZTimerLabel/MZTimerLabel-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
 		};
 		FC9E6095ADF16D143B8D1B76661DC658 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -2171,11 +2303,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		218873CB8DD56CABE40C268670177C33 /* Build configuration list for PBXNativeTarget "MZTimerLabel" */ = {
+		245CEB4040C7179DFEEE4B1E14DD42A6 /* Build configuration list for PBXNativeTarget "EGOCache" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A6CEC74960F56F37562D4A9B3F6E8909 /* Debug */,
-				F3B674341372ED6A66D6F798B5CB4779 /* Release */,
+				63DBB54571000256BAA7CED032E56F65 /* Debug */,
+				92A25EA34716789472CD070A0C2655DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2189,20 +2321,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		33D2E7DE8996AD6EF5F86F4C3B969783 /* Build configuration list for PBXNativeTarget "OpenShare" */ = {
+		61ED913173C78FE9A457069AED4121B2 /* Build configuration list for PBXNativeTarget "GTScrollNavigationBar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1AA11D1B3A42567633C2DD6DA6658D38 /* Debug */,
-				A493AAEDAF7674F3BFFDEBAC218118E6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4338DD97848D55ADABD6BBE66A436C1B /* Build configuration list for PBXNativeTarget "GTScrollNavigationBar" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3C6284E275B4E265451F2142CA8948AD /* Debug */,
-				B4067A145B8A072A325BC19829415694 /* Release */,
+				02551F9A8D0EBF37E83D5F2FC2604CD3 /* Debug */,
+				8B2B33CE9D3D533B9D924FE4ED182050 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2216,38 +2339,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7048916E6B2024A07AE80A4B8BCB8E10 /* Build configuration list for PBXNativeTarget "EGOCache" */ = {
+		7DA34D81427B797DF99AB9DEAF0AF7F7 /* Build configuration list for PBXNativeTarget "JSKTimerView-JSKTimerView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3ED932CB9D3E8AB87576D08D9ED9C39B /* Debug */,
-				E740EA0E85D984CEDB6FCFD84377756D /* Release */,
+				CF275B59E5B08B1D6FE9DE26E5B0B174 /* Debug */,
+				9A5881552CBD69EA9074FDB6C8E264C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		75E1947652D384D7EF62571D067CE8A2 /* Build configuration list for PBXNativeTarget "CircleProgressBar" */ = {
+		7FCA9384E4B68EC8B13C06058D8B3575 /* Build configuration list for PBXNativeTarget "OpenShare" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9964DBCF30D7B6909F68B09FD4F0CCA4 /* Debug */,
-				9884B547F82AC056B2C4E56EFEE94536 /* Release */,
+				3060E6F012815F95EB99CF4DB25A239B /* Debug */,
+				52D1FB5049632FDD946FB3960EF5A577 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7AA94FC40AA57A6DFFD88FF0FD7A0575 /* Build configuration list for PBXNativeTarget "JSKTimerView-JSKTimerView" */ = {
+		85710A899A652E1F172DD4012E4D2613 /* Build configuration list for PBXNativeTarget "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CBE925A0474237230C28F34DF3579688 /* Debug */,
-				DA13139E637A57CE317FDF7343B4F8FA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A2C579ABEA895A89C7560E81A2414DD1 /* Build configuration list for PBXNativeTarget "Pods" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7BAC5878911874417DD0F9B779EDA69C /* Debug */,
-				0ACB06737D221176C2A1C2122A28A99F /* Release */,
+				14DF969C6E2944ECAB5B9DD6F3889539 /* Debug */,
+				D20203421C1CA0125A8E86B9FC43EC6B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2261,15 +2375,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B9823726FC01D4912FAEE40F87C2C450 /* Build configuration list for PBXNativeTarget "JSKTimerView" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D959698A2CB1531A5E70A7DE51896FF1 /* Debug */,
-				4DCAD3E673F8CD1CBB3E666A4B34073A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		BDABCAF6EE4BB0DEB59AECE9BC7AB222 /* Build configuration list for PBXNativeTarget "VCTransitionsLibrary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -2279,11 +2384,38 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		CBE22BEF1614E58C62AD6CF080899ADA /* Build configuration list for PBXNativeTarget "CircleProgressBar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F758F8C09FE44BEC36EDDF0B8D1CBE2 /* Debug */,
+				4B708C45077F8D32EE30C57E73A3EC5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DD2C568C8C87FAFC69C6779D5AA60370 /* Build configuration list for PBXNativeTarget "SCViewShaker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E18E3D518518976150C11E5A8321FA6A /* Debug */,
 				A0637CC7A8AE85BC4E75C502DF2A0953 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DF37705E0ABD9E1DA5F5B3911EEAEAD1 /* Build configuration list for PBXNativeTarget "JSKTimerView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				586F9B75E57D3E8400340F6BD39F92F8 /* Debug */,
+				C26B95AF86B3F67E7685FECA722C1E63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E17FDFD8210133129A9D5BAC95F8BB49 /* Build configuration list for PBXNativeTarget "MZTimerLabel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				29A2E95C5D3391E889FE0D6D780F2648 /* Debug */,
+				BE57A94006CCB9E1D978A2DFF38DC3B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2302,6 +2434,15 @@
 			buildConfigurations = (
 				65812036A412A8B13FB23C2653B9F7AA /* Debug */,
 				BF6FAD4B596739A058B3C37CA7DB582D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F821882A215184DFFC6D501F57A8129C /* Build configuration list for PBXNativeTarget "ARTransitionAnimator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				827C0251862AADE433557F6F4B84A778 /* Debug */,
+				A4CA3F2F63B755F70F08EF70744ED2F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -20,6 +20,7 @@
 #import "SettingViewController.h"
 #import "UIImage+ImageEffects.h"
 #import "GTScrollNavigationBar.h"
+#import "ARTransitionAnimator.h"
 //#import "UIView+Shimmer.h"
 //#import <iAd/iAd.h>
 
@@ -34,7 +35,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topSpaceToTitle;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *creditLabel;
-
+@property (nonatomic, strong) ARTransitionAnimator *transitionAnimator;
 
 @end
 
@@ -47,6 +48,10 @@
 //    self.edgesForExtendedLayout = UIRectEdgeNone;
     
     [self initializaBannerView];
+    
+    _transitionAnimator = [[ARTransitionAnimator alloc] init];
+    _transitionAnimator.transitionDuration = 0.3;
+    _transitionAnimator.transitionStyle = ARTransitionStyleMaterial;
     
     if (IS_IPHONE_4_OR_LESS)
     {
@@ -147,6 +152,8 @@
 - (IBAction)showRecord:(id)sender {
     //NSLog(@"tapping record");
     RecordViewController *record = [[RecordViewController alloc] init];
+    record.modalPresentationStyle = UIModalPresentationCustom;
+    record.transitioningDelegate = _transitionAnimator;
     //record.transitioningDelegate = self;
     [self presentViewController:record animated:YES completion:nil];
 }
@@ -175,7 +182,9 @@
     SettingViewController *setting = [[SettingViewController alloc] initWithImage:[[self convertViewToImage] applyBlurWithRadius:12 tintColor:[[UIColor blackColor] colorWithAlphaComponent:0.4f] saturationDeltaFactor:1.0f maskImage:nil]];
     UINavigationController *nav = [[UINavigationController alloc] initWithNavigationBarClass:[GTScrollNavigationBar class] toolbarClass:nil];
     [nav setViewControllers:@[setting] animated:NO];
-    nav.transitioningDelegate = self;
+//    nav.transitioningDelegate = self;
+    nav.modalPresentationStyle = UIModalPresentationCustom;
+    nav.transitioningDelegate = _transitionAnimator;
     [self presentViewController:nav animated:YES completion:nil];
 }
 

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "158F0A7EA6B93E50BF06A5F6"
+               BlueprintIdentifier = "674500AB6E75752A4B8D685D"
                BuildableName = "libGTScrollNavigationBar.a"
                BlueprintName = "GTScrollNavigationBar"
                ReferencedContainer = "container:Pods.xcodeproj">

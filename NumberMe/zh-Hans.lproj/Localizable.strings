@@ -83,6 +83,7 @@
 //gameModeSelectionView
 "NORMAL"="普通模式";
 "CONTINUE"="无限挑战";
+"LEVEL"="闯关模式";
 
 //recommend
 "GGAME"="好玩的小游戏";
