@@ -838,7 +838,6 @@ NSString * const kTempLevelGame = @"tempGame";
     [formatter setDateFormat:@"yyyy-MM-dd  HH:mm"];
     _dateString = [formatter stringFromDate:[NSDate date]];
    
-    _triesUsed = _numberOfTries;
     
     if (duration < _shortestTime)
     {
@@ -877,11 +876,11 @@ NSString * const kTempLevelGame = @"tempGame";
     
     if (_availabelHints == 4)
     {
-        _gameScore += duration * 10 + 100 - _numberOfTries * punishment;
+        _gameScore += duration * 10 + 100 - _triesUsed * punishment;
     }
     else
     {
-        _gameScore += duration * 10 - _numberOfTries * punishment - (arc4random() % 25) * (4 - _availabelHints);
+        _gameScore += duration * 10 - _triesUsed * punishment - (arc4random() % 25) * (4 - _availabelHints);
     }
     
     if (_gameScore < 0)
