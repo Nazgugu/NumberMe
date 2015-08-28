@@ -722,6 +722,74 @@ NSString * const kTempLevelGame = @"tempGame";
     }
 }
 
+- (void)restartLevel
+{
+    [self generateNewAnswer];
+    if (_gameLevel < 12)
+    {
+        if ((_gameLevel % 2) == 0)
+        {
+            _availableTries = _gameLevelTries - 5;
+            _gameLevelTries = _availableTries;
+        }
+        else
+        {
+            _gameLevelTime = _gameLevelTime - 5;
+        }
+        if (_gameLevel < 6 && _gameLevel > 0)
+        {
+            _availabelHints = 4;
+        }
+        else if (_gameLevel > 5 && _gameLevel < 10)
+        {
+            _availabelHints = 3;
+        }
+        else
+        {
+            _availabelHints = 2;
+        }
+    }
+    else
+    {
+        switch (_gameLevel) {
+            case 12:
+            {
+                _gameLevelTime = 20;
+                _availableTries = 9;
+                _gameLevelTries = _availableTries;
+                _availabelHints = 2;
+            }
+                break;
+            case 13:
+            {
+                _gameLevelTime = 18;
+                _availableTries = 9;
+                _gameLevelTries = _availableTries;
+                _availabelHints = 1;
+            }
+                break;
+            case 14:
+            {
+                _gameLevelTime = 16;
+                _availableTries = 9;
+                _gameLevelTries = _availableTries;
+                _availabelHints = 1;
+            }
+                break;
+            case 15:
+            {
+                _gameLevelTime = 15;
+                _availableTries = 8;
+                _gameLevelTries = _availableTries;
+                _availabelHints = 1;
+            }
+                break;
+            default:
+                break;
+        }
+    }
+}
+
 - (void)saveGameStateWithDuration:(NSInteger)duration
 {
     _dateOfGame = [NSDate date];

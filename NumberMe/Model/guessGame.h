@@ -88,4 +88,6 @@ typedef NS_ENUM(NSInteger, gameMode) {
 
 - (void)saveLevelGame;
 
+- (void)restartLevel;
+
 @end

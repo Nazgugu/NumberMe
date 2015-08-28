@@ -236,7 +236,15 @@
 {
     NSLog(@"restarting game");
     [self disableTouchOnBox];
-    _game = [[guessGame alloc] initWithGameMode:_theGameMode];
+    if (_theGameMode == gameModeLevelUp)
+    {
+        [_game saveLevelGame];
+        [_game restartLevel];
+    }
+    else
+    {
+        _game = [[guessGame alloc] initWithGameMode:_theGameMode];
+    }
     _theGlowingBox = 0;
     _currentBoxSet = 0;
     
