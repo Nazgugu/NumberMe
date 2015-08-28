@@ -16,7 +16,7 @@
 #import "DOPScrollableActionSheet.h"
 #import "OpenShareHeader.h"
 
-#define Setting_TitileArray @[@[NSLocalizedString(@"MAXNORMAL",nil),NSLocalizedString(@"MAXINFINITY",nil),NSLocalizedString(@"CLEARCACHE",nil)],@[NSLocalizedString(@"RATE",nil),NSLocalizedString(@"RECOMMEND",nil),NSLocalizedString(@"CONTACT",nil),NSLocalizedString(@"VERSION",nil)]]
+#define Setting_TitileArray @[@[NSLocalizedString(@"MAXNORMAL",nil),NSLocalizedString(@"MAXINFINITY",nil),NSLocalizedString(@"MAXLEVEL",nil),NSLocalizedString(@"CLEARCACHE",nil)],@[NSLocalizedString(@"RATE",nil),NSLocalizedString(@"RECOMMEND",nil),NSLocalizedString(@"CONTACT",nil),NSLocalizedString(@"VERSION",nil)]]
 
 @interface SettingViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) UIImage *blurImage;
@@ -254,7 +254,7 @@
 {
     if (section == 0)
     {
-        return 3;
+        return 4;
     }
     else if (section == 1)
     {
@@ -336,6 +336,22 @@
                 break;
             case 2:
             {
+                UIImage *icon = [self makeThumbnailOfSize:CGSizeMake(25, 25) andImage:[UIImage imageNamed:@"level"]];
+                [cell.imageView setImage:icon];
+                cell.userInteractionEnabled = NO;
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                if ([[EGOCache globalCache] hasCacheForKey:@"maxLevelScore"])
+                {
+                    cell.detailTextLabel.text = [[EGOCache globalCache] stringForKey:@"maxLevelScore"];
+                }
+                else
+                {
+                    cell.detailTextLabel.text = NSLocalizedString(@"NORECORD", nil);
+                }
+            }
+                break;
+            case 3:
+            {
                 UIImage *icon = [self makeThumbnailOfSize:CGSizeMake(25, 25) andImage:[UIImage imageNamed:@"clear"]];
                 [cell.imageView setImage:icon];
             }
@@ -371,7 +387,7 @@
                 cell.userInteractionEnabled = NO;
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 [cell.imageView setImage:icon];
-                cell.detailTextLabel.text = @"v 1.1.0";
+                cell.detailTextLabel.text = @"v 1.2.0";
             }
                 break;
             default:
@@ -402,6 +418,8 @@
                     [[EGOCache globalCache] setData:normalGameData forKey:@"normalGames"];
                     NSData *infinity = [NSKeyedArchiver archivedDataWithRootObject:[NSMutableArray new]];
                     [[EGOCache globalCache] setData:infinity forKey:@"infinityGames"];
+                    NSData *levelGames = [NSKeyedArchiver archivedDataWithRootObject:[NSMutableArray new]];
+                    [[EGOCache globalCache] setData:levelGames forKey:@"levelGames"];
                 }
             }];
             [alert show];

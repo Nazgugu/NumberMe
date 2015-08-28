@@ -70,6 +70,7 @@
 "SCTITLE2"="关于";
 "MAXNORMAL"="普通模式最高分";
 "MAXINFINITY"="无限挑战最高分";
+"MAXLEVEL"="晋级模式最高分";
 "CLEARCACHE"="清除纪录";
 "CAUTION"="注意!";
 "WARNING"="你确定要清除所有的游戏数据么？一旦清除，你将永远失去之前的游戏记录并且无法复原。";

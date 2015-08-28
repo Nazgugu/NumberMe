@@ -70,6 +70,7 @@
 "SCTITLE2"="About";
 "MAXNORMAL"="Normal mode";
 "MAXINFINITY"="Infinity mode";
+"MAXLEVEL"="Level mode";
 "CLEARCACHE"="Clear record";
 "CAUTION"="Caution!";
 "WARNING"="Are you sure you want to clear all the data? Once the records are deleted you can not restore them";
