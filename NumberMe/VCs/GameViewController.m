@@ -300,7 +300,7 @@
         [self revertToWhite];
         [_timer resetTimer];
         [self cancelShake];
-        _guideLabel.text = NSLocalizedString(@"GAMELEVEL", nil);
+        _guideLabel.text = [NSString stringWithFormat:NSLocalizedString(@"GAMELEVEL", nil),_game.gameLevel];
     }
     [self performSelector:@selector(animateReady) withObject:nil afterDelay:1.2f];
     [self animateDigits];
@@ -308,6 +308,7 @@
 
 - (void)nextLevel
 {
+    [_game generateNewAnswer];
     [self disableTouchOnBox];
     _theGlowingBox = 0;
     _currentBoxSet = 0;
@@ -324,7 +325,7 @@
     [self revertToWhite];
     [_timer resetTimer];
     [self cancelShake];
-    _guideLabel.text = NSLocalizedString(@"GAMELEVEL", nil);
+    _guideLabel.text = [NSString stringWithFormat:NSLocalizedString(@"GAMELEVEL", nil),_game.gameLevel];
     [self performSelector:@selector(animateReady) withObject:nil afterDelay:1.2f];
     [self animateDigits];
 }

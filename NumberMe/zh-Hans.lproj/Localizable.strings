@@ -31,6 +31,7 @@
 "CORRECTNESS"="正确率: %ld %%";
 "CORRECTNO"="猜对个数: %ld";
 "DURATION"="用时: %ld秒";
+"DURATIONST"="最短用时: %ld秒";
 "SCORE"="得分: %ld";
 "CORRECTNESSNA"="正确率: 无数据";
 "CORRECTNONA"="猜对个数: 无数据";

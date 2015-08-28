@@ -31,6 +31,7 @@
 "CORRECTNESS"="Correctness: %ld %%";
 "CORRECTNO"="Correct #: %ld";
 "DURATION"="Time used: %ld s";
+"DURATIONST"="Shortest time: %ld";
 "SCORE"="Game score: %ld";
 "CORRECTNESSNA"="Correctness: N/A";
 "CORRECTNONA"="Correct #: N/A";

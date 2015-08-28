@@ -460,6 +460,9 @@ NSString * const kTempLevelGame = @"tempGame";
         _triesUsed += 1;
     }
     
+    
+    //when available tries are 0
+    
     NSUInteger difference;
     
     switch (boxNum) {
@@ -474,6 +477,14 @@ NSString * const kTempLevelGame = @"tempGame";
                 {
                     _availableTries += 3;
                     _correctNumber += 1;
+                }
+                else if (_gameMode == gameModeLevelUp)
+                {
+                    if (_availableTries == 0)
+                    {
+                        [self verifyAnswer];
+                        return feedBackString;
+                    }
                 }
             }
             else
@@ -517,6 +528,14 @@ NSString * const kTempLevelGame = @"tempGame";
                     _availableTries += 3;
                     _correctNumber += 1;
                 }
+                else if (_gameMode == gameModeLevelUp)
+                {
+                    if (_availableTries == 0)
+                    {
+                        [self verifyAnswer];
+                        return feedBackString;
+                    }
+                }
             }
             else
             {
@@ -536,9 +555,9 @@ NSString * const kTempLevelGame = @"tempGame";
                 {
                     feedBackString = NSLocalizedString(@"NEAR", nil);
                 }
-                if (_gameMode == gameModeInfinity)
+                if (_gameMode == gameModeInfinity  || _gameMode == gameModeLevelUp)
                 {
-                    if (_availableTries == 0 || _gameMode == gameModeLevelUp)
+                    if (_availableTries == 0)
                     {
                         _succeed = 3;
                         return feedBackString;
@@ -558,6 +577,14 @@ NSString * const kTempLevelGame = @"tempGame";
                 {
                     _availableTries += 3;
                     _correctNumber += 1;
+                }
+                else if (_gameMode == gameModeLevelUp)
+                {
+                    if (_availableTries == 0)
+                    {
+                        [self verifyAnswer];
+                        return feedBackString;
+                    }
                 }
             }
             else
@@ -601,6 +628,14 @@ NSString * const kTempLevelGame = @"tempGame";
                     _availableTries += 3;
                     _correctNumber += 1;
                 }
+                else if (_gameMode == gameModeLevelUp)
+                {
+                    if (_availableTries == 0)
+                    {
+                        [self verifyAnswer];
+                        return feedBackString;
+                    }
+                }
             }
             else
             {
@@ -642,7 +677,8 @@ NSString * const kTempLevelGame = @"tempGame";
 
 - (void)levelUpWithDuration:(NSInteger)duration
 {
-    [self saveGameStateWithDuration:duration];
+    //NSLog(@"duration = %ld",duration);
+    [self saveGameStateWithDuration:_gameLevelTime - duration];
     if (_succeed == 2)
     {
         if (_gameLevel < 15)
@@ -653,12 +689,16 @@ NSString * const kTempLevelGame = @"tempGame";
             {
                 if ((_gameLevel % 2) == 0)
                 {
+                    
                     _availableTries = _gameLevelTries - 5;
                     _gameLevelTries = _availableTries;
+                    NSLog(@"gameleveltries = %ld",_gameLevelTries);
                 }
                 else
                 {
                     _gameLevelTime = _gameLevelTime - 5;
+                    _availableTries = _gameLevelTries;
+                    NSLog(@"gameleveltime = %ld",_gameLevelTime);
                 }
                 if (_gameLevel < 6 && _gameLevel > 0)
                 {
@@ -712,7 +752,8 @@ NSString * const kTempLevelGame = @"tempGame";
                         break;
                 }
             }
-            
+            NSLog(@"gameleveltime final = %ld",_gameLevelTime);
+            NSLog(@"gameleveltries final = %ld",_gameLevelTries);
         }
         //finished all levels
         else
@@ -796,32 +837,43 @@ NSString * const kTempLevelGame = @"tempGame";
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd  HH:mm"];
     _dateString = [formatter stringFromDate:[NSDate date]];
-    
+   
     _triesUsed = _numberOfTries;
     
     if (duration < _shortestTime)
     {
-        _shortestTime = _duration;
+        _shortestTime = duration;
     }
     
-    NSInteger baseScore = (_gameLevel - 1) * (100 + 50 *(_gameLevel - 1));
-    
-    _gameScore += baseScore;
-    
-    NSInteger punishment;
+    NSInteger levelBonus, punishment, baseScore;
     
     if (_gameLevel < 6)
     {
-        punishment = 30;
+        punishment = 20;
+        levelBonus = 50 + 5 * (_gameLevel - 1);
     }
     else if (_gameLevel > 5 && _gameLevel < 10)
     {
-        punishment = 15;
+        punishment = 10;
+        levelBonus = 60 + 7 * (_gameLevel - 1);
     }
     else
     {
         punishment = 5;
+        levelBonus = 80 + 9 * (_gameLevel - 1);
     }
+
+    if (_succeed == 2)
+    {
+        baseScore = (_gameLevel - 1) * levelBonus;
+    }
+    else
+    {
+        baseScore = (_gameLevel - 1) * (30 + 2 * (_gameLevel - 1));
+    }
+    
+    _gameScore += baseScore;
+    
     
     if (_availabelHints == 4)
     {
@@ -839,7 +891,7 @@ NSString * const kTempLevelGame = @"tempGame";
     
     NSData *tempLevelData = [NSKeyedArchiver archivedDataWithRootObject:self];
     [[EGOCache globalCache] setData:tempLevelData forKey:kTempLevelGame];
-    
+     NSLog(@"duration here is %ld",_shortestTime);
 }
 
 - (void)saveLevelGame

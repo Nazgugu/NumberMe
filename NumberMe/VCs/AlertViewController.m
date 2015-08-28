@@ -234,8 +234,16 @@
     }
     else if (_game.gameMode == gameModeLevelUp)
     {
-        _usedTimeLabel.text = [NSString stringWithFormat:NSLocalizedString(@"DURATION", nil),_game.shortestTime];
-        _correctnessLabel.text = [NSString stringWithFormat:NSLocalizedString(@"LVTEXT", nil),_game.gameLevel];
+        NSLog(@"shortest time = %ld",_game.shortestTime);
+        _usedTimeLabel.text = [NSString stringWithFormat:NSLocalizedString(@"DURATIONST", nil),_game.shortestTime];
+        if (_game.succeed == 2)
+        {
+            _correctnessLabel.text = [NSString stringWithFormat:NSLocalizedString(@"LVTEXT", nil),_game.gameLevel - 1];
+        }
+        else
+        {
+            _correctnessLabel.text = [NSString stringWithFormat:NSLocalizedString(@"LVTEXT", nil),_game.gameLevel];
+        }
         if ([[EGOCache globalCache] hasCacheForKey:@"maxLevelScore"])
         {
             NSInteger oldRecord = [[[EGOCache globalCache] stringForKey:@"maxLevelScore"] integerValue];
@@ -244,7 +252,7 @@
             {
                 _recordSign.hidden = NO;
                 [_scoreLabel startShimmering];
-                [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameScore] forKey:@"maxLevelGame"];
+                [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameScore] forKey:@"maxLevelScore"];
             }
             _recordLabel.text = [NSString stringWithFormat:NSLocalizedString(@"RECORD", nil),oldRecord];
         }
@@ -253,7 +261,7 @@
             //new record, need to display the record
             _recordSign.hidden = NO;
             [_scoreLabel startShimmering];
-            [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameScore] forKey:@"maxLevelGame"];
+            [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameScore] forKey:@"maxLevelScore"];
             _recordLabel.text = NSLocalizedString(@"NORECORD", nil);
         }
         if ([[EGOCache globalCache] hasCacheForKey:@"maxLevel"])
