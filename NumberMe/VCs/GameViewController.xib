@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="backButton" destination="Ygt-nN-Ra5" id="9Wa-YW-DG6"/>
                 <outlet property="backgrounImageView" destination="cbe-Ea-I5L" id="3K4-xv-Esw"/>
+                <outlet property="levelLabel" destination="bq1-MS-5Pn" id="hYA-cV-cD1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -35,11 +36,24 @@
                         <action selector="close:" destination="-1" eventType="touchUpInside" id="Dj2-vS-2YT"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bq1-MS-5Pn">
+                    <rect key="frame" x="268" y="10" width="42" height="16"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="j6I-rb-6al"/>
+                        <constraint firstAttribute="width" constant="42" id="pUK-bi-Hxq"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="KohinoorDevanagari-Book" family="Kohinoor Devanagari" pointSize="12"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="bq1-MS-5Pn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="24E-OU-eWf"/>
                 <constraint firstItem="cbe-Ea-I5L" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BZv-un-1Lx"/>
+                <constraint firstAttribute="trailing" secondItem="bq1-MS-5Pn" secondAttribute="trailing" constant="10" id="NFg-z3-YrI"/>
                 <constraint firstItem="Ygt-nN-Ra5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="W94-vn-bR3"/>
                 <constraint firstAttribute="trailing" secondItem="cbe-Ea-I5L" secondAttribute="trailing" id="ncr-lU-Jzl"/>
                 <constraint firstItem="Ygt-nN-Ra5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="ngw-T1-SdW"/>

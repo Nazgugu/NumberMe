@@ -28,6 +28,7 @@
 
 @property (nonatomic, assign) NSInteger totalTries;
 @property (weak, nonatomic) IBOutlet UIImageView *backgrounImageView;
+@property (weak, nonatomic) IBOutlet UILabel *levelLabel;
 
 //number buttons
 @property (nonatomic, strong) UIButton *numberZero;
@@ -83,6 +84,8 @@
 @property (nonatomic, strong) NSMutableArray *enables;
 
 @property (nonatomic, strong) UIScrollView *boxScrollView;
+
+@property (nonatomic) NSInteger currentGameLevel;
 
 @end
 
@@ -177,12 +180,14 @@
     [self createBoxesOfBoxSet:_currentBoxSet];
     [self createLine];
     [self initToolButton];
+    [self initLevelLabel];
     
     if (_theGameMode == gameModeNormal)
     {
         _guideLabel.text = NSLocalizedString(@"GUIDE_ONE", nil);
         [self initTimer];
         [_backgrounImageView setImage:[UIImage imageNamed:@"GBGNORM"]];
+        _levelLabel.hidden = YES;
     }
     else if (_theGameMode == gameModeInfinity)
     {
@@ -191,6 +196,7 @@
         [self initProgressBar];
         [self initTimerLabel];
         [_backgrounImageView setImage:[UIImage imageNamed:@"GBGINFI"]];
+        _levelLabel.hidden = YES;
     }
     else if (_theGameMode == gameModeLevelUp)
     {
@@ -199,10 +205,14 @@
         [self initTimer];
         [self initProgressBar];
         [_backgrounImageView setImage:[UIImage imageNamed:@"GBGLV"]];
+        _levelLabel.hidden = NO;
+        _levelLabel.text = @"LV 1";
+        _currentGameLevel = 1;
     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(quit) name:@"quit" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restart) name:@"restart" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(nextLevel) name:@"nextLevel" object:nil];
 }
 
 - (void)dealloc
@@ -212,6 +222,13 @@
 
 - (void)quit
 {
+    if (_theGameMode == gameModeLevelUp)
+    {
+        if (_currentGameLevel < 15)
+        {
+            [_game saveLevelGame];
+        }
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -262,9 +279,48 @@
         [self revertToWhite];
         _guideLabel.text = NSLocalizedString(@"INFINITI", nil);
     }
+    else if (_theGameMode == gameModeLevelUp)
+    {
+        for (int i = 0; i < _enables.count; i++)
+        {
+            [_enables replaceObjectAtIndex:i withObject:@(1)];
+        }
+        [_timer setTimerWithDuration:_game.gameLevelTime];
+        _totalTries = _game.availableTries;
+        _availableTries.progressBarProgressColor = [UIColor colorWithRed:0.263f green:0.792f blue:0.459f alpha:1.00f];
+        [_availableTries setProgress:1.0f animated:YES];
+        [self revertToWhite];
+        [_timer resetTimer];
+        [self cancelShake];
+        _guideLabel.text = NSLocalizedString(@"GAMELEVEL", nil);
+    }
     [self performSelector:@selector(animateReady) withObject:nil afterDelay:1.2f];
     [self animateDigits];
 }
+
+- (void)nextLevel
+{
+    [self disableTouchOnBox];
+    _theGlowingBox = 0;
+    _currentBoxSet = 0;
+    _levelLabel.text = [NSString stringWithFormat:@"LV %ld",_game.gameLevel];
+    _currentGameLevel = _game.gameLevel;
+    for (int i = 0; i < _enables.count; i++)
+    {
+        [_enables replaceObjectAtIndex:i withObject:@(1)];
+    }
+    [_timer setTimerWithDuration:_game.gameLevelTime];
+    _totalTries = _game.availableTries;
+    _availableTries.progressBarProgressColor = [UIColor colorWithRed:0.263f green:0.792f blue:0.459f alpha:1.00f];
+    [_availableTries setProgress:1.0f animated:YES];
+    [self revertToWhite];
+    [_timer resetTimer];
+    [self cancelShake];
+    _guideLabel.text = NSLocalizedString(@"GAMELEVEL", nil);
+    [self performSelector:@selector(animateReady) withObject:nil afterDelay:1.2f];
+    [self animateDigits];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     //NSLog(@"will appear");
@@ -286,6 +342,13 @@
 }
 
 - (IBAction)close:(id)sender {
+    if (_game.gameMode == gameModeLevelUp)
+    {
+        if (_currentGameLevel < 15)
+        {
+            [_game saveLevelGame];
+        }
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -383,6 +446,14 @@
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(_gapSize - 18, SCREEN_HEIGHT - _verticalGap * 5 - 4 * _buttonSize, SCREENWIDTH - 2 * (_gapSize - 18), 1)];
     line.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.2f];
     [self.view addSubview:line];
+}
+
+- (void)initLevelLabel
+{
+    _levelLabel.layer.borderWidth = 1.0f;
+    _levelLabel.layer.cornerRadius = 3.0f;
+    _levelLabel.layer.borderColor = [UIColor whiteColor].CGColor;
+    _levelLabel.layer.masksToBounds = YES;
 }
 
 - (void)initToolButton
@@ -1289,6 +1360,13 @@
             //succeed
             //NSLog(@"showing success");
             //        NSLog(@"remain time = %ld",[_timer remainingDurationInSeconds]);
+            [self resumeTouch];
+            [_timer pauseTimer];
+            [self showSuccess];
+            return;
+        }
+        else if (_game.succeed == 3)
+        {
             [self resumeTouch];
             [_timer pauseTimer];
             [self showSuccess];

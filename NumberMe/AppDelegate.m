@@ -89,6 +89,11 @@
         NSData *infinity = [NSKeyedArchiver archivedDataWithRootObject:[NSMutableArray new]];
         [[EGOCache globalCache] setData:infinity forKey:@"infinityGames"];
     }
+    if (![[EGOCache globalCache] hasCacheForKey:@"levelGames"])
+    {
+        NSData *levelGames = [NSKeyedArchiver archivedDataWithRootObject:[NSMutableArray new]];
+        [[EGOCache globalCache] setData:levelGames forKey:@"levelGames"];
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

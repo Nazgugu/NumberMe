@@ -39,6 +39,8 @@
 "NA"="N/A";
 "RECORD"="Record: %ld";
 "NORECORD"="No record yet";
+"NXTLV"="Next Level";
+"LVTEXT"="Game Level: %ld";
 
 //guessGame
 "HINTMSG"="The answer is very close to %ld";

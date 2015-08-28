@@ -61,8 +61,13 @@ typedef NS_ENUM(NSInteger, gameMode) {
 @property (nonatomic) BOOL thirdHint;
 @property (nonatomic) BOOL forthHint;
 
+//game mode infinity only
+@property (nonatomic) NSInteger triesUsed;
+
+//game mode level only
 @property (nonatomic) NSInteger gameLevel;
 @property (nonatomic) NSInteger gameLevelTime;
+@property (nonatomic) NSInteger shortestTime;
 
 //0 = incorrect, 1 = correct
 @property (nonatomic, strong) NSMutableArray *correctNess;
@@ -80,5 +85,7 @@ typedef NS_ENUM(NSInteger, gameMode) {
 - (void)verifyAnswer;
 
 - (void)endGameWithDuration:(NSInteger)duration;
+
+- (void)saveLevelGame;
 
 @end

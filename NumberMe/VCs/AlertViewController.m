@@ -76,7 +76,22 @@
     self.shareFacebookCircle.contentMode = UIViewContentModeScaleAspectFit;
     _recordSign.hidden = YES;
     
-    [self.playAgainButton setTitle:NSLocalizedString(@"PLAY_AGAIN", nil) forState:UIControlStateNormal];
+    if (_game.gameMode ==  gameModeLevelUp)
+    {
+        if (_game.succeed == 2)
+        {
+            [self.playAgainButton setTitle:NSLocalizedString(@"NXTLV", nil) forState:UIControlStateNormal];
+        }
+        else
+        {
+            [self.playAgainButton setTitle:NSLocalizedString(@"PLAY_AGAIN", nil) forState:UIControlStateNormal];
+        }
+    }
+    else
+    {
+        [self.playAgainButton setTitle:NSLocalizedString(@"PLAY_AGAIN", nil) forState:UIControlStateNormal];
+    }
+    
     [self.quitButton setTitle:NSLocalizedString(@"QUIT", nil) forState:UIControlStateNormal];
     
     [self presentView];
@@ -216,6 +231,55 @@
             [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.duration] forKey:@"maxInfinityDuration"];
         }
     }
+    else if (_game.gameMode == gameModeLevelUp)
+    {
+        _usedTimeLabel.text = [NSString stringWithFormat:NSLocalizedString(@"DURATION", nil),_game.shortestTime];
+        _correctnessLabel.text = [NSString stringWithFormat:NSLocalizedString(@"LVTEXT", nil),_game.gameLevel];
+        if ([[EGOCache globalCache] hasCacheForKey:@"maxLevelScore"])
+        {
+            NSInteger oldRecord = [[[EGOCache globalCache] stringForKey:@"maxLevelScore"] integerValue];
+            //new record, need to display the record
+            if (oldRecord < _game.gameScore)
+            {
+                _recordSign.hidden = NO;
+                [_scoreLabel startShimmering];
+                [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameScore] forKey:@"maxLevelGame"];
+            }
+            _recordLabel.text = [NSString stringWithFormat:NSLocalizedString(@"RECORD", nil),oldRecord];
+        }
+        else
+        {
+            //new record, need to display the record
+            _recordSign.hidden = NO;
+            [_scoreLabel startShimmering];
+            [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameScore] forKey:@"maxLevelGame"];
+            _recordLabel.text = NSLocalizedString(@"NORECORD", nil);
+        }
+        if ([[EGOCache globalCache] hasCacheForKey:@"maxLevel"])
+        {
+            NSInteger level = [[[EGOCache globalCache] stringForKey:@"maxLevel"] integerValue];
+            if (level < _game.gameLevel)
+            {
+                [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameLevel] forKey:@"maxLevel"];
+            }
+        }
+        else
+        {
+            [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameLevel] forKey:@"maxLevel"];
+        }
+        if ([[EGOCache globalCache] hasCacheForKey:@"shortestLevelTime"])
+        {
+            NSInteger shortestTime = [[[EGOCache globalCache] stringForKey:@"shortestLevelTime"] integerValue];
+            if (shortestTime > _game.shortestTime)
+            {
+                [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.shortestTime] forKey:@"shortestLevelTime"];
+            }
+        }
+        else
+        {
+            [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.shortestTime] forKey:@"shortestLevelTime"];
+        }
+    }
     
     if (![OpenShare isWeixinInstalled])
     {
@@ -265,7 +329,21 @@
 
 - (IBAction)restartingGame:(id)sender {
     [self dismissViewControllerAnimated:YES completion:^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"restart" object:nil];
+        if (_game.gameMode == gameModeLevelUp)
+        {
+            if (_game.succeed == 2)
+            {
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"nextLevel" object:nil];
+            }
+            else
+            {
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"restart" object:nil];
+            }
+        }
+        else
+        {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"restart" object:nil];
+        }
     }];
 }
 

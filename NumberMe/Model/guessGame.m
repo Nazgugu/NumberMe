@@ -18,6 +18,11 @@ NSString * const kGameDuration = @"gameDuration";
 NSString * const kGameResult = @"result";
 NSString * const kHintUsed = @"hintUsed";
 NSString * const kDateOfGame = @"dateOfGame";
+NSString * const kTriesUsed = @"triesUsed";
+NSString * const kGameLevel = @"gameLevel";
+
+//temp level game
+NSString * const kTempLevelGame = @"tempGame";
 
 @interface guessGame()
 
@@ -31,10 +36,10 @@ NSString * const kDateOfGame = @"dateOfGame";
 {
     [aCoder encodeObject:[NSNumber numberWithInteger:_gameScore] forKey:kGameScore];
     [aCoder encodeObject:_dateString forKey:kGameDate];
-    [aCoder encodeObject:[NSNumber numberWithInteger:_correctNumber] forKey:kCorrectNumber];
-    [aCoder encodeObject:[NSNumber numberWithInteger:_duration] forKey:kGameDuration];
-    [aCoder encodeObject:_dateOfGame forKey:kDateOfGame];
+    
+        [aCoder encodeObject:_dateOfGame forKey:kDateOfGame];
     [aCoder encodeObject:[NSNumber numberWithInteger:_gameMode] forKey:kGameMode];
+    [aCoder encodeObject:[NSNumber numberWithInteger:_triesUsed] forKey:kTriesUsed];
     
     if (_gameMode == gameModeNormal)
     {
@@ -48,10 +53,19 @@ NSString * const kDateOfGame = @"dateOfGame";
             [aCoder encodeObject:[NSNumber numberWithBool:NO] forKey:kGameResult];
         }
         [aCoder encodeObject:[NSNumber numberWithInteger:(4 - _availabelHints)] forKey:kHintUsed];
+        [aCoder encodeObject:[NSNumber numberWithInteger:_correctNumber] forKey:kCorrectNumber];
+        [aCoder encodeObject:[NSNumber numberWithInteger:_duration] forKey:kGameDuration];
     }
     else if (_gameMode == gameModeInfinity)
     {
         [aCoder encodeObject:[NSNumber numberWithInteger:_hintUsed] forKey:kHintUsed];
+        [aCoder encodeObject:[NSNumber numberWithInteger:_correctNumber] forKey:kCorrectNumber];
+        [aCoder encodeObject:[NSNumber numberWithInteger:_duration] forKey:kGameDuration];
+    }
+    else if (_gameMode == gameModeLevelUp)
+    {
+        [aCoder encodeObject:[NSNumber numberWithInteger:_shortestTime] forKey:kGameDuration];
+        [aCoder encodeObject:[NSNumber numberWithInteger:_gameLevel] forKey:kGameLevel];
     }
 }
 
@@ -63,13 +77,16 @@ NSString * const kDateOfGame = @"dateOfGame";
         self.gameMode = [[aDecoder decodeObjectForKey:kGameMode] integerValue];
         self.gameScore = [[aDecoder decodeObjectForKey:kGameScore] integerValue];
         self.dateString = [aDecoder decodeObjectForKey:kGameDate];
-        self.correctNumber = [[aDecoder decodeObjectForKey:kCorrectNumber] integerValue];
+        
         self.dateOfGame = [aDecoder decodeObjectForKey:kDateOfGame];
-        self.duration = [[aDecoder decodeObjectForKey:kGameDuration] integerValue];
+        
+        self.triesUsed = [[aDecoder decodeObjectForKey:kTriesUsed] integerValue];
         
         if (_gameMode == gameModeNormal)
         {
             self.numberOfTries = [[aDecoder decodeObjectForKey:kNumberTries] integerValue];
+            self.correctNumber = [[aDecoder decodeObjectForKey:kCorrectNumber] integerValue];
+            self.duration = [[aDecoder decodeObjectForKey:kGameDuration] integerValue];
             BOOL succeed = [[aDecoder decodeObjectForKey:kGameResult] boolValue];
             if (succeed)
             {
@@ -84,6 +101,13 @@ NSString * const kDateOfGame = @"dateOfGame";
         else if (_gameMode == gameModeInfinity)
         {
             self.hintUsed = [[aDecoder decodeObjectForKey:kHintUsed] integerValue];
+            self.correctNumber = [[aDecoder decodeObjectForKey:kCorrectNumber] integerValue];
+            self.duration = [[aDecoder decodeObjectForKey:kGameDuration] integerValue];
+        }
+        else if (_gameMode ==gameModeLevelUp)
+        {
+            self.gameLevel = [[aDecoder decodeObjectForKey:kGameLevel] integerValue];
+            self.shortestTime = [[aDecoder decodeObjectForKey:kGameDuration] integerValue];
         }
     }
     return self;
@@ -113,6 +137,7 @@ NSString * const kDateOfGame = @"dateOfGame";
         {
             _hintUsed = 0;
             _availableTries = 5;
+            _triesUsed = _availableTries;
         }
         else if (gameMode == gameModeLevelUp)
         {
@@ -121,6 +146,7 @@ NSString * const kDateOfGame = @"dateOfGame";
             _availabelHints = 4;
             _gameLevelTime = 45;
             _gameLevelTries = _availableTries;
+            _shortestTime = _gameLevelTime;
         }
         
         _allWrong = YES;
@@ -159,6 +185,10 @@ NSString * const kDateOfGame = @"dateOfGame";
     if (_gameMode == gameModeInfinity)
     {
         _availableTries += 1;
+    }
+    else if (_gameMode == gameModeLevelUp)
+    {
+        _succeed = 0;
     }
     [self calculateDigits];
     NSLog(@"%ld, %ld, %ld, %ld",_answerFirstDigit, _answerSecondDigit, _answerThirdDigit, _answerForthDigit);
@@ -427,16 +457,8 @@ NSString * const kDateOfGame = @"dateOfGame";
     else if (_gameMode == gameModeInfinity || _gameMode == gameModeLevelUp)
     {
         _availableTries -= 1;
-//        if (_availableTries == 0)
-//        {
-//            _succeed = 3;
-//            return feedBackString;
-//        }
+        _triesUsed += 1;
     }
-//    else if (_gameMode == gameModeLevelUp)
-//    {
-//        _availableTries -= 1;
-//    }
     
     NSUInteger difference;
     
@@ -472,7 +494,7 @@ NSString * const kDateOfGame = @"dateOfGame";
                 {
                     feedBackString = NSLocalizedString(@"NEAR", nil);
                 }
-                if (_gameMode == gameModeInfinity)
+                if (_gameMode == gameModeInfinity || _gameMode == gameModeLevelUp)
                 {
                     if (_availableTries == 0)
                     {
@@ -516,7 +538,7 @@ NSString * const kDateOfGame = @"dateOfGame";
                 }
                 if (_gameMode == gameModeInfinity)
                 {
-                    if (_availableTries == 0)
+                    if (_availableTries == 0 || _gameMode == gameModeLevelUp)
                     {
                         _succeed = 3;
                         return feedBackString;
@@ -556,7 +578,7 @@ NSString * const kDateOfGame = @"dateOfGame";
                 {
                     feedBackString = NSLocalizedString(@"NEAR", nil);
                 }
-                if (_gameMode == gameModeInfinity)
+                if (_gameMode == gameModeInfinity || _gameMode == gameModeLevelUp)
                 {
                     if (_availableTries == 0)
                     {
@@ -598,7 +620,7 @@ NSString * const kDateOfGame = @"dateOfGame";
                 {
                     feedBackString = NSLocalizedString(@"NEAR", nil);
                 }
-                if (_gameMode == gameModeInfinity)
+                if (_gameMode == gameModeInfinity || _gameMode == gameModeLevelUp)
                 {
                     if (_availableTries == 0)
                     {
@@ -620,86 +642,151 @@ NSString * const kDateOfGame = @"dateOfGame";
 
 - (void)levelUpWithDuration:(NSInteger)duration
 {
-    [self saveGameState];
-    if (_gameLevel < 15)
+    [self saveGameStateWithDuration:duration];
+    if (_succeed == 2)
     {
-        _gameLevel += 1;
-        [self generateNewAnswer];
-        if (_gameLevel < 12)
+        if (_gameLevel < 15)
         {
-            if ((_gameLevel % 2) == 0)
+            _gameLevel += 1;
+            [self generateNewAnswer];
+            if (_gameLevel < 12)
             {
-                _availableTries = _gameLevelTries - 5;
-                _gameLevelTries = _availableTries;
-            }
-            else
-            {
-                _gameLevelTime = _gameLevelTime - 5;
-            }
-            if (_gameLevel < 6 && _gameLevel > 0)
-            {
-                _availabelHints = 4;
-            }
-            else if (_gameLevel > 5 && _gameLevel < 10)
-            {
-                _availabelHints = 3;
-            }
-            else
-            {
-                _availabelHints = 2;
-            }
-        }
-        else
-        {
-            switch (_gameLevel) {
-                case 12:
+                if ((_gameLevel % 2) == 0)
                 {
-                    _gameLevelTime = 20;
-                    _availableTries = 9;
+                    _availableTries = _gameLevelTries - 5;
                     _gameLevelTries = _availableTries;
+                }
+                else
+                {
+                    _gameLevelTime = _gameLevelTime - 5;
+                }
+                if (_gameLevel < 6 && _gameLevel > 0)
+                {
+                    _availabelHints = 4;
+                }
+                else if (_gameLevel > 5 && _gameLevel < 10)
+                {
+                    _availabelHints = 3;
+                }
+                else
+                {
                     _availabelHints = 2;
                 }
-                    break;
-                case 13:
-                {
-                    _gameLevelTime = 18;
-                    _availableTries = 9;
-                    _gameLevelTries = _availableTries;
-                    _availabelHints = 1;
-                }
-                    break;
-                case 14:
-                {
-                    _gameLevelTime = 16;
-                    _availableTries = 9;
-                    _gameLevelTries = _availableTries;
-                    _availabelHints = 1;
-                }
-                    break;
-                case 15:
-                {
-                    _gameLevelTime = 15;
-                    _availableTries = 8;
-                    _gameLevelTries = _availableTries;
-                    _availabelHints = 1;
-                }
-                    break;
-                default:
-                    break;
             }
+            else
+            {
+                switch (_gameLevel) {
+                    case 12:
+                    {
+                        _gameLevelTime = 20;
+                        _availableTries = 9;
+                        _gameLevelTries = _availableTries;
+                        _availabelHints = 2;
+                    }
+                        break;
+                    case 13:
+                    {
+                        _gameLevelTime = 18;
+                        _availableTries = 9;
+                        _gameLevelTries = _availableTries;
+                        _availabelHints = 1;
+                    }
+                        break;
+                    case 14:
+                    {
+                        _gameLevelTime = 16;
+                        _availableTries = 9;
+                        _gameLevelTries = _availableTries;
+                        _availabelHints = 1;
+                    }
+                        break;
+                    case 15:
+                    {
+                        _gameLevelTime = 15;
+                        _availableTries = 8;
+                        _gameLevelTries = _availableTries;
+                        _availabelHints = 1;
+                    }
+                        break;
+                    default:
+                        break;
+                }
+            }
+            
         }
-        
-    }
-    //finished all levels
-    else
-    {
-        
+        //finished all levels
+        else
+        {
+            [self saveLevelGame];
+        }
     }
 }
 
-- (void)saveGameState
+- (void)saveGameStateWithDuration:(NSInteger)duration
 {
+    _dateOfGame = [NSDate date];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd  HH:mm"];
+    _dateString = [formatter stringFromDate:[NSDate date]];
     
+    _triesUsed = _numberOfTries;
+    
+    if (duration < _shortestTime)
+    {
+        _shortestTime = _duration;
+    }
+    
+    NSInteger baseScore = (_gameLevel - 1) * (100 + 50 *(_gameLevel - 1));
+    
+    _gameScore += baseScore;
+    
+    NSInteger punishment;
+    
+    if (_gameLevel < 6)
+    {
+        punishment = 30;
+    }
+    else if (_gameLevel > 5 && _gameLevel < 10)
+    {
+        punishment = 15;
+    }
+    else
+    {
+        punishment = 5;
+    }
+    
+    if (_availabelHints == 4)
+    {
+        _gameScore += duration * 10 + 100 - _numberOfTries * punishment;
+    }
+    else
+    {
+        _gameScore += duration * 10 - _numberOfTries * punishment - (arc4random() % 25) * (4 - _availabelHints);
+    }
+    
+    if (_gameScore < 0)
+    {
+        _gameScore = 0;
+    }
+    
+    NSData *tempLevelData = [NSKeyedArchiver archivedDataWithRootObject:self];
+    [[EGOCache globalCache] setData:tempLevelData forKey:kTempLevelGame];
+    
+}
+
+- (void)saveLevelGame
+{
+    if ([[EGOCache globalCache] hasCacheForKey:@"levelGames"])
+    {
+        NSData *levelArr = [[EGOCache globalCache] dataForKey:@"levelGames"];
+        NSMutableArray *levelGames = [NSKeyedUnarchiver unarchiveObjectWithData:levelArr];
+        NSData *tempGameData = [[EGOCache globalCache] dataForKey:kTempLevelGame];
+        guessGame *tempLevel = [NSKeyedUnarchiver unarchiveObjectWithData:tempGameData];
+        [levelGames addObject:tempLevel];
+        levelArr = [NSKeyedArchiver archivedDataWithRootObject:levelGames];
+        [[EGOCache globalCache] setData:levelArr forKey:@"levelGames"];
+        [[EGOCache globalCache] removeCacheForKey:kTempLevelGame];
+    }
 }
 
 //Total score is 1000, for each correct answer we give 100 and for each second past we deduct 10, for each hint used we give 75
@@ -766,6 +853,7 @@ NSString * const kDateOfGame = @"dateOfGame";
         NSMutableArray *games = [NSKeyedUnarchiver unarchiveObjectWithData:gameData];
         [games addObject:self];
         gameData = [NSKeyedArchiver archivedDataWithRootObject:games];
+        _triesUsed = _numberOfTries;
         [[EGOCache globalCache] setData:gameData forKey:@"normalGames"];
     }
     else if (_gameMode == gameModeInfinity)
