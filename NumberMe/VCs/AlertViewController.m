@@ -80,6 +80,7 @@
     {
         if (_game.succeed == 2)
         {
+            NSLog(@"this case");
             [self.playAgainButton setTitle:NSLocalizedString(@"NXTLV", nil) forState:UIControlStateNormal];
         }
         else

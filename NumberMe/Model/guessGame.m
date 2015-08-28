@@ -648,7 +648,7 @@ NSString * const kTempLevelGame = @"tempGame";
         if (_gameLevel < 15)
         {
             _gameLevel += 1;
-            [self generateNewAnswer];
+            //[self generateNewAnswer];
             if (_gameLevel < 12)
             {
                 if ((_gameLevel % 2) == 0)

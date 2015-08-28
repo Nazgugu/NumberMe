@@ -459,7 +459,7 @@
 - (void)initLevelLabel
 {
     _levelLabel.layer.borderWidth = 1.0f;
-    _levelLabel.layer.cornerRadius = 3.0f;
+    _levelLabel.layer.cornerRadius = 5.0f;
     _levelLabel.layer.borderColor = [UIColor whiteColor].CGColor;
     _levelLabel.layer.masksToBounds = YES;
 }
