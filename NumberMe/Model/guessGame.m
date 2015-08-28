@@ -137,10 +137,11 @@ NSString * const kTempLevelGame = @"tempGame";
         {
             _hintUsed = 0;
             _availableTries = 5;
-            _triesUsed = _availableTries;
+            _triesUsed = 0;
         }
         else if (gameMode == gameModeLevelUp)
         {
+            _triesUsed = 0;
             _gameLevel = 1;
             _availableTries = 35;
             _availabelHints = 4;
@@ -189,6 +190,7 @@ NSString * const kTempLevelGame = @"tempGame";
     else if (_gameMode == gameModeLevelUp)
     {
         _succeed = 0;
+        _triesUsed = 0;
     }
     [self calculateDigits];
     NSLog(@"%ld, %ld, %ld, %ld",_answerFirstDigit, _answerSecondDigit, _answerThirdDigit, _answerForthDigit);
@@ -555,7 +557,7 @@ NSString * const kTempLevelGame = @"tempGame";
                 {
                     feedBackString = NSLocalizedString(@"NEAR", nil);
                 }
-                if (_gameMode == gameModeInfinity  || _gameMode == gameModeLevelUp)
+                if (_gameMode == gameModeInfinity || _gameMode == gameModeLevelUp)
                 {
                     if (_availableTries == 0)
                     {
@@ -628,14 +630,6 @@ NSString * const kTempLevelGame = @"tempGame";
                     _availableTries += 3;
                     _correctNumber += 1;
                 }
-                else if (_gameMode == gameModeLevelUp)
-                {
-                    if (_availableTries == 0)
-                    {
-                        [self verifyAnswer];
-                        return feedBackString;
-                    }
-                }
             }
             else
             {
@@ -684,7 +678,6 @@ NSString * const kTempLevelGame = @"tempGame";
         if (_gameLevel < 15)
         {
             _gameLevel += 1;
-            //[self generateNewAnswer];
             if (_gameLevel < 12)
             {
                 if ((_gameLevel % 2) == 0)
@@ -692,13 +685,13 @@ NSString * const kTempLevelGame = @"tempGame";
                     
                     _availableTries = _gameLevelTries - 5;
                     _gameLevelTries = _availableTries;
-                    NSLog(@"gameleveltries = %ld",_gameLevelTries);
+//                    NSLog(@"gameleveltries = %ld",_gameLevelTries);
                 }
                 else
                 {
                     _gameLevelTime = _gameLevelTime - 5;
                     _availableTries = _gameLevelTries;
-                    NSLog(@"gameleveltime = %ld",_gameLevelTime);
+//                    NSLog(@"gameleveltime = %ld",_gameLevelTime);
                 }
                 if (_gameLevel < 6 && _gameLevel > 0)
                 {
@@ -752,8 +745,8 @@ NSString * const kTempLevelGame = @"tempGame";
                         break;
                 }
             }
-            NSLog(@"gameleveltime final = %ld",_gameLevelTime);
-            NSLog(@"gameleveltries final = %ld",_gameLevelTries);
+//            NSLog(@"gameleveltime final = %ld",_gameLevelTime);
+//            NSLog(@"gameleveltries final = %ld",_gameLevelTries);
         }
         //finished all levels
         else
@@ -838,59 +831,61 @@ NSString * const kTempLevelGame = @"tempGame";
     [formatter setDateFormat:@"yyyy-MM-dd  HH:mm"];
     _dateString = [formatter stringFromDate:[NSDate date]];
    
-    
-    if (duration < _shortestTime)
-    {
-        _shortestTime = duration;
-    }
-    
-    NSInteger levelBonus, punishment, baseScore;
-    
-    if (_gameLevel < 6)
-    {
-        punishment = 20;
-        levelBonus = 50 + 5 * (_gameLevel - 1);
-    }
-    else if (_gameLevel > 5 && _gameLevel < 10)
-    {
-        punishment = 10;
-        levelBonus = 60 + 7 * (_gameLevel - 1);
-    }
-    else
-    {
-        punishment = 5;
-        levelBonus = 80 + 9 * (_gameLevel - 1);
-    }
-
     if (_succeed == 2)
     {
-        baseScore = (_gameLevel - 1) * levelBonus;
-    }
-    else
-    {
-        baseScore = (_gameLevel - 1) * (30 + 2 * (_gameLevel - 1));
-    }
-    
-    _gameScore += baseScore;
-    
-    
-    if (_availabelHints == 4)
-    {
-        _gameScore += duration * 10 + 100 - _triesUsed * punishment;
-    }
-    else
-    {
-        _gameScore += duration * 10 - _triesUsed * punishment - (arc4random() % 25) * (4 - _availabelHints);
-    }
-    
-    if (_gameScore < 0)
-    {
-        _gameScore = 0;
+        if (duration < _shortestTime)
+        {
+            _shortestTime = duration;
+        }
+        
+        NSInteger levelBonus, punishment, baseScore;
+        
+        if (_gameLevel < 6)
+        {
+            punishment = 15;
+            levelBonus = 55 + 6 * (_gameLevel - 1);
+        }
+        else if (_gameLevel > 5 && _gameLevel < 10)
+        {
+            punishment = 10;
+            levelBonus = 60 + 7 * (_gameLevel - 1);
+        }
+        else
+        {
+            punishment = 5;
+            levelBonus = 65 + 8 * (_gameLevel - 1);
+        }
+        
+        if (_succeed == 2)
+        {
+            baseScore = (_gameLevel - 1) * levelBonus + 50;
+        }
+        else
+        {
+            baseScore = (_gameLevel - 1) * (30 + 2 * (_gameLevel - 1)) + 25;
+        }
+        
+        _gameScore += baseScore;
+        
+        
+        if (_availabelHints == 4)
+        {
+            _gameScore += duration * 10 + 100 - _triesUsed * punishment;
+        }
+        else
+        {
+            _gameScore += duration * 10 - _triesUsed * punishment - (arc4random() % 25) * (4 - _availabelHints);
+        }
+        
+        if (_gameScore < 0)
+        {
+            _gameScore = 0;
+        }
     }
     
     NSData *tempLevelData = [NSKeyedArchiver archivedDataWithRootObject:self];
     [[EGOCache globalCache] setData:tempLevelData forKey:kTempLevelGame];
-     NSLog(@"duration here is %ld",_shortestTime);
+//     NSLog(@"duration here is %ld",_shortestTime);
 }
 
 - (void)saveLevelGame

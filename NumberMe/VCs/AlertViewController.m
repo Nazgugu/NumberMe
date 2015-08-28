@@ -80,7 +80,7 @@
     {
         if (_game.succeed == 2)
         {
-            NSLog(@"this case");
+            //NSLog(@"this case");
             [self.playAgainButton setTitle:NSLocalizedString(@"NXTLV", nil) forState:UIControlStateNormal];
         }
         else
@@ -123,23 +123,61 @@
     self.quitButton.layer.borderColor = [UIColor colorWithRed:0.902f green:0.114f blue:0.169f alpha:0.60f].CGColor;
     self.quitButton.layer.cornerRadius = 12.0f;
     self.quitButton.layer.masksToBounds = YES;
+    
+    NSInteger levelOfGame = 0;
+    
+//    NSLog(@"game succeed = %ld",_game.succeed);
+//    NSLog(@"game level = %ld",_game.gameLevel);
+    
     //failed
     if (_game.succeed == 0 || _game.succeed == 1)
     {
 //        self.symbolImage.contentMode = UIViewContentModeTop;
         //self.symbolImage.backgroundColor = [UIColor clearColor];
-        self.view.backgroundColor = [UIColor colorWithRed:0.945f green:0.290f blue:0.298f alpha:1.00f];
-        [_symbolImage setImage:[UIImage imageNamed:@"fail"]];
+        NSLog(@"failed");
+        if (_game.gameMode == gameModeLevelUp)
+        {
+            levelOfGame = _game.gameLevel;
+            self.view.backgroundColor = [UIColor colorWithRed:0.188f green:0.663f blue:0.929f alpha:1.00f];
+            [_symbolImage setImage:[UIImage imageNamed:@"achievement"]];
+        }
+        else
+        {
+            self.view.backgroundColor = [UIColor colorWithRed:0.945f green:0.290f blue:0.298f alpha:1.00f];
+            [_symbolImage setImage:[UIImage imageNamed:@"fail"]];
+        }
     }
     //succeed
     else if (_game.succeed == 2)
     {
         //self.symbolImage.backgroundColor = [UIColor colorWithRed:0.243f green:0.773f blue:0.420f alpha:0.8f];
         self.view.backgroundColor = [UIColor colorWithRed:0.235f green:0.753f blue:0.514f alpha:1.00f];
-        [_symbolImage setImage:[UIImage imageNamed:@"succeed"]];
+        if ([[EGOCache globalCache] hasCacheForKey:@"tempGame"])
+        {
+            if (_game.gameMode == gameModeLevelUp)
+            {
+                levelOfGame = _game.gameLevel - 1;
+            }
+        }
+        else if (![[EGOCache globalCache] hasCacheForKey:@"tempGame"] && _game.gameLevel == 15)
+        {
+            levelOfGame = 15;
+        }
+        if (_game.gameMode == gameModeLevelUp && levelOfGame == 15)
+        {
+            [_symbolImage setImage:[UIImage imageNamed:@"pass"]];
+        }
+        else
+        {
+            [_symbolImage setImage:[UIImage imageNamed:@"succeed"]];
+        }
     }
     else if (_game.succeed == 3)
     {
+        if (_game.gameMode == gameModeLevelUp)
+        {
+            levelOfGame = _game.gameLevel;
+        }
         self.view.backgroundColor = [UIColor colorWithRed:0.188f green:0.663f blue:0.929f alpha:1.00f];
         [_symbolImage setImage:[UIImage imageNamed:@"achievement"]];
     }
@@ -238,11 +276,11 @@
         _usedTimeLabel.text = [NSString stringWithFormat:NSLocalizedString(@"DURATIONST", nil),_game.shortestTime];
         if (_game.succeed == 2)
         {
-            _correctnessLabel.text = [NSString stringWithFormat:NSLocalizedString(@"LVTEXT", nil),_game.gameLevel - 1];
+            _correctnessLabel.text = [NSString stringWithFormat:NSLocalizedString(@"LVTEXT", nil),levelOfGame];
         }
         else
         {
-            _correctnessLabel.text = [NSString stringWithFormat:NSLocalizedString(@"LVTEXT", nil),_game.gameLevel];
+            _correctnessLabel.text = [NSString stringWithFormat:NSLocalizedString(@"LVTEXT", nil),levelOfGame];
         }
         if ([[EGOCache globalCache] hasCacheForKey:@"maxLevelScore"])
         {
@@ -267,14 +305,15 @@
         if ([[EGOCache globalCache] hasCacheForKey:@"maxLevel"])
         {
             NSInteger level = [[[EGOCache globalCache] stringForKey:@"maxLevel"] integerValue];
-            if (level < _game.gameLevel)
+            
+            if (level < levelOfGame)
             {
-                [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameLevel] forKey:@"maxLevel"];
+                [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",levelOfGame] forKey:@"maxLevel"];
             }
         }
         else
         {
-            [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameLevel] forKey:@"maxLevel"];
+            [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",levelOfGame] forKey:@"maxLevel"];
         }
         if ([[EGOCache globalCache] hasCacheForKey:@"shortestLevelTime"])
         {
@@ -316,8 +355,16 @@
     }
     else if (_game.succeed == 0 || _game.succeed == 1)
     {
-        _titleLabel.textColor = [UIColor colorWithRed:1.000f green:0.953f blue:0.216f alpha:1.00f];
-        _titleLabel.text = NSLocalizedString(@"FAILED", nil);
+        if (_game.gameMode == gameModeLevelUp)
+        {
+            _titleLabel.textColor = [UIColor colorWithRed:0.996f green:0.906f blue:0.204f alpha:1.00f];
+            _titleLabel.text = NSLocalizedString(@"END", nil);
+        }
+        else
+        {
+            _titleLabel.textColor = [UIColor colorWithRed:1.000f green:0.953f blue:0.216f alpha:1.00f];
+            _titleLabel.text = NSLocalizedString(@"FAILED", nil);
+        }
     }
     else if (_game.succeed == 3)
     {
