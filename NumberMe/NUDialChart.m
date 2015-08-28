@@ -123,7 +123,7 @@
         CircleProgressBar *bar = [[CircleProgressBar alloc] initWithFrame: CGRectMake(0, 0, overGap + deltaWidth * (i + 1) + lineWidth, overGap + deltaWidth * (i + 1) + lineWidth)];
         
         bar.progressBarWidth = lineWidth;
-        bar.progressBarTrackColor = [UIColor clearColor];
+//        bar.progressBarTrackColor = [UIColor clearColor];
         bar.hintHidden = YES;
         bar.backgroundColor = [UIColor clearColor];
         bar.center = centerPoint;
@@ -206,6 +206,7 @@
         {
             UIColor* _color = [chartDataSource dialChart:self colorOfCircleAtIndex:i];
             bar.progressBarProgressColor = _color;
+            bar.progressBarTrackColor = [_color colorWithAlphaComponent:0.4f];
         }
         
         if ( [chartDataSource respondsToSelector:@selector(dialChart:textOfCircleAtIndex:)] )

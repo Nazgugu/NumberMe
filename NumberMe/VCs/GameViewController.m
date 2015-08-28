@@ -544,7 +544,7 @@
         _timer = [[JSKTimerView alloc] initWithFrame:CGRectMake(_gapSize, SCREENHEIGHT, _buttonSize, _buttonSize)];
     }
     _timer.delegate = self;
-    _timer.labelTextColor = [UIColor colorWithRed:0.678f green:0.663f blue:0.824f alpha:1.00f];
+    _timer.labelTextColor = [UIColor whiteColor];
     if (_theGameMode == gameModeNormal)
     {
         [_timer setTimerWithDuration:30];
@@ -1282,7 +1282,7 @@
     
     self.guideLabel.text = [_game userAnswersAtBox:(_theGlowingBox - 4 * _currentBoxSet) % 5 andAnswer:sender.tag];
     
-    if (_theGameMode == gameModeNormal)
+    if (_theGameMode == gameModeNormal || _theGameMode == gameModeLevelUp)
     {
         if (_game.succeed == 2)
         {
@@ -1306,16 +1306,16 @@
             return;
         }
     }
-    else if (_theGameMode == gameModeLevelUp)
-    {
-        if (_game.succeed == 2)
-        {
-            [self resumeTouch];
-            [_timer pauseTimer];
-            [self showSuccess];
-            return;
-        }
-    }
+//    else if (_theGameMode == gameModeLevelUp)
+//    {
+//        if (_game.succeed == 2)
+//        {
+//            [self resumeTouch];
+//            [_timer pauseTimer];
+//            [self showSuccess];
+//            return;
+//        }
+//    }
     
     if ([[_game.correctNess objectAtIndex:((_theGlowingBox - 4 * _currentBoxSet) % 5 - 1)] integerValue] == 1)
     {

@@ -49,7 +49,7 @@
 		AEA03C471B8EDBBE001ACCEA /* levelGame.png in Resources */ = {isa = PBXBuildFile; fileRef = AEA03C461B8EDBBE001ACCEA /* levelGame.png */; };
 		AEA03C4B1B8EE02D001ACCEA /* GBGINFI.png in Resources */ = {isa = PBXBuildFile; fileRef = AEA03C481B8EE02D001ACCEA /* GBGINFI.png */; };
 		AEA03C4C1B8EE02D001ACCEA /* GBGLV.png in Resources */ = {isa = PBXBuildFile; fileRef = AEA03C491B8EE02D001ACCEA /* GBGLV.png */; };
-		AEA03C4D1B8EE02D001ACCEA /* GBGNORM.png in Resources */ = {isa = PBXBuildFile; fileRef = AEA03C4A1B8EE02D001ACCEA /* GBGNORM.png */; };
+		AEA03C4F1B8FDF1E001ACCEA /* GBGNORM.png in Resources */ = {isa = PBXBuildFile; fileRef = AEA03C4E1B8FDF1E001ACCEA /* GBGNORM.png */; };
 		AEAF5AB21B88336100D295A8 /* NUDialChart.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAF5AAD1B88336100D295A8 /* NUDialChart.m */; };
 		AEAF5AB31B88336100D295A8 /* UICountingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAF5AAF1B88336100D295A8 /* UICountingLabel.m */; };
 		AEAF5AB41B88336100D295A8 /* XMCircleTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAF5AB11B88336100D295A8 /* XMCircleTypeView.m */; };
@@ -136,7 +136,7 @@
 		AEA03C461B8EDBBE001ACCEA /* levelGame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = levelGame.png; sourceTree = "<group>"; };
 		AEA03C481B8EE02D001ACCEA /* GBGINFI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GBGINFI.png; sourceTree = "<group>"; };
 		AEA03C491B8EE02D001ACCEA /* GBGLV.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GBGLV.png; sourceTree = "<group>"; };
-		AEA03C4A1B8EE02D001ACCEA /* GBGNORM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GBGNORM.png; sourceTree = "<group>"; };
+		AEA03C4E1B8FDF1E001ACCEA /* GBGNORM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GBGNORM.png; sourceTree = "<group>"; };
 		AEAF5AAC1B88336100D295A8 /* NUDialChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NUDialChart.h; sourceTree = "<group>"; };
 		AEAF5AAD1B88336100D295A8 /* NUDialChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NUDialChart.m; sourceTree = "<group>"; };
 		AEAF5AAE1B88336100D295A8 /* UICountingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICountingLabel.h; sourceTree = "<group>"; };
@@ -324,9 +324,9 @@
 		AE3E41081B6EC28E001E26FE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AEA03C4E1B8FDF1E001ACCEA /* GBGNORM.png */,
 				AEA03C481B8EE02D001ACCEA /* GBGINFI.png */,
 				AEA03C491B8EE02D001ACCEA /* GBGLV.png */,
-				AEA03C4A1B8EE02D001ACCEA /* GBGNORM.png */,
 				AEA03C461B8EDBBE001ACCEA /* levelGame.png */,
 				AEFB78F21B829072005DEE30 /* continueGame.png */,
 				AE4247961B86F2A50027D9F4 /* recordBG.png */,
@@ -522,7 +522,7 @@
 				AE9D118D1B8570B800A36953 /* SettingViewController.xib in Resources */,
 				AE4247971B86F2A50027D9F4 /* recordBG.png in Resources */,
 				AE90F88A1B7DAEE10039F75E /* icon.png in Resources */,
-				AEA03C4D1B8EE02D001ACCEA /* GBGNORM.png in Resources */,
+				AEA03C4F1B8FDF1E001ACCEA /* GBGNORM.png in Resources */,
 				AE4C1E711B7C679E00AC1FBF /* WelcomeViewController.xib in Resources */,
 				AE67587C1B7813F400F5A93C /* AlertViewController.xib in Resources */,
 				AEA03C4C1B8EE02D001ACCEA /* GBGLV.png in Resources */,

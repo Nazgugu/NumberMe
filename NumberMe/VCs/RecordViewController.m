@@ -706,7 +706,7 @@
 - (UIColor *)dialChart:(NUDialChart *)dialChart textColorOfCircleAtIndex:(int)_index
 {
     //return [UIColor yellowColor];
-    return [UIColor whiteColor];
+    return [UIColor lightTextColor];
 }
 
 - (BOOL)isShowCenterLabelInDial:(NUDialChart *)dialChart
