@@ -60,10 +60,12 @@ install_resource()
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "JGProgressHUD/JGProgressHUD/JGProgressHUD/JGProgressHUD Resources.bundle"
   install_resource "${BUILT_PRODUCTS_DIR}/JSKTimerView.bundle"
+  install_resource "${BUILT_PRODUCTS_DIR}/UAAppReviewManager-iOS.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "JGProgressHUD/JGProgressHUD/JGProgressHUD/JGProgressHUD Resources.bundle"
   install_resource "${BUILT_PRODUCTS_DIR}/JSKTimerView.bundle"
+  install_resource "${BUILT_PRODUCTS_DIR}/UAAppReviewManager-iOS.bundle"
 fi
 
 mkdir -p "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

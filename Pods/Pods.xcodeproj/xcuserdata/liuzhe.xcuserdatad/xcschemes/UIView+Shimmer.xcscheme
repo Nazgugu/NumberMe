@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6DFAE43BA315340649E43A3F"
+               BlueprintIdentifier = "B5F7401B824A04FBE7E8C058"
                BuildableName = "libUIView+Shimmer.a"
                BlueprintName = "UIView+Shimmer"
                ReferencedContainer = "container:Pods.xcodeproj">
