@@ -56,11 +56,19 @@
 "DURATIONMIN"="用时: %ld分 %ld秒";
 "RECORDTITLENORM"="普通模式";
 "RECORDTITLEINFINITY"="无限挑战";
+"RECORDLEVEL"="晋级模式";
 "NORMALRECORD"="普通模式分数";
 "INFINITYRECORD"="无限挑战分数";
+"LEVELRECORD"="晋级模式分数";
+"MAXLEVELUP"="最高关卡: %ld";
+"SHORTTIME"="最短耗时: %ld秒";
+"LEVELNON"="最高关卡: 无数据";
+"SHORTTIMENON"="最短耗时: 无数据";
+"INFOL"="Level";
 "INFOC"="Correctness";
 "INFON"="Correct #";
 "INFOT"="Time Used";
+"INFOST"="Shortest Time";
 "INFOS"="Game Score";
 
 //setting

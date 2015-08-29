@@ -111,15 +111,16 @@
                     </constraints>
                 </view>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OYr-H1-Na0">
-                    <rect key="frame" x="90.5" y="8" width="140" height="21"/>
+                    <rect key="frame" x="70.5" y="8" width="180" height="21"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="EUk-D8-7yI"/>
-                        <constraint firstAttribute="width" constant="140" id="HSA-r4-cF2"/>
+                        <constraint firstAttribute="width" constant="180" id="HSA-r4-cF2"/>
                     </constraints>
                     <segments>
                         <segment title="First"/>
                         <segment title="Second"/>
+                        <segment title=""/>
                     </segments>
                     <color key="tintColor" white="1" alpha="0.74522276182432434" colorSpace="calibratedWhite"/>
                     <connections>
@@ -153,7 +154,7 @@
                 <constraint firstItem="x5q-9J-Vl9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="prM-SA-d35"/>
                 <constraint firstAttribute="bottom" secondItem="BdV-5v-kLC" secondAttribute="bottom" id="zyZ-3T-qwt"/>
             </constraints>
-            <point key="canvasLocation" x="226" y="368"/>
+            <point key="canvasLocation" x="114" y="211"/>
         </view>
     </objects>
     <resources>

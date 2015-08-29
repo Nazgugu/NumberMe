@@ -56,11 +56,19 @@
 "DURATIONMIN"="Time used: %ld min %ld s";
 "RECORDTITLENORM"="NORMAL";
 "RECORDTITLEINFINITY"="INFINITY";
+"RECORDLEVEL"="LEVEL";
 "NORMALRECORD"="Normal Score";
 "INFINITYRECORD"="Infinity Score";
+"LEVELRECORD"="Level Score";
+"MAXLEVELUP"="Max level: %ld";
+"SHORTTIME"="Shortest time: %ld s";
+"LEVELNON"="Max level: N/A";
+"SHORTTIMENON"="Shortest time: N/A";
+"INFOL"="Level";
 "INFOC"="Correctness";
 "INFON"="Correct #";
 "INFOT"="Time Used";
+"INFOST"="Shortest Time";
 "INFOS"="Game Score";
 
 //setting

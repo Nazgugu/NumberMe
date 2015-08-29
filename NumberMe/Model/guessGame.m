@@ -885,11 +885,11 @@ NSString * const kTempLevelGame = @"tempGame";
     
     NSData *tempLevelData = [NSKeyedArchiver archivedDataWithRootObject:self];
     [[EGOCache globalCache] setData:tempLevelData forKey:kTempLevelGame];
-    NSLog(@"saving game");
-    if ([[EGOCache globalCache] hasCacheForKey:kTempLevelGame])
-    {
-        NSLog(@"save succeed");
-    }
+//    NSLog(@"saving game");
+//    if ([[EGOCache globalCache] hasCacheForKey:kTempLevelGame])
+//    {
+//        NSLog(@"save succeed");
+//    }
 //     NSLog(@"duration here is %ld",_shortestTime);
 }
 
@@ -899,21 +899,21 @@ NSString * const kTempLevelGame = @"tempGame";
     {
         NSData *levelArr = [[EGOCache globalCache] dataForKey:@"levelGames"];
         NSMutableArray *levelGames = [NSKeyedUnarchiver unarchiveObjectWithData:levelArr];
-        NSLog(@"level games array count = %ld",levelGames.count);
+//        NSLog(@"level games array count = %ld",levelGames.count);
         NSData *tempGameData = [[EGOCache globalCache] dataForKey:kTempLevelGame];
         guessGame *tempLevel = (guessGame *)[NSKeyedUnarchiver unarchiveObjectWithData:tempGameData];
         [levelGames addObject:tempLevel];
         levelArr = [NSKeyedArchiver archivedDataWithRootObject:levelGames];
         [[EGOCache globalCache] setData:levelArr forKey:@"levelGames"];
         [[EGOCache globalCache] removeCacheForKey:kTempLevelGame];
-        if ([[EGOCache globalCache] hasCacheForKey:kTempLevelGame])
-        {
-            NSLog(@"not removed");
-        }
-        else
-        {
-            NSLog(@"saved");
-        }
+//        if ([[EGOCache globalCache] hasCacheForKey:kTempLevelGame])
+//        {
+//            NSLog(@"not removed");
+//        }
+//        else
+//        {
+//            NSLog(@"saved");
+//        }
     }
 }
 

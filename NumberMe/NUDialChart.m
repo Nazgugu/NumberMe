@@ -95,6 +95,8 @@
     LabelCenterCurrent = [[UICountingLabel alloc] initWithFrame:CGRectMake(0, 0, centerLabelWidth, centerLabelWidth)];
     LabelCenterCurrent.font = [UIFont fontWithName:@"KohinoorDevanagari-Light" size:(centerLabelWidth / 2)];
     LabelCenterCurrent.textAlignment = NSTextAlignmentCenter;
+    LabelCenterCurrent.adjustsFontSizeToFitWidth = YES;
+    LabelCenterCurrent.minimumScaleFactor = 0.5f;
     LabelCenterCurrent.backgroundColor = [UIColor darkGrayColor];
     LabelCenterCurrent.textColor = [UIColor whiteColor];
     LabelCenterCurrent.layer.cornerRadius = centerLabelWidth / 2;
