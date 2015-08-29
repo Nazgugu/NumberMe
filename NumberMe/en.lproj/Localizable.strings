@@ -42,6 +42,7 @@
 "NORECORD"="No record yet";
 "NXTLV"="Next Level";
 "LVTEXT"="Game Level: %ld";
+"PASS"="Levels Cleared";
 
 //guessGame
 "HINTMSG"="The answer is very close to %ld";

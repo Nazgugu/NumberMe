@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>JGProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>JSKTimerView-JSKTimerView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -87,22 +92,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>079CAA7565382048A427B7D8AB378AA5</key>
+		<key>11CE1B5F00A18C1F5BCBA553AAA2A873</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0843C6283C6CA4002A5CDC6A27F22D81</key>
+		<key>137905AA4398FE6E985BA76015CF0797</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3D32488135CCD86C305DE7BDEF656613</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3FD60E311968BB31C883AD53D4D0B4C4</key>
+		<key>34820410B4412580C2B866086E33D1E5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,17 +112,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5D0545F4CF2C5E6138E056D0BFBE75D6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>5F5ED537FD61BD0464078DD9B2A81741</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6BA49CEA0964D17E63011736AC086137</key>
+		<key>7C919819D2C370881350109D9BB1D8FF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -132,7 +127,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>91D53B27CC45243FFB9A64A8136064A5</key>
+		<key>9544F927159FECBB65DB39EB965754E2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B66F9704B4642307FAD7D2D4162F6B44</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BF184DE1852D9136E93C88ABE96A509B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -147,12 +152,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E379068AF54B1BC97002C59C72531239</key>
+		<key>D5569CA1FB65E2F76FEDA25E92FE8FC0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ED62AAB46175CE410267A49448A4C978</key>
+		<key>DB31C56A4CBC6F0FA4A9898F301080EA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E756908E891D2FD32B92B8FBC65C7C16</key>
 		<dict>
 			<key>primary</key>
 			<true/>

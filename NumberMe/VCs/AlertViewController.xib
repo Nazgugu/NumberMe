@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="correctnessLabel" destination="cEf-LZ-fuz" id="WKd-Se-kad"/>
                 <outlet property="dateLabel" destination="aan-3W-dW0" id="VFJ-Ew-Xpq"/>
+                <outlet property="leftConstraint" destination="cea-6i-VZa" id="XnJ-yq-Apf"/>
                 <outlet property="playAgainButton" destination="sa6-6m-e0p" id="SPJ-jy-KZk"/>
                 <outlet property="quitButton" destination="sRo-Ie-zb1" id="z1k-jT-ATm"/>
                 <outlet property="recordLabel" destination="RhD-Ym-Kks" id="zgf-fw-ORn"/>

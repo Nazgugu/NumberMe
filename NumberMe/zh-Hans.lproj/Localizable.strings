@@ -42,6 +42,7 @@
 "NORECORD"="暂无记录";
 "NXTLV"="下一关";
 "LVTEXT"="游戏关卡: %ld";
+"PASS"="游戏通关";
 
 //guessGame
 "HINTMSG"="这个答案非常接近于 %ld";

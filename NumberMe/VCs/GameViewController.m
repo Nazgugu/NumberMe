@@ -1620,7 +1620,21 @@
         {
             sender.layer.borderColor = [UIColor colorWithRed:0.263f green:0.792f blue:0.459f alpha:1.00f].CGColor;
             [_game generateHintOfDigit:(_theGlowingBox - 4 * _currentBoxSet)%5];
-            self.guideLabel.text = _game.hintMessage;
+            if (_theGameMode == gameModeLevelUp)
+            {
+                if ([_game.hintMessage isEqualToString:@""])
+                {
+                    
+                }
+                else
+                {
+                    self.guideLabel.text = _game.hintMessage;
+                }
+            }
+            else
+            {
+                self.guideLabel.text = _game.hintMessage;
+            }
         }
             break;
             
