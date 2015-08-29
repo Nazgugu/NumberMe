@@ -17,6 +17,8 @@
 #import "AlertViewController.h"
 #import "CircleProgressBar.h"
 #import "MZTimerLabel.h"
+#import "JGProgressHUD.h"
+#import "EGOCache.h"
 //#import <pop/POP.h>
 
 @interface GameViewController ()<JSKTimerViewDelegate>
@@ -224,10 +226,11 @@
 {
     if (_theGameMode == gameModeLevelUp)
     {
-        if (_currentGameLevel < 15)
+        if ([[EGOCache globalCache] hasCacheForKey:@"tempGame"])
         {
-            [_game saveLevelGame];
+            NSLog(@"have something");
         }
+        [_game saveLevelGame];
     }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -1184,6 +1187,16 @@
 {
 //    NSLog(@"the glowing box = %ld",(long)_theGlowingBox);
     
+    BOOL shouldGlow = NO;
+    
+    for (JTNumberScrollAnimatedView *number in _boxArray)
+    {
+        if (number.userInteractionEnabled)
+        {
+            shouldGlow = YES;
+        }
+    }
+    
     JTNumberScrollAnimatedView *temp;
     
     
@@ -1196,6 +1209,7 @@
     {   //NSLog(@"not zero");
         if (_theGameMode == gameModeNormal || _theGameMode == gameModeLevelUp)
         {
+            //NSLog(@"index = %ld",_theGlowingBox - 1);
             temp = (JTNumberScrollAnimatedView *)[_boxArray objectAtIndex:_theGlowingBox - 1];
         }
         else if (_theGameMode == gameModeInfinity)
@@ -1209,52 +1223,59 @@
     if (_theGameMode == gameModeNormal || _theGameMode == gameModeLevelUp)
     {
         //NSLog(@"game mode normal");
-        if (temp.isUserInteractionEnabled == YES)
+        if (shouldGlow)
         {
-            if (_theGlowingBox != 0)
+            if (temp.isUserInteractionEnabled == YES)
             {
-                if (_theGlowingBox != index)
+                if (_theGlowingBox != 0)
                 {
-                    //glow back
-                    
+                    if (_theGlowingBox != index)
+                    {
+                        //glow back
+                        
+                        temp.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
+                        temp.layer.shadowColor = [UIColor clearColor].CGColor;
+                        temp.layer.shadowRadius = 0;
+                        temp.layer.shadowOpacity = 0;
+                    }
+                }
+                else
+                {
                     temp.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
                     temp.layer.shadowColor = [UIColor clearColor].CGColor;
                     temp.layer.shadowRadius = 0;
                     temp.layer.shadowOpacity = 0;
                 }
             }
+            
+            temp = [_boxArray objectAtIndex:index - 1];
+            
+            if (temp.isUserInteractionEnabled)
+            {
+                _theGlowingBox = index;
+                temp.layer.borderColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+                temp.layer.shadowColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+                temp.layer.shadowRadius = 5.0f;
+                temp.layer.shadowOpacity = 0.8f;
+                return;
+            }
             else
             {
-                temp.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f].CGColor;
-                temp.layer.shadowColor = [UIColor clearColor].CGColor;
-                temp.layer.shadowRadius = 0;
-                temp.layer.shadowOpacity = 0;
+                if (index < 4)
+                {
+                    [self glowBoxAtIndex:index + 1];
+                    return;
+                }
+                else
+                {
+                    [self glowBoxAtIndex:1];
+                    return;
+                }
             }
-        }
-        
-        temp = [_boxArray objectAtIndex:index - 1];
-        
-        if (temp.isUserInteractionEnabled)
-        {
-            _theGlowingBox = index;
-            temp.layer.borderColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
-            temp.layer.shadowColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
-            temp.layer.shadowRadius = 5.0f;
-            temp.layer.shadowOpacity = 0.8f;
-            return;
         }
         else
         {
-            if (index < 4)
-            {
-                [self glowBoxAtIndex:index + 1];
-                return;
-            }
-            else
-            {
-                [self glowBoxAtIndex:1];
-                return;
-            }
+            return;
         }
     }
     else if (_theGameMode == gameModeInfinity)
@@ -1362,38 +1383,7 @@
     
     self.guideLabel.text = [_game userAnswersAtBox:(_theGlowingBox - 4 * _currentBoxSet) % 5 andAnswer:sender.tag];
     
-    if (_theGameMode == gameModeNormal || _theGameMode == gameModeLevelUp)
-    {
-        if (_game.succeed == 2)
-        {
-            //succeed
-            //NSLog(@"showing success");
-            //        NSLog(@"remain time = %ld",[_timer remainingDurationInSeconds]);
-            [self resumeTouch];
-            [_timer pauseTimer];
-            [self showSuccess];
-            return;
-        }
-        else if (_game.succeed == 3)
-        {
-            [self resumeTouch];
-            [_timer pauseTimer];
-            [self showSuccess];
-            return;
-        }
-    }
-    else if (_theGameMode == gameModeInfinity)
-    {
-        if (_game.succeed == 3)
-        {
-            NSLog(@"game ended");
-            //do some thing
-            [_timerLabel pause];
-            [self showSuccess];
-            return;
-        }
-    }
-//    else if (_theGameMode == gameModeLevelUp)
+    //    else if (_theGameMode == gameModeLevelUp)
 //    {
 //        if (_game.succeed == 2)
 //        {
@@ -1505,6 +1495,37 @@
         [self resumeTouch];
         [self shakeBoxAtIndex:_theGlowingBox - 1];
     }
+    if (_theGameMode == gameModeNormal || _theGameMode == gameModeLevelUp)
+    {
+        if (_game.succeed == 2)
+        {
+            //succeed
+            //NSLog(@"showing success");
+            //        NSLog(@"remain time = %ld",[_timer remainingDurationInSeconds]);
+            [self resumeTouch];
+            [_timer pauseTimer];
+            [self showSuccess];
+            return;
+        }
+        else if (_game.succeed == 3)
+        {
+            [self resumeTouch];
+            [_timer pauseTimer];
+            [self showSuccess];
+            return;
+        }
+    }
+    else if (_theGameMode == gameModeInfinity)
+    {
+        if (_game.succeed == 3)
+        {
+            NSLog(@"game ended");
+            //do some thing
+            [_timerLabel pause];
+            [self showSuccess];
+            return;
+        }
+    }
 }
 
 - (void)showSuccess
@@ -1520,10 +1541,16 @@
     }
     else if (_theGameMode == gameModeLevelUp)
     {
+        [self cancelShake];
         [_game levelUpWithDuration:[_timer remainingDurationInSeconds]];
     }
     _guideLabel.text = @"";
     [self disableTouchOnBox];
+    [self performSelector:@selector(showAlert) withObject:nil afterDelay:0.3f];
+}
+
+- (void)showAlert
+{
     AlertViewController *success = [[AlertViewController alloc] initWithGame:_game];
     RWBlurPopover *pop = [[RWBlurPopover alloc] initWithContentViewController:success];
     pop.throwingGestureEnabled = NO;
@@ -1624,7 +1651,11 @@
             {
                 if ([_game.hintMessage isEqualToString:@""])
                 {
-                    
+                    JGProgressHUD *error = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleLight];
+                    error.textLabel.text = NSLocalizedString(@"NOHINT", nil);
+                    error.indicatorView = [[JGProgressHUDErrorIndicatorView alloc] init];
+                    [error showInView:self.view];
+                    [error dismissAfterDelay:1.0f];
                 }
                 else
                 {

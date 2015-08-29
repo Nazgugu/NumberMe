@@ -43,6 +43,7 @@
 "NXTLV"="Next Level";
 "LVTEXT"="Game Level: %ld";
 "PASS"="Levels Cleared";
+"NOHINT"="All hints used";
 
 //guessGame
 "HINTMSG"="The answer is very close to %ld";

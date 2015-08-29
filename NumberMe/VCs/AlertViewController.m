@@ -137,7 +137,7 @@
     {
 //        self.symbolImage.contentMode = UIViewContentModeTop;
         //self.symbolImage.backgroundColor = [UIColor clearColor];
-        NSLog(@"failed");
+        //NSLog(@"failed");
         if (_game.gameMode == gameModeLevelUp)
         {
             _levelOfGame = _game.gameLevel;
@@ -154,20 +154,20 @@
     else if (_game.succeed == 2)
     {
         //self.symbolImage.backgroundColor = [UIColor colorWithRed:0.243f green:0.773f blue:0.420f alpha:0.8f];
-
-        if ([[EGOCache globalCache] hasCacheForKey:@"tempGame"])
+        if (_game.gameMode == gameModeLevelUp)
         {
-            if (_game.gameMode == gameModeLevelUp)
+            if ([[EGOCache globalCache] hasCacheForKey:@"tempGame"])
             {
+                NSLog(@"level up has key");
                 _levelOfGame = _game.gameLevel - 1;
             }
-        }
-        else if (![[EGOCache globalCache] hasCacheForKey:@"tempGame"] && _game.gameLevel == 15)
-        {
-            _levelOfGame = 15;
-            self.quitButton.hidden = YES;
-            _leftConstraint.constant = -85;
-            [self.playAgainButton setTitle:NSLocalizedString(@"PASS", nil) forState:UIControlStateNormal];
+            else if (![[EGOCache globalCache] hasCacheForKey:@"tempGame"] && _game.gameLevel == 15)
+            {
+                _levelOfGame = 15;
+                self.quitButton.hidden = YES;
+                _leftConstraint.constant = -85;
+                [self.playAgainButton setTitle:NSLocalizedString(@"PASS", nil) forState:UIControlStateNormal];
+            }
         }
         if (_game.gameMode == gameModeLevelUp && _levelOfGame == 15)
         {
@@ -280,16 +280,9 @@
     }
     else if (_game.gameMode == gameModeLevelUp)
     {
-        NSLog(@"shortest time = %ld",_game.shortestTime);
+        //NSLog(@"shortest time = %ld",_game.shortestTime);
         _usedTimeLabel.text = [NSString stringWithFormat:NSLocalizedString(@"DURATIONST", nil),_game.shortestTime];
-        if (_game.succeed == 2)
-        {
-            _correctnessLabel.text = [NSString stringWithFormat:NSLocalizedString(@"LVTEXT", nil),_levelOfGame];
-        }
-        else
-        {
-            _correctnessLabel.text = [NSString stringWithFormat:NSLocalizedString(@"LVTEXT", nil),_levelOfGame];
-        }
+        _correctnessLabel.text = [NSString stringWithFormat:NSLocalizedString(@"LVTEXT", nil),_levelOfGame];
         if ([[EGOCache globalCache] hasCacheForKey:@"maxLevelScore"])
         {
             NSInteger oldRecord = [[[EGOCache globalCache] stringForKey:@"maxLevelScore"] integerValue];
