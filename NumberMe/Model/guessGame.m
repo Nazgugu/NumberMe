@@ -749,19 +749,19 @@ NSString * const kTempLevelGame = @"tempGame";
 //            NSLog(@"gameleveltries final = %ld",_gameLevelTries);
         }
         //finished all levels
-        else
-        {
-            //debug
-            NSLog(@"need to save the game");
-            if ([[EGOCache globalCache] hasCacheForKey:kTempLevelGame]) {
-                NSLog(@"got the original saved");
-                NSData *tempGameData = [[EGOCache globalCache] dataForKey:kTempLevelGame];
-                guessGame *tempLevel = (guessGame *)[NSKeyedUnarchiver unarchiveObjectWithData:tempGameData];
-                NSLog(@"game level is %ld, score = %ld",tempLevel.gameLevel, tempLevel.gameScore);
-            }
-            
-            [self saveLevelGame];
-        }
+//        else
+//        {
+//            //debug
+//            NSLog(@"need to save the game");
+//            if ([[EGOCache globalCache] hasCacheForKey:kTempLevelGame]) {
+//                NSLog(@"got the original saved");
+//                NSData *tempGameData = [[EGOCache globalCache] dataForKey:kTempLevelGame];
+//                guessGame *tempLevel = (guessGame *)[NSKeyedUnarchiver unarchiveObjectWithData:tempGameData];
+//                NSLog(@"game level is %ld, score = %ld",tempLevel.gameLevel, tempLevel.gameScore);
+//            }
+//            
+//            [self saveLevelGame];
+//        }
     }
 }
 
@@ -894,6 +894,13 @@ NSString * const kTempLevelGame = @"tempGame";
         if (_gameLevel == 15)
         {
             NSLog(@"final level with score = %ld",_gameScore);
+            NSData *levelArr = [[EGOCache globalCache] dataForKey:@"levelGames"];
+            NSMutableArray *levelGames = [NSKeyedUnarchiver unarchiveObjectWithData:levelArr];
+            [levelGames addObject:self];
+            levelArr = [NSKeyedArchiver archivedDataWithRootObject:levelGames];
+            [[EGOCache globalCache] setData:levelArr forKey:@"levelGames"];
+            [[EGOCache globalCache] removeCacheForKey:kTempLevelGame];
+            return;
         }
     }
     

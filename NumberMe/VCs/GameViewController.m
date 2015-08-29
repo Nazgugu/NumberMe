@@ -226,10 +226,10 @@
 {
     if (_theGameMode == gameModeLevelUp)
     {
-        if ([[EGOCache globalCache] hasCacheForKey:@"tempGame"])
-        {
-            NSLog(@"have something");
-        }
+//        if ([[EGOCache globalCache] hasCacheForKey:@"tempGame"])
+//        {
+//            NSLog(@"have something");
+//        }
         [_game saveLevelGame];
     }
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -237,11 +237,11 @@
 
 - (void)restart
 {
-    NSLog(@"restarting game");
+    //NSLog(@"restarting game");
     [self disableTouchOnBox];
     if (_theGameMode == gameModeLevelUp)
     {
-        [_game saveLevelGame];
+        //[_game saveLevelGame];
         [_game restartLevel];
     }
     else

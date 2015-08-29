@@ -489,6 +489,10 @@
             message.title = [NSString stringWithFormat:@"看，我在%ld秒内猜对了%ld个数字，得分%ld。你也来试试",_game.duration,_game.correctNumber,_game.gameScore];
         }
     }
+    else if (_game.gameMode == gameModeLevelUp)
+    {
+        message.title = [NSString stringWithFormat:@"看，我猜数字一次达到%ld关，得分%ld。你也来试试",_levelOfGame, _game.gameScore];
+    }
     message.link = @"https://itunes.apple.com/us/app/four4/id1030279451?l=zh&ls=1&mt=8";
     if (IS_IPHONE_4_OR_LESS)
     {
@@ -535,6 +539,10 @@
         {
             message.title = [NSString stringWithFormat:@"看，我在%ld秒内猜对了%ld个数字，得分%ld。你也来试试。下载: https://itunes.apple.com/us/app/four4/id1030279451?l=zh&ls=1&mt=8",_game.duration,_game.correctNumber,_game.gameScore];
         }
+    }
+    else if (_game.gameMode == gameModeLevelUp)
+    {
+        message.title = [NSString stringWithFormat:@"看，我猜数字一次达到%ld关，得分%ld。你也来试试",_levelOfGame, _game.gameScore];
     }
     message.image = UIImagePNGRepresentation([self getScreenshot]);
     [OpenShare shareToWeibo:message Success:^(OSMessage *message) {
