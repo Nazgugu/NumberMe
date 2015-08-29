@@ -11,6 +11,7 @@
 #import "EGOCache.h"
 #import "OpenShareHeader.h"
 #import "UIView+Shimmer.h"
+#import "UAAppReviewManager.h"
 
 @interface AlertViewController ()
 
@@ -167,6 +168,7 @@
                 self.quitButton.hidden = YES;
                 _leftConstraint.constant = -85;
                 [self.playAgainButton setTitle:NSLocalizedString(@"PASS", nil) forState:UIControlStateNormal];
+                [UAAppReviewManager userDidSignificantEvent:YES];
             }
         }
         if (_game.gameMode == gameModeLevelUp && _levelOfGame == 15)

@@ -11,6 +11,7 @@
 #import "EGOCache.h"
 #import "OpenShareHeader.h"
 #import "guessGame.h"
+#import "UAAppReviewManager.h"
 
 @interface AppDelegate ()
 
@@ -38,11 +39,20 @@
     WelcomeViewController *welcome = [[WelcomeViewController alloc] init];
     self.window.rootViewController = welcome;
     [self.window makeKeyAndVisible];
-    
+    [self setUpReviewManager];
     [self setUpEGOCache];
     [self registerPlatforms];
     
     return YES;
+}
+
+- (void)setUpReviewManager
+{
+    [UAAppReviewManager setAppID:@"1030279451"];
+    [UAAppReviewManager setAppName:@"NumberMe"];
+    [UAAppReviewManager setDaysUntilPrompt:5];
+    [UAAppReviewManager setUsesUntilPrompt:10];
+    [UAAppReviewManager showPromptIfNecessary];
 }
 
 - (void)registerPlatforms
