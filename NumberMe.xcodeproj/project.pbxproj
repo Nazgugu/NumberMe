@@ -50,6 +50,7 @@
 		AEA03C521B917699001ACCEA /* GBGNORM.png in Resources */ = {isa = PBXBuildFile; fileRef = AEA03C511B917699001ACCEA /* GBGNORM.png */; };
 		AEA03C541B917734001ACCEA /* GBGINFI.png in Resources */ = {isa = PBXBuildFile; fileRef = AEA03C531B917734001ACCEA /* GBGINFI.png */; };
 		AEA03C561B9177A9001ACCEA /* GBGLV.png in Resources */ = {isa = PBXBuildFile; fileRef = AEA03C551B9177A9001ACCEA /* GBGLV.png */; };
+		AEA03C571B9238F6001ACCEA /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF27D6F1B7D0A1800A4AD5B /* iAd.framework */; };
 		AEAF5AB21B88336100D295A8 /* NUDialChart.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAF5AAD1B88336100D295A8 /* NUDialChart.m */; };
 		AEAF5AB31B88336100D295A8 /* UICountingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAF5AAF1B88336100D295A8 /* UICountingLabel.m */; };
 		AEAF5AB41B88336100D295A8 /* XMCircleTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAF5AB11B88336100D295A8 /* XMCircleTypeView.m */; };
@@ -167,6 +168,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEA03C571B9238F6001ACCEA /* iAd.framework in Frameworks */,
 				AE1C6A5B1B7FE4D50064E71C /* SystemConfiguration.framework in Frameworks */,
 				AE1C6A571B7FE4C30064E71C /* MessageUI.framework in Frameworks */,
 				AE1C6A551B7FE4BD0064E71C /* EventKitUI.framework in Frameworks */,

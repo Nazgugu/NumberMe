@@ -22,16 +22,16 @@
 #import "GTScrollNavigationBar.h"
 #import "ARTransitionAnimator.h"
 //#import "UIView+Shimmer.h"
-//#import <iAd/iAd.h>
+#import <iAd/iAd.h>
 
-@interface WelcomeViewController () <GameModeSelectionViewDelegate, UIViewControllerTransitioningDelegate> /*<ADBannerViewDelegate>*/
+@interface WelcomeViewController () <GameModeSelectionViewDelegate, UIViewControllerTransitioningDelegate, ADBannerViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIButton *recordButton;
 @property (weak, nonatomic) IBOutlet UIButton *settingButton;
-//@property (weak, nonatomic) IBOutlet ADBannerView *adBannerView;
+@property (weak, nonatomic) IBOutlet ADBannerView *adBannerView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomSpaceConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bannerViewSpaceConstraint;
-@property (weak, nonatomic) IBOutlet GADBannerView *admobBanner;
+//@property (weak, nonatomic) IBOutlet GADBannerView *admobBanner;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topSpaceToTitle;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *creditLabel;
@@ -47,7 +47,7 @@
     //setting up button appearance
 //    self.edgesForExtendedLayout = UIRectEdgeNone;
     
-    [self initializaBannerView];
+//    [self initializaBannerView];
     
     _transitionAnimator = [[ARTransitionAnimator alloc] init];
     _transitionAnimator.transitionDuration = 0.3;
@@ -78,9 +78,6 @@
     [_startButton setTitle:NSLocalizedString(@"START", nil) forState:UIControlStateNormal];
     [_startButton setImage:[UIImage imageNamed:@"start"] forState:UIControlStateNormal];
     [_startButton setImage:[UIImage imageNamed:@"start"] forState:UIControlStateHighlighted];
-
-    
-    //[_startButton setImageEdgeInsets:UIEdgeInsetsMake(0, -40, 0, 0)];
     
     [_recordButton setTitle:NSLocalizedString(@"RD", nil) forState:UIControlStateNormal];
     [_recordButton setImage:[UIImage imageNamed:@"stat"] forState:UIControlStateNormal];
@@ -121,8 +118,8 @@
     
     [_creditLabel addSubview:hammerView];
     
-//    _adBannerView.delegate = self;
-//    _adBannerView.alpha = 0;
+    _adBannerView.delegate = self;
+    _adBannerView.alpha = 0;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -130,18 +127,18 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
 }
 
-- (void)initializaBannerView
-{
-    self.admobBanner.adUnitID = @"ca-app-pub-8377978722117647/8470579418";
-    self.admobBanner.rootViewController = self;
-    
-    self.admobBanner.adSize = kGADAdSizeSmartBannerPortrait;
-    
-    GADRequest *request = [GADRequest request];
-    
-    
-    [self.admobBanner loadRequest:request];
-}
+//- (void)initializaBannerView
+//{
+//    self.admobBanner.adUnitID = @"ca-app-pub-8377978722117647/8470579418";
+//    self.admobBanner.rootViewController = self;
+//    
+//    self.admobBanner.adSize = kGADAdSizeSmartBannerPortrait;
+//    
+//    GADRequest *request = [GADRequest request];
+//    
+//    
+//    [self.admobBanner loadRequest:request];
+//}
 
 - (IBAction)startGame:(id)sender {
     GameModeSelectionView *gameModeSelection = [[GameModeSelectionView alloc] init];
@@ -232,28 +229,28 @@
     return crossFade;
 }
 
-//#pragma mark - iAdBanner Delegates
-//
-//-(void)bannerView:(ADBannerView *)banner
-//didFailToReceiveAdWithError:(NSError *)error{
-//    //NSLog(@"Error in Loading Banner!");
-//    self.bannerViewSpaceConstraint.constant = -50;
-//    self.bottomSpaceConstraint.constant = 20;
-//}
-//
-//-(void)bannerViewDidLoadAd:(ADBannerView *)banner{
-//    //NSLog(@"iAd banner Loaded Successfully!");
-//    [UIView animateWithDuration:1.0f animations:^{
-//        _adBannerView.alpha = 1.0f;
-//    }];
-//}
-//-(void)bannerViewWillLoadAd:(ADBannerView *)banner{
-//    //NSLog(@"iAd Banner will load!");
-//}
-//-(void)bannerViewActionDidFinish:(ADBannerView *)banner{
-//    //NSLog(@"iAd Banner did finish");
-//    
-//}
+#pragma mark - iAdBanner Delegates
+
+-(void)bannerView:(ADBannerView *)banner
+didFailToReceiveAdWithError:(NSError *)error{
+    NSLog(@"Error in Loading Banner!");
+    self.bannerViewSpaceConstraint.constant = -50;
+    self.bottomSpaceConstraint.constant = 20;
+}
+
+-(void)bannerViewDidLoadAd:(ADBannerView *)banner{
+    //NSLog(@"iAd banner Loaded Successfully!");
+    [UIView animateWithDuration:1.0f animations:^{
+        _adBannerView.alpha = 1.0f;
+    }];
+}
+-(void)bannerViewWillLoadAd:(ADBannerView *)banner{
+    NSLog(@"iAd Banner will load!");
+}
+-(void)bannerViewActionDidFinish:(ADBannerView *)banner{
+    NSLog(@"iAd Banner did finish");
+    
+}
 
 /*
 #pragma mark - Navigation
