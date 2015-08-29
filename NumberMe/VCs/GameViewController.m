@@ -1415,7 +1415,7 @@
         {
             if (((_theGlowingBox + 1) % 4) == 1)
             {
-                NSLog(@"this case");
+                //NSLog(@"this case");
                 _currentBoxSet = (_theGlowingBox) / 4;
                 [self createBoxesOfBoxSet:_currentBoxSet];
                 [self moveToBoxToSet:_currentBoxSet];
@@ -1519,7 +1519,7 @@
     {
         if (_game.succeed == 3)
         {
-            NSLog(@"game ended");
+            //NSLog(@"game ended");
             //do some thing
             [_timerLabel pause];
             [self showSuccess];
@@ -1651,7 +1651,7 @@
             {
                 if ([_game.hintMessage isEqualToString:@""])
                 {
-                    JGProgressHUD *error = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleLight];
+                    JGProgressHUD *error = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
                     error.textLabel.text = NSLocalizedString(@"NOHINT", nil);
                     error.indicatorView = [[JGProgressHUDErrorIndicatorView alloc] init];
                     [error showInView:self.view];

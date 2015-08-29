@@ -15,19 +15,20 @@
 #import "GTScrollNavigationBar.h"
 #import "DOPScrollableActionSheet.h"
 #import "OpenShareHeader.h"
+#import <MessageUI/MessageUI.h>
 
 #define Setting_TitileArray @[@[NSLocalizedString(@"MAXNORMAL",nil),NSLocalizedString(@"MAXINFINITY",nil),NSLocalizedString(@"MAXLEVEL",nil),NSLocalizedString(@"CLEARCACHE",nil)],@[NSLocalizedString(@"RATE",nil),NSLocalizedString(@"RECOMMEND",nil),NSLocalizedString(@"CONTACT",nil),NSLocalizedString(@"VERSION",nil)]]
 
-@interface SettingViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface SettingViewController ()<UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate, UINavigationControllerDelegate>
 @property (nonatomic, strong) UIImage *blurImage;
 //@property (nonatomic, strong) UIImage *navImage;
 @property (weak, nonatomic) IBOutlet UITableView *settingTable;
 
 @property (nonatomic, strong) NSArray *shareAction;
 
-@property (nonatomic, strong) NSString *recommandURLString;
-
-@property (nonatomic, strong) NSString *smsURLString;
+//@property (nonatomic, strong) NSString *recommandURLString;
+//
+//@property (nonatomic, strong) NSString *smsURLString;
 
 @end
 
@@ -71,8 +72,9 @@
 //    NSLog(@"%@",URLEMail);
 //    NSLog(@"%@",_recommandURLString);
     
-    _smsURLString = @"sms:&body=";
-    _smsURLString = [_smsURLString stringByAppendingString:NSLocalizedString(@"SHAREMSG", nil)];
+//    _smsURLString = NSLocalizedString(@"SHAREMSG", nil);
+//    NSString *url = @"https://itunes.apple.com/us/app/four4/id1030279451?l=zh&ls=1&mt=8";
+//    _smsURLString = [_smsURLString stringByAppendingFormat:@"\n%@",url];
     
     [self initShareAction];
     [self.settingTable reloadData];
@@ -110,25 +112,25 @@
         [self shareViaSMS];
     }];
     
-//    DOPAction *shareEmail = [[DOPAction alloc] initWithName:NSLocalizedString(@"EMAIL", nil) iconName:@"email" handler:^{
-//        [self shareViaEmail];
-//    }];
+    DOPAction *shareEmail = [[DOPAction alloc] initWithName:NSLocalizedString(@"EMAIL", nil) iconName:@"email" handler:^{
+        [self shareViaEmail];
+    }];
     
     if ([OpenShare isWeiboInstalled] && [OpenShare isWeixinInstalled])
     {
-        _shareAction = @[@"",@[shareWechatFriend, shareWechatCircle, shareWeibo, shareMSG, ]];
+        _shareAction = @[@"",@[shareWechatFriend, shareWechatCircle, shareWeibo, shareMSG, shareEmail]];
     }
     else if ([OpenShare isWeixinInstalled] && ![OpenShare isWeiboInstalled])
     {
-        _shareAction = @[@"",@[shareWechatFriend, shareWechatCircle, shareMSG]];
+        _shareAction = @[@"",@[shareWechatFriend, shareWechatCircle, shareMSG, shareEmail]];
     }
     else if (![OpenShare isWeixinInstalled] && [OpenShare isWeiboInstalled])
     {
-        _shareAction = @[@"",@[shareWeibo, shareMSG]];
+        _shareAction = @[@"",@[shareWeibo, shareMSG, shareEmail]];
     }
     else if (![OpenShare isWeiboInstalled] && ![OpenShare isWeixinInstalled])
     {
-        _shareAction = @[@"",@[shareMSG]];
+        _shareAction = @[@"",@[shareMSG, shareEmail]];
     }
 }
 
@@ -187,15 +189,32 @@
 
 - (void)shareViaSMS
 {
-    NSString *url = [_smsURLString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+    //NSLog(@"called");
+    MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
+    if([MFMessageComposeViewController canSendText])
+    {
+//        NSLog(@"can send");
+        controller.body = NSLocalizedString(@"SHAREMSG", nil);
+        controller.delegate = self;
+        controller.messageComposeDelegate = self;
+        [self presentViewController:controller animated:YES completion:nil];
+    }
 }
 
-//- (void)shareViaEmail
-//{
+- (void)shareViaEmail
+{
 //    NSString *url = [_recommandURLString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 //    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
-//}
+    MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
+    if ([MFMailComposeViewController canSendMail])
+    {
+        [controller setSubject:NSLocalizedString(@"GGAME", nil)];
+        [controller setMessageBody:NSLocalizedString(@"SHAREMSG", nil) isHTML:YES];
+        controller.delegate = self;
+        controller.mailComposeDelegate = self;
+        [self presentViewController:controller animated:YES completion:nil];
+    }
+}
 
 - (void)shareViaWeChatCircle
 {
@@ -442,8 +461,16 @@
                 break;
             case 2:
             {
-                NSString *url = [URLEMail stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+                MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
+                if ([MFMailComposeViewController canSendMail])
+                {
+                    [controller setSubject:NSLocalizedString(@"Bug Report and Suggestions", nil)];
+//                    [controller setMessageBody:NSLocalizedString(@"SHAREMSG", nil) isHTML:YES];
+                    [controller setToRecipients:@[@"zheliu9328@gmail.com"]];
+                    controller.delegate = self;
+                    controller.mailComposeDelegate = self;
+                    [self presentViewController:controller animated:YES completion:nil];
+                }
 
             }
                 break;
@@ -471,6 +498,39 @@
     [self.navigationController.scrollNavigationBar resetToDefaultPositionWithAnimation:YES];
 }
 
+#pragma mark - MessageControllerDelegate
+-(void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
+{
+    switch (result) {
+        case MessageComposeResultCancelled:
+            break;
+        case MessageComposeResultFailed:
+            break;
+        case MessageComposeResultSent:
+            break;
+        default:
+            break;
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    switch (result) {
+        case MFMailComposeResultCancelled:
+            
+            break;
+        case MFMailComposeResultFailed:
+            break;
+        case MFMailComposeResultSaved:
+            break;
+        case MFMailComposeResultSent:
+            break;
+        default:
+            break;
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 /*
 #pragma mark - Navigation

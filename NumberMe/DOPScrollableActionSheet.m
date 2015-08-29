@@ -33,6 +33,7 @@ static CGFloat horizontalMargin = 20.0;
             UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) {
             _screenRect = CGRectMake(0, 0, _screenRect.size.height, _screenRect.size.width);
         }
+        //NSLog(@"actions count = %ld",actions.count);
         _actions = actions;
         _buttons = [NSMutableArray array];
         _handlers = [NSMutableArray array];
@@ -148,7 +149,9 @@ static CGFloat horizontalMargin = 20.0;
 
 - (void)handlePress:(UIButton *)button {
     NSInteger index = [self.buttons indexOfObject:button];
-    if (index != self.buttons.count-1) {
+    //NSLog(@"index = %ld",index);
+    if (index != self.buttons.count) {
+        NSLog(@"index = %ld",index);
         void(^handler)(void) = self.handlers[index];
         handler();
     }
