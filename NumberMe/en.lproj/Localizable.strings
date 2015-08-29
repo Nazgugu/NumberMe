@@ -43,6 +43,7 @@
 "NXTLV"="Next Level";
 "LVTEXT"="Game Level: %ld";
 "PASS"="Levels Cleared";
+"ALLEVEL"="Passed All Levels";
 "NOHINT"="All hints used";
 
 //guessGame

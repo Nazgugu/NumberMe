@@ -43,6 +43,7 @@
 "NXTLV"="下一关";
 "LVTEXT"="游戏关卡: %ld";
 "PASS"="游戏通关";
+"ALLEVEL"="通关";
 "NOHINT"="提示已用完";
 
 //guessGame

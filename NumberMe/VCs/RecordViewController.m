@@ -263,7 +263,7 @@
         {
             _dataChart.hidden = YES;
             _dateLabel.text = NSLocalizedString(@"NA", nil);
-            _correctnessLabel.text = NSLocalizedString(@"CORRECTNONA", nil);
+            _correctnessLabel.text = NSLocalizedString(@"CORRECTNESSNA", nil);
             _durationLabel.text = NSLocalizedString(@"DURATIONNA", nil);
             _scoreLabel.text = NSLocalizedString(@"SCORENA", nil);
         }
@@ -512,9 +512,10 @@
         }
         else
         {
+            //NSLog(@"this case");
             _dataChart.hidden = YES;
             _dateLabel.text = NSLocalizedString(@"NA", nil);
-            _correctnessLabel.text = NSLocalizedString(@"CORRECTNONA", nil);
+            _correctnessLabel.text = NSLocalizedString(@"CORRECTNESSNA", nil);
             _durationLabel.text = NSLocalizedString(@"DURATIONNA", nil);
             _scoreLabel.text = NSLocalizedString(@"SCORENA", nil);
         }
@@ -529,6 +530,7 @@
         }
         else
         {
+            //NSLog(@"that case");
             _dataChart.hidden = YES;
             _dateLabel.text = NSLocalizedString(@"NA", nil);
             _correctnessLabel.text = NSLocalizedString(@"CORRECTNONA", nil);

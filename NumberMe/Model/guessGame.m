@@ -751,6 +751,15 @@ NSString * const kTempLevelGame = @"tempGame";
         //finished all levels
         else
         {
+            //debug
+            NSLog(@"need to save the game");
+            if ([[EGOCache globalCache] hasCacheForKey:kTempLevelGame]) {
+                NSLog(@"got the original saved");
+                NSData *tempGameData = [[EGOCache globalCache] dataForKey:kTempLevelGame];
+                guessGame *tempLevel = (guessGame *)[NSKeyedUnarchiver unarchiveObjectWithData:tempGameData];
+                NSLog(@"game level is %ld, score = %ld",tempLevel.gameLevel, tempLevel.gameScore);
+            }
+            
             [self saveLevelGame];
         }
     }
@@ -880,6 +889,11 @@ NSString * const kTempLevelGame = @"tempGame";
         if (_gameScore < 0)
         {
             _gameScore = 0;
+        }
+        
+        if (_gameLevel == 15)
+        {
+            NSLog(@"final level with score = %ld",_gameScore);
         }
     }
     

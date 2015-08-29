@@ -159,7 +159,7 @@
         {
             if ([[EGOCache globalCache] hasCacheForKey:@"tempGame"])
             {
-                NSLog(@"level up has key");
+                //NSLog(@"level up has key");
                 _levelOfGame = _game.gameLevel - 1;
             }
             else if (![[EGOCache globalCache] hasCacheForKey:@"tempGame"] && _game.gameLevel == 15)
@@ -354,7 +354,21 @@
     if (_game.succeed == 2)
     {
         _titleLabel.textColor = [UIColor colorWithRed:0.929f green:0.173f blue:0.137f alpha:0.7f];
-        _titleLabel.text = NSLocalizedString(@"SUCCESS", nil);
+         if (_game.gameMode == gameModeLevelUp)
+         {
+             if (![[EGOCache globalCache] hasCacheForKey:@"tempGame"] && _game.gameLevel == 15)
+             {
+                 _titleLabel.text = NSLocalizedString(@"ALLEVEL", nil);
+             }
+             else
+             {
+                 _titleLabel.text = NSLocalizedString(@"SUCCESS", nil);
+             }
+         }
+        else
+        {
+            _titleLabel.text = NSLocalizedString(@"SUCCESS", nil);
+        }
     }
     else if (_game.succeed == 0 || _game.succeed == 1)
     {
