@@ -50,8 +50,8 @@
 {
     [UAAppReviewManager setAppID:@"1030279451"];
     [UAAppReviewManager setAppName:@"NumberMe"];
-    [UAAppReviewManager setDaysUntilPrompt:5];
-    [UAAppReviewManager setUsesUntilPrompt:10];
+    [UAAppReviewManager setDaysUntilPrompt:3];
+    [UAAppReviewManager setUsesUntilPrompt:8];
     [UAAppReviewManager showPromptIfNecessary];
 }
 

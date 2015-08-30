@@ -44,6 +44,15 @@
 		AE8E228E1B756B9B00A298DE /* YETIMotionLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8E228D1B756B9B00A298DE /* YETIMotionLabel.m */; };
 		AE8E22911B76AE7E00A298DE /* guessGame.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8E22901B76AE7E00A298DE /* guessGame.m */; };
 		AE90F88A1B7DAEE10039F75E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AE90F8891B7DAEE10039F75E /* icon.png */; };
+		AE9925A61B92C2E00078A3AD /* UUPhotoActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = AE99259D1B92C2E00078A3AD /* UUPhotoActionSheet.m */; };
+		AE9925A71B92C2E00078A3AD /* UUThumbnailView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE99259F1B92C2E00078A3AD /* UUThumbnailView.m */; };
+		AE9925A81B92C2E00078A3AD /* UUThumbnailCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9925A11B92C2E00078A3AD /* UUThumbnailCollectionCell.m */; };
+		AE9925A91B92C2E00078A3AD /* UUZoomingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9925A31B92C2E00078A3AD /* UUZoomingScrollView.m */; };
+		AE9925AA1B92C2E00078A3AD /* UUToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9925A51B92C2E00078A3AD /* UUToolBarView.m */; };
+		AE9925AD1B92C2E70078A3AD /* UUAssetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9925AC1B92C2E70078A3AD /* UUAssetManager.m */; };
+		AE9925B41B92C2F40078A3AD /* UUPhotoCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9925AF1B92C2F40078A3AD /* UUPhotoCollectionViewController.m */; };
+		AE9925B51B92C2F40078A3AD /* UUPhotoGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9925B11B92C2F40078A3AD /* UUPhotoGroupViewController.m */; };
+		AE9925B61B92C2F40078A3AD /* UUPhotoBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9925B31B92C2F40078A3AD /* UUPhotoBrowserViewController.m */; };
 		AE9D118C1B8570B800A36953 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9D118A1B8570B800A36953 /* SettingViewController.m */; };
 		AE9D118D1B8570B800A36953 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE9D118B1B8570B800A36953 /* SettingViewController.xib */; };
 		AEA03C471B8EDBBE001ACCEA /* levelGame.png in Resources */ = {isa = PBXBuildFile; fileRef = AEA03C461B8EDBBE001ACCEA /* levelGame.png */; };
@@ -131,6 +140,26 @@
 		AE8E228F1B76AE7E00A298DE /* guessGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = guessGame.h; path = Model/guessGame.h; sourceTree = "<group>"; };
 		AE8E22901B76AE7E00A298DE /* guessGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = guessGame.m; path = Model/guessGame.m; sourceTree = "<group>"; };
 		AE90F8891B7DAEE10039F75E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		AE99259A1B92C1BF0078A3AD /* UUPhoto-Import.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UUPhoto-Import.h"; sourceTree = "<group>"; };
+		AE99259B1B92C1BF0078A3AD /* UUPhoto-Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UUPhoto-Macros.h"; sourceTree = "<group>"; };
+		AE99259C1B92C2E00078A3AD /* UUPhotoActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUPhotoActionSheet.h; sourceTree = "<group>"; };
+		AE99259D1B92C2E00078A3AD /* UUPhotoActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUPhotoActionSheet.m; sourceTree = "<group>"; };
+		AE99259E1B92C2E00078A3AD /* UUThumbnailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUThumbnailView.h; sourceTree = "<group>"; };
+		AE99259F1B92C2E00078A3AD /* UUThumbnailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUThumbnailView.m; sourceTree = "<group>"; };
+		AE9925A01B92C2E00078A3AD /* UUThumbnailCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUThumbnailCollectionCell.h; sourceTree = "<group>"; };
+		AE9925A11B92C2E00078A3AD /* UUThumbnailCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUThumbnailCollectionCell.m; sourceTree = "<group>"; };
+		AE9925A21B92C2E00078A3AD /* UUZoomingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUZoomingScrollView.h; sourceTree = "<group>"; };
+		AE9925A31B92C2E00078A3AD /* UUZoomingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUZoomingScrollView.m; sourceTree = "<group>"; };
+		AE9925A41B92C2E00078A3AD /* UUToolBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUToolBarView.h; sourceTree = "<group>"; };
+		AE9925A51B92C2E00078A3AD /* UUToolBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUToolBarView.m; sourceTree = "<group>"; };
+		AE9925AB1B92C2E70078A3AD /* UUAssetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUAssetManager.h; sourceTree = "<group>"; };
+		AE9925AC1B92C2E70078A3AD /* UUAssetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUAssetManager.m; sourceTree = "<group>"; };
+		AE9925AE1B92C2F40078A3AD /* UUPhotoCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUPhotoCollectionViewController.h; sourceTree = "<group>"; };
+		AE9925AF1B92C2F40078A3AD /* UUPhotoCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUPhotoCollectionViewController.m; sourceTree = "<group>"; };
+		AE9925B01B92C2F40078A3AD /* UUPhotoGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUPhotoGroupViewController.h; sourceTree = "<group>"; };
+		AE9925B11B92C2F40078A3AD /* UUPhotoGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUPhotoGroupViewController.m; sourceTree = "<group>"; };
+		AE9925B21B92C2F40078A3AD /* UUPhotoBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUPhotoBrowserViewController.h; sourceTree = "<group>"; };
+		AE9925B31B92C2F40078A3AD /* UUPhotoBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUPhotoBrowserViewController.m; sourceTree = "<group>"; };
 		AE9D11891B8570B800A36953 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingViewController.h; path = VCs/SettingViewController.h; sourceTree = "<group>"; };
 		AE9D118A1B8570B800A36953 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingViewController.m; path = VCs/SettingViewController.m; sourceTree = "<group>"; };
 		AE9D118B1B8570B800A36953 /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingViewController.xib; path = VCs/SettingViewController.xib; sourceTree = "<group>"; };
@@ -343,6 +372,7 @@
 		AE7E74B91B74688B003E9341 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				AE9925951B92C1490078A3AD /* UUPhoto */,
 				AEAF5AAB1B88335300D295A8 /* PieChart */,
 				AEAE96741B8799BB00F6089C /* ActionSheet */,
 				AE21E6EC1B7ABA95006F4CB6 /* Chart */,
@@ -376,6 +406,65 @@
 				AE8E228D1B756B9B00A298DE /* YETIMotionLabel.m */,
 			);
 			name = AnimateLabel;
+			sourceTree = "<group>";
+		};
+		AE9925951B92C1490078A3AD /* UUPhoto */ = {
+			isa = PBXGroup;
+			children = (
+				AE9925991B92C1970078A3AD /* View */,
+				AE9925981B92C18F0078A3AD /* Manager */,
+				AE9925971B92C16C0078A3AD /* Controller */,
+				AE9925961B92C1520078A3AD /* Configs */,
+			);
+			name = UUPhoto;
+			sourceTree = "<group>";
+		};
+		AE9925961B92C1520078A3AD /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				AE99259A1B92C1BF0078A3AD /* UUPhoto-Import.h */,
+				AE99259B1B92C1BF0078A3AD /* UUPhoto-Macros.h */,
+			);
+			name = Configs;
+			sourceTree = "<group>";
+		};
+		AE9925971B92C16C0078A3AD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AE9925AE1B92C2F40078A3AD /* UUPhotoCollectionViewController.h */,
+				AE9925AF1B92C2F40078A3AD /* UUPhotoCollectionViewController.m */,
+				AE9925B01B92C2F40078A3AD /* UUPhotoGroupViewController.h */,
+				AE9925B11B92C2F40078A3AD /* UUPhotoGroupViewController.m */,
+				AE9925B21B92C2F40078A3AD /* UUPhotoBrowserViewController.h */,
+				AE9925B31B92C2F40078A3AD /* UUPhotoBrowserViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		AE9925981B92C18F0078A3AD /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				AE9925AB1B92C2E70078A3AD /* UUAssetManager.h */,
+				AE9925AC1B92C2E70078A3AD /* UUAssetManager.m */,
+			);
+			name = Manager;
+			sourceTree = "<group>";
+		};
+		AE9925991B92C1970078A3AD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AE99259C1B92C2E00078A3AD /* UUPhotoActionSheet.h */,
+				AE99259D1B92C2E00078A3AD /* UUPhotoActionSheet.m */,
+				AE99259E1B92C2E00078A3AD /* UUThumbnailView.h */,
+				AE99259F1B92C2E00078A3AD /* UUThumbnailView.m */,
+				AE9925A01B92C2E00078A3AD /* UUThumbnailCollectionCell.h */,
+				AE9925A11B92C2E00078A3AD /* UUThumbnailCollectionCell.m */,
+				AE9925A21B92C2E00078A3AD /* UUZoomingScrollView.h */,
+				AE9925A31B92C2E00078A3AD /* UUZoomingScrollView.m */,
+				AE9925A41B92C2E00078A3AD /* UUToolBarView.h */,
+				AE9925A51B92C2E00078A3AD /* UUToolBarView.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		AEAE96741B8799BB00F6089C /* ActionSheet */ = {
@@ -580,19 +669,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE9925AD1B92C2E70078A3AD /* UUAssetManager.m in Sources */,
 				AE8E228B1B756B9500A298DE /* YETILayerAnimation.m in Sources */,
 				AEAF5AB41B88336100D295A8 /* XMCircleTypeView.m in Sources */,
 				AEAF5AB21B88336100D295A8 /* NUDialChart.m in Sources */,
 				AE8E22851B756B8600A298DE /* YETIFadeLabel.m in Sources */,
 				AE9D118C1B8570B800A36953 /* SettingViewController.m in Sources */,
+				AE9925A91B92C2E00078A3AD /* UUZoomingScrollView.m in Sources */,
+				AE9925A71B92C2E00078A3AD /* UUThumbnailView.m in Sources */,
 				AE3E41101B6ECFD0001E26FE /* GameViewController.m in Sources */,
 				AE2630841B6EA58000A566AE /* AppDelegate.m in Sources */,
 				AE21E6EA1B7AAB1D006F4CB6 /* RecordViewController.m in Sources */,
 				AEAF5AB31B88336100D295A8 /* UICountingLabel.m in Sources */,
 				AE3E41041B6EC19D001E26FE /* WelcomeViewController.m in Sources */,
 				AE8E228E1B756B9B00A298DE /* YETIMotionLabel.m in Sources */,
+				AE9925B41B92C2F40078A3AD /* UUPhotoCollectionViewController.m in Sources */,
 				AEAF5ABA1B8833E500D295A8 /* PNColor.m in Sources */,
 				AE8E22911B76AE7E00A298DE /* guessGame.m in Sources */,
+				AE9925A81B92C2E00078A3AD /* UUThumbnailCollectionCell.m in Sources */,
 				AEAF5AB71B8833D400D295A8 /* PNCircleChart.m in Sources */,
 				AE7E74BC1B746896003E9341 /* JTNumberScrollAnimatedView.m in Sources */,
 				AE8E22881B756B8D00A298DE /* YETIFallingLabel.m in Sources */,
@@ -600,8 +694,12 @@
 				AEEA93801B87A3FC0004265F /* DOPScrollableActionSheet.m in Sources */,
 				AE8E22821B756B7E00A298DE /* YETICharacterLabel.m in Sources */,
 				AEFB78ED1B81916E005DEE30 /* GameModeSelectionView.m in Sources */,
+				AE9925B61B92C2F40078A3AD /* UUPhotoBrowserViewController.m in Sources */,
+				AE9925B51B92C2F40078A3AD /* UUPhotoGroupViewController.m in Sources */,
+				AE9925A61B92C2E00078A3AD /* UUPhotoActionSheet.m in Sources */,
 				AEE4C7CC1B8C3E02007957B0 /* RWBarChartView.m in Sources */,
 				AE67587B1B7813F400F5A93C /* AlertViewController.m in Sources */,
+				AE9925AA1B92C2E00078A3AD /* UUToolBarView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

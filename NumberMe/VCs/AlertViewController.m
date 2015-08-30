@@ -161,6 +161,7 @@
             {
                 //NSLog(@"level up has key");
                 _levelOfGame = _game.gameLevel - 1;
+                [UAAppReviewManager userDidSignificantEvent:NO];
             }
             else if (![[EGOCache globalCache] hasCacheForKey:@"tempGame"] && _game.gameLevel == 15)
             {

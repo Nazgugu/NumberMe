@@ -27,6 +27,8 @@
 @property (nonatomic, strong) NSMutableArray *gameModeStringArray;
 @property (nonatomic, strong) NSMutableArray *gameModeImageArray;
 
+@property (nonatomic, strong) UIButton *backgroungChangeButton;
+
 @end
 
 @implementation GameModeSelectionView
@@ -96,16 +98,20 @@
     CGFloat gameModeWidth = ((SCREENWIDTH*7)/8 - 5 - 3 * horizontalGap)/2;
     CGFloat gameModeHeight = SCREENHEIGHT/6 - 2 *topBottomGap;
     
-    _containerView = [[UIView alloc] initWithFrame:CGRectMake(SCREENWIDTH, (SCREENHEIGHT * 5)/12, SCREENWIDTH, SCREENHEIGHT/6)];
+    CGFloat roundButtonSize = gameModeHeight / 4;
+    
+    _containerView = [[UIView alloc] initWithFrame:CGRectMake(SCREENWIDTH, (SCREENHEIGHT * 5)/12, SCREENWIDTH, SCREENHEIGHT/6  + roundButtonSize)];
     _containerView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.2f];
     _containerView.alpha = 0.0f;
     _containerView.tag = 2;
+    _containerView.opaque = NO;
     
     _containerScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, (_containerView.frame.size.width * 7)/8, _containerView.frame.size.height)];
     [_containerScrollView setContentSize:CGSizeMake(horizontalGap * (_gameModesCount + 1) + _gameModesCount * gameModeWidth, _containerView.frame.size.height)];
     _containerScrollView.alwaysBounceHorizontal = YES;
     _containerScrollView.showsHorizontalScrollIndicator = NO;
     _containerScrollView.backgroundColor = [UIColor clearColor];
+    _containerScrollView.opaque = NO;
     [_containerView addSubview:_containerScrollView];
     
     //initiate cancel button
@@ -141,12 +147,41 @@
         gameModeLabel.text = [_gameModeStringArray objectAtIndex:i];
         [gameModeImageView addSubview:gameModeLabel];
         [_containerScrollView addSubview:gameModeImageView];
+        //initialize button
+        UIButton *changeBackgroundButton = [[UIButton alloc] initWithFrame:CGRectMake(gameModeImageView.frame.origin.x + (gameModeWidth - roundButtonSize) / 2, gameModeImageView.frame.origin.y + gameModeHeight + topBottomGap / 2, roundButtonSize, roundButtonSize)];
+        changeBackgroundButton.layer.cornerRadius = roundButtonSize / 2;
+        changeBackgroundButton.layer.masksToBounds = YES;
+        changeBackgroundButton.imageView.contentMode = UIViewContentModeScaleAspectFill;
+        [changeBackgroundButton setImage:[UIImage imageNamed:@"bgChange"] forState:UIControlStateNormal];
+        changeBackgroundButton.alpha = 0.8f;
+        changeBackgroundButton.tag = i;
+        [changeBackgroundButton addTarget:self action:@selector(backgroundChangePressed:) forControlEvents:UIControlEventTouchUpInside];
+        [_containerScrollView addSubview:changeBackgroundButton];
+        
         [_gameModeImageViewArray addObject:gameModeImageView];
         [_gameModeLabelArray addObject:gameModeLabel];
     }
 
     //continue
     [self addSubview:_containerView];
+    
+//    //set up tool box view
+//    _bottomToolBox = [[UIView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT, SCREENWIDTH, 40)];
+//    _bottomToolBox.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.1f];
+//    _bottomToolBox.opaque = NO;
+//    _bottomToolBox.alpha = 0;
+//    
+//    _backgroungChangeButton = [[UIButton alloc] initWithFrame:CGRectMake((_bottomToolBox.frame.size.width - 30) / 2, 5, 30, 30)];
+//    _backgroungChangeButton.layer.cornerRadius = 15.0f;
+//    _backgroungChangeButton.layer.borderWidth = 1.0f;
+//    _backgroungChangeButton.layer.borderColor = [UIColor lightTextColor].CGColor;
+//    _backgroungChangeButton.layer.masksToBounds = YES;
+//    _backgroungChangeButton.imageView.contentMode = UIViewContentModeScaleToFill;
+//    [_backgroungChangeButton setImage:[UIImage imageNamed:@"bgChange"] forState:UIControlStateNormal];
+//    [_backgroungChangeButton addTarget:self action:@selector(backgroundChangePressed:) forControlEvents:UIControlEventTouchUpInside];
+//    [_bottomToolBox addSubview:_backgroungChangeButton];
+//    
+//    [self addSubview:_bottomToolBox];
 }
 
 - (void)selectedGameMode:(UIGestureRecognizer *)touch
@@ -167,6 +202,8 @@
         self.backgroundView.alpha = 1.0f;
         [self.containerView setCenter:CGPointMake(SCREENWIDTH/2, SCREENHEIGHT/2)];
         self.containerView.alpha = 1.0f;
+//        [self.bottomToolBox setFrame:CGRectMake(0, SCREENHEIGHT - 40, SCREENWIDTH, 40)];
+//        self.bottomToolBox.alpha = 1.0f;
     } completion:^(BOOL finished) {
         
     }];
@@ -206,6 +243,11 @@
     UIImage *capturedScreen = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return capturedScreen;
+}
+
+- (void)backgroundChangePressed:(UIButton *)button
+{
+    
 }
 
 #pragma mark - UIGestureRecognizerDelegate
