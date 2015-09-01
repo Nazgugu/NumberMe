@@ -23,8 +23,12 @@
 #import "ARTransitionAnimator.h"
 //#import "UIView+Shimmer.h"
 #import <iAd/iAd.h>
+#import "UUPhotoActionSheet.h"
+#import "UUPhoto-Macros.h"
+#import "UUPhoto-Import.h"
 
-@interface WelcomeViewController () <GameModeSelectionViewDelegate, UIViewControllerTransitioningDelegate, ADBannerViewDelegate>
+
+@interface WelcomeViewController () <GameModeSelectionViewDelegate, UIViewControllerTransitioningDelegate, ADBannerViewDelegate, UUPhotoActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIButton *recordButton;
 @property (weak, nonatomic) IBOutlet UIButton *settingButton;
@@ -36,10 +40,16 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *creditLabel;
 @property (nonatomic, strong) ARTransitionAnimator *transitionAnimator;
+@property (nonatomic, strong) UUPhotoActionSheet *sheet;
 
 @end
 
 @implementation WelcomeViewController
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -120,6 +130,15 @@
     
     _adBannerView.delegate = self;
     _adBannerView.alpha = 0;
+    
+    _sheet = [[UUPhotoActionSheet alloc] initWithMaxSelected:1
+                                                   weakSuper:self];
+    
+    _sheet.delegate = self;
+    
+    [self.view addSubview:_sheet];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openSheet:) name:@"openSheet" object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -183,6 +202,16 @@
     nav.modalPresentationStyle = UIModalPresentationCustom;
     nav.transitioningDelegate = _transitionAnimator;
     [self presentViewController:nav animated:YES completion:nil];
+}
+
+- (void)openSheet:(NSNotification *)notif
+{
+    [_sheet showAnimation];
+}
+
+- (void)actionSheetDidFinished:(NSArray *)obj{
+    
+    NSLog(@"已发送 %lu 图片",(unsigned long)obj.count);
 }
 
 -(UIImage *)convertViewToImage

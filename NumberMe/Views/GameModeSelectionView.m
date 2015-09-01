@@ -8,11 +8,9 @@
 
 #import "GameModeSelectionView.h"
 #import "UIImage+ImageEffects.h"
-#import "UUPhotoActionSheet.h"
-#import "UUPhoto-Macros.h"
-#import "UUPhoto-Import.h"
+//#import "WelcomeViewController.h"
 
-@interface GameModeSelectionView ()<UIGestureRecognizerDelegate, UUPhotoActionSheetDelegate>
+@interface GameModeSelectionView ()<UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) UIImageView *backgroundView;
 @property (nonatomic, strong) UIView *containerView;
@@ -32,7 +30,7 @@
 
 @property (nonatomic, strong) UIButton *backgroungChangeButton;
 
-@property (nonatomic, strong) UUPhotoActionSheet *sheet;
+
 
 @end
 
@@ -91,13 +89,16 @@
     _backgroundView.alpha = 0.0f;
     [self addSubview:_backgroundView];
     
-    _sheet = [[UUPhotoActionSheet alloc] initWithMaxSelected:9
-                                                   weakSuper:self];
-    
-    _sheet.delegate = self;
-    [self addSubview:_sheet];
     
     [self setUpContainerView];
+    
+//    UIViewController *currentController = [[UIApplication sharedApplication] keyWindow].rootViewController;
+//    while (currentController.presentedViewController)
+//    {
+//        currentController = currentController.presentedViewController;
+//    }
+    
+    
     
 }
 
@@ -111,7 +112,7 @@
     
     CGFloat roundButtonSize = gameModeHeight / 4;
     
-    _containerView = [[UIView alloc] initWithFrame:CGRectMake(SCREENWIDTH, (SCREENHEIGHT * 5)/12, SCREENWIDTH, SCREENHEIGHT/6  + roundButtonSize)];
+    _containerView = [[UIView alloc] initWithFrame:CGRectMake(SCREENWIDTH, (SCREENHEIGHT - (SCREENHEIGHT / 6 + roundButtonSize)) / 2, SCREENWIDTH, SCREENHEIGHT/6  + roundButtonSize)];
     _containerView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.2f];
     _containerView.alpha = 0.0f;
     _containerView.tag = 2;
@@ -256,15 +257,17 @@
     return capturedScreen;
 }
 
-- (void)backgroundChangePressed:(UIButton *)button
+- (void)dismissWithoutAnimation
 {
-    [_sheet showAnimation];
+    [self removeFromSuperview];
 }
 
-- (void)actionSheetDidFinished:(NSArray *)obj{
-    
-    NSLog(@"已发送 %lu 图片",(unsigned long)obj.count);
+- (void)backgroundChangePressed:(UIButton *)button
+{
+    [self dismissWithoutAnimation];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"openSheet" object:nil userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:button.tag] forKey:@"gameMode"]];
 }
+
 
 #pragma mark - UIGestureRecognizerDelegate
 //- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
