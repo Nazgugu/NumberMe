@@ -8,8 +8,11 @@
 
 #import "GameModeSelectionView.h"
 #import "UIImage+ImageEffects.h"
+#import "UUPhotoActionSheet.h"
+#import "UUPhoto-Macros.h"
+#import "UUPhoto-Import.h"
 
-@interface GameModeSelectionView ()<UIGestureRecognizerDelegate>
+@interface GameModeSelectionView ()<UIGestureRecognizerDelegate, UUPhotoActionSheetDelegate>
 
 @property (nonatomic, strong) UIImageView *backgroundView;
 @property (nonatomic, strong) UIView *containerView;
@@ -28,6 +31,8 @@
 @property (nonatomic, strong) NSMutableArray *gameModeImageArray;
 
 @property (nonatomic, strong) UIButton *backgroungChangeButton;
+
+@property (nonatomic, strong) UUPhotoActionSheet *sheet;
 
 @end
 
@@ -85,6 +90,12 @@
     [_backgroundView setImage:bluredImage];
     _backgroundView.alpha = 0.0f;
     [self addSubview:_backgroundView];
+    
+    _sheet = [[UUPhotoActionSheet alloc] initWithMaxSelected:9
+                                                   weakSuper:self];
+    
+    _sheet.delegate = self;
+    [self addSubview:_sheet];
     
     [self setUpContainerView];
     
@@ -247,7 +258,12 @@
 
 - (void)backgroundChangePressed:(UIButton *)button
 {
+    [_sheet showAnimation];
+}
+
+- (void)actionSheetDidFinished:(NSArray *)obj{
     
+    NSLog(@"已发送 %lu 图片",(unsigned long)obj.count);
 }
 
 #pragma mark - UIGestureRecognizerDelegate
