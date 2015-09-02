@@ -26,6 +26,8 @@
 
 @property (nonatomic, weak) id<UUPhotoActionSheetDelegate> delegate;
 
+@property (nonatomic, assign) NSInteger gameMode;
+
 @end
 
 

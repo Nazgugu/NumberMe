@@ -72,6 +72,8 @@
                                              selector:@selector(notificationUpdateSelected:)
                                                  name:kNotificationUpdateSelected
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelAnimation) name:@"dismissSheet" object:nil];
 
 }
 
@@ -146,7 +148,10 @@
 - (void)onClickAlbum:(id)sender{
 
     UINavigationController *naviController;
-    naviController = [[UINavigationController alloc] initWithRootViewController:UUPhotoGroupViewController.new];
+    UUPhotoGroupViewController *photoGroup = UUPhotoGroupViewController.new;
+    photoGroup.gameMode = _gameMode;
+    naviController = [[UINavigationController alloc] initWithRootViewController:photoGroup];
+    
     
     [_weakSuper presentViewController:naviController animated:YES completion:^{
         
@@ -182,6 +187,8 @@
 - (void)showAnimation{
     
     _btnCamera.selected = YES;
+    _thumbnailView.gameMode = _gameMode;
+    _thumbnailView.weakSuper = _weakSuper;
     [_thumbnailView reloadView];
     [_btnCamera setTitle:@"拍照" forState:UIControlStateNormal];
     

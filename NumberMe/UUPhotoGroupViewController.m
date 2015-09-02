@@ -98,7 +98,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     [UUAssetManager sharedInstance].currentGroupIndex = indexPath.row;
-    [self.navigationController pushViewController:UUPhotoCollectionViewController.new animated:YES];
+    UUPhotoCollectionViewController *collection = UUPhotoCollectionViewController.new;
+    collection.gameMode = _gameMode;
+    [self.navigationController pushViewController:collection animated:YES];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

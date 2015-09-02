@@ -18,18 +18,20 @@
 - (NSInteger)numberOfPhotosFromPhotoBrowser:(UUPhotoBrowserViewController *)browser;
 
 - (NSInteger)jumpIndexFromPhotoBrowser:(UUPhotoBrowserViewController *)browser;
+//
+//- (BOOL)isSelectedPhotosWithIndex:(NSInteger)index fromPhotoBrowser:(UUPhotoBrowserViewController *)browser;
+//
+//- (BOOL)isCheckMaxSelectedFromPhotoBrowser:(UUPhotoBrowserViewController *)browser;
 
-- (BOOL)isSelectedPhotosWithIndex:(NSInteger)index fromPhotoBrowser:(UUPhotoBrowserViewController *)browser;
-
-- (BOOL)isCheckMaxSelectedFromPhotoBrowser:(UUPhotoBrowserViewController *)browser;
-
-- (void)displayImageWithIndex:(NSUInteger)index selectedChanged:(BOOL)selected;
+//- (void)displayImageWithIndex:(NSUInteger)index selectedChanged:(BOOL)selected;
 
 @end
 
 @interface UUPhotoBrowserViewController : UIViewController
 
 @property (nonatomic, weak) id<UUPhotoBrowserDelegate> delegate;
+
+@property (nonatomic, assign) NSInteger gameMode;
 
 @end
 

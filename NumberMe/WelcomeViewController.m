@@ -206,6 +206,7 @@
 
 - (void)openSheet:(NSNotification *)notif
 {
+    _sheet.gameMode = [[[notif userInfo] objectForKey:@"gameMode"] integerValue];
     [_sheet showAnimation];
 }
 

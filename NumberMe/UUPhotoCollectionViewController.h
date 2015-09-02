@@ -10,4 +10,6 @@
 
 @interface UUPhotoCollectionViewController : UIViewController
 
+@property (nonatomic, assign) NSInteger gameMode;
+
 @end

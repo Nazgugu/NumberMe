@@ -15,7 +15,7 @@
 //@property (nonatomic, strong, getter = getImageSelected) UIImageView *imgSelected;
 
 @property (nonatomic, strong) NSIndexPath *indexPath;
-@property (nonatomic, assign) BOOL isCheckSelected;
+//@property (nonatomic, assign) BOOL isCheckSelected;
 
 @end
 
@@ -36,7 +36,7 @@
     [super prepareForReuse];
     
     _imgThumbnails.image = nil;
-    _isCheckSelected = NO;
+//    _isCheckSelected = NO;
     
 }
 
@@ -77,40 +77,40 @@
     
     self.imgThumbnails.image = [[UUAssetManager sharedInstance] getImageAtIndex:indexPath.row type:1];
     
-    [self setIsCheckSelected:[[UUAssetManager sharedInstance] isSelectdPhotosWithIndex:indexPath.row]];
+//    [self setIsCheckSelected:[[UUAssetManager sharedInstance] isSelectdPhotosWithIndex:indexPath.row]];
 
 }
 
-- (void)setContentSelected{
-
-    NSInteger max = [UUAssetManager sharedInstance].maxSelected;
-    if (!_isCheckSelected && [UUAssetManager sharedInstance].selectdPhotos.count >= max) {
-    
-        UIAlertView *alter = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"您最多只能选择%d张图片",(int)max]
-                                                        message:nil
-                                                       delegate:nil
-                                              cancelButtonTitle:nil
-                                              otherButtonTitles:@"确认", nil];
-        
-        [alter show];
-        return;
-    }
-    
-    if (!_isCheckSelected) {
-        
-        [[UUAssetManager sharedInstance] addObjectWithIndex:_indexPath.row];
-        
-        [self setIsCheckSelected:YES];
-        
-    }else{
-        
-        
-        [[UUAssetManager sharedInstance] removeObjectWithIndex:_indexPath.row];
-        
-        [self setIsCheckSelected:NO];
-    }
-
-}
+//- (void)setContentSelected{
+//
+//    NSInteger max = [UUAssetManager sharedInstance].maxSelected;
+//    if (!_isCheckSelected && [UUAssetManager sharedInstance].selectdPhotos.count >= max) {
+//    
+//        UIAlertView *alter = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"您最多只能选择%d张图片",(int)max]
+//                                                        message:nil
+//                                                       delegate:nil
+//                                              cancelButtonTitle:nil
+//                                              otherButtonTitles:@"确认", nil];
+//        
+//        [alter show];
+//        return;
+//    }
+//    
+//    if (!_isCheckSelected) {
+//        
+//        [[UUAssetManager sharedInstance] addObjectWithIndex:_indexPath.row];
+//        
+//        [self setIsCheckSelected:YES];
+//        
+//    }else{
+//        
+//        
+//        [[UUAssetManager sharedInstance] removeObjectWithIndex:_indexPath.row];
+//        
+//        [self setIsCheckSelected:NO];
+//    }
+//
+//}
 
 #pragma mark - Private Methods
 
@@ -124,8 +124,8 @@
 //    return CGRectContainsPoint(CGRectMake(x, y, w, h), location);
 //}
 
-- (void)setIsCheckSelected:(BOOL)isCheckSelected{
-    
+//- (void)setIsCheckSelected:(BOOL)isCheckSelected{
+
     
 //    if (isCheckSelected) {
 //        
@@ -148,8 +148,8 @@
 //        _imgSelected.image = [UIImage imageNamed:@"ImageSelectedOff"];
 //    }
     
-    _isCheckSelected = isCheckSelected;
-}
+//    _isCheckSelected = isCheckSelected;
+//}
 
 #pragma mark - Getters And Setters
 

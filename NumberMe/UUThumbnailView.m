@@ -11,7 +11,8 @@
 #import "UUPhoto-Macros.h"
 
 @interface UUThumbnailView()< UICollectionViewDelegate,
-                              UICollectionViewDataSource >
+                              UICollectionViewDataSource
+                              ,UUPhotoBrowserDelegate>
 
 @property (nonatomic, strong, getter = getCollectionView) UICollectionView *collectionView;
 
@@ -28,6 +29,11 @@
     }
     
     return self;
+}
+
+- (void)dealloc
+{
+    _weakSuper = nil;
 }
 
 #pragma mark - life cycle
@@ -64,8 +70,18 @@
     
     UUThumbnailCollectionCell *cell;
     cell = (UUThumbnailCollectionCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    [cell setContentSelected];
+    cell.gameMode = _gameMode;
+//    [cell setContentSelected];
     
+    UUPhotoBrowserViewController *controller;
+    controller = [[UUPhotoBrowserViewController alloc] init];
+    controller.delegate = self;
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"dismissSheet" object:nil];
+    
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:controller];
+    
+    [_weakSuper presentViewController:nav animated:YES completion:nil];
 }
 
 

@@ -10,8 +10,10 @@
 
 @interface UUThumbnailCollectionCell : UICollectionViewCell
 
+@property (nonatomic, assign) NSInteger gameMode;
+
 + (NSString *)cellReuseIdentifier;
 
 - (void)setContentWithIndexPath:(NSIndexPath *)indexPath;
-- (void)setContentSelected;
+//- (void)setContentSelected;
 @end

@@ -80,7 +80,7 @@
     page.frame = [self frameForPageAtIndex:index];
     [page displayImage:[self displayImageWithIndex:index]];
     
-    [self isSelectedPhotoWithIndex:index];
+//    [self isSelectedPhotoWithIndex:index];
 }
 
 #pragma mark - UIScrollView Delegate
@@ -92,21 +92,21 @@
 
 #pragma mark - Custom Deledate
 
-- (BOOL)isMaxSelectedNumber{
+//- (BOOL)isMaxSelectedNumber{
+//
+//    if (_delegate && [_delegate respondsToSelector:@selector(isCheckMaxSelectedFromPhotoBrowser:)]) {
+//    
+//        return [_delegate isCheckMaxSelectedFromPhotoBrowser:self];
+//    }
+//    
+//    return YES;
+//}
 
-    if (_delegate && [_delegate respondsToSelector:@selector(isCheckMaxSelectedFromPhotoBrowser:)]) {
-    
-        return [_delegate isCheckMaxSelectedFromPhotoBrowser:self];
-    }
-    
-    return YES;
-}
+//- (void)isSelectedPhotoWithIndex:(NSInteger )index{
+//
+//    
+//    if (_delegate && [_delegate respondsToSelector:@selector(isSelectedPhotosWithIndex:fromPhotoBrowser:)]) {
 
-- (void)isSelectedPhotoWithIndex:(NSInteger )index{
-
-    
-    if (_delegate && [_delegate respondsToSelector:@selector(isSelectedPhotosWithIndex:fromPhotoBrowser:)]) {
-        
 //        _btnSelected.tag = index;
 //        if ([_delegate isSelectedPhotosWithIndex:index fromPhotoBrowser:self]){
 //        
@@ -118,8 +118,8 @@
 //            _btnSelected.selected = NO;
 //            [_btnSelected setImage:[UIImage imageNamed:@"ImageSelectedOff"] forState:UIControlStateNormal];
 //        }
-    }
-}
+//    }
+//}
 
 - (NSInteger )jumpPage{
 
@@ -154,11 +154,11 @@
 
 #pragma mark - Event Response
 
-- (void)onClickSelected:(UIButton *)sender{
+//- (void)onClickSelected:(UIButton *)sender{
 
-    if (!sender.selected && [self isMaxSelectedNumber]) return;
-    
-    sender.selected = !sender.selected;
+//    if (!sender.selected && [self isMaxSelectedNumber]) return;
+//    
+//    sender.selected = !sender.selected;
     
 //    if (sender.selected) {
 //        
@@ -169,11 +169,11 @@
 //    }
     
     
-    if (_delegate && [_delegate respondsToSelector:@selector(displayImageWithIndex:selectedChanged:)]) {
-        
-        return [_delegate displayImageWithIndex:sender.tag selectedChanged:sender.selected];
-    }
-}
+//    if (_delegate && [_delegate respondsToSelector:@selector(displayImageWithIndex:selectedChanged:)]) {
+//        
+//        return [_delegate displayImageWithIndex:sender.tag selectedChanged:sender.selected];
+//    }
+//}
 
 - (void)onClickImageBrowser:(UIGestureRecognizer *)gesture{
     

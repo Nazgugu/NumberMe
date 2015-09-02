@@ -10,6 +10,10 @@
 
 @interface UUThumbnailView : UIView
 
+@property (nonatomic, assign) NSInteger gameMode;
+
+@property (nonatomic, weak) UIViewController *weakSuper;
+
 - (void)reloadView;
 
 @end
