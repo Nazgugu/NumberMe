@@ -11,10 +11,11 @@
 #import "UUPhoto-Macros.h"
 
 @interface UUThumbnailView()< UICollectionViewDelegate,
-                              UICollectionViewDataSource
-                              ,UUPhotoBrowserDelegate>
+                              UICollectionViewDataSource, UUPhotoBrowserDelegate>
 
 @property (nonatomic, strong, getter = getCollectionView) UICollectionView *collectionView;
+
+@property (nonatomic, assign) NSInteger selectedIndex;
 
 
 @end
@@ -26,6 +27,7 @@
     if (self = [super initWithFrame:frame]) {
         
         [self configUI];
+        _selectedIndex = 0;
     }
     
     return self;
@@ -68,6 +70,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
+    _selectedIndex = indexPath.row;
     UUThumbnailCollectionCell *cell;
     cell = (UUThumbnailCollectionCell *)[collectionView cellForItemAtIndexPath:indexPath];
     cell.gameMode = _gameMode;
@@ -79,13 +82,38 @@
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"dismissSheet" object:nil];
     
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:controller];
+//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:controller];
     
-    [_weakSuper presentViewController:nav animated:YES completion:nil];
+    [_weakSuper presentViewController:controller animated:YES completion:nil];
 }
 
-
 #pragma mark - Custom Deledate
+
+- (UIImage *)displayImageWithIndex:(NSInteger)index fromPhotoBrowser:(UUPhotoBrowserViewController *)browser{
+    
+    //    if (_isPreview) return [[UUAssetManager sharedInstance] getImagePreviewAtIndex:index type:2];
+    
+    return [[UUAssetManager sharedInstance] getImageAtIndex:index type:2];
+}
+
+- (NSInteger)numberOfPhotosFromPhotoBrowser:(UUPhotoBrowserViewController *)browser{
+    
+    //    if (_isPreview) return [UUAssetManager sharedInstance].selectdPhotos.count;
+    
+    return [UUAssetManager sharedInstance].assetPhotos.count;
+}
+
+//- (BOOL)isSelectedPhotosWithIndex:(NSInteger)index fromPhotoBrowser:(UUPhotoBrowserViewController *)browser{
+//
+//    if (_isPreview) return [[UUAssetManager sharedInstance] isSelectdPreviewWithIndex:index];
+//
+//    return [[UUAssetManager sharedInstance] isSelectdPhotosWithIndex:index];
+//}
+
+- (NSInteger)jumpIndexFromPhotoBrowser:(UUPhotoBrowserViewController *)browser{
+    
+    return _selectedIndex;
+}
 
 #pragma mark - Event Response
 
