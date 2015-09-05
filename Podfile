@@ -19,3 +19,4 @@ pod 'ARTransitionAnimator', :git => 'https://github.com/AugustRush/ARTransitionA
 pod 'JGProgressHUD', '~>1.3'
 pod 'UAAppReviewManager', '~>0.2.6'
 pod 'FXBlurView', '~>1.6.4'
+pod 'HUMSlider', '~>1.1.0'
