@@ -79,6 +79,7 @@
     UUPhotoBrowserViewController *controller;
     controller = [[UUPhotoBrowserViewController alloc] init];
     controller.delegate = self;
+    controller.isFromRoot = YES;
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"dismissSheet" object:nil];
     

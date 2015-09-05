@@ -103,6 +103,7 @@
     controller = [[UUPhotoBrowserViewController alloc] init];
     controller.delegate = self;
     controller.gameMode = _gameMode;
+    controller.isFromRoot = NO;
     
     [self.navigationController pushViewController:controller animated:YES];
 }

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <AssetsLibrary/AssetsLibrary.h>
+#import "guessGame.h"
 
 @class UUPhotoBrowserViewController;
 
@@ -32,6 +33,8 @@
 @property (nonatomic, weak) id<UUPhotoBrowserDelegate> delegate;
 
 @property (nonatomic, assign) NSInteger gameMode;
+
+@property (nonatomic, assign) BOOL isFromRoot;
 
 @end
 

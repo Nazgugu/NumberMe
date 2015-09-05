@@ -27,7 +27,10 @@
 - (instancetype)initWithWhiteColor{
 
     if (self = [super init]) {
-        
+        self.dynamic = YES;
+        self.blurEnabled = YES;
+        self.blurRadius = 12.0f;
+        self.tintColor = [[UIColor whiteColor] colorWithAlphaComponent:0.6f];
         [self configWhiteColorUI];
     }
     
@@ -37,7 +40,11 @@
 - (instancetype)initWithBlackColor{
 
     if (self = [super init]) {
-        
+        //self.backgroundColor = [UIColor blackColor];
+        self.dynamic = YES;
+        self.blurEnabled = YES;
+        self.blurRadius = 12.0f;
+        self.tintColor = [[UIColor blackColor] colorWithAlphaComponent:0.3f];
         [self configBlackColorUI];
     }
     
@@ -53,23 +60,27 @@
 //    [self addSubview:self.btnOriginal];
 //    [self addSubview:self.lblNumOfSelect];
     
-    self.backgroundColor = COLOR_WITH_RGB(87,87,87,.6f);
+//    self.backgroundColor = COLOR_WITH_RGB(87,87,87,.6f);
     
 //    [self configNotification];
+    
+    
 }
 
 - (void)configWhiteColorUI{
     
     [self addSubview:self.btnSend];
-    [self addSubview:self.btnPreview];
+//    [self addSubview:self.btnPreview];
 //    [self addSubview:self.lblNumOfSelect];
     
-    self.backgroundColor = COLOR_WITH_RGB(250,250,250,1);
-    
-    self.layer.borderWidth = 1;
-    self.layer.borderColor = COLOR_WITH_RGB(224,224,224,1).CGColor;
+//    self.backgroundColor = COLOR_WITH_RGB(250,250,250,1);
+//    
+//    self.layer.borderWidth = 1;
+//    self.layer.borderColor = COLOR_WITH_RGB(224,224,224,1).CGColor;
     
 //    [self configNotification];
+    
+    
 }
 
 //- (void)configNotification{
@@ -82,10 +93,10 @@
 //    [self notificationUpdateSelected:nil];
 //}
 
-- (void)dealloc{
-
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
+//- (void)dealloc{
+//
+//    [[NSNotificationCenter defaultCenter] removeObserver:self];
+//}
 
 #pragma mark - Delegate
 

@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FXBlurView.h"
 
 #define kNotificationUpdateSelected @"NotificationUpdateSelected"
 
-@interface UUToolBarView : UIView
+@interface UUToolBarView : FXBlurView
 
 - (instancetype)initWithWhiteColor;
 

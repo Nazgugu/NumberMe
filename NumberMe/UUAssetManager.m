@@ -58,7 +58,7 @@ SHARED_SERVICE(UUAssetManager);
     };
     
     void (^assetGroupEnumberatorFailure)(NSError *) = ^(NSError *error){
-        
+//        NSLog(@"got error here");
         NSLog(@"Error : %@", [error description]);
     };
     

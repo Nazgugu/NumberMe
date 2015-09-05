@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "61A991BF61D5641E1DD16BA8"
-               BuildableName = "libVCTransitionsLibrary.a"
-               BlueprintName = "VCTransitionsLibrary"
+               BlueprintIdentifier = "4D2A2B0704491FE4D3EA78A9"
+               BuildableName = "libFXBlurView.a"
+               BlueprintName = "FXBlurView"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

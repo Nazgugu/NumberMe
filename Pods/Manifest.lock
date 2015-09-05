@@ -2,6 +2,7 @@ PODS:
   - ARTransitionAnimator (0.1)
   - CircleProgressBar (0.21)
   - EGOCache (2.1.3)
+  - FXBlurView (1.6.4)
   - Google-Mobile-Ads-SDK (7.4.1)
   - GTScrollNavigationBar (0.2)
   - JGProgressHUD (1.3)
@@ -20,6 +21,7 @@ DEPENDENCIES:
   - ARTransitionAnimator (from `https://github.com/AugustRush/ARTransitionAnimator.git`)
   - CircleProgressBar (~> 0.21)
   - EGOCache (~> 2.1.3)
+  - FXBlurView (~> 1.6.4)
   - Google-Mobile-Ads-SDK (~> 7.4.1)
   - GTScrollNavigationBar (~> 0.2)
   - JGProgressHUD (~> 1.3)
@@ -47,6 +49,7 @@ SPEC CHECKSUMS:
   ARTransitionAnimator: ebe30054c9e745fa5dfdb6d1e2720d6a059ad4fe
   CircleProgressBar: 4ce12ddcdc5673cc9f0fb83f6ec7b2a53ecb28df
   EGOCache: f0295dbe041156acabd39021354ad1045ee49e72
+  FXBlurView: db786c2561cb49a09ae98407f52460096ab8a44f
   Google-Mobile-Ads-SDK: dce4c2728daa0bcbd88b6e3dc111b718a07b1eb6
   GTScrollNavigationBar: eea90e88744d13444d918824ea3d671ee0aeb292
   JGProgressHUD: a58f62d3afac173d201250c3ba628fe44bd67017
