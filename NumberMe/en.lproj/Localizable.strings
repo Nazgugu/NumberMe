@@ -47,11 +47,11 @@
 "NOHINT"="All hints used";
 
 //guessGame
-"HINTMSG"="The answer is very close to %ld";
-"MAYBE"="Input has some difference from the answer";
-"FAR"="Input is far from the answer";
-"NEAR"="Input is quite near the answer";
-"RIGHT"="This is probably the answer!";
+"HINTMSG"="Answer is near %ld";
+"MAYBE"="Near the answer";
+"FAR"="Far from answer";
+"NEAR"="Very close";
+"RIGHT"="Correct!";
 
 //RecordViewController
 "DURATIONMIN"="Time used: %ld min %ld s";

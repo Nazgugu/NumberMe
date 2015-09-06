@@ -143,11 +143,6 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openSheet:) name:@"openSheet" object:nil];
     
-    if ([[EGOCache globalCache] hasCacheForKey:@"test"])
-    {
-        UIImage *image = [[EGOCache globalCache] imageForKey:@"test"];
-        [_welcomeImageView setImage:image];
-    }
 }
 
 - (void)viewWillAppear:(BOOL)animated

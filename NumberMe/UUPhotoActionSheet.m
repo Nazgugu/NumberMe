@@ -186,6 +186,7 @@
 
 - (void)showAnimation{
     
+    NSLog(@"game mode = %ld",_gameMode);
     _btnCamera.selected = YES;
     _thumbnailView.gameMode = _gameMode;
     _thumbnailView.weakSuper = _weakSuper;

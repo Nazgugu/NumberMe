@@ -42,6 +42,10 @@
 #define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0 && IS_TRUE_6)
 #define IS_IPHONE_6P (IS_IPHONE && IS_TRUE_6P)
 
+#define NORMBG @"normalBG"
+#define INFIBG @"infinityBG"
+#define LEVELBG @"levelUpBG"
+
 //#define SAFEPARAMETER(parameter)    (parameter) ? [NSString stringWithFormat:@"%@",parameter] : @""
 //
 //#define AMapKey @"2ad85cea7d4aabc66d779b4dbc3755b2"

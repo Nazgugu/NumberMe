@@ -47,11 +47,11 @@
 "NOHINT"="提示已用完";
 
 //guessGame
-"HINTMSG"="这个答案非常接近于 %ld";
-"MAYBE"="输入的与答案有一定的差距";
-"FAR"="输入的和答案差别很大";
-"NEAR"="输入的非常接近于答案了";
-"RIGHT"="这大概就是答案了吧！";
+"HINTMSG"="答案接近 %ld";
+"MAYBE"="有差距";
+"FAR"="差别很大";
+"NEAR"="非常接近";
+"RIGHT"="正确！";
 
 //RecordViewController
 "DURATIONMIN"="用时: %ld分 %ld秒";

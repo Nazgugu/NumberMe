@@ -188,7 +188,14 @@
     {
         _guideLabel.text = NSLocalizedString(@"GUIDE_ONE", nil);
         [self initTimer];
-        [_backgrounImageView setImage:[UIImage imageNamed:@"GBGNORM"]];
+        if ([[EGOCache globalCache] hasCacheForKey:NORMBG])
+        {
+            [_backgrounImageView setImage:[[EGOCache globalCache] imageForKey:NORMBG]];
+        }
+        else
+        {
+            [_backgrounImageView setImage:[UIImage imageNamed:@"GBGNORM"]];
+        }
         _levelLabel.hidden = YES;
     }
     else if (_theGameMode == gameModeInfinity)
@@ -197,7 +204,14 @@
         _totalTries = _game.availableTries;
         [self initProgressBar];
         [self initTimerLabel];
-        [_backgrounImageView setImage:[UIImage imageNamed:@"GBGINFI"]];
+        if ([[EGOCache globalCache] hasCacheForKey:INFIBG])
+        {
+            [_backgrounImageView setImage:[[EGOCache globalCache] imageForKey:INFIBG]];
+        }
+        else
+        {
+            [_backgrounImageView setImage:[UIImage imageNamed:@"GBGINFI"]];
+        }
         _levelLabel.hidden = YES;
     }
     else if (_theGameMode == gameModeLevelUp)
@@ -206,7 +220,14 @@
         _totalTries = _game.availableTries;
         [self initTimer];
         [self initProgressBar];
-        [_backgrounImageView setImage:[UIImage imageNamed:@"GBGLV"]];
+        if ([[EGOCache globalCache] hasCacheForKey:LEVELBG])
+        {
+            [_backgrounImageView setImage:[[EGOCache globalCache] imageForKey:LEVELBG]];
+        }
+        else
+        {
+            [_backgrounImageView setImage:[UIImage imageNamed:@"GBGLV"]];
+        }
         _levelLabel.hidden = NO;
         _levelLabel.text = @"LV 1";
         _currentGameLevel = 1;

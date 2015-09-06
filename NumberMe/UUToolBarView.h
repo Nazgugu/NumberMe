@@ -16,7 +16,7 @@
 @required
 - (void)sliderValueDidChange:(CGFloat)value;
 
-- (void)hasChoseImage;
+- (void)hasChoseImageOfGameMode:(NSInteger)gameMode;
 
 - (void)dismiss;
 
@@ -27,6 +27,8 @@
 @property (nonatomic, assign) id<UUToolBarViewDelegate> delegate;
 
 @property (nonatomic) BOOL isFromRoot;
+
+@property (nonatomic) NSInteger gameMode;
 
 - (instancetype)initWithWhiteColor;
 

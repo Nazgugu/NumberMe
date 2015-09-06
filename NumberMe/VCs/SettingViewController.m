@@ -431,6 +431,19 @@
             [alert setCompletionBlock:^(RJBlurAlertView *theAlert, UIButton *button) {
                 if (button == theAlert.okButton)
                 {
+                    UIImage *norm, *infi, *level;
+                    if ([[EGOCache globalCache] hasCacheForKey:NORMBG])
+                    {
+                        norm = [[EGOCache globalCache] imageForKey:NORMBG];
+                    }
+                    if ([[EGOCache globalCache] hasCacheForKey:INFIBG])
+                    {
+                        infi = [[EGOCache globalCache] imageForKey:INFIBG];
+                    }
+                    if ([[EGOCache globalCache] hasCacheForKey:LEVELBG])
+                    {
+                        level = [[EGOCache globalCache] imageForKey:LEVELBG];
+                    }
                     [[EGOCache globalCache] clearCache];
                     [self.settingTable reloadData];
                     NSData *normalGameData = [NSKeyedArchiver archivedDataWithRootObject:[NSMutableArray new]];
@@ -439,6 +452,18 @@
                     [[EGOCache globalCache] setData:infinity forKey:@"infinityGames"];
                     NSData *levelGames = [NSKeyedArchiver archivedDataWithRootObject:[NSMutableArray new]];
                     [[EGOCache globalCache] setData:levelGames forKey:@"levelGames"];
+                    if (norm)
+                    {
+                        [[EGOCache globalCache] setImage:norm forKey:NORMBG];
+                    }
+                    if (infi)
+                    {
+                        [[EGOCache globalCache] setImage:infi forKey:INFIBG];
+                    }
+                    if (level)
+                    {
+                        [[EGOCache globalCache] setImage:level forKey:LEVELBG];
+                    }
                 }
             }];
             [alert show];

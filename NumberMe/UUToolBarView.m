@@ -175,9 +175,9 @@
 - (void)onClickSend:(id)sender{
     
 //    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationSendPhotos object:nil];
-    if ([_delegate respondsToSelector:@selector(hasChoseImage)])
+    if ([_delegate respondsToSelector:@selector(hasChoseImageOfGameMode:)])
     {
-        [_delegate hasChoseImage];
+        [_delegate hasChoseImageOfGameMode:_gameMode];
     }
 }
 

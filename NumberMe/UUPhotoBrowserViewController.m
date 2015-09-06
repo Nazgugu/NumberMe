@@ -365,9 +365,11 @@
     
 }
 
-- (void)hasChoseImage
+- (void)hasChoseImageOfGameMode:(NSInteger)gameMode
 {
 //    NSLog(@"has choose image");
+    NSLog(@"game mode = %ld",gameMode);
+    _gameMode = gameMode;
     [self hideAllSource];
     [self savePhoto];
     if (_isFromRoot)
@@ -382,19 +384,44 @@
 
 - (void)savePhoto
 {
+//    NSLog(@"save photo of game mode %ld",_gameMode);
     UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, NO, [UIScreen mainScreen].scale);
         
     [self.view drawViewHierarchyInRect:self.view.bounds afterScreenUpdates:YES];
         
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
-    [[EGOCache globalCache] setImage:image forKey:@"test"];
+    switch (_gameMode) {
+        case gameModeNormal:
+        {
+            [[EGOCache globalCache] setImage:image forKey:NORMBG];
+        }
+            break;
+        case gameModeInfinity:
+        {
+            [[EGOCache globalCache] setImage:image forKey:INFIBG];
+        }
+            break;
+        case gameModeLevelUp:
+        {
+            [[EGOCache globalCache] setImage:image forKey:LEVELBG];
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)dismiss
 {
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    if (_isFromRoot)
+    {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    else
+    {
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 #pragma mark - UIScrollView Delegate
@@ -673,7 +700,7 @@
 {
     _isFromRoot = isFromRoot;
     [self.view addSubview:self.toolBarView];
-    
+    _toolBarView.gameMode = _gameMode;
 }
 
 //- (UIButton *)getButtonSelected{

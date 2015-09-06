@@ -74,12 +74,15 @@
     UUThumbnailCollectionCell *cell;
     cell = (UUThumbnailCollectionCell *)[collectionView cellForItemAtIndexPath:indexPath];
     cell.gameMode = _gameMode;
+    NSLog(@"cell game mode = %ld",_gameMode);
 //    [cell setContentSelected];
     
     UUPhotoBrowserViewController *controller;
     controller = [[UUPhotoBrowserViewController alloc] init];
+    controller.gameMode = _gameMode;
     controller.delegate = self;
     controller.isFromRoot = YES;
+    
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"dismissSheet" object:nil];
     
