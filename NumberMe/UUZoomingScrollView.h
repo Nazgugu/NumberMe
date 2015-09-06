@@ -18,4 +18,6 @@
 
 - (void)blurImageOfRadius:(CGFloat)blurRadius;
 
+//- (void)savePhotoOfGameMode:(NSInteger)gameMode;
+
 @end

@@ -27,8 +27,11 @@
 #import "UUPhoto-Macros.h"
 #import "UUPhoto-Import.h"
 
+#import "EGOCache.h"
+
 
 @interface WelcomeViewController () <GameModeSelectionViewDelegate, UIViewControllerTransitioningDelegate, ADBannerViewDelegate, UUPhotoActionSheetDelegate>
+@property (weak, nonatomic) IBOutlet UIImageView *welcomeImageView;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIButton *recordButton;
 @property (weak, nonatomic) IBOutlet UIButton *settingButton;
@@ -139,6 +142,12 @@
     [self.view addSubview:_sheet];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openSheet:) name:@"openSheet" object:nil];
+    
+    if ([[EGOCache globalCache] hasCacheForKey:@"test"])
+    {
+        UIImage *image = [[EGOCache globalCache] imageForKey:@"test"];
+        [_welcomeImageView setImage:image];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated

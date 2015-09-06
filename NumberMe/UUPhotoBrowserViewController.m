@@ -9,6 +9,8 @@
 #import "UUPhotoBrowserViewController.h"
 #import "UUPhoto-Import.h"
 #import "UUPhoto-Macros.h"
+#import <QuartzCore/QuartzCore.h>
+#import "EGOCache.h"
 
 #define PADDING 10
 
@@ -351,9 +353,23 @@
     [_currentPage blurImageOfRadius:value];
 }
 
+- (void)hideAllSource
+{
+    for (UIView *view in self.view.subviews)
+    {
+        if (![view isKindOfClass:[UIScrollView class]])
+        {
+            [view removeFromSuperview];
+        }
+    }
+    
+}
+
 - (void)hasChoseImage
 {
-    NSLog(@"has choose image");
+//    NSLog(@"has choose image");
+    [self hideAllSource];
+    [self savePhoto];
     if (_isFromRoot)
     {
         [self dismissViewControllerAnimated:YES completion:nil];
@@ -362,6 +378,18 @@
     {
         [self.navigationController dismissViewControllerAnimated:YES completion:nil];
     }
+}
+
+- (void)savePhoto
+{
+    UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, NO, [UIScreen mainScreen].scale);
+        
+    [self.view drawViewHierarchyInRect:self.view.bounds afterScreenUpdates:YES];
+        
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    [[EGOCache globalCache] setImage:image forKey:@"test"];
 }
 
 - (void)dismiss

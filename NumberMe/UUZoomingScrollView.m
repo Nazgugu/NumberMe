@@ -9,6 +9,7 @@
 #import "UUZoomingScrollView.h"
 #import "UUPhoto-Macros.h"
 #import "SABlurImageView.h"
+#import "EGOCache.h"
 
 @interface UUZoomingScrollView() < UIScrollViewDelegate >
 
@@ -86,6 +87,24 @@
     }
     
 }
+
+//- (void)savePhotoOfGameMode:(NSInteger)gameMode
+//{
+//    NSLog(@"imageview frame width = %lf, height = %lf, origin x = %lf, origin y = %lf",_imgPhoto.frame.size.width, _imgPhoto.frame.size.height, _imgPhoto.frame.origin.x, _imgPhoto.frame.origin.y);
+//    NSLog(@"imageview bounds width = %lf, height = %lf, origin x = %lf, origin y = %lf",_imgPhoto.bounds.size.width, _imgPhoto.bounds.size.height, _imgPhoto.bounds.origin.x, _imgPhoto.bounds.origin.y);
+//    NSLog(@"screen width = %lf, height = %lf",SCREENWIDTH, SCREENHEIGHT);
+//    
+//    UIGraphicsBeginImageContext(_imgPhoto.frame.size);
+//    [_imgPhoto.layer renderInContext:UIGraphicsGetCurrentContext()];
+//    UIImage *sourceImage = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    
+//    UIGraphicsBeginImageContext(CGSizeMake(SCREENWIDTH * 2, SCREENHEIGHT * 2));
+//    [sourceImage drawAtPoint:CGPointMake(0, 0)];
+//    UIImage *croppedImage = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    [[EGOCache globalCache] setImage:croppedImage forKey:@"test"];
+//}
 
 - (void)blurImageOfRadius:(CGFloat)blurRadius
 {
