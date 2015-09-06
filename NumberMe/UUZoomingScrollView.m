@@ -61,8 +61,9 @@
         self.contentSize = CGSizeMake(0, 0);
         
         if (img) {
+//            NSLog(@"display");
             [_imgPhoto setImage:img];
-            [_imgPhoto configrationForBlurAnimation:100];
+            [_imgPhoto configrationForBlurAnimation:50];
             // Set image
             _originImage = img;
             // Setup photo frame
@@ -79,7 +80,10 @@
     
         [self setNeedsLayout];
     }
-    
+    else
+    {
+        NSLog(@"has image");
+    }
     
 }
 

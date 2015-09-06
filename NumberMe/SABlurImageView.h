@@ -15,4 +15,6 @@
 - (void)startBlurAnimation:(CGFloat)duration;
 - (void)blur:(CGFloat)percentage;
 
+
+
 @end

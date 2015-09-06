@@ -143,6 +143,7 @@ static NSInteger const kMaxImageCount = 10;
 
 - (void)configrationForBlurAnimation:(CGFloat)boxSize {
     if (self.image) {
+        [_cgImages removeAllObjects];
         [self.cgImages addObject:(__bridge id)self.image.CGImage];
         
         CGFloat newBoxSize = boxSize;

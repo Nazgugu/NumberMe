@@ -223,12 +223,16 @@
     if (!_btnSend) {
         
         _btnSend = [UIButton buttonWithType:UIButtonTypeCustom];
-        _btnSend.frame = CGRectMake(ScreenWidth -60, 0, 50, 50);
-        [_btnSend setTitle:@"发送" forState:UIControlStateNormal];
-        [_btnSend setTitleColor:COLOR_WITH_RGB(94,201,252,1) forState:UIControlStateNormal];
-        _btnSend.titleLabel.font = [UIFont systemFontOfSize:16];
+        _btnSend.frame = CGRectMake(ScreenWidth -55, 15, 50, 20);
+        [_btnSend setTitle:NSLocalizedString(@"CONF", nil) forState:UIControlStateNormal];
+        [_btnSend setTitleColor:[UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f] forState:UIControlStateNormal];
+        _btnSend.layer.borderWidth = 1.0f;
+        _btnSend.layer.borderColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
+        _btnSend.layer.cornerRadius = 5.0f;
+        _btnSend.layer.masksToBounds = YES;
+        _btnSend.titleLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:15.0f];
         _btnSend.backgroundColor = [UIColor clearColor];
-        _btnSend.enabled = NO;
+        _btnSend.enabled = YES;
         
         [_btnSend addTarget:self action:@selector(onClickSend:) forControlEvents:UIControlEventTouchUpInside];
     }
