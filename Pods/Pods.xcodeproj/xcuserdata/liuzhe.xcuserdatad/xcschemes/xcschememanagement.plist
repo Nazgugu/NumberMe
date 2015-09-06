@@ -99,45 +99,35 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>ZCAnimatedLabel.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>006F11536F1EEB4968328B3312DDAF66</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>018D5C39CD05505A83186C0AD566ED8E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>094550E19AD0C68F5C49D5DAB7C47B5F</key>
+		<key>1D0C0F7F25F221511FEDF5B746812A5C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1B32F0B81F502F67F2FFDF8AE659C45D</key>
+		<key>3019EEC2FD58C3EC25CA91591798816F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>21CDA0938F7C29EA1B5A072DEFCC22CE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>283E9D0F01FD1C639F1438D20760448C</key>
+		<key>3911021C243CECBDCA1FB57F5695AEBA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>445D4C2EBD728AE6D9224736F5D614D8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4AC5C171444674C8823A828BC166246C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -152,7 +142,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8175FDFD3E04762C912E6EF724925377</key>
+		<key>7EEC5940F58102FD63B16C07D4548F1B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7FBBFB393737FD4630AD0747BA415BE6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>890920CCDDDD9F21ADC1FD59866E1BC2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A359FD35472F06F0CE437A39ED0FBD30</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A76EBE70CAA95AA00573BE971AB39E4E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B2BB3878A302F9875A17979587595EAA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -167,37 +182,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CBE1BC6846208F5D02392D45F94BE36D</key>
+		<key>CAD87DD1F2E2F2F53006E6A335CDC203</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CD6E2BBF8523D7B1CD0DBB02BD7FDF93</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DE5991D087ED0F2C1DD70A1C2F3BB457</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E05ED22341374122D9EB699A18782AD2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F16C3678C85AEC9378695EC06C45EEBE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F198C9028B9CC0C986F7DAE36255F48E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F3233A4142205549C0F5CE00E9CB2C87</key>
+		<key>DDFDF8DA1FCE19E7BCB06AC811DDC4E8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

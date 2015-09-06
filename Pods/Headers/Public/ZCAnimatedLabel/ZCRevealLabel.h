@@ -1,1 +1,0 @@
-../../../ZCAnimatedLabel/ZCAnimatedLabel/ZCAnimatedLabel/ZCRevealLabel.h
