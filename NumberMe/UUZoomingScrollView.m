@@ -8,11 +8,13 @@
 
 #import "UUZoomingScrollView.h"
 #import "UUPhoto-Macros.h"
+#import "SABlurImageView.h"
 
 @interface UUZoomingScrollView() < UIScrollViewDelegate >
 
-@property (nonatomic, strong, getter = getImagePhoto) UIImageView *imgPhoto;
+@property (nonatomic, strong, getter = getImagePhoto) SABlurImageView *imgPhoto;
 @property (nonatomic, strong) UITapGestureRecognizer *singleTap;
+@property (nonatomic, strong) UIImage *originImage;
 
 @end
 
@@ -59,15 +61,16 @@
         self.contentSize = CGSizeMake(0, 0);
         
         if (img) {
-            
+            [_imgPhoto setImage:img];
+            [_imgPhoto configrationForBlurAnimation:100];
             // Set image
-            _imgPhoto.image = img;
-            
+            _originImage = img;
             // Setup photo frame
             CGRect photoImageViewFrame;
             photoImageViewFrame.origin = CGPointZero;
             photoImageViewFrame.size = img.size;
             _imgPhoto.frame = photoImageViewFrame;
+            
             self.contentSize = photoImageViewFrame.size;
             
             // Set zoom to minimum zoom
@@ -78,6 +81,14 @@
     }
     
     
+}
+
+- (void)blurImageOfRadius:(CGFloat)blurRadius
+{
+    if (_imgPhoto.image)
+    {
+        [_imgPhoto blur:blurRadius/50.0f];
+    }
 }
 
 #pragma mark - Private Modeh
@@ -216,7 +227,7 @@
     
     if (!_imgPhoto) {
         
-        _imgPhoto = [[UIImageView alloc] initWithFrame:CGRectZero];
+        _imgPhoto = [[SABlurImageView alloc] initWithFrame:CGRectZero];
         _imgPhoto.contentMode = UIViewContentModeCenter;
         _imgPhoto.backgroundColor = [UIColor blackColor];
         _imgPhoto.userInteractionEnabled = YES;

@@ -60,7 +60,8 @@
 		AEA03C541B917734001ACCEA /* GBGINFI.png in Resources */ = {isa = PBXBuildFile; fileRef = AEA03C531B917734001ACCEA /* GBGINFI.png */; };
 		AEA03C561B9177A9001ACCEA /* GBGLV.png in Resources */ = {isa = PBXBuildFile; fileRef = AEA03C551B9177A9001ACCEA /* GBGLV.png */; };
 		AEA03C571B9238F6001ACCEA /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF27D6F1B7D0A1800A4AD5B /* iAd.framework */; };
-		AEA102BC1B9C11DE00D29C54 /* UIImage+BlurredImage.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA102BB1B9C11DE00D29C54 /* UIImage+BlurredImage.m */; };
+		AEA102C21B9C1A3800D29C54 /* SABlurImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA102BF1B9C1A3800D29C54 /* SABlurImageView.m */; };
+		AEA102C31B9C1A3800D29C54 /* UIImage+BlurEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA102C11B9C1A3800D29C54 /* UIImage+BlurEffect.m */; };
 		AEAF5AB21B88336100D295A8 /* NUDialChart.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAF5AAD1B88336100D295A8 /* NUDialChart.m */; };
 		AEAF5AB31B88336100D295A8 /* UICountingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAF5AAF1B88336100D295A8 /* UICountingLabel.m */; };
 		AEAF5AB41B88336100D295A8 /* XMCircleTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAF5AB11B88336100D295A8 /* XMCircleTypeView.m */; };
@@ -168,8 +169,10 @@
 		AEA03C511B917699001ACCEA /* GBGNORM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GBGNORM.png; sourceTree = "<group>"; };
 		AEA03C531B917734001ACCEA /* GBGINFI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GBGINFI.png; sourceTree = "<group>"; };
 		AEA03C551B9177A9001ACCEA /* GBGLV.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GBGLV.png; sourceTree = "<group>"; };
-		AEA102BA1B9C11DE00D29C54 /* UIImage+BlurredImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BlurredImage.h"; sourceTree = "<group>"; };
-		AEA102BB1B9C11DE00D29C54 /* UIImage+BlurredImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BlurredImage.m"; sourceTree = "<group>"; };
+		AEA102BE1B9C1A3800D29C54 /* SABlurImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SABlurImageView.h; sourceTree = "<group>"; };
+		AEA102BF1B9C1A3800D29C54 /* SABlurImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SABlurImageView.m; sourceTree = "<group>"; };
+		AEA102C01B9C1A3800D29C54 /* UIImage+BlurEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BlurEffect.h"; sourceTree = "<group>"; };
+		AEA102C11B9C1A3800D29C54 /* UIImage+BlurEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BlurEffect.m"; sourceTree = "<group>"; };
 		AEAF5AAC1B88336100D295A8 /* NUDialChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NUDialChart.h; sourceTree = "<group>"; };
 		AEAF5AAD1B88336100D295A8 /* NUDialChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NUDialChart.m; sourceTree = "<group>"; };
 		AEAF5AAE1B88336100D295A8 /* UICountingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICountingLabel.h; sourceTree = "<group>"; };
@@ -375,7 +378,7 @@
 		AE7E74B91B74688B003E9341 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				AEA102B91B9C11CF00D29C54 /* imageBlur */,
+				AEA102BD1B9C1A2D00D29C54 /* BlurImageView */,
 				AE9925951B92C1490078A3AD /* UUPhoto */,
 				AEAF5AAB1B88335300D295A8 /* PieChart */,
 				AEAE96741B8799BB00F6089C /* ActionSheet */,
@@ -471,13 +474,15 @@
 			name = View;
 			sourceTree = "<group>";
 		};
-		AEA102B91B9C11CF00D29C54 /* imageBlur */ = {
+		AEA102BD1B9C1A2D00D29C54 /* BlurImageView */ = {
 			isa = PBXGroup;
 			children = (
-				AEA102BA1B9C11DE00D29C54 /* UIImage+BlurredImage.h */,
-				AEA102BB1B9C11DE00D29C54 /* UIImage+BlurredImage.m */,
+				AEA102BE1B9C1A3800D29C54 /* SABlurImageView.h */,
+				AEA102BF1B9C1A3800D29C54 /* SABlurImageView.m */,
+				AEA102C01B9C1A3800D29C54 /* UIImage+BlurEffect.h */,
+				AEA102C11B9C1A3800D29C54 /* UIImage+BlurEffect.m */,
 			);
-			name = imageBlur;
+			name = BlurImageView;
 			sourceTree = "<group>";
 		};
 		AEAE96741B8799BB00F6089C /* ActionSheet */ = {
@@ -684,6 +689,7 @@
 			files = (
 				AE9925AD1B92C2E70078A3AD /* UUAssetManager.m in Sources */,
 				AE8E228B1B756B9500A298DE /* YETILayerAnimation.m in Sources */,
+				AEA102C31B9C1A3800D29C54 /* UIImage+BlurEffect.m in Sources */,
 				AEAF5AB41B88336100D295A8 /* XMCircleTypeView.m in Sources */,
 				AEAF5AB21B88336100D295A8 /* NUDialChart.m in Sources */,
 				AE8E22851B756B8600A298DE /* YETIFadeLabel.m in Sources */,
@@ -698,10 +704,10 @@
 				AE8E228E1B756B9B00A298DE /* YETIMotionLabel.m in Sources */,
 				AE9925B41B92C2F40078A3AD /* UUPhotoCollectionViewController.m in Sources */,
 				AEAF5ABA1B8833E500D295A8 /* PNColor.m in Sources */,
-				AEA102BC1B9C11DE00D29C54 /* UIImage+BlurredImage.m in Sources */,
 				AE8E22911B76AE7E00A298DE /* guessGame.m in Sources */,
 				AE9925A81B92C2E00078A3AD /* UUThumbnailCollectionCell.m in Sources */,
 				AEAF5AB71B8833D400D295A8 /* PNCircleChart.m in Sources */,
+				AEA102C21B9C1A3800D29C54 /* SABlurImageView.m in Sources */,
 				AE7E74BC1B746896003E9341 /* JTNumberScrollAnimatedView.m in Sources */,
 				AE8E22881B756B8D00A298DE /* YETIFallingLabel.m in Sources */,
 				AE2630811B6EA58000A566AE /* main.m in Sources */,

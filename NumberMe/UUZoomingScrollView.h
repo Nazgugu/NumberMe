@@ -16,4 +16,6 @@
 
 - (void)addImageTarget:(id)target action:(SEL)action;
 
+- (void)blurImageOfRadius:(CGFloat)blurRadius;
+
 @end

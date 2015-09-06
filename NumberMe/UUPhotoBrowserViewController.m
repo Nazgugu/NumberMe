@@ -335,7 +335,7 @@
     page.frame = [self frameForPageAtIndex:index];
     [page displayImage:[self displayImageWithIndex:index]];
     _currentPage = page;
-    NSLog(@"configure");
+//    NSLog(@"configure");
     if (_toolBarView)
     {
         [_toolBarView resetSlider];
@@ -346,6 +346,7 @@
 - (void)sliderValueDidChange:(CGFloat)value
 {
 //    NSLog(@"value changed");
+    [_currentPage blurImageOfRadius:value];
 }
 
 #pragma mark - UIScrollView Delegate
