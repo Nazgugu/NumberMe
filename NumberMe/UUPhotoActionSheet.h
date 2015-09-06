@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define kNotificationSendPhotos @"NotificationSendPhotos"
+//#define kNotificationSendPhotos @"NotificationSendPhotos"
 
 @class UUPhotoActionSheet;
 @protocol UUPhotoActionSheetDelegate < NSObject >

@@ -14,8 +14,10 @@
 @interface UUToolBarView()
 
 @property (nonatomic, strong, getter = getButtonSend) UIButton *btnSend;
-@property (nonatomic, strong, getter = getButtonPreview) UIButton *btnPreview;
+//@property (nonatomic, strong, getter = getButtonPreview) UIButton *btnPreview;
 @property (nonatomic, strong) HUMSlider *blurSlider;
+
+@property (nonatomic, strong, getter = getCancelButton) UIButton *cancelButton;
 //@property (nonatomic, strong, getter = getButtonOriginalImage) UIButton *btnOriginal;
 
 //@property (nonatomic, strong, getter = getImageOriginal) UIImageView *imgOriginal;
@@ -33,7 +35,7 @@
         self.blurEnabled = YES;
         self.blurRadius = 12.0f;
         self.tintColor = [[UIColor whiteColor] colorWithAlphaComponent:0.6f];
-        [self configWhiteColorUI];
+        [self configureSlider];
     }
     
     return self;
@@ -47,7 +49,7 @@
         self.blurEnabled = YES;
         self.blurRadius = 12.0f;
         self.tintColor = [[UIColor blackColor] colorWithAlphaComponent:0.3f];
-        [self configBlackColorUI];
+        [self configureSlider];
     }
     
     return self;
@@ -55,9 +57,13 @@
 
 #pragma mark - life cycle
 
-- (void)configBlackColorUI{
+//- (void)configBlackColorUI{
 
-    [self addSubview:self.btnSend];
+//    [self addSubview:self.btnSend];
+//    if (_isFromRoot)
+//    {
+//        [self addSubview:self.cancelButton];
+//    }
 //    [self addSubview:self.imgOriginal];
 //    [self addSubview:self.btnOriginal];
 //    [self addSubview:self.lblNumOfSelect];
@@ -65,14 +71,18 @@
 //    self.backgroundColor = COLOR_WITH_RGB(87,87,87,.6f);
     
 //    [self configNotification];
-    [self configureSlider];
-    
-    
-}
+//    [self configureSlider];
+//    
+//    
+//}
 
-- (void)configWhiteColorUI{
-    
-    [self addSubview:self.btnSend];
+//- (void)configWhiteColorUI{
+
+//    [self addSubview:self.btnSend];
+//    if (_isFromRoot)
+//    {
+//        [self addSubview:self.cancelButton];
+//    }
 //    [self addSubview:self.btnPreview];
 //    [self addSubview:self.lblNumOfSelect];
     
@@ -83,9 +93,9 @@
     
 //    [self configNotification];
     
-    [self configureSlider];
-    
-}
+//    [self configureSlider];
+//    
+//}
 
 - (void)configureSlider
 {
@@ -143,10 +153,10 @@
 
 #pragma mark - Event Response
 
-- (void)addPreviewTarget:(id)target action:(SEL)action{
-
-    [_btnPreview addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
-}
+//- (void)addPreviewTarget:(id)target action:(SEL)action{
+//
+//    [_btnPreview addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+//}
 
 //- (void)onClickOriginal:(UIButton *)sender{
 //
@@ -164,10 +174,20 @@
 
 - (void)onClickSend:(id)sender{
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationSendPhotos
-                                                        object:nil];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationSendPhotos object:nil];
+    if ([_delegate respondsToSelector:@selector(hasChoseImage)])
+    {
+        [_delegate hasChoseImage];
+    }
 }
 
+- (void)dismissView
+{
+    if ([_delegate respondsToSelector:@selector(dismiss)])
+    {
+        [_delegate dismiss];
+    }
+}
 
 
 #pragma mark - Public Methods
@@ -202,42 +222,80 @@
 
 #pragma mark - Getters And Setters
 
-- (UIButton *)getButtonPreview{
-    
-    if (!_btnPreview) {
-        
-        _btnPreview = [UIButton buttonWithType:UIButtonTypeCustom];
-        _btnPreview.frame = CGRectMake(10, 0, 50, 50);
-        [_btnPreview setTitle:@"预览" forState:UIControlStateNormal];
-        [_btnPreview setTitleColor:COLOR_WITH_RGB(94,201,252,1) forState:UIControlStateNormal];
-        _btnPreview.titleLabel.font = [UIFont systemFontOfSize:16];
-        _btnPreview.backgroundColor = [UIColor clearColor];
-        _btnPreview.enabled = NO;
-    }
-    
-    return _btnPreview;
-}
+//- (UIButton *)getButtonPreview{
+//    
+//    if (!_btnPreview) {
+//        
+//        _btnPreview = [UIButton buttonWithType:UIButtonTypeCustom];
+//        _btnPreview.frame = CGRectMake(10, 0, 50, 50);
+//        [_btnPreview setTitle:@"预览" forState:UIControlStateNormal];
+//        [_btnPreview setTitleColor:COLOR_WITH_RGB(94,201,252,1) forState:UIControlStateNormal];
+//        _btnPreview.titleLabel.font = [UIFont systemFontOfSize:16];
+//        _btnPreview.backgroundColor = [UIColor clearColor];
+//        _btnPreview.enabled = NO;
+//    }
+//    
+//    return _btnPreview;
+//}
 
 - (UIButton *)getButtonSend{
     
     if (!_btnSend) {
         
         _btnSend = [UIButton buttonWithType:UIButtonTypeCustom];
-        _btnSend.frame = CGRectMake(ScreenWidth -55, 15, 50, 20);
+        if (_isFromRoot)
+        {
+            _btnSend.frame = CGRectMake(ScreenWidth -55, 6, 50, 16);
+            _btnSend.titleLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:12.0f];
+        }
+        else
+        {
+            _btnSend.frame = CGRectMake(ScreenWidth -55, 15, 50, 20);
+            _btnSend.titleLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:15.0f];
+        }
         [_btnSend setTitle:NSLocalizedString(@"CONF", nil) forState:UIControlStateNormal];
         [_btnSend setTitleColor:[UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f] forState:UIControlStateNormal];
         _btnSend.layer.borderWidth = 1.0f;
         _btnSend.layer.borderColor = [UIColor colorWithRed:0.176f green:0.718f blue:0.984f alpha:1.00f].CGColor;
         _btnSend.layer.cornerRadius = 5.0f;
         _btnSend.layer.masksToBounds = YES;
-        _btnSend.titleLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:15.0f];
+        
         _btnSend.backgroundColor = [UIColor clearColor];
-        _btnSend.enabled = YES;
+//        _btnSend.enabled = YES;
         
         [_btnSend addTarget:self action:@selector(onClickSend:) forControlEvents:UIControlEventTouchUpInside];
     }
     
     return _btnSend;
+}
+
+- (UIButton *)getCancelButton
+{
+    if (!_cancelButton)
+    {
+        _cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _cancelButton.frame = CGRectMake(ScreenWidth -55, 28, 50, 16);
+        [_cancelButton setTitle:NSLocalizedString(@"CANCEL", nil) forState:UIControlStateNormal];
+        [_cancelButton setTitleColor:[UIColor colorWithRed:0.969f green:0.353f blue:0.380f alpha:1.00f] forState:UIControlStateNormal];
+        _cancelButton.layer.borderWidth = 1.0f;
+        _cancelButton.layer.borderColor = [UIColor colorWithRed:0.969f green:0.353f blue:0.380f alpha:1.00f].CGColor;
+        _cancelButton.layer.cornerRadius = 5.0f;
+        _cancelButton.layer.masksToBounds = YES;
+        _cancelButton.titleLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:12.0f];
+        _cancelButton.backgroundColor = [UIColor clearColor];
+        [_cancelButton addTarget:self action:@selector(dismissView) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _cancelButton;
+}
+
+- (void)setIsFromRoot:(BOOL)isFromRoot
+{
+    _isFromRoot = isFromRoot;
+    [self addSubview:self.btnSend];
+    if (_isFromRoot)
+    {
+        [self addSubview:self.cancelButton];
+    }
 }
 
 //- (UILabel *)getLabelNumber{

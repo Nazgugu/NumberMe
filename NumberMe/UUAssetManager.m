@@ -251,7 +251,7 @@ SHARED_SERVICE(UUAssetManager);
 
     [_selectdPhotos addObject:model];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationUpdateSelected object:nil];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationUpdateSelected object:nil];
 }
 
 - (void)removeObjectWithIndex:(NSInteger )index{
@@ -266,7 +266,7 @@ SHARED_SERVICE(UUAssetManager);
         UUAssetPhoto *model = results[0];
         [_selectdPhotos removeObject:model];
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationUpdateSelected object:nil];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationUpdateSelected object:nil];
     }
 }
 
@@ -284,7 +284,7 @@ SHARED_SERVICE(UUAssetManager);
     UUAssetPhoto *model = _selectdPhotos[index];
     model.isSelected = selecte;
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationUpdateSelected object:nil];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationUpdateSelected object:nil];
     
     return model.index;
 }

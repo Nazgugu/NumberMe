@@ -63,15 +63,15 @@
 - (void)configNotification{
     
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(notificationSendPhotos:)
-                                                 name:kNotificationSendPhotos
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(notificationUpdateSelected:)
-                                                 name:kNotificationUpdateSelected
-                                               object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(notificationSendPhotos:)
+//                                                 name:kNotificationSendPhotos
+//                                               object:nil];
+//    
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(notificationUpdateSelected:)
+//                                                 name:kNotificationUpdateSelected
+//                                               object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelAnimation) name:@"dismissSheet" object:nil];
 

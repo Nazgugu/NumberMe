@@ -9,12 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "FXBlurView.h"
 
-#define kNotificationUpdateSelected @"NotificationUpdateSelected"
+//#define kNotificationUpdateSelected @"NotificationUpdateSelected"
 
 @protocol UUToolBarViewDelegate <NSObject>
 
 @required
 - (void)sliderValueDidChange:(CGFloat)value;
+
+- (void)hasChoseImage;
+
+- (void)dismiss;
 
 @end
 
@@ -22,11 +26,13 @@
 
 @property (nonatomic, assign) id<UUToolBarViewDelegate> delegate;
 
+@property (nonatomic) BOOL isFromRoot;
+
 - (instancetype)initWithWhiteColor;
 
 - (instancetype)initWithBlackColor;
 
-- (void)addPreviewTarget:(id)target action:(SEL)action;
+//- (void)addPreviewTarget:(id)target action:(SEL)action;
 
 - (void)resetSlider;
 

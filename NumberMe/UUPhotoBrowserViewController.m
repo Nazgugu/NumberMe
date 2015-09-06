@@ -83,7 +83,7 @@
     
     [self configureGameView];
     
-    [self.view addSubview:self.toolBarView];
+    
     
 //    [self configBarButtonItem];
     [self updateVisiblePageView];
@@ -343,10 +343,30 @@
 //    [self isSelectedPhotoWithIndex:index];
 }
 
+#pragma mark UUToolBarViewDelegate
+
 - (void)sliderValueDidChange:(CGFloat)value
 {
 //    NSLog(@"value changed");
     [_currentPage blurImageOfRadius:value];
+}
+
+- (void)hasChoseImage
+{
+    NSLog(@"has choose image");
+    if (_isFromRoot)
+    {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    else
+    {
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    }
+}
+
+- (void)dismiss
+{
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - UIScrollView Delegate
@@ -613,11 +633,19 @@
         
         CGRect frame = CGRectMake(0, CGRectGetHeight(self.view.frame) -50, ScreenWidth, 50);
         _toolBarView = [[UUToolBarView alloc] initWithBlackColor];
+        _toolBarView.isFromRoot = _isFromRoot;
         _toolBarView.frame = frame;
         _toolBarView.delegate = self;
     }
     
     return _toolBarView;
+}
+
+- (void)setIsFromRoot:(BOOL)isFromRoot
+{
+    _isFromRoot = isFromRoot;
+    [self.view addSubview:self.toolBarView];
+    
 }
 
 //- (UIButton *)getButtonSelected{
