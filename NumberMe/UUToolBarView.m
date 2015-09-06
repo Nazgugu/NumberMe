@@ -9,11 +9,13 @@
 #import "UUToolBarView.h"
 #import "UUPhoto-Macros.h"
 #import "UUPhoto-Import.h"
+#import "HUMSlider.h"
 
 @interface UUToolBarView()
 
 @property (nonatomic, strong, getter = getButtonSend) UIButton *btnSend;
 @property (nonatomic, strong, getter = getButtonPreview) UIButton *btnPreview;
+@property (nonatomic, strong) HUMSlider *blurSlider;
 //@property (nonatomic, strong, getter = getButtonOriginalImage) UIButton *btnOriginal;
 
 //@property (nonatomic, strong, getter = getImageOriginal) UIImageView *imgOriginal;
@@ -63,6 +65,7 @@
 //    self.backgroundColor = COLOR_WITH_RGB(87,87,87,.6f);
     
 //    [self configNotification];
+    [self configureSlider];
     
     
 }
@@ -80,7 +83,34 @@
     
 //    [self configNotification];
     
+    [self configureSlider];
     
+}
+
+- (void)configureSlider
+{
+    _blurSlider = [[HUMSlider alloc] initWithFrame:CGRectMake(10, 8, SCREENWIDTH - 70, 18)];
+    _blurSlider.minimumValueImage = [UIImage imageNamed:@"visible"];
+    _blurSlider.maximumValueImage = [UIImage imageNamed:@"invisible"];
+    _blurSlider.saturatedColor = [UIColor colorWithRed:0.263f green:0.792f blue:0.455f alpha:1.00f];
+    _blurSlider.desaturatedColor = [UIColor lightGrayColor];
+    _blurSlider.tickColor = [UIColor colorWithRed:0.231f green:0.604f blue:0.847f alpha:1.00f];
+    _blurSlider.minimumValue = 0;
+    _blurSlider.maximumValue = 50;
+//    _blurSlider.maximumTrackTintColor = [UIColor colorWithRed:0.231f green:0.604f blue:0.847f alpha:1.00f];
+    //_blurSlider.minimumTrackTintColor = [UIColor colorWithRed:0.231f green:0.604f blue:0.847f alpha:1.00f];
+    _blurSlider.tintColor = [UIColor colorWithRed:0.231f green:0.604f blue:0.847f alpha:1.00f];
+//    _blurSlider.sectionCount = 9;
+    [_blurSlider setValue:0 animated:YES];
+    [_blurSlider setThumbImage:[UIImage imageNamed:@"thumb"] forState:UIControlStateNormal];
+//    _blurSlider.pointAdjustmentForCustomThumb = 5.0f;
+    [_blurSlider addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
+    [self addSubview:_blurSlider];
+}
+
+- (void)resetSlider
+{
+    [_blurSlider setValue:0 animated:YES];
 }
 
 //- (void)configNotification{
@@ -97,6 +127,15 @@
 //
 //    [[NSNotificationCenter defaultCenter] removeObserver:self];
 //}
+
+- (void)valueChanged:(id)sender
+{
+//    NSLog(@"value is %lf",_blurSlider.value);
+    if ([_delegate respondsToSelector:@selector(sliderValueDidChange:)])
+    {
+        [_delegate sliderValueDidChange:_blurSlider.value];
+    }
+}
 
 #pragma mark - Delegate
 

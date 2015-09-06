@@ -12,7 +12,7 @@
 
 #define PADDING 10
 
-@interface UUPhotoBrowserViewController() < UIScrollViewDelegate >{
+@interface UUPhotoBrowserViewController() < UIScrollViewDelegate, UUToolBarViewDelegate >{
     
     NSMutableSet *_visiblePages, *_recycledPages;
 }
@@ -20,6 +20,8 @@
 @property (nonatomic, strong, getter = getRootScrollView) UIScrollView *rootScroller;
 @property (nonatomic, strong, getter = getToolBarView) UUToolBarView *toolBarView;
 //@property (nonatomic, strong, getter = getButtonSelected) UIButton *btnSelected;
+
+@property (nonatomic, strong) UUZoomingScrollView *currentPage;
 
 //sizes
 @property (nonatomic) CGFloat buttonSize;
@@ -332,8 +334,18 @@
     page.tag = index;
     page.frame = [self frameForPageAtIndex:index];
     [page displayImage:[self displayImageWithIndex:index]];
-    
+    _currentPage = page;
+    NSLog(@"configure");
+    if (_toolBarView)
+    {
+        [_toolBarView resetSlider];
+    }
 //    [self isSelectedPhotoWithIndex:index];
+}
+
+- (void)sliderValueDidChange:(CGFloat)value
+{
+//    NSLog(@"value changed");
 }
 
 #pragma mark - UIScrollView Delegate
@@ -476,25 +488,40 @@
             [_rootScroller addSubview:page];
         }
     }
+//    NSLog(@"adding");
 }
 
 - (void)setHideNavigationBar{
     
     CGRect frame = _toolBarView.frame;
-    if (self.navigationController.navigationBarHidden) {
-        
-        frame.origin.y = ScreenHeight -50;
-        
-        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
-        [self.navigationController setNavigationBarHidden:NO animated:YES];
-        
-        
-    } else {
-        
-        frame.origin.y = ScreenHeight;
-        
-        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
-        [self.navigationController setNavigationBarHidden:YES animated:YES];
+    if (_isFromRoot)
+    {
+        if (frame.origin.y == ScreenHeight)
+        {
+            frame.origin.y = ScreenHeight - 50;
+        }
+        else
+        {
+            frame.origin.y = ScreenHeight;
+        }
+    }
+    else
+    {
+        if (self.navigationController.navigationBarHidden) {
+            
+            frame.origin.y = ScreenHeight -50;
+            
+            [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+            [self.navigationController setNavigationBarHidden:NO animated:YES];
+            
+            
+        } else {
+            
+            frame.origin.y = ScreenHeight;
+            
+            [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+            [self.navigationController setNavigationBarHidden:YES animated:YES];
+        }
     }
     
     [UIView animateWithDuration:.25f animations:^{
@@ -506,11 +533,13 @@
 - (void)jumpToPageAtIndex:(NSUInteger)index animated:(BOOL)animated {
     
     // Change page
+    //NSLog(@"jumping");
     NSInteger numberOfPhotos = [UUAssetManager sharedInstance].assetPhotos.count;
     if (index < numberOfPhotos) {
         
         CGRect pageFrame = [self frameForPageAtIndex:index];
         [_rootScroller setContentOffset:CGPointMake(pageFrame.origin.x - PADDING, 0) animated:animated];
+//        NSLog(@"set new image");
     }
 }
 
@@ -584,7 +613,7 @@
         CGRect frame = CGRectMake(0, CGRectGetHeight(self.view.frame) -50, ScreenWidth, 50);
         _toolBarView = [[UUToolBarView alloc] initWithBlackColor];
         _toolBarView.frame = frame;
-        
+        _toolBarView.delegate = self;
     }
     
     return _toolBarView;

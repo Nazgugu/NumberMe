@@ -11,12 +11,23 @@
 
 #define kNotificationUpdateSelected @"NotificationUpdateSelected"
 
+@protocol UUToolBarViewDelegate <NSObject>
+
+@required
+- (void)sliderValueDidChange:(CGFloat)value;
+
+@end
+
 @interface UUToolBarView : FXBlurView
+
+@property (nonatomic, assign) id<UUToolBarViewDelegate> delegate;
 
 - (instancetype)initWithWhiteColor;
 
 - (instancetype)initWithBlackColor;
 
 - (void)addPreviewTarget:(id)target action:(SEL)action;
+
+- (void)resetSlider;
 
 @end
