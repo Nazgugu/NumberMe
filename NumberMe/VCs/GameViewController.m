@@ -8,7 +8,8 @@
 
 #import "GameViewController.h"
 #import "JTNumberScrollAnimatedView.h"
-#import "YETIFallingLabel.h"
+//#import "YETIFallingLabel.h"
+#import "YETIMotionLabel.h"
 #import <JSKTimerView/JSKTimerView.h>
 #import "UIView+Shake.h"
 #import <QuartzCore/QuartzCore.h>
@@ -64,7 +65,7 @@
 @property (nonatomic, strong) UIButton *hintButton;
 
 //top guide label
-@property (nonatomic, strong) YETIFallingLabel *guideLabel;
+@property (nonatomic, strong) YETIMotionLabel *guideLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 
@@ -132,7 +133,7 @@
         _verticalGap = 10.0f;
         _boxHeight = 60.0f;
         _toolButtonHeight = 25.0f;
-        _guideLabel = [[YETIFallingLabel alloc] initWithFrame:CGRectMake(_backButton.frame.origin.x + _backButton.frame.size.width + 10,0, SCREENWIDTH - 2 * (_backButton.frame.origin.x + _backButton.frame.size.width + 10), _backButton.frame.size.height + 25)];
+        _guideLabel = [[YETIMotionLabel alloc] initWithFrame:CGRectMake(_backButton.frame.origin.x + _backButton.frame.size.width + 10,0, SCREENWIDTH - 2 * (_backButton.frame.origin.x + _backButton.frame.size.width + 10), _backButton.frame.size.height + 25)];
         _guideLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:14.0f];
         
     }
@@ -142,7 +143,7 @@
         _verticalGap = 15.0f;
         _boxHeight = 65.0f;
         _toolButtonHeight = 28.0f;
-        _guideLabel = [[YETIFallingLabel alloc] initWithFrame:CGRectMake(_backButton.frame.origin.x + _backButton.frame.size.width + 10, 0, SCREENWIDTH - 2 * (_backButton.frame.origin.x + _backButton.frame.size.width + 10), _backButton.frame.size.height + 50)];
+        _guideLabel = [[YETIMotionLabel alloc] initWithFrame:CGRectMake(_backButton.frame.origin.x + _backButton.frame.size.width + 10, 0, SCREENWIDTH - 2 * (_backButton.frame.origin.x + _backButton.frame.size.width + 10), _backButton.frame.size.height + 50)];
         _guideLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:16.0f];
     }
     else if (IS_IPHONE_6)
@@ -150,7 +151,7 @@
         _gapSize = 30.0f;
         _boxHeight = 80.0f;
         _toolButtonHeight = 33.0f;
-        _guideLabel = [[YETIFallingLabel alloc] initWithFrame:CGRectMake(_backButton.frame.origin.x + _backButton.frame.size.width + 10, 0, SCREENWIDTH - 2 * (_backButton.frame.origin.x + _backButton.frame.size.width + 10), _backButton.frame.size.height + 50)];
+        _guideLabel = [[YETIMotionLabel alloc] initWithFrame:CGRectMake(_backButton.frame.origin.x + _backButton.frame.size.width + 10, 0, SCREENWIDTH - 2 * (_backButton.frame.origin.x + _backButton.frame.size.width + 10), _backButton.frame.size.height + 50)];
         _guideLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:17.0f];
     }
     else
@@ -158,7 +159,7 @@
         _gapSize = 35.0f;
         _boxHeight = 95.0f;
         _toolButtonHeight = 38.0f;
-        _guideLabel = [[YETIFallingLabel alloc] initWithFrame:CGRectMake(_backButton.frame.origin.x + _backButton.frame.size.width + 10, 0, SCREENWIDTH - 2 * (_backButton.frame.origin.x + _backButton.frame.size.width + 10), _backButton.frame.size.height + 70)];
+        _guideLabel = [[YETIMotionLabel alloc] initWithFrame:CGRectMake(_backButton.frame.origin.x + _backButton.frame.size.width + 10, 0, SCREENWIDTH - 2 * (_backButton.frame.origin.x + _backButton.frame.size.width + 10), _backButton.frame.size.height + 70)];
         _guideLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:19.0f];
     }
     
