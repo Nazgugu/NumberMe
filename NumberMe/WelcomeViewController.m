@@ -118,7 +118,7 @@
             
             [_startButton setImageEdgeInsets:UIEdgeInsetsMake(0, -100, 0, 0)];
             [_recordButton setImageEdgeInsets:UIEdgeInsetsMake(0, -80, 0, 0)];
-            [_settingButton setImageEdgeInsets:UIEdgeInsetsMake(0, -80, 0, 0)];
+            [_settingButton setImageEdgeInsets:UIEdgeInsetsMake(0, -75, 0, 0)];
     }
     
     UIImageView *hammerView = [[UIImageView alloc] initWithFrame:CGRectMake(9, 5, 11, 11)];

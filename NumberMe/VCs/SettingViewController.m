@@ -381,7 +381,7 @@
                 [cell.imageView setImage:icon];
                 NSArray *items = [NSArray arrayWithObjects:NSLocalizedString(@"TXT", nil), NSLocalizedString(@"IMG", nil), nil];
                 UISegmentedControl *seg = [[UISegmentedControl alloc] initWithItems:items];
-                [seg setFrame:CGRectMake(SCREENWIDTH - 80, 12, 70, 20)];
+                [seg setFrame:CGRectMake(SCREENWIDTH - 100, 12, 90, 20)];
                 seg.tintColor = [[UIColor whiteColor] colorWithAlphaComponent:0.4f];
                 [seg setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIFont fontWithName:@"KohinoorDevanagari-Book" size:14.0f] forKey:NSFontAttributeName] forState:UIControlStateNormal];
                 [seg setTitleTextAttributes:[NSDictionary dictionaryWithObject:[[UIColor whiteColor] colorWithAlphaComponent:0.6f]forKey:NSForegroundColorAttributeName] forState:UIControlStateSelected];

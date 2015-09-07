@@ -90,6 +90,10 @@
 
 @property (nonatomic) NSInteger currentGameLevel;
 
+@property (nonatomic, strong) UIImageView *tipImage;
+
+@property (nonatomic) NSInteger tipMethod;
+
 @end
 
 @implementation GameViewController
@@ -135,7 +139,8 @@
         _toolButtonHeight = 25.0f;
         _guideLabel = [[YETIMotionLabel alloc] initWithFrame:CGRectMake(_backButton.frame.origin.x + _backButton.frame.size.width + 10,0, SCREENWIDTH - 2 * (_backButton.frame.origin.x + _backButton.frame.size.width + 10), _backButton.frame.size.height + 25)];
         _guideLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:14.0f];
-        
+        _tipImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, _backButton.frame.size.height + 15, _backButton.frame.size.height + 15)];
+        [_tipImage setCenter:CGPointMake(SCREENWIDTH / 2, (_backButton.frame.size.height + 15) / 2 + 10)];
     }
     else if (IS_IPHONE_5)
     {
@@ -145,6 +150,8 @@
         _toolButtonHeight = 28.0f;
         _guideLabel = [[YETIMotionLabel alloc] initWithFrame:CGRectMake(_backButton.frame.origin.x + _backButton.frame.size.width + 10, 0, SCREENWIDTH - 2 * (_backButton.frame.origin.x + _backButton.frame.size.width + 10), _backButton.frame.size.height + 50)];
         _guideLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:16.0f];
+        _tipImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, _backButton.frame.size.height + 20, _backButton.frame.size.height + 20)];
+        [_tipImage setCenter:CGPointMake(SCREENWIDTH / 2, (_backButton.frame.size.height + 20) / 2 + 10)];
     }
     else if (IS_IPHONE_6)
     {
@@ -153,6 +160,8 @@
         _toolButtonHeight = 33.0f;
         _guideLabel = [[YETIMotionLabel alloc] initWithFrame:CGRectMake(_backButton.frame.origin.x + _backButton.frame.size.width + 10, 0, SCREENWIDTH - 2 * (_backButton.frame.origin.x + _backButton.frame.size.width + 10), _backButton.frame.size.height + 50)];
         _guideLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:17.0f];
+        _tipImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, _backButton.frame.size.height + 20, _backButton.frame.size.height + 20)];
+        [_tipImage setCenter:CGPointMake(SCREENWIDTH / 2, (_backButton.frame.size.height + 20) / 2 + 10)];
     }
     else
     {
@@ -161,6 +170,8 @@
         _toolButtonHeight = 38.0f;
         _guideLabel = [[YETIMotionLabel alloc] initWithFrame:CGRectMake(_backButton.frame.origin.x + _backButton.frame.size.width + 10, 0, SCREENWIDTH - 2 * (_backButton.frame.origin.x + _backButton.frame.size.width + 10), _backButton.frame.size.height + 70)];
         _guideLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:19.0f];
+        _tipImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, _backButton.frame.size.height + 30, _backButton.frame.size.height + 30)];
+        [_tipImage setCenter:CGPointMake(SCREENWIDTH / 2, (_backButton.frame.size.height + 30) / 2 + 10)];
     }
     
     _boxWidth = (SCREENWIDTH - 5 * _gapSize) / 4;
@@ -178,7 +189,23 @@
     //initialize a new game
     _game = [[guessGame alloc] initWithGameMode:_theGameMode];
     
+    _tipImage.contentMode = UIViewContentModeScaleAspectFill;
+    
     [self.view addSubview:_guideLabel];
+    [self.view addSubview:_tipImage];
+    
+    //text tip
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:TIPMETHOD] integerValue] == 0)
+    {
+        _tipImage.hidden = YES;
+        _tipMethod = 0;
+    }
+    else
+    {
+        _tipImage.alpha = 0;
+        _tipMethod = 1;
+    }
+    
     [self initButtons];
     [self createBoxesOfBoxSet:_currentBoxSet];
     [self createLine];
@@ -230,7 +257,7 @@
             [_backgrounImageView setImage:[UIImage imageNamed:@"GBGLV"]];
         }
         _levelLabel.hidden = NO;
-        _levelLabel.text = @"LV 1";
+        _levelLabel.text =[NSString stringWithFormat:@"LV %ld",_game.gameLevel];
         _currentGameLevel = 1;
     }
     
@@ -1375,6 +1402,34 @@
 //    return image;
 //}
 
+- (void)animateTipWithImage:(UIImage *)img
+{
+    if (_guideLabel.alpha != 0)
+    {
+        [UIView animateWithDuration:0.2f animations:^{
+            _guideLabel.alpha = 0;
+        } completion:^(BOOL finished) {
+            if (finished)
+            {
+                [UIView animateWithDuration:0.2f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                    [_tipImage setImage:img];
+                    _tipImage.alpha = 0.8f;
+                } completion:^(BOOL finished) {
+                    
+                }];
+            }
+        }];
+    }
+    else
+    {
+        [UIView transitionWithView:_tipImage duration:0.3f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+            [_tipImage setImage:img];
+        } completion:^(BOOL finished) {
+            
+        }];
+    }
+}
+
 - (void)buttonHighlighted:(UIButton *)sender
 {
     [self disableTouchOnOthersExcept:sender.tag];
@@ -1402,8 +1457,32 @@
     temp.value = [NSString stringWithFormat:@"%ld",(long)sender.tag];
     
     /* game logic goes here */
+    NSString *textString = [_game userAnswersAtBox:(_theGlowingBox - 4 * _currentBoxSet) % 5 andAnswer:sender.tag];
+    //text
+    if (_tipMethod == 0)
+    {
+        self.guideLabel.text = textString;
+    }
+    else
+    {
+        if ([textString isEqualToString:NSLocalizedString(@"RIGHT", nil)])
+        {
+            [self animateTipWithImage:[UIImage imageNamed:@"right"]];
+        }
+        else if ([textString isEqualToString:NSLocalizedString(@"FAR", nil)])
+        {
+            [self animateTipWithImage:[UIImage imageNamed:@"far"]];
+        }
+        else if ([textString isEqualToString:NSLocalizedString(@"MAYBE", nil)])
+        {
+            [self animateTipWithImage:[UIImage imageNamed:@"distance"]];
+        }
+        else if ([textString isEqualToString:NSLocalizedString(@"NEAR", nil)])
+        {
+            [self animateTipWithImage:[UIImage imageNamed:@"near"]];
+        }
+    }
     
-    self.guideLabel.text = [_game userAnswersAtBox:(_theGlowingBox - 4 * _currentBoxSet) % 5 andAnswer:sender.tag];
     
     //    else if (_theGameMode == gameModeLevelUp)
 //    {
@@ -1681,12 +1760,64 @@
                 }
                 else
                 {
-                    self.guideLabel.text = _game.hintMessage;
+                    if (_tipMethod == 0)
+                    {
+                        self.guideLabel.text = _game.hintMessage;
+                    }
+                    else
+                    {
+                        if (_guideLabel.alpha == 0)
+                        {
+                            [UIView animateWithDuration:0.2f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                                _tipImage.alpha = 0;
+                            } completion:^(BOOL finished) {
+                               if (finished)
+                               {
+                                   [UIView animateWithDuration:0.2f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                                       _guideLabel.text = _game.hintMessage;
+                                       _guideLabel.alpha = 1.0f;
+                                   } completion:^(BOOL finished) {
+                                       
+                                   }];
+                               }
+                            }];
+                        }
+                        else
+                        {
+                            self.guideLabel.text = _game.hintMessage;
+                        }
+                    }
                 }
             }
             else
             {
-                self.guideLabel.text = _game.hintMessage;
+                if (_tipMethod == 0)
+                {
+                    self.guideLabel.text = _game.hintMessage;
+                }
+                else
+                {
+                    if (_guideLabel.alpha == 0)
+                    {
+                        [UIView animateWithDuration:0.2f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                            _tipImage.alpha = 0;
+                        } completion:^(BOOL finished) {
+                            if (finished)
+                            {
+                                [UIView animateWithDuration:0.2f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                                    _guideLabel.text = _game.hintMessage;
+                                    _guideLabel.alpha = 1.0f;
+                                } completion:^(BOOL finished) {
+                                    
+                                }];
+                            }
+                        }];
+                    }
+                    else
+                    {
+                        self.guideLabel.text = _game.hintMessage;
+                    }
+                }
             }
         }
             break;
