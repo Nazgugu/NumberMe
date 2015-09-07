@@ -95,6 +95,9 @@
 "MSG"="Message";
 "EMAIL"="Email";
 "WEIBO"="Weibo";
+"TIP"="Tip display method";
+"IMG"="Image";
+"TXT"="Text";
 
 //gameModeSelectionView
 "NORMAL"="Normal Mode";

@@ -17,7 +17,7 @@
 #import "OpenShareHeader.h"
 #import <MessageUI/MessageUI.h>
 
-#define Setting_TitileArray @[@[NSLocalizedString(@"MAXNORMAL",nil),NSLocalizedString(@"MAXINFINITY",nil),NSLocalizedString(@"MAXLEVEL",nil),NSLocalizedString(@"CLEARCACHE",nil)],@[NSLocalizedString(@"RATE",nil),NSLocalizedString(@"RECOMMEND",nil),NSLocalizedString(@"CONTACT",nil),NSLocalizedString(@"VERSION",nil)]]
+#define Setting_TitileArray @[@[NSLocalizedString(@"MAXNORMAL",nil),NSLocalizedString(@"MAXINFINITY",nil),NSLocalizedString(@"MAXLEVEL",nil),NSLocalizedString(@"CLEARCACHE",nil), NSLocalizedString(@"TIP",nil)],@[NSLocalizedString(@"RATE",nil),NSLocalizedString(@"RECOMMEND",nil),NSLocalizedString(@"CONTACT",nil),NSLocalizedString(@"VERSION",nil)]]
 
 @interface SettingViewController ()<UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate, UINavigationControllerDelegate>
 @property (nonatomic, strong) UIImage *blurImage;
@@ -273,7 +273,7 @@
 {
     if (section == 0)
     {
-        return 4;
+        return 5;
     }
     else if (section == 1)
     {
@@ -375,6 +375,21 @@
                 [cell.imageView setImage:icon];
             }
                 break;
+            case 4:
+            {
+                UIImage *icon = [self makeThumbnailOfSize:CGSizeMake(25, 25) andImage:[UIImage imageNamed:@"tip"]];
+                [cell.imageView setImage:icon];
+                NSArray *items = [NSArray arrayWithObjects:NSLocalizedString(@"TXT", nil), NSLocalizedString(@"IMG", nil), nil];
+                UISegmentedControl *seg = [[UISegmentedControl alloc] initWithItems:items];
+                [seg setFrame:CGRectMake(SCREENWIDTH - 80, 12, 70, 20)];
+                seg.tintColor = [[UIColor whiteColor] colorWithAlphaComponent:0.4f];
+                [seg setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIFont fontWithName:@"KohinoorDevanagari-Book" size:14.0f] forKey:NSFontAttributeName] forState:UIControlStateNormal];
+                [seg setTitleTextAttributes:[NSDictionary dictionaryWithObject:[[UIColor whiteColor] colorWithAlphaComponent:0.6f]forKey:NSForegroundColorAttributeName] forState:UIControlStateSelected];
+                [seg setSelectedSegmentIndex:[[[NSUserDefaults standardUserDefaults] objectForKey:TIPMETHOD] integerValue]];
+                [seg addTarget:self action:@selector(toggleTipMethod:) forControlEvents:UIControlEventValueChanged];
+                [cell.contentView addSubview:seg];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            }
             default:
                 break;
         }
@@ -516,6 +531,13 @@
     if(newThumbnail == nil)
         NSLog(@"could not scale image");
     return newThumbnail;
+}
+
+- (void)toggleTipMethod:(UISegmentedControl *)seg
+{
+//    NSLog(@"seg index = %ld",seg.selectedSegmentIndex);
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:seg.selectedSegmentIndex] forKey:TIPMETHOD];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView

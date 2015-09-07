@@ -95,6 +95,9 @@
 "MSG"="短信";
 "EMAIL"="邮件";
 "WEIBO"="微博";
+"TIP"="提示方式";
+"IMG"="图片";
+"TXT"="文字";
 
 //gameModeSelectionView
 "NORMAL"="普通模式";

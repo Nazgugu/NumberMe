@@ -65,6 +65,12 @@
 {
     [EGOCache globalCache].defaultTimeoutInterval = INT_MAX;
     
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:TIPMETHOD])
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:0] forKey:TIPMETHOD];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
     //[[EGOCache globalCache] clearCache];
     
     if (![[EGOCache globalCache] hasCacheForKey:@"games"])

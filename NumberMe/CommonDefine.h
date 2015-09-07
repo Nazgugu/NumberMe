@@ -46,6 +46,8 @@
 #define INFIBG @"infinityBG"
 #define LEVELBG @"levelUpBG"
 
+#define TIPMETHOD @"tipMethod"
+
 //#define SAFEPARAMETER(parameter)    (parameter) ? [NSString stringWithFormat:@"%@",parameter] : @""
 //
 //#define AMapKey @"2ad85cea7d4aabc66d779b4dbc3755b2"
