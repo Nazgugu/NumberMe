@@ -106,15 +106,18 @@
     }
     else if (IS_IPHONE_5)
     {
-        [_blurSlider setFrame:CGRectMake(10, 14, SCREENWIDTH - 80, 22)];
+        [_blurSlider setFrame:CGRectMake(10, 12, SCREENWIDTH - 80, 22)];
+        _blurSlider.pointAdjustmentForCustomThumb = -6.0f;
     }
     else if (IS_IPHONE_6)
     {
-        [_blurSlider setFrame:CGRectMake(10, 18, SCREENWIDTH - 85, 30)];
+        [_blurSlider setFrame:CGRectMake(10, 16, SCREENWIDTH - 85, 30)];
+        _blurSlider.pointAdjustmentForCustomThumb = -8.0f;
     }
     else if (IS_IPHONE_6P)
     {
-        [_blurSlider setFrame:CGRectMake(10, 26, SCREENWIDTH - 90, 40)];
+        [_blurSlider setFrame:CGRectMake(10, 18, SCREENWIDTH - 90, 40)];
+        _blurSlider.pointAdjustmentForCustomThumb = -10.0f;
     }
     _blurSlider.minimumValueImage = [UIImage imageNamed:@"visible"];
     _blurSlider.maximumValueImage = [UIImage imageNamed:@"invisible"];

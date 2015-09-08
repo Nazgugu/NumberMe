@@ -79,6 +79,24 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if (_isFromRoot)
+    {
+        [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    if (_isFromRoot)
+    {
+        [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    }
+}
+
 - (void)dealloc{
 
     [_visiblePages removeAllObjects];
@@ -387,7 +405,7 @@
 - (void)hasChoseImageOfGameMode:(NSInteger)gameMode
 {
 //    NSLog(@"has choose image");
-    NSLog(@"game mode = %ld",gameMode);
+//   NSLog(@"game mode = %ld",gameMode);
     _gameMode = gameMode;
     [self hideAllSource];
     [self savePhoto];
@@ -406,7 +424,7 @@
 //    NSLog(@"save photo of game mode %ld",_gameMode);
     UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, NO, [UIScreen mainScreen].scale);
         
-    [self.view drawViewHierarchyInRect:self.view.bounds afterScreenUpdates:YES];
+    [self.view drawViewHierarchyInRect:self.view.bounds afterScreenUpdates:YESs];
         
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
