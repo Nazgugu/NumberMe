@@ -310,7 +310,26 @@
         [self revertToWhite];
         [_timer resetTimer];
         [self cancelShake];
-        _guideLabel.text = NSLocalizedString(@"GUIDE_ONE", nil);
+        if (_guideLabel.alpha == 0)
+        {
+            [UIView animateWithDuration:0.2f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                _tipImage.alpha = 0;
+            } completion:^(BOOL finished) {
+                if (finished)
+                {
+                    [UIView animateWithDuration:0.2f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                        _guideLabel.text = NSLocalizedString(@"GUIDE_ONE", nil);
+                        _guideLabel.alpha = 1.0f;
+                    } completion:^(BOOL finished) {
+                        
+                    }];
+                }
+            }];
+        }
+        else
+        {
+            _guideLabel.text = NSLocalizedString(@"GUIDE_ONE", nil);
+        }
     }
     else if (_theGameMode == gameModeInfinity)
     {
@@ -337,7 +356,26 @@
         [_timerLabel reset];
         [self resetProgressBar];
         [self revertToWhite];
-        _guideLabel.text = NSLocalizedString(@"INFINITI", nil);
+        if (_guideLabel.alpha == 0)
+        {
+            [UIView animateWithDuration:0.2f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                _tipImage.alpha = 0;
+            } completion:^(BOOL finished) {
+                if (finished)
+                {
+                    [UIView animateWithDuration:0.2f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                        _guideLabel.text = NSLocalizedString(@"INFINITI", nil);
+                        _guideLabel.alpha = 1.0f;
+                    } completion:^(BOOL finished) {
+                        
+                    }];
+                }
+            }];
+        }
+        else
+        {
+            _guideLabel.text = NSLocalizedString(@"INFINITI", nil);
+        }
     }
     else if (_theGameMode == gameModeLevelUp)
     {
@@ -352,7 +390,26 @@
         [self revertToWhite];
         [_timer resetTimer];
         [self cancelShake];
-        _guideLabel.text = [NSString stringWithFormat:NSLocalizedString(@"GAMELEVEL", nil),_game.gameLevel];
+        if (_guideLabel.alpha == 0)
+        {
+            [UIView animateWithDuration:0.2f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                _tipImage.alpha = 0;
+            } completion:^(BOOL finished) {
+                if (finished)
+                {
+                    [UIView animateWithDuration:0.2f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                        _guideLabel.text = [NSString stringWithFormat:NSLocalizedString(@"GAMELEVEL", nil),_game.gameLevel];
+                        _guideLabel.alpha = 1.0f;
+                    } completion:^(BOOL finished) {
+                        
+                    }];
+                }
+            }];
+        }
+        else
+        {
+            _guideLabel.text = [NSString stringWithFormat:NSLocalizedString(@"GAMELEVEL", nil),_game.gameLevel];
+        }
     }
     [self performSelector:@selector(animateReady) withObject:nil afterDelay:1.2f];
     [self animateDigits];
@@ -364,7 +421,7 @@
     [self disableTouchOnBox];
     _theGlowingBox = 0;
     _currentBoxSet = 0;
-    _levelLabel.text = [NSString stringWithFormat:@"LV %ld",_game.gameLevel];
+    _levelLabel.text = [NSString stringWithFormat:@"LV %ld",(long)_game.gameLevel];
     _currentGameLevel = _game.gameLevel;
     for (int i = 0; i < _enables.count; i++)
     {
@@ -377,7 +434,26 @@
     [self revertToWhite];
     [_timer resetTimer];
     [self cancelShake];
-    _guideLabel.text = [NSString stringWithFormat:NSLocalizedString(@"GAMELEVEL", nil),_game.gameLevel];
+    if (_guideLabel.alpha == 0)
+    {
+        [UIView animateWithDuration:0.2f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            _tipImage.alpha = 0;
+        } completion:^(BOOL finished) {
+            if (finished)
+            {
+                [UIView animateWithDuration:0.2f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                    _guideLabel.text = [NSString stringWithFormat:NSLocalizedString(@"GAMELEVEL", nil),_game.gameLevel];
+                    _guideLabel.alpha = 1.0f;
+                } completion:^(BOOL finished) {
+                    
+                }];
+            }
+        }];
+    }
+    else
+    {
+        _guideLabel.text = [NSString stringWithFormat:NSLocalizedString(@"GAMELEVEL", nil),_game.gameLevel];
+    }
     [self performSelector:@selector(animateReady) withObject:nil afterDelay:1.2f];
     [self animateDigits];
 }
