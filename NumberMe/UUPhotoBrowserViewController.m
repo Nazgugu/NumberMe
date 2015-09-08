@@ -11,6 +11,7 @@
 #import "UUPhoto-Macros.h"
 #import <QuartzCore/QuartzCore.h>
 #import "EGOCache.h"
+#import "JGProgressHUD.h"
 
 #define PADDING 10
 
@@ -38,6 +39,8 @@
 @property (nonatomic) CGFloat toolButtonWidth;
 
 @property (nonatomic) CGFloat toolBarHeight;
+
+@property (nonatomic, strong) JGProgressHUD *loading;
 
 //showing purpose
 @property (nonatomic, strong) UILabel *guideLabel;
@@ -406,28 +409,38 @@
 {
 //    NSLog(@"has choose image");
 //   NSLog(@"game mode = %ld",gameMode);
+    if (!_loading)
+    {
+        _loading = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
+    }
+    _loading.textLabel.text = NSLocalizedString(@"STBG", nil);
+    _loading.indicatorView = [[JGProgressHUDIndeterminateIndicatorView alloc] init];
+    [_loading showInView:self.view];
+    
     _gameMode = gameMode;
     [self hideAllSource];
-    [self savePhoto];
-    if (_isFromRoot)
-    {
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
-    else
-    {
-        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-    }
+    [self performSelector:@selector(savePhoto) withObject:nil afterDelay:0.3f];
+//    [self savePhoto];
 }
 
 - (void)savePhoto
 {
 //    NSLog(@"save photo of game mode %ld",_gameMode);
+    [_loading dismiss];
+    JGProgressHUD *success = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
+    success.textLabel.text = NSLocalizedString(@"DONE", nil);
+    success.indicatorView = [[JGProgressHUDSuccessIndicatorView alloc] init];
+    [success showInView:self.view];
+    [success dismissAfterDelay:0.2f];
+    
     UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, NO, [UIScreen mainScreen].scale);
         
-    [self.view drawViewHierarchyInRect:self.view.bounds afterScreenUpdates:YESs];
-        
+    [self.view drawViewHierarchyInRect:self.view.bounds afterScreenUpdates:NO];
+    
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+    
+    
     switch (_gameMode) {
         case gameModeNormal:
         {
@@ -446,6 +459,14 @@
             break;
         default:
             break;
+    }
+    if (_isFromRoot)
+    {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    else
+    {
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
     }
 }
 

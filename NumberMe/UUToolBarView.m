@@ -103,6 +103,7 @@
     if (IS_IPHONE_4_OR_LESS)
     {
         [_blurSlider setFrame:CGRectMake(10, 8, SCREENWIDTH - 70, 18)];
+        _blurSlider.pointAdjustmentForCustomThumb = -5.0f;
     }
     else if (IS_IPHONE_5)
     {
