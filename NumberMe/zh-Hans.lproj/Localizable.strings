@@ -98,6 +98,7 @@
 "TIP"="提示方式";
 "IMG"="图片";
 "TXT"="文字";
+"GBG"="游戏背景";
 
 //gameModeSelectionView
 "NORMAL"="普通模式";

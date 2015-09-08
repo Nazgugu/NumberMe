@@ -98,6 +98,7 @@
 "TIP"="Tip display method";
 "IMG"="Image";
 "TXT"="Text";
+"GBG"="Game background";
 
 //gameModeSelectionView
 "NORMAL"="Normal Mode";

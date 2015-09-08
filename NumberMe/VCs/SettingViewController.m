@@ -17,7 +17,7 @@
 #import "OpenShareHeader.h"
 #import <MessageUI/MessageUI.h>
 
-#define Setting_TitileArray @[@[NSLocalizedString(@"MAXNORMAL",nil),NSLocalizedString(@"MAXINFINITY",nil),NSLocalizedString(@"MAXLEVEL",nil),NSLocalizedString(@"CLEARCACHE",nil), NSLocalizedString(@"TIP",nil)],@[NSLocalizedString(@"RATE",nil),NSLocalizedString(@"RECOMMEND",nil),NSLocalizedString(@"CONTACT",nil),NSLocalizedString(@"VERSION",nil)]]
+#define Setting_TitileArray @[@[NSLocalizedString(@"MAXNORMAL",nil),NSLocalizedString(@"MAXINFINITY",nil),NSLocalizedString(@"MAXLEVEL",nil),NSLocalizedString(@"CLEARCACHE",nil), NSLocalizedString(@"TIP",nil), NSLocalizedString(@"GBG",nil)],@[NSLocalizedString(@"RATE",nil),NSLocalizedString(@"RECOMMEND",nil),NSLocalizedString(@"CONTACT",nil),NSLocalizedString(@"VERSION",nil)]]
 
 @interface SettingViewController ()<UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate, UINavigationControllerDelegate>
 @property (nonatomic, strong) UIImage *blurImage;
@@ -273,7 +273,7 @@
 {
     if (section == 0)
     {
-        return 5;
+        return 6;
     }
     else if (section == 1)
     {
@@ -390,6 +390,18 @@
                 [cell.contentView addSubview:seg];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
+                break;
+            case 5:
+            {
+                UIImage *icon = [self makeThumbnailOfSize:CGSizeMake(25, 25) andImage:[UIImage imageNamed:@"gbg"]];
+                [cell.imageView setImage:icon];
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//                UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+//                [button setFrame:CGRectMake(SCREENWIDTH - 28, 8, 18, 28)];
+//                button.userInteractionEnabled = NO;
+//                [cell.contentView addSubview:button];
+            }
+                break;
             default:
                 break;
         }
@@ -437,12 +449,14 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0)
     {
+        if (indexPath.row == 3)
+        {
             RJBlurAlertView *alert = [[RJBlurAlertView alloc] initWithTitle:NSLocalizedString(@"CAUTION", nil) text:NSLocalizedString(@"WARNING", nil) cancelButton:YES];
             [alert.okButton setTitle:NSLocalizedString(@"SURE", nil) forState:UIControlStateNormal];
             [alert.cancelButton setTitle:NSLocalizedString(@"CANCEL", nil) forState:UIControlStateNormal];
             alert.animationType = RJBlurAlertViewAnimationTypeDrop;
-        alert.okButton.backgroundColor = [UIColor colorWithRed:0.882f green:0.282f blue:0.227f alpha:1.00f];
-        alert.cancelButton.backgroundColor = [UIColor colorWithRed:0.012f green:0.635f blue:0.914f alpha:1.00f];
+            alert.okButton.backgroundColor = [UIColor colorWithRed:0.882f green:0.282f blue:0.227f alpha:1.00f];
+            alert.cancelButton.backgroundColor = [UIColor colorWithRed:0.012f green:0.635f blue:0.914f alpha:1.00f];
             [alert setCompletionBlock:^(RJBlurAlertView *theAlert, UIButton *button) {
                 if (button == theAlert.okButton)
                 {
@@ -482,7 +496,7 @@
                 }
             }];
             [alert show];
-
+        }
     }
     else if (indexPath.section == 1)
     {
