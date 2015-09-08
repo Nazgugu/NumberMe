@@ -9,6 +9,7 @@
 #import "UUPhotoActionSheet.h"
 #import "UUPhoto-Macros.h"
 #import "UUPhoto-Import.h"
+#import "UIImage+fixOrientation.h"
 
 @interface UUPhotoActionSheet() < UIImagePickerControllerDelegate,
                                   UINavigationControllerDelegate>
@@ -89,7 +90,7 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     NSLog(@"camera");
-    UIImage *editedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    UIImage *editedImage = [[info objectForKey:UIImagePickerControllerOriginalImage] fixOrientation];
     
     [_weakSuper dismissViewControllerAnimated:YES completion:^{
     
@@ -134,6 +135,7 @@
     if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         
         pickerImage.sourceType = UIImagePickerControllerSourceTypeCamera;
+        pickerImage.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
         pickerImage.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:pickerImage.sourceType];
         
     }

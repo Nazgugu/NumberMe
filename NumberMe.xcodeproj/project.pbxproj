@@ -27,6 +27,7 @@
 		AE26309B1B6EA58000A566AE /* NumberMeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AE26309A1B6EA58000A566AE /* NumberMeTests.m */; };
 		AE34DED81B9E875200436724 /* BackgrondTabelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE34DED61B9E875200436724 /* BackgrondTabelViewController.m */; };
 		AE34DED91B9E875200436724 /* BackgrondTabelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE34DED71B9E875200436724 /* BackgrondTabelViewController.xib */; };
+		AE34DEDE1B9EA1C500436724 /* UIImage+fixOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = AE34DEDD1B9EA1C500436724 /* UIImage+fixOrientation.m */; };
 		AE3E41041B6EC19D001E26FE /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3E41021B6EC19D001E26FE /* WelcomeViewController.m */; };
 		AE3E41101B6ECFD0001E26FE /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3E410E1B6ECFD0001E26FE /* GameViewController.m */; };
 		AE3E41111B6ECFD0001E26FE /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE3E410F1B6ECFD0001E26FE /* GameViewController.xib */; };
@@ -115,6 +116,8 @@
 		AE34DED51B9E875200436724 /* BackgrondTabelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BackgrondTabelViewController.h; path = VCs/BackgrondTabelViewController.h; sourceTree = "<group>"; };
 		AE34DED61B9E875200436724 /* BackgrondTabelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BackgrondTabelViewController.m; path = VCs/BackgrondTabelViewController.m; sourceTree = "<group>"; };
 		AE34DED71B9E875200436724 /* BackgrondTabelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BackgrondTabelViewController.xib; path = VCs/BackgrondTabelViewController.xib; sourceTree = "<group>"; };
+		AE34DEDC1B9EA1C500436724 /* UIImage+fixOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+fixOrientation.h"; path = "Vendors/UIImage+FixOrientation/UIImage+fixOrientation.h"; sourceTree = "<group>"; };
+		AE34DEDD1B9EA1C500436724 /* UIImage+fixOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+fixOrientation.m"; path = "Vendors/UIImage+FixOrientation/UIImage+fixOrientation.m"; sourceTree = "<group>"; };
 		AE3E41011B6EC19D001E26FE /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		AE3E41021B6EC19D001E26FE /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		AE3E410D1B6ECFD0001E26FE /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameViewController.h; path = VCs/GameViewController.h; sourceTree = "<group>"; };
@@ -345,6 +348,15 @@
 			name = Setting;
 			sourceTree = "<group>";
 		};
+		AE34DEDB1B9EA17000436724 /* UIImage+FixOrientation */ = {
+			isa = PBXGroup;
+			children = (
+				AE34DEDC1B9EA1C500436724 /* UIImage+fixOrientation.h */,
+				AE34DEDD1B9EA1C500436724 /* UIImage+fixOrientation.m */,
+			);
+			name = "UIImage+FixOrientation";
+			sourceTree = "<group>";
+		};
 		AE3E41061B6EC1B9001E26FE /* VCs */ = {
 			isa = PBXGroup;
 			children = (
@@ -394,6 +406,7 @@
 		AE7E74B91B74688B003E9341 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				AE34DEDB1B9EA17000436724 /* UIImage+FixOrientation */,
 				AEA102BD1B9C1A2D00D29C54 /* BlurImageView */,
 				AE9925951B92C1490078A3AD /* UUPhoto */,
 				AEAF5AAB1B88335300D295A8 /* PieChart */,
@@ -719,6 +732,7 @@
 				AEAF5AB31B88336100D295A8 /* UICountingLabel.m in Sources */,
 				AE3E41041B6EC19D001E26FE /* WelcomeViewController.m in Sources */,
 				AE8E228E1B756B9B00A298DE /* YETIMotionLabel.m in Sources */,
+				AE34DEDE1B9EA1C500436724 /* UIImage+fixOrientation.m in Sources */,
 				AE9925B41B92C2F40078A3AD /* UUPhotoCollectionViewController.m in Sources */,
 				AEAF5ABA1B8833E500D295A8 /* PNColor.m in Sources */,
 				AE8E22911B76AE7E00A298DE /* guessGame.m in Sources */,
