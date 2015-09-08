@@ -99,6 +99,10 @@
 "IMG"="图片";
 "TXT"="文字";
 "GBG"="游戏背景";
+"RST"="重置";
+"RSTNORM"="普通模式背景已重置";
+"RSTINFI"="无限模式背景已重置";
+"RSTLV"="升级模式背景已重置";
 
 //gameModeSelectionView
 "NORMAL"="普通模式";

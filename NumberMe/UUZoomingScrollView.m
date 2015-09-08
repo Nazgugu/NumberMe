@@ -53,6 +53,7 @@
 
 - (void)displayImage:(UIImage *)img{
     
+    NSLog(@"called");
     if (_imgPhoto.image == nil) {
         
         // Reset

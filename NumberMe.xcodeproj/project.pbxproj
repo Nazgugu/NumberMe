@@ -25,6 +25,8 @@
 		AE2630841B6EA58000A566AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2630831B6EA58000A566AE /* AppDelegate.m */; };
 		AE26308C1B6EA58000A566AE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE26308B1B6EA58000A566AE /* Images.xcassets */; };
 		AE26309B1B6EA58000A566AE /* NumberMeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AE26309A1B6EA58000A566AE /* NumberMeTests.m */; };
+		AE34DED81B9E875200436724 /* BackgrondTabelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE34DED61B9E875200436724 /* BackgrondTabelViewController.m */; };
+		AE34DED91B9E875200436724 /* BackgrondTabelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE34DED71B9E875200436724 /* BackgrondTabelViewController.xib */; };
 		AE3E41041B6EC19D001E26FE /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3E41021B6EC19D001E26FE /* WelcomeViewController.m */; };
 		AE3E41101B6ECFD0001E26FE /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3E410E1B6ECFD0001E26FE /* GameViewController.m */; };
 		AE3E41111B6ECFD0001E26FE /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE3E410F1B6ECFD0001E26FE /* GameViewController.xib */; };
@@ -110,6 +112,9 @@
 		AE2630941B6EA58000A566AE /* NumberMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NumberMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE2630991B6EA58000A566AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE26309A1B6EA58000A566AE /* NumberMeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NumberMeTests.m; sourceTree = "<group>"; };
+		AE34DED51B9E875200436724 /* BackgrondTabelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BackgrondTabelViewController.h; path = VCs/BackgrondTabelViewController.h; sourceTree = "<group>"; };
+		AE34DED61B9E875200436724 /* BackgrondTabelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BackgrondTabelViewController.m; path = VCs/BackgrondTabelViewController.m; sourceTree = "<group>"; };
+		AE34DED71B9E875200436724 /* BackgrondTabelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BackgrondTabelViewController.xib; path = VCs/BackgrondTabelViewController.xib; sourceTree = "<group>"; };
 		AE3E41011B6EC19D001E26FE /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		AE3E41021B6EC19D001E26FE /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		AE3E410D1B6ECFD0001E26FE /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameViewController.h; path = VCs/GameViewController.h; sourceTree = "<group>"; };
@@ -327,6 +332,19 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		AE34DEDA1B9E876000436724 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				AE9D11891B8570B800A36953 /* SettingViewController.h */,
+				AE9D118A1B8570B800A36953 /* SettingViewController.m */,
+				AE9D118B1B8570B800A36953 /* SettingViewController.xib */,
+				AE34DED51B9E875200436724 /* BackgrondTabelViewController.h */,
+				AE34DED61B9E875200436724 /* BackgrondTabelViewController.m */,
+				AE34DED71B9E875200436724 /* BackgrondTabelViewController.xib */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
 		AE3E41061B6EC1B9001E26FE /* VCs */ = {
 			isa = PBXGroup;
 			children = (
@@ -342,9 +360,7 @@
 				AE3E41011B6EC19D001E26FE /* WelcomeViewController.h */,
 				AE3E41021B6EC19D001E26FE /* WelcomeViewController.m */,
 				AE4C1E701B7C679E00AC1FBF /* WelcomeViewController.xib */,
-				AE9D11891B8570B800A36953 /* SettingViewController.h */,
-				AE9D118A1B8570B800A36953 /* SettingViewController.m */,
-				AE9D118B1B8570B800A36953 /* SettingViewController.xib */,
+				AE34DEDA1B9E876000436724 /* Setting */,
 			);
 			name = VCs;
 			sourceTree = "<group>";
@@ -622,6 +638,7 @@
 			files = (
 				AEA03C541B917734001ACCEA /* GBGINFI.png in Resources */,
 				AE21E6EB1B7AAB1D006F4CB6 /* RecordViewController.xib in Resources */,
+				AE34DED91B9E875200436724 /* BackgrondTabelViewController.xib in Resources */,
 				AEFB78F51B829072005DEE30 /* normalGame.png in Resources */,
 				AEF8FA961B7C458800607CB3 /* Localizable.strings in Resources */,
 				AE21E6E61B79C229006F4CB6 /* welcome.png in Resources */,
@@ -718,6 +735,7 @@
 				AE9925B51B92C2F40078A3AD /* UUPhotoGroupViewController.m in Sources */,
 				AE9925A61B92C2E00078A3AD /* UUPhotoActionSheet.m in Sources */,
 				AEE4C7CC1B8C3E02007957B0 /* RWBarChartView.m in Sources */,
+				AE34DED81B9E875200436724 /* BackgrondTabelViewController.m in Sources */,
 				AE67587B1B7813F400F5A93C /* AlertViewController.m in Sources */,
 				AE9925AA1B92C2E00078A3AD /* UUToolBarView.m in Sources */,
 			);

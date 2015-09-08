@@ -11,7 +11,7 @@
 #import "UUPhoto-Import.h"
 
 @interface UUPhotoActionSheet() < UIImagePickerControllerDelegate,
-                                  UINavigationControllerDelegate >
+                                  UINavigationControllerDelegate>
 
 @property (nonatomic, strong, getter = getSheetView) UIView *sheetView;
 
@@ -88,7 +88,7 @@
 #pragma mark - UIImagePickerController Delegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
-
+    NSLog(@"camera");
     UIImage *editedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     
     [_weakSuper dismissViewControllerAnimated:YES completion:^{
@@ -109,11 +109,13 @@
 
 #pragma mark - Custom Deledate
 
+
+
 - (void)sendImageArray:(NSArray *)obj{
 
-    if (_delegate && [_delegate respondsToSelector:@selector(actionSheetDidFinished:)]) {
+    if (_delegate) {
         
-        [_delegate actionSheetDidFinished:obj];
+        [_delegate actionSheetDidFinished:obj andGameMode:_gameMode];
     }
 }
 

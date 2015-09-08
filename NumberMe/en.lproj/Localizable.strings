@@ -99,6 +99,10 @@
 "IMG"="Image";
 "TXT"="Text";
 "GBG"="Game background";
+"RST"="Reset";
+"RSTNORM"="Normal mode background reset";
+"RSTINFI"="Infinity mode background reset";
+"RSTLV"="Level mode background reset";
 
 //gameModeSelectionView
 "NORMAL"="Normal Mode";

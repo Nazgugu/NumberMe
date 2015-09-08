@@ -16,6 +16,7 @@
 #import "DOPScrollableActionSheet.h"
 #import "OpenShareHeader.h"
 #import <MessageUI/MessageUI.h>
+#import "BackgrondTabelViewController.h"
 
 #define Setting_TitileArray @[@[NSLocalizedString(@"MAXNORMAL",nil),NSLocalizedString(@"MAXINFINITY",nil),NSLocalizedString(@"MAXLEVEL",nil),NSLocalizedString(@"CLEARCACHE",nil), NSLocalizedString(@"TIP",nil), NSLocalizedString(@"GBG",nil)],@[NSLocalizedString(@"RATE",nil),NSLocalizedString(@"RECOMMEND",nil),NSLocalizedString(@"CONTACT",nil),NSLocalizedString(@"VERSION",nil)]]
 
@@ -157,6 +158,9 @@
         //[[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.055f green:0.196f blue:0.341f alpha:0.3f]];
         //[self.navigationController.navigationBar setBackgroundImage:[self imageFromRect:CGRectMake(0, 0, SCREENWIDTH, self.navigationController.navigationBar.frame.size.height) andImage:_blurImage] forBarMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[[UIColor whiteColor] colorWithAlphaComponent:0.9f], NSForegroundColorAttributeName, [UIFont fontWithName:@"KohinoorDevanagari-Book" size:16.0f], NSFontAttributeName,nil]];
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[[UIColor whiteColor] colorWithAlphaComponent:0.8f], NSForegroundColorAttributeName,[UIFont fontWithName:@"KohinoorDevanagari-Book" size:16.0f] ,NSFontAttributeName ,nil] forState:UIControlStateNormal];
+    [self.navigationController.navigationBar setTintColor:[[UIColor whiteColor] colorWithAlphaComponent:0.8f]];
+    
     self.navigationController.scrollNavigationBar.scrollView = _settingTable;
 }
 
@@ -497,6 +501,11 @@
             }];
             [alert show];
         }
+        else if (indexPath.row == 5)
+        {
+            BackgrondTabelViewController *background = [[BackgrondTabelViewController alloc] initWithImage:_blurImage];
+            [self.navigationController pushViewController:background animated:YES];
+        }
     }
     else if (indexPath.section == 1)
     {
@@ -523,6 +532,7 @@
                     [controller setToRecipients:@[@"zheliu9328@gmail.com"]];
                     controller.delegate = self;
                     controller.mailComposeDelegate = self;
+//                    self.navigationController.navigationBar.tintColor = [[UIColor whiteColor] colorWithAlphaComponent:0.9f];
                     [self presentViewController:controller animated:YES completion:nil];
                 }
 

@@ -13,7 +13,7 @@
 @class UUPhotoActionSheet;
 @protocol UUPhotoActionSheetDelegate < NSObject >
 
-- (void)actionSheetDidFinished:(NSArray *)obj;
+- (void)actionSheetDidFinished:(NSArray *)obj andGameMode:(NSInteger)gameMode;
 
 @end
 

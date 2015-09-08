@@ -30,7 +30,7 @@
 #import "EGOCache.h"
 
 
-@interface WelcomeViewController () <GameModeSelectionViewDelegate, UIViewControllerTransitioningDelegate, ADBannerViewDelegate, UUPhotoActionSheetDelegate>
+@interface WelcomeViewController () <GameModeSelectionViewDelegate, UIViewControllerTransitioningDelegate, ADBannerViewDelegate, UUPhotoActionSheetDelegate, UUPhotoBrowserDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *welcomeImageView;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIButton *recordButton;
@@ -44,6 +44,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *creditLabel;
 @property (nonatomic, strong) ARTransitionAnimator *transitionAnimator;
 @property (nonatomic, strong) UUPhotoActionSheet *sheet;
+
+@property (nonatomic, strong) UIImage *capturedImage;
 
 @end
 
@@ -214,9 +216,43 @@
     [_sheet showAnimation];
 }
 
-- (void)actionSheetDidFinished:(NSArray *)obj{
+- (void)actionSheetDidFinished:(NSArray *)obj andGameMode:(NSInteger)gameMode{
     
-    NSLog(@"已发送 %lu 图片",(unsigned long)obj.count);
+    _capturedImage = [obj firstObject];
+    UUPhotoBrowserViewController *controller;
+    controller = [[UUPhotoBrowserViewController alloc] init];
+    controller.gameMode = gameMode;
+    controller.delegate = self;
+    controller.isFromRoot = YES;
+    [self presentViewController:controller animated:YES completion:nil];
+}
+
+#pragma mark - Custom Deledate
+
+- (UIImage *)displayImageWithIndex:(NSInteger)index fromPhotoBrowser:(UUPhotoBrowserViewController *)browser{
+    
+    //    if (_isPreview) return [[UUAssetManager sharedInstance] getImagePreviewAtIndex:index type:2];
+    
+    return _capturedImage;
+}
+
+- (NSInteger)numberOfPhotosFromPhotoBrowser:(UUPhotoBrowserViewController *)browser{
+    
+    //    if (_isPreview) return [UUAssetManager sharedInstance].selectdPhotos.count;
+    
+    return 1;
+}
+
+//- (BOOL)isSelectedPhotosWithIndex:(NSInteger)index fromPhotoBrowser:(UUPhotoBrowserViewController *)browser{
+//
+//    if (_isPreview) return [[UUAssetManager sharedInstance] isSelectdPreviewWithIndex:index];
+//
+//    return [[UUAssetManager sharedInstance] isSelectdPhotosWithIndex:index];
+//}
+
+- (NSInteger)jumpIndexFromPhotoBrowser:(UUPhotoBrowserViewController *)browser{
+    
+    return 0;
 }
 
 -(UIImage *)convertViewToImage
