@@ -11,7 +11,7 @@
 #import "UUPhoto-Macros.h"
 #import <QuartzCore/QuartzCore.h>
 #import "EGOCache.h"
-#import "JGProgressHUD.h"
+//#import "JGProgressHUD.h"
 
 #define PADDING 10
 
@@ -40,7 +40,7 @@
 
 @property (nonatomic) CGFloat toolBarHeight;
 
-@property (nonatomic, strong) JGProgressHUD *loading;
+//@property (nonatomic, strong) JGProgressHUD *loading;
 
 //showing purpose
 @property (nonatomic, strong) UILabel *guideLabel;
@@ -402,36 +402,36 @@
             [view removeFromSuperview];
         }
     }
-    
+//    if (!_loading)
+//    {
+//        _loading = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleLight];
+//    }
+//    _loading.textLabel.text = NSLocalizedString(@"STBG", nil);
+//    _loading.indicatorView = [[JGProgressHUDIndeterminateIndicatorView alloc] init];
+//    [_loading showInView:self.view];
+//    [_loading dismissAfterDelay:0.1f];
 }
 
 - (void)hasChoseImageOfGameMode:(NSInteger)gameMode
 {
 //    NSLog(@"has choose image");
 //   NSLog(@"game mode = %ld",gameMode);
-    if (!_loading)
-    {
-        _loading = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
-    }
-    _loading.textLabel.text = NSLocalizedString(@"STBG", nil);
-    _loading.indicatorView = [[JGProgressHUDIndeterminateIndicatorView alloc] init];
-    [_loading showInView:self.view];
     
     _gameMode = gameMode;
     [self hideAllSource];
-    [self performSelector:@selector(savePhoto) withObject:nil afterDelay:0.3f];
+    [self performSelector:@selector(savePhoto) withObject:nil afterDelay:0.1f];
 //    [self savePhoto];
 }
 
 - (void)savePhoto
 {
 //    NSLog(@"save photo of game mode %ld",_gameMode);
-    [_loading dismiss];
-    JGProgressHUD *success = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
-    success.textLabel.text = NSLocalizedString(@"DONE", nil);
-    success.indicatorView = [[JGProgressHUDSuccessIndicatorView alloc] init];
-    [success showInView:self.view];
-    [success dismissAfterDelay:0.2f];
+    
+//    JGProgressHUD *success = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleLight];
+//    success.textLabel.text = NSLocalizedString(@"DONE", nil);
+//    success.indicatorView = [[JGProgressHUDSuccessIndicatorView alloc] init];
+//    [success showInView:self.view];
+//    [success dismissAfterDelay:0.3f];
     
     UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, NO, [UIScreen mainScreen].scale);
         
