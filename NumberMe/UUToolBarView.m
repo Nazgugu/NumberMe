@@ -99,7 +99,23 @@
 
 - (void)configureSlider
 {
-    _blurSlider = [[HUMSlider alloc] initWithFrame:CGRectMake(10, 8, SCREENWIDTH - 70, 18)];
+    _blurSlider = [[HUMSlider alloc] init];
+    if (IS_IPHONE_4_OR_LESS)
+    {
+        [_blurSlider setFrame:CGRectMake(10, 8, SCREENWIDTH - 70, 18)];
+    }
+    else if (IS_IPHONE_5)
+    {
+        [_blurSlider setFrame:CGRectMake(10, 14, SCREENWIDTH - 80, 22)];
+    }
+    else if (IS_IPHONE_6)
+    {
+        [_blurSlider setFrame:CGRectMake(10, 18, SCREENWIDTH - 85, 30)];
+    }
+    else if (IS_IPHONE_6P)
+    {
+        [_blurSlider setFrame:CGRectMake(10, 26, SCREENWIDTH - 90, 40)];
+    }
     _blurSlider.minimumValueImage = [UIImage imageNamed:@"visible"];
     _blurSlider.maximumValueImage = [UIImage imageNamed:@"invisible"];
     _blurSlider.saturatedColor = [UIColor colorWithRed:0.263f green:0.792f blue:0.455f alpha:1.00f];
@@ -245,12 +261,42 @@
         _btnSend = [UIButton buttonWithType:UIButtonTypeCustom];
         if (_isFromRoot)
         {
-            _btnSend.frame = CGRectMake(ScreenWidth -55, 6, 50, 16);
+            if (IS_IPHONE_4_OR_LESS)
+            {
+                _btnSend.frame = CGRectMake(ScreenWidth - 55, 6, 50, 16);
+            }
+            else if (IS_IPHONE_5)
+            {
+                _btnSend.frame = CGRectMake(ScreenWidth - 65, 8, 60, 18);
+            }
+            else if (IS_IPHONE_6)
+            {
+                _btnSend.frame = CGRectMake(ScreenWidth - 70, 10, 65, 22);
+            }
+            else if (IS_IPHONE_6P)
+            {
+                _btnSend.frame = CGRectMake(ScreenWidth - 75, 12, 70, 25);
+            }
             _btnSend.titleLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:12.0f];
         }
         else
         {
-            _btnSend.frame = CGRectMake(ScreenWidth -55, 15, 50, 20);
+            if (IS_IPHONE_4_OR_LESS)
+            {
+                _btnSend.frame = CGRectMake(ScreenWidth -55, 15, 50, 20);
+            }
+            else if (IS_IPHONE_5)
+            {
+                _btnSend.frame = CGRectMake(ScreenWidth -65, 18, 60, 24);
+            }
+            else if (IS_IPHONE_6)
+            {
+                _btnSend.frame = CGRectMake(ScreenWidth -70, 23, 60, 28);
+            }
+            else if (IS_IPHONE_6P)
+            {
+                _btnSend.frame = CGRectMake(ScreenWidth -75, 28, 70, 30);
+            }
             _btnSend.titleLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:15.0f];
         }
         [_btnSend setTitle:NSLocalizedString(@"CONF", nil) forState:UIControlStateNormal];
@@ -274,7 +320,22 @@
     if (!_cancelButton)
     {
         _cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _cancelButton.frame = CGRectMake(ScreenWidth -55, 28, 50, 16);
+        if (IS_IPHONE_4_OR_LESS)
+        {
+            _cancelButton.frame = CGRectMake(ScreenWidth -55, 28, 50, 16);
+        }
+        else if (IS_IPHONE_5)
+        {
+            _cancelButton.frame = CGRectMake(ScreenWidth - 65, 34, 60, 18);
+        }
+        else if (IS_IPHONE_6)
+        {
+            _cancelButton.frame = CGRectMake(ScreenWidth - 70, 42, 65, 22);
+        }
+        else if (IS_IPHONE_6P)
+        {
+            _cancelButton.frame = CGRectMake(ScreenWidth - 75, 49, 70, 25);
+        }
         [_cancelButton setTitle:NSLocalizedString(@"CANCEL", nil) forState:UIControlStateNormal];
         [_cancelButton setTitleColor:[UIColor colorWithRed:0.969f green:0.353f blue:0.380f alpha:1.00f] forState:UIControlStateNormal];
         _cancelButton.layer.borderWidth = 1.0f;

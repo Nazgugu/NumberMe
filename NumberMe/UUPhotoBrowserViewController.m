@@ -37,6 +37,8 @@
 @property (nonatomic) CGFloat toolButtonHeight;
 @property (nonatomic) CGFloat toolButtonWidth;
 
+@property (nonatomic) CGFloat toolBarHeight;
+
 //showing purpose
 @property (nonatomic, strong) UILabel *guideLabel;
 
@@ -50,6 +52,23 @@
     
     _visiblePages = [[NSMutableSet alloc] init];
     _recycledPages = [[NSMutableSet alloc] init];
+    
+    if (IS_IPHONE_4_OR_LESS)
+    {
+        _toolBarHeight = 50.0f;
+    }
+    else if (IS_IPHONE_5)
+    {
+        _toolBarHeight = 60.0f;
+    }
+    else if (IS_IPHONE_6)
+    {
+        _toolBarHeight = 74.0f;
+    }
+    else if (IS_IPHONE_6P)
+    {
+        _toolBarHeight = 86.0f;
+    }
     
     [self configUI];
     
@@ -574,7 +593,7 @@
     {
         if (frame.origin.y == ScreenHeight)
         {
-            frame.origin.y = ScreenHeight - 50;
+            frame.origin.y = ScreenHeight - _toolBarHeight;
         }
         else
         {
@@ -585,7 +604,7 @@
     {
         if (self.navigationController.navigationBarHidden) {
             
-            frame.origin.y = ScreenHeight -50;
+            frame.origin.y = ScreenHeight - _toolBarHeight;
             
             [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
             [self.navigationController setNavigationBarHidden:NO animated:YES];
@@ -686,7 +705,7 @@
     
     if (!_toolBarView) {
         
-        CGRect frame = CGRectMake(0, CGRectGetHeight(self.view.frame) -50, ScreenWidth, 50);
+        CGRect frame = CGRectMake(0, CGRectGetHeight(self.view.frame) -_toolBarHeight, ScreenWidth, _toolBarHeight);
         _toolBarView = [[UUToolBarView alloc] initWithBlackColor];
         _toolBarView.isFromRoot = _isFromRoot;
         _toolBarView.frame = frame;
