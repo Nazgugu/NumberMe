@@ -182,9 +182,9 @@
     localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:86400];
     if ([localNotification respondsToSelector:@selector(setAlertTitle:)])
     {
-        localNotification.alertTitle = @"How are you doing?";
+        localNotification.alertTitle = NSLocalizedString(@"NOTIT", nil);
     }
-    localNotification.alertBody = @"Hi there, long time no see. Why not give yourself a break and guess some numbers";
+    localNotification.alertBody = NSLocalizedString(@"NOTIB", nil);
     localNotification.timeZone = [NSTimeZone defaultTimeZone];
     localNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];

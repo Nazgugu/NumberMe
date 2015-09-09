@@ -118,3 +118,7 @@
 "CONF"="Confirm";
 "STBG"="Setting background";
 "DONE"="Done";
+
+//Notification
+"NOTIT"="How are you doing?";
+"NOTIB"="Hi there, long time no see. Why not give yourself a break and guess some numbers";
