@@ -124,7 +124,7 @@
     
 //    self.edgesForExtendedLayout = UIRectEdgeNone;
     
-    self.backgrounImageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.backgrounImageView.contentMode = UIViewContentModeScaleToFill;
     
     
     _verticalGap = 20.0f;
