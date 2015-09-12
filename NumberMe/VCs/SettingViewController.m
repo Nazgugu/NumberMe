@@ -20,7 +20,7 @@
 
 #define Setting_TitileArray @[@[NSLocalizedString(@"MAXNORMAL",nil),NSLocalizedString(@"MAXINFINITY",nil),NSLocalizedString(@"MAXLEVEL",nil),NSLocalizedString(@"CLEARCACHE",nil), NSLocalizedString(@"TIP",nil), NSLocalizedString(@"GBG",nil)],@[NSLocalizedString(@"RATE",nil),NSLocalizedString(@"RECOMMEND",nil),NSLocalizedString(@"CONTACT",nil),NSLocalizedString(@"VERSION",nil)]]
 
-@interface SettingViewController ()<UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate, UINavigationControllerDelegate>
+@interface SettingViewController ()<UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate>
 @property (nonatomic, strong) UIImage *blurImage;
 //@property (nonatomic, strong) UIImage *navImage;
 @property (weak, nonatomic) IBOutlet UITableView *settingTable;
@@ -60,6 +60,7 @@
     //_settingTable.opaque = NO;
     _settingTable.delegate = self;
     _settingTable.dataSource = self;
+    
     
     
 //    NSString* body = @"https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Ffour4%2Fid1030279451%3Fl%3Dzh%26ls%3D1%26mt%3D8";
@@ -144,6 +145,8 @@
 
 - (void)setNavigationBarStyle
 {
+    self.navigationController.scrollNavigationBar.scrollState = GTScrollNavigationBarScrollingUp;
+    self.navigationController.scrollNavigationBar.scrollView = _settingTable;
     if (IOS8_UP)
     {
         [[UINavigationBar appearance] setTranslucent:YES];
@@ -161,7 +164,6 @@
     [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[[UIColor whiteColor] colorWithAlphaComponent:0.8f], NSForegroundColorAttributeName,[UIFont fontWithName:@"KohinoorDevanagari-Book" size:16.0f] ,NSFontAttributeName ,nil] forState:UIControlStateNormal];
     [self.navigationController.navigationBar setTintColor:[[UIColor whiteColor] colorWithAlphaComponent:0.8f]];
     
-    self.navigationController.scrollNavigationBar.scrollView = _settingTable;
 }
 
 - (UIImage *)imageWithColor:(UIColor *)color
@@ -566,7 +568,7 @@
 
 - (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView
 {
-    [self.navigationController.scrollNavigationBar resetToDefaultPositionWithAnimation:YES];
+    [self.navigationController.scrollNavigationBar resetToDefaultPositionWithAnimation:NO];
 }
 
 #pragma mark - MessageControllerDelegate
@@ -602,6 +604,8 @@
     }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+#pragma mark - UIScrollViewDelegate
 
 /*
 #pragma mark - Navigation

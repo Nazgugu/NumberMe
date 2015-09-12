@@ -12,6 +12,7 @@ PODS:
   - OpenShare (0.0.1)
   - RJBlurAlertView (0.0.2)
   - RWBlurPopover (3.1.0)
+  - RZTransitions (1.1.1)
   - SCViewShaker (1.0.2)
   - UAAppReviewManager (0.2.6)
   - UIView+Shimmer (1.0.0)
@@ -31,6 +32,7 @@ DEPENDENCIES:
   - OpenShare (~> 0.0.1)
   - RJBlurAlertView (~> 0.0.2)
   - RWBlurPopover (~> 3.1.0)
+  - RZTransitions (~> 1.1.1)
   - SCViewShaker (~> 1.0.2)
   - UAAppReviewManager (~> 0.2.6)
   - UIView+Shimmer (~> 1.0.0)
@@ -59,6 +61,7 @@ SPEC CHECKSUMS:
   OpenShare: a560580dbb729d5c0c3cc1ee84cd6aa4a07e94c6
   RJBlurAlertView: 71403840618e30a5a37560148dc55f3d190cb383
   RWBlurPopover: dc7d91ee0dc8cbc79d6bbebed26c4f688f1661f8
+  RZTransitions: d3a1ad40f580eaee5aeecd55688e4280e8dca976
   SCViewShaker: ebd2937cc5ac1de808164bcb5be2a23c8a6e7ab6
   UAAppReviewManager: 334bdb0085c3f80c7b696f33edc53667eda548e6
   UIView+Shimmer: ed634f95e8f4bda666b28b47bd85a4336a4117d8
