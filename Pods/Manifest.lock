@@ -3,7 +3,6 @@ PODS:
   - CircleProgressBar (0.21)
   - EGOCache (2.1.3)
   - FXBlurView (1.6.4)
-  - Google-Mobile-Ads-SDK (7.4.1)
   - GTScrollNavigationBar (0.2)
   - HUMSlider (1.1.0)
   - JGProgressHUD (1.3)
@@ -12,7 +11,6 @@ PODS:
   - OpenShare (0.0.1)
   - RJBlurAlertView (0.0.2)
   - RWBlurPopover (3.1.0)
-  - RZTransitions (1.1.1)
   - SCViewShaker (1.0.2)
   - UAAppReviewManager (0.2.6)
   - UIView+Shimmer (1.0.0)
@@ -23,7 +21,6 @@ DEPENDENCIES:
   - CircleProgressBar (~> 0.21)
   - EGOCache (~> 2.1.3)
   - FXBlurView (~> 1.6.4)
-  - Google-Mobile-Ads-SDK (~> 7.4.1)
   - GTScrollNavigationBar (~> 0.2)
   - HUMSlider (~> 1.1.0)
   - JGProgressHUD (~> 1.3)
@@ -32,7 +29,6 @@ DEPENDENCIES:
   - OpenShare (~> 0.0.1)
   - RJBlurAlertView (~> 0.0.2)
   - RWBlurPopover (~> 3.1.0)
-  - RZTransitions (~> 1.1.1)
   - SCViewShaker (~> 1.0.2)
   - UAAppReviewManager (~> 0.2.6)
   - UIView+Shimmer (~> 1.0.0)
@@ -52,7 +48,6 @@ SPEC CHECKSUMS:
   CircleProgressBar: 4ce12ddcdc5673cc9f0fb83f6ec7b2a53ecb28df
   EGOCache: f0295dbe041156acabd39021354ad1045ee49e72
   FXBlurView: db786c2561cb49a09ae98407f52460096ab8a44f
-  Google-Mobile-Ads-SDK: dce4c2728daa0bcbd88b6e3dc111b718a07b1eb6
   GTScrollNavigationBar: eea90e88744d13444d918824ea3d671ee0aeb292
   HUMSlider: 02b165c6be569b2cf87626fcc371a7420425efcf
   JGProgressHUD: a58f62d3afac173d201250c3ba628fe44bd67017
@@ -61,7 +56,6 @@ SPEC CHECKSUMS:
   OpenShare: a560580dbb729d5c0c3cc1ee84cd6aa4a07e94c6
   RJBlurAlertView: 71403840618e30a5a37560148dc55f3d190cb383
   RWBlurPopover: dc7d91ee0dc8cbc79d6bbebed26c4f688f1661f8
-  RZTransitions: d3a1ad40f580eaee5aeecd55688e4280e8dca976
   SCViewShaker: ebd2937cc5ac1de808164bcb5be2a23c8a6e7ab6
   UAAppReviewManager: 334bdb0085c3f80c7b696f33edc53667eda548e6
   UIView+Shimmer: ed634f95e8f4bda666b28b47bd85a4336a4117d8

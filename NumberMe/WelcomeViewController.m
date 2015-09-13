@@ -8,7 +8,7 @@
 
 
 
-@import GoogleMobileAds;
+//@import GoogleMobileAds;
 
 #import "WelcomeViewController.h"
 #import "GameViewController.h"
@@ -29,8 +29,13 @@
 
 #import "EGOCache.h"
 
+#import "RZTransitionsInteractionControllers.h"
+#import "RZTransitionsAnimationControllers.h"
+#import "RZTransitionInteractionControllerProtocol.h"
+#import "RZTransitionsManager.h"
 
-@interface WelcomeViewController () <GameModeSelectionViewDelegate, UIViewControllerTransitioningDelegate, ADBannerViewDelegate, UUPhotoActionSheetDelegate, UUPhotoBrowserDelegate>
+
+@interface WelcomeViewController () <GameModeSelectionViewDelegate, UIViewControllerTransitioningDelegate, ADBannerViewDelegate, UUPhotoActionSheetDelegate, UUPhotoBrowserDelegate, RZTransitionInteractionControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *welcomeImageView;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIButton *recordButton;
@@ -145,6 +150,8 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openSheet:) name:@"openSheet" object:nil];
     
+    id<RZAnimationControllerProtocol> presentDismissAnimationController = [[RZZoomAlphaAnimationController alloc] init];
+    [[RZTransitionsManager shared] setDefaultPresentDismissAnimationController:presentDismissAnimationController];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -173,10 +180,9 @@
 
 - (IBAction)showRecord:(id)sender {
     //NSLog(@"tapping record");
+    [self setTransitioningDelegate:[RZTransitionsManager shared]];
     RecordViewController *record = [[RecordViewController alloc] init];
-    record.modalPresentationStyle = UIModalPresentationCustom;
-    record.transitioningDelegate = _transitionAnimator;
-    //record.transitioningDelegate = self;
+    [record setTransitioningDelegate:[RZTransitionsManager shared]];    //record.transitioningDelegate = self;
     [self presentViewController:record animated:YES completion:nil];
 }
 
@@ -200,13 +206,14 @@
 //        }
 //    }];
 //    [alert show];
-    
+    [self setTransitioningDelegate:[RZTransitionsManager shared]];
     SettingViewController *setting = [[SettingViewController alloc] initWithImage:[[self convertViewToImage] applyBlurWithRadius:12 tintColor:[[UIColor blackColor] colorWithAlphaComponent:0.4f] saturationDeltaFactor:1.0f maskImage:nil]];
     UINavigationController *nav = [[UINavigationController alloc] initWithNavigationBarClass:[GTScrollNavigationBar class] toolbarClass:nil];
     [nav setViewControllers:@[setting] animated:NO];
+    [nav setTransitioningDelegate:[RZTransitionsManager shared]];
 //    nav.transitioningDelegate = self;
-    nav.modalPresentationStyle = UIModalPresentationCustom;
-    nav.transitioningDelegate = _transitionAnimator;
+//    nav.modalPresentationStyle = UIModalPresentationCustom;
+//    nav.transitioningDelegate = _transitionAnimator;
     [self presentViewController:nav animated:YES completion:nil];
 }
 
