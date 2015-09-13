@@ -89,6 +89,7 @@
 		AECBF5D71BA5F77F0012EC7A /* UIImage+RZTransitionsFastImageBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = AECBF5C41BA5F77F0012EC7A /* UIImage+RZTransitionsFastImageBlur.m */; settings = {ASSET_TAGS = (); }; };
 		AECBF5D81BA5F77F0012EC7A /* UIImage+RZTransitionsSnapshotHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AECBF5C61BA5F77F0012EC7A /* UIImage+RZTransitionsSnapshotHelpers.m */; settings = {ASSET_TAGS = (); }; };
 		AECBF6031BA63EFF0012EC7A /* ZFModalTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = AECBF6021BA63EFF0012EC7A /* ZFModalTransitionAnimator.m */; settings = {ASSET_TAGS = (); }; };
+		AECBF6071BA641150012EC7A /* CBStoreHouseTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = AECBF6061BA641150012EC7A /* CBStoreHouseTransition.m */; settings = {ASSET_TAGS = (); }; };
 		AEE4C7CC1B8C3E02007957B0 /* RWBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE4C7CB1B8C3E02007957B0 /* RWBarChartView.m */; };
 		AEEA93801B87A3FC0004265F /* DOPScrollableActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEA937F1B87A3FC0004265F /* DOPScrollableActionSheet.m */; };
 		AEF8FA961B7C458800607CB3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AEF8FA981B7C458800607CB3 /* Localizable.strings */; };
@@ -254,6 +255,8 @@
 		AECBF5C61BA5F77F0012EC7A /* UIImage+RZTransitionsSnapshotHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RZTransitionsSnapshotHelpers.m"; sourceTree = "<group>"; };
 		AECBF6011BA63EFE0012EC7A /* ZFModalTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFModalTransitionAnimator.h; sourceTree = "<group>"; };
 		AECBF6021BA63EFF0012EC7A /* ZFModalTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFModalTransitionAnimator.m; sourceTree = "<group>"; };
+		AECBF6051BA641150012EC7A /* CBStoreHouseTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBStoreHouseTransition.h; sourceTree = "<group>"; };
+		AECBF6061BA641150012EC7A /* CBStoreHouseTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBStoreHouseTransition.m; sourceTree = "<group>"; };
 		AEE4C7CB1B8C3E02007957B0 /* RWBarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWBarChartView.m; sourceTree = "<group>"; };
 		AEEA937E1B87A3FC0004265F /* DOPScrollableActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOPScrollableActionSheet.h; sourceTree = "<group>"; };
 		AEEA937F1B87A3FC0004265F /* DOPScrollableActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOPScrollableActionSheet.m; sourceTree = "<group>"; };
@@ -468,6 +471,7 @@
 		AE7E74B91B74688B003E9341 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				AECBF6041BA641010012EC7A /* CBStoreHouseTransition */,
 				AECBF6001BA63EE50012EC7A /* DraggableModal */,
 				AECBF5971BA5F77F0012EC7A /* RZTransitions */,
 				AE34DEDB1B9EA17000436724 /* UIImage+FixOrientation */,
@@ -710,6 +714,15 @@
 			name = DraggableModal;
 			sourceTree = "<group>";
 		};
+		AECBF6041BA641010012EC7A /* CBStoreHouseTransition */ = {
+			isa = PBXGroup;
+			children = (
+				AECBF6051BA641150012EC7A /* CBStoreHouseTransition.h */,
+				AECBF6061BA641150012EC7A /* CBStoreHouseTransition.m */,
+			);
+			name = CBStoreHouseTransition;
+			sourceTree = "<group>";
+		};
 		AEFB78EA1B81910B005DEE30 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -934,6 +947,7 @@
 				AECBF5D21BA5F77F0012EC7A /* RZSegmentControlMoveFadeAnimationController.m in Sources */,
 				AE9925B61B92C2F40078A3AD /* UUPhotoBrowserViewController.m in Sources */,
 				AE9925B51B92C2F40078A3AD /* UUPhotoGroupViewController.m in Sources */,
+				AECBF6071BA641150012EC7A /* CBStoreHouseTransition.m in Sources */,
 				AE9925A61B92C2E00078A3AD /* UUPhotoActionSheet.m in Sources */,
 				AEE4C7CC1B8C3E02007957B0 /* RWBarChartView.m in Sources */,
 				AECBF5C71BA5F77F0012EC7A /* RZTransitionsNavigationController.m in Sources */,

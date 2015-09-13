@@ -17,6 +17,8 @@
 #import "OpenShareHeader.h"
 #import <MessageUI/MessageUI.h>
 #import "BackgrondTabelViewController.h"
+#import "CBStoreHouseTransition.h"
+
 
 #define Setting_TitileArray @[@[NSLocalizedString(@"MAXNORMAL",nil),NSLocalizedString(@"MAXINFINITY",nil),NSLocalizedString(@"MAXLEVEL",nil),NSLocalizedString(@"CLEARCACHE",nil), NSLocalizedString(@"TIP",nil), NSLocalizedString(@"GBG",nil)],@[NSLocalizedString(@"RATE",nil),NSLocalizedString(@"RECOMMEND",nil),NSLocalizedString(@"CONTACT",nil),NSLocalizedString(@"VERSION",nil)]]
 
@@ -26,6 +28,9 @@
 @property (weak, nonatomic) IBOutlet UITableView *settingTable;
 
 @property (nonatomic, strong) NSArray *shareAction;
+
+@property (nonatomic, strong) CBStoreHouseTransitionAnimator *animator;
+@property (nonatomic, strong) CBStoreHouseTransitionInteractiveTransition *interactiveTransition;
 
 //@property (nonatomic, strong) NSString *recommandURLString;
 //
@@ -48,6 +53,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationController.delegate = self;
+    
+    [self configureTransition];
     [self setNavigationBarStyle];
     [self createNavButton];
     // Do any additional setup after loading the view from its nib.
@@ -80,6 +89,13 @@
     
     [self initShareAction];
     [self.settingTable reloadData];
+}
+
+- (void)configureTransition
+{
+    self.animator = [[CBStoreHouseTransitionAnimator alloc] init];
+    self.interactiveTransition = [[CBStoreHouseTransitionInteractiveTransition alloc] init];
+    [self.interactiveTransition attachToViewController:self];
 }
 
 - (void)dealloc
@@ -606,6 +622,33 @@
 }
 
 #pragma mark - UIScrollViewDelegate
+
+
+#pragma mark - UINavigationControllerDelegate
+-(id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+                                 animationControllerForOperation:(UINavigationControllerOperation)operation
+                                              fromViewController:(UIViewController *)fromVC
+                                                toViewController:(UIViewController *)toVC
+{
+    switch (operation) {
+        case UINavigationControllerOperationPush:
+            //we don't need interactive transition for push
+            self.interactiveTransition = nil;
+            self.animator.type = AnimationTypePush;
+            return self.animator;
+        case UINavigationControllerOperationPop:
+            self.animator.type = AnimationTypePop;
+            return self.animator;
+        default:
+            return nil;
+    }
+}
+
+- (id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController
+                         interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController
+{
+    return self.interactiveTransition;
+}
 
 /*
 #pragma mark - Navigation
