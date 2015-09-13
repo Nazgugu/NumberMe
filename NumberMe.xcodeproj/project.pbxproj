@@ -88,9 +88,6 @@
 		AECBF5D61BA5F77F0012EC7A /* RZZoomPushAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AECBF5C11BA5F77F0012EC7A /* RZZoomPushAnimationController.m */; settings = {ASSET_TAGS = (); }; };
 		AECBF5D71BA5F77F0012EC7A /* UIImage+RZTransitionsFastImageBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = AECBF5C41BA5F77F0012EC7A /* UIImage+RZTransitionsFastImageBlur.m */; settings = {ASSET_TAGS = (); }; };
 		AECBF5D81BA5F77F0012EC7A /* UIImage+RZTransitionsSnapshotHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AECBF5C61BA5F77F0012EC7A /* UIImage+RZTransitionsSnapshotHelpers.m */; settings = {ASSET_TAGS = (); }; };
-		AECBF5FD1BA605410012EC7A /* TwinkleLayer+Anim.m in Sources */ = {isa = PBXBuildFile; fileRef = AECBF5F81BA605410012EC7A /* TwinkleLayer+Anim.m */; settings = {ASSET_TAGS = (); }; };
-		AECBF5FE1BA605410012EC7A /* TwinkleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = AECBF5FA1BA605410012EC7A /* TwinkleLayer.m */; settings = {ASSET_TAGS = (); }; };
-		AECBF5FF1BA605410012EC7A /* UIView+Twinkle.m in Sources */ = {isa = PBXBuildFile; fileRef = AECBF5FC1BA605410012EC7A /* UIView+Twinkle.m */; settings = {ASSET_TAGS = (); }; };
 		AEE4C7CC1B8C3E02007957B0 /* RWBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE4C7CB1B8C3E02007957B0 /* RWBarChartView.m */; };
 		AEEA93801B87A3FC0004265F /* DOPScrollableActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEA937F1B87A3FC0004265F /* DOPScrollableActionSheet.m */; };
 		AEF8FA961B7C458800607CB3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AEF8FA981B7C458800607CB3 /* Localizable.strings */; };
@@ -254,12 +251,6 @@
 		AECBF5C41BA5F77F0012EC7A /* UIImage+RZTransitionsFastImageBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RZTransitionsFastImageBlur.m"; sourceTree = "<group>"; };
 		AECBF5C51BA5F77F0012EC7A /* UIImage+RZTransitionsSnapshotHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RZTransitionsSnapshotHelpers.h"; sourceTree = "<group>"; };
 		AECBF5C61BA5F77F0012EC7A /* UIImage+RZTransitionsSnapshotHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RZTransitionsSnapshotHelpers.m"; sourceTree = "<group>"; };
-		AECBF5F71BA605410012EC7A /* TwinkleLayer+Anim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TwinkleLayer+Anim.h"; sourceTree = "<group>"; };
-		AECBF5F81BA605410012EC7A /* TwinkleLayer+Anim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TwinkleLayer+Anim.m"; sourceTree = "<group>"; };
-		AECBF5F91BA605410012EC7A /* TwinkleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwinkleLayer.h; sourceTree = "<group>"; };
-		AECBF5FA1BA605410012EC7A /* TwinkleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwinkleLayer.m; sourceTree = "<group>"; };
-		AECBF5FB1BA605410012EC7A /* UIView+Twinkle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Twinkle.h"; sourceTree = "<group>"; };
-		AECBF5FC1BA605410012EC7A /* UIView+Twinkle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Twinkle.m"; sourceTree = "<group>"; };
 		AEE4C7CB1B8C3E02007957B0 /* RWBarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWBarChartView.m; sourceTree = "<group>"; };
 		AEEA937E1B87A3FC0004265F /* DOPScrollableActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOPScrollableActionSheet.h; sourceTree = "<group>"; };
 		AEEA937F1B87A3FC0004265F /* DOPScrollableActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOPScrollableActionSheet.m; sourceTree = "<group>"; };
@@ -474,7 +465,6 @@
 		AE7E74B91B74688B003E9341 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				AECBF5F61BA605410012EC7A /* src */,
 				AECBF5971BA5F77F0012EC7A /* RZTransitions */,
 				AE34DEDB1B9EA17000436724 /* UIImage+FixOrientation */,
 				AEA102BD1B9C1A2D00D29C54 /* BlurImageView */,
@@ -707,19 +697,6 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		AECBF5F61BA605410012EC7A /* src */ = {
-			isa = PBXGroup;
-			children = (
-				AECBF5F71BA605410012EC7A /* TwinkleLayer+Anim.h */,
-				AECBF5F81BA605410012EC7A /* TwinkleLayer+Anim.m */,
-				AECBF5F91BA605410012EC7A /* TwinkleLayer.h */,
-				AECBF5FA1BA605410012EC7A /* TwinkleLayer.m */,
-				AECBF5FB1BA605410012EC7A /* UIView+Twinkle.h */,
-				AECBF5FC1BA605410012EC7A /* UIView+Twinkle.m */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
 		AEFB78EA1B81910B005DEE30 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -913,7 +890,6 @@
 				AECBF5D81BA5F77F0012EC7A /* UIImage+RZTransitionsSnapshotHelpers.m in Sources */,
 				AE3E41101B6ECFD0001E26FE /* GameViewController.m in Sources */,
 				AE2630841B6EA58000A566AE /* AppDelegate.m in Sources */,
-				AECBF5FD1BA605410012EC7A /* TwinkleLayer+Anim.m in Sources */,
 				AE21E6EA1B7AAB1D006F4CB6 /* RecordViewController.m in Sources */,
 				AECBF5D31BA5F77F0012EC7A /* RZShrinkZoomAnimationController.m in Sources */,
 				AECBF5D41BA5F77F0012EC7A /* RZZoomAlphaAnimationController.m in Sources */,
@@ -941,7 +917,6 @@
 				AECBF5C81BA5F77F0012EC7A /* RZUniqueTransition.m in Sources */,
 				AECBF5D01BA5F77F0012EC7A /* RZCirclePushAnimationController.m in Sources */,
 				AEFB78ED1B81916E005DEE30 /* GameModeSelectionView.m in Sources */,
-				AECBF5FE1BA605410012EC7A /* TwinkleLayer.m in Sources */,
 				AECBF5D21BA5F77F0012EC7A /* RZSegmentControlMoveFadeAnimationController.m in Sources */,
 				AE9925B61B92C2F40078A3AD /* UUPhotoBrowserViewController.m in Sources */,
 				AE9925B51B92C2F40078A3AD /* UUPhotoGroupViewController.m in Sources */,
@@ -949,7 +924,6 @@
 				AEE4C7CC1B8C3E02007957B0 /* RWBarChartView.m in Sources */,
 				AECBF5C71BA5F77F0012EC7A /* RZTransitionsNavigationController.m in Sources */,
 				AE34DED81B9E875200436724 /* BackgrondTabelViewController.m in Sources */,
-				AECBF5FF1BA605410012EC7A /* UIView+Twinkle.m in Sources */,
 				AE67587B1B7813F400F5A93C /* AlertViewController.m in Sources */,
 				AE9925AA1B92C2E00078A3AD /* UUToolBarView.m in Sources */,
 			);

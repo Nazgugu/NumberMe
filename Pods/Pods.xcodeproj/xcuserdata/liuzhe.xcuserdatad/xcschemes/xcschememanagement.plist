@@ -79,6 +79,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Shimmer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>UAAppReviewManager-UAAppReviewManager-iOS.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -97,22 +102,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>10A7A101C9AF4CF1BBF46F122BA8AA31</key>
+		<key>1125CDA3EF6EC446A435ACA7B269DFA5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>19578AC271F0520B88FFF4EF42EDA603</key>
+		<key>318DC7FEFF5D6911A80BEA3304253BE6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1C535DA8CC88928CF76D2C800C21DA61</key>
+		<key>342C467FE00503F49AAEFFDC19410A0B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3FDB144D0FBAA85CB3ABBCCD76C67F50</key>
+		<key>39EBD8FF314358F38D2D5C161BC4A32C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -122,22 +127,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>45561E3E0E980CAFAB6981EE719C0DF6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4A712E58FE489DB88282A67B593772F6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5A709B7391C3C53DC5C1B22218F870BB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5BB6FFABC24D84EFDD4928CD3C526DB0</key>
+		<key>5C66DF613C7835C7C877A86FD000BDD6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -147,7 +137,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6DE09774CAD15CAE3B45DF2F88F4B20B</key>
+		<key>61298FFAC1D644B7B144B2AC8053C52F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>62C4A872587494C306F22C00514914A4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -157,12 +152,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B110680D445F0D079490B0FB9553501E</key>
+		<key>76B9C09BE0E47E5E155E088F9071B74C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C3B951CA340A0E36F18CA42944074A97</key>
+		<key>8E4700CC62F6F0CEA10D0302B655BF23</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AA4A095D409EF3AF3ADA2E2BD37054A4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AA5B7379FE2B210E941794C632927937</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B824E96E23229101C9C70C33D0B54E95</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BA9458FB6279C5E66CEC51D38355AB57</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -173,11 +188,6 @@
 			<true/>
 		</dict>
 		<key>C42E0D64040803781EA0456F79F29020</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F34C5AB2EF8AC938E09A423B76DEB248</key>
 		<dict>
 			<key>primary</key>
 			<true/>

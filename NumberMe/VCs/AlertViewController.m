@@ -12,7 +12,8 @@
 #import "OpenShareHeader.h"
 //#import "UIView+Shimmer.h"
 #import "UAAppReviewManager.h"
-#import "UIView+Twinkle.h"
+//#import "UIView+Twinkle.h"
+#import "FBShimmeringView.h"
 
 @interface AlertViewController ()
 
@@ -31,7 +32,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *correctnessLabel;
 @property (weak, nonatomic) IBOutlet UILabel *usedTimeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (strong, nonatomic) UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet FBShimmeringView *shimmerView;
 @property (weak, nonatomic) IBOutlet UILabel *recordLabel;
 
 @property (weak, nonatomic) IBOutlet UIImageView *recordSign;
@@ -65,6 +67,15 @@
 //    self.backgroundView.layer.borderWidth = 1.0f;
 //    self.backgroundView.layer.borderColor = [UIColor whiteColor].CGColor;
 //    self.backgroundView.layer.masksToBounds = YES;
+    
+    _scoreLabel = [[UILabel alloc] initWithFrame:_shimmerView.bounds];
+    _scoreLabel.textAlignment = NSTextAlignmentLeft;
+    _scoreLabel.font = [UIFont fontWithName:@"KohinoorDevanagari-Book" size:15.0f];
+    _scoreLabel.textColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8f];
+    _shimmerView.contentView = _scoreLabel;
+    _shimmerView.shimmeringOpacity = 0.7f;
+    _shimmerView.shimmeringSpeed = 150;
+    
     self.view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.9f];
     self.view.layer.cornerRadius = 15.0f;
     self.view.layer.masksToBounds = YES;
@@ -207,7 +218,7 @@
             if (oldRecord < _game.gameScore)
             {
                 _recordSign.hidden = NO;
-                [_scoreLabel twinkle];
+                _shimmerView.shimmering = YES;
                 [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameScore] forKey:@"maxNormalScore"];
             }
             _recordLabel.text = [NSString stringWithFormat:NSLocalizedString(@"RECORD", nil),oldRecord];
@@ -216,7 +227,7 @@
         {
             //new record, need to display the record
             _recordSign.hidden = NO;
-            [_scoreLabel twinkle];
+            _shimmerView.shimmering = YES;
             [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameScore] forKey:@"maxNormalScore"];
             _recordLabel.text = NSLocalizedString(@"NORECORD", nil);
         }
@@ -242,7 +253,7 @@
             if (oldRecord < _game.gameScore)
             {
                 _recordSign.hidden = NO;
-                [_scoreLabel twinkle];
+                _shimmerView.shimmering = YES;
                 [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameScore] forKey:@"maxInfinityScore"];
             }
             _recordLabel.text = [NSString stringWithFormat:NSLocalizedString(@"RECORD", nil),oldRecord];
@@ -251,7 +262,7 @@
         {
             //new record, need to display the record
             _recordSign.hidden = NO;
-            [_scoreLabel twinkle];
+            _shimmerView.shimmering = YES;
             [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameScore] forKey:@"maxInfinityScore"];
             _recordLabel.text = NSLocalizedString(@"NORECORD", nil);
         }
@@ -294,7 +305,7 @@
             if (oldRecord < _game.gameScore)
             {
                 _recordSign.hidden = NO;
-                [_scoreLabel twinkle];
+                _shimmerView.shimmering = YES;
                 [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameScore] forKey:@"maxLevelScore"];
             }
             _recordLabel.text = [NSString stringWithFormat:NSLocalizedString(@"RECORD", nil),oldRecord];
@@ -303,7 +314,7 @@
         {
             //new record, need to display the record
             _recordSign.hidden = NO;
-            [_scoreLabel twinkle];
+            _shimmerView.shimmering = YES;
             [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameScore] forKey:@"maxLevelScore"];
             _recordLabel.text = NSLocalizedString(@"NORECORD", nil);
         }
