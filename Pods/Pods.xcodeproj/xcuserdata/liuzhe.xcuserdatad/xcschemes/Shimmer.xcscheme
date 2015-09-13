@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1E6E32EDCDADD07C116ECD89"
+               BlueprintIdentifier = "07631B6191D9D463D01245EF"
                BuildableName = "libShimmer.a"
                BlueprintName = "Shimmer"
                ReferencedContainer = "container:Pods.xcodeproj">
