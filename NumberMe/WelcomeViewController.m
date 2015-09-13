@@ -50,6 +50,12 @@
 @property (nonatomic, strong) ARTransitionAnimator *transitionAnimator;
 @property (nonatomic, strong) UUPhotoActionSheet *sheet;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *startButtonHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *recordButtonHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *settingButtonHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *firstSpace;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *secondSpace;
+
 @property (nonatomic, strong) UIImage *capturedImage;
 
 @end
@@ -78,18 +84,55 @@
         _topSpaceToTitle.constant = 60;
     }
     
-    _startButton.layer.borderWidth = 1.0f;
-    _settingButton.layer.borderWidth = 1.0f;
-    _recordButton.layer.borderWidth = 1.0f;
-    _startButton.layer.borderColor = [UIColor whiteColor].CGColor;
-    _recordButton.layer.borderColor = [UIColor whiteColor].CGColor;
-    _settingButton.layer.borderColor = [UIColor whiteColor].CGColor;
-    _startButton.layer.cornerRadius = 15.0f;
-    _recordButton.layer.cornerRadius = 15.0f;
-    _settingButton.layer.cornerRadius = 15.0f;
-    _settingButton.layer.masksToBounds = YES;
-    _recordButton.layer.masksToBounds = YES;
-    _startButton.layer.masksToBounds = YES;
+//    _startButton.layer.borderWidth = 1.0f;
+//    _settingButton.layer.borderWidth = 1.0f;
+//    _recordButton.layer.borderWidth = 1.0f;
+//    _startButton.layer.borderColor = [UIColor whiteColor].CGColor;
+//    _recordButton.layer.borderColor = [UIColor whiteColor].CGColor;
+//    _settingButton.layer.borderColor = [UIColor whiteColor].CGColor;
+//    _startButton.layer.cornerRadius = 15.0f;
+//    _recordButton.layer.cornerRadius = 15.0f;
+//    _settingButton.layer.cornerRadius = 15.0f;
+//    _settingButton.layer.masksToBounds = YES;
+//    _recordButton.layer.masksToBounds = YES;
+//    _startButton.layer.masksToBounds = YES;
+    
+    _startButton.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.1f];
+    _recordButton.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.1f];
+    _settingButton.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.1f];
+    
+    if (IS_IPHONE_4_OR_LESS)
+    {
+        _firstSpace.constant = 20;
+        _secondSpace.constant = 20;
+        _startButtonHeight.constant = 40;
+        _recordButtonHeight.constant = 40;
+        _settingButtonHeight.constant = 40;
+    }
+    else if (IS_IPHONE_5)
+    {
+        _firstSpace.constant = 24;
+        _secondSpace.constant = 24;
+        _startButtonHeight.constant = 42;
+        _recordButtonHeight.constant = 42;
+        _settingButtonHeight.constant = 42;
+    }
+    else if (IS_IPHONE_6)
+    {
+        _firstSpace.constant = 28;
+        _secondSpace.constant = 28;
+        _startButtonHeight.constant = 48;
+        _recordButtonHeight.constant = 48;
+        _settingButtonHeight.constant = 48;
+    }
+    else if (IS_IPHONE_6P)
+    {
+        _firstSpace.constant = 30;
+        _secondSpace.constant = 30;
+        _startButtonHeight.constant = 55;
+        _recordButtonHeight.constant = 55;
+        _settingButtonHeight.constant = 55;
+    }
     
     NSArray *langArr = [NSLocale  preferredLanguages];
     NSString *firstLang = [langArr firstObject];
