@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "487B2A834BEAECC6FA5C7EEB"
+               BlueprintIdentifier = "8A9A42CD9E2979CD698D0C75"
                BuildableName = "libRWBlurPopover.a"
                BlueprintName = "RWBlurPopover"
                ReferencedContainer = "container:Pods.xcodeproj">

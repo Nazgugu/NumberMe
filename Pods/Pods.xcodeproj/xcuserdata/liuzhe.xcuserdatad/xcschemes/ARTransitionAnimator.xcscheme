@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AB1897A03377085FD6D1CE25"
+               BlueprintIdentifier = "238D56ABF39FD943BB24F8EB"
                BuildableName = "libARTransitionAnimator.a"
                BlueprintName = "ARTransitionAnimator"
                ReferencedContainer = "container:Pods.xcodeproj">

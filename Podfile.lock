@@ -13,7 +13,6 @@ PODS:
   - RWBlurPopover (3.1.0)
   - SCViewShaker (1.0.2)
   - UAAppReviewManager (0.2.6)
-  - UIView+Shimmer (1.0.0)
   - VCTransitionsLibrary (1.5.0)
 
 DEPENDENCIES:
@@ -31,7 +30,6 @@ DEPENDENCIES:
   - RWBlurPopover (~> 3.1.0)
   - SCViewShaker (~> 1.0.2)
   - UAAppReviewManager (~> 0.2.6)
-  - UIView+Shimmer (~> 1.0.0)
   - VCTransitionsLibrary (~> 1.5.0)
 
 EXTERNAL SOURCES:
@@ -58,7 +56,6 @@ SPEC CHECKSUMS:
   RWBlurPopover: dc7d91ee0dc8cbc79d6bbebed26c4f688f1661f8
   SCViewShaker: ebd2937cc5ac1de808164bcb5be2a23c8a6e7ab6
   UAAppReviewManager: 334bdb0085c3f80c7b696f33edc53667eda548e6
-  UIView+Shimmer: ed634f95e8f4bda666b28b47bd85a4336a4117d8
   VCTransitionsLibrary: d61fd9b7b6721942f0d583bcc0e7f8c31ec9271b
 
 COCOAPODS: 0.38.2

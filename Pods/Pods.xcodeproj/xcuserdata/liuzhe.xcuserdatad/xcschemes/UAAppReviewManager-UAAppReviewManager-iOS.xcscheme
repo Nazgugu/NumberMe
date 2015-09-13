@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B0AB4C199CB66C9CB397CD78"
+               BlueprintIdentifier = "F6B8EC57E95AD60A8148BA50"
                BuildableName = "UAAppReviewManager-iOS.bundle"
                BlueprintName = "UAAppReviewManager-UAAppReviewManager-iOS"
                ReferencedContainer = "container:Pods.xcodeproj">

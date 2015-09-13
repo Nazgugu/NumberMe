@@ -89,11 +89,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>UIView+Shimmer.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>VCTransitionsLibrary.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -102,17 +97,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>005B39EE25A6597D030DF5F513B4B721</key>
+		<key>10A7A101C9AF4CF1BBF46F122BA8AA31</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>018D5C39CD05505A83186C0AD566ED8E</key>
+		<key>19578AC271F0520B88FFF4EF42EDA603</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>083C8D2E7E379D6E71CE73EB20AA9B4B</key>
+		<key>1C535DA8CC88928CF76D2C800C21DA61</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3FDB144D0FBAA85CB3ABBCCD76C67F50</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -122,7 +122,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5924FAA927469D0FB6AFD1306AA39891</key>
+		<key>45561E3E0E980CAFAB6981EE719C0DF6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4A712E58FE489DB88282A67B593772F6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5A709B7391C3C53DC5C1B22218F870BB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5BB6FFABC24D84EFDD4928CD3C526DB0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -132,7 +147,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>72E244917418DCE197EA7AF27441642D</key>
+		<key>6DE09774CAD15CAE3B45DF2F88F4B20B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -142,17 +157,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7796044E754B0AACBAAC1E2EBA19DBA1</key>
+		<key>B110680D445F0D079490B0FB9553501E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>921F456BB0AFEF16A8B14EBCEB74CDAD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>BB8130DAC0A6E7F0E4EBFC7EA26C2AA7</key>
+		<key>C3B951CA340A0E36F18CA42944074A97</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -167,32 +177,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D96BA1372A30F04B408376A0879BEF06</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DDFDF8DA1FCE19E7BCB06AC811DDC4E8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E1160D1CF46072016D95576056024EC7</key>
+		<key>F34C5AB2EF8AC938E09A423B76DEB248</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>F67EE2EF84A0A61C9A5C956DC7BDEB9F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F68D1992EB645AB70089D287235495EA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F7B463A32738678064ACBED3377BC088</key>
 		<dict>
 			<key>primary</key>
 			<true/>
