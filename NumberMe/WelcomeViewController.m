@@ -15,8 +15,8 @@
 #import "RecordViewController.h"
 #import "RJBlurAlertView.h"
 #import "GameModeSelectionView.h"
-#import "CECrossfadeAnimationController.h"
-#import "CEBaseInteractionController.h"
+//#import "CECrossfadeAnimationController.h"
+//#import "CEBaseInteractionController.h"
 #import "SettingViewController.h"
 #import "UIImage+ImageEffects.h"
 #import "GTScrollNavigationBar.h"
@@ -34,8 +34,9 @@
 #import "RZTransitionInteractionControllerProtocol.h"
 #import "RZTransitionsManager.h"
 
+#import "ZFModalTransitionAnimator.h"
 
-@interface WelcomeViewController () <GameModeSelectionViewDelegate, UIViewControllerTransitioningDelegate, ADBannerViewDelegate, UUPhotoActionSheetDelegate, UUPhotoBrowserDelegate, RZTransitionInteractionControllerDelegate>
+@interface WelcomeViewController () <GameModeSelectionViewDelegate, ADBannerViewDelegate, UUPhotoActionSheetDelegate, UUPhotoBrowserDelegate, RZTransitionInteractionControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *welcomeImageView;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIButton *recordButton;
@@ -55,6 +56,10 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *settingButtonHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *firstSpace;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *secondSpace;
+
+@property (nonatomic, assign) NSInteger gameMode;
+
+@property (nonatomic, strong) ZFModalTransitionAnimator *animator;
 
 @property (nonatomic, strong) UIImage *capturedImage;
 
@@ -320,9 +325,43 @@
 #pragma mark - GameModeSelectionViewDelegate
 - (void)didSelectGameMode:(NSInteger)gameMode
 {
-    GameViewController *gameVC = [[GameViewController alloc] initWithGameMode:gameMode];
+    _gameMode = gameMode;
+    
+    GameViewController *gameVC = [[GameViewController alloc] initWithGameMode:_gameMode];
+    gameVC.modalPresentationStyle = UIModalPresentationFullScreen;
+    
+    self.animator = [[ZFModalTransitionAnimator alloc] initWithModalViewController:gameVC];
+    self.animator.dragable = YES;
+    self.animator.bounces = NO;
+    self.animator.behindViewAlpha = 0.5f;
+    self.animator.behindViewScale = 0.5f;
+    self.animator.transitionDuration = 0.7f;
+    self.animator.direction = ZFModalTransitonDirectionBottom;
+    
+    gameVC.transitioningDelegate = self.animator;
+    
     [self presentViewController:gameVC animated:YES completion:nil];
+    
+//    [self performSelector:@selector(beginGameOfMode) withObject:nil afterDelay:0.2f];
 }
+
+//- (void)beginGameOfMode
+//{
+//    GameViewController *gameVC = [[GameViewController alloc] initWithGameMode:_gameMode];
+//    gameVC.modalPresentationStyle = UIModalPresentationFullScreen;
+//    
+//    self.animator = [[ZFModalTransitionAnimator alloc] initWithModalViewController:gameVC];
+//    self.animator.dragable = YES;
+//    self.animator.bounces = NO;
+//    self.animator.behindViewAlpha = 0.5f;
+//    self.animator.behindViewScale = 0.5f;
+//    self.animator.transitionDuration = 0.7f;
+//    self.animator.direction = ZFModalTransitonDirectionBottom;
+//    
+//    gameVC.transitioningDelegate = self.animator;
+//    
+//    [self presentViewController:gameVC animated:YES completion:nil];
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -331,23 +370,23 @@
 
 #pragma mark - UIViewControllerTransitioningDelegate
 
-- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
-{
-    CECrossfadeAnimationController *crossFade = [[CECrossfadeAnimationController alloc] init];
-    crossFade.duration = 0.3f;
-    crossFade.reverse = NO;
-    
-    return crossFade;
-}
+//- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
+//{
+//    CECrossfadeAnimationController *crossFade = [[CECrossfadeAnimationController alloc] init];
+//    crossFade.duration = 0.3f;
+//    crossFade.reverse = NO;
+//    
+//    return crossFade;
+//}
 
-- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
-{
-    CECrossfadeAnimationController *crossFade = [[CECrossfadeAnimationController alloc] init];
-    crossFade.duration = 0.3f;
-    crossFade.reverse = YES;
-    
-    return crossFade;
-}
+//- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
+//{
+//    CECrossfadeAnimationController *crossFade = [[CECrossfadeAnimationController alloc] init];
+//    crossFade.duration = 0.3f;
+//    crossFade.reverse = YES;
+//    
+//    return crossFade;
+//}
 
 #pragma mark - iAdBanner Delegates
 

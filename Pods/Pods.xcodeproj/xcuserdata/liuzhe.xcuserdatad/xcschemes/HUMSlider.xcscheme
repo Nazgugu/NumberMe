@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "06920B8CC08739B938381FA9"
+               BlueprintIdentifier = "B6660BAF4E5E2469839B68B1"
                BuildableName = "libHUMSlider.a"
                BlueprintName = "HUMSlider"
                ReferencedContainer = "container:Pods.xcodeproj">

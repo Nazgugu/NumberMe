@@ -1,5 +1,5 @@
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '7.0'
+platform :ios, '7.1'
 inhibit_all_warnings!
 
 pod 'MZTimerLabel', '~>0.5.4'
@@ -22,3 +22,4 @@ pod 'FXBlurView', '~>1.6.4'
 pod 'HUMSlider', '~>1.1.0'
 #pod 'RZTransitions', '~>1.1.1'
 pod 'Shimmer', '~>1.0.2'
+#pod 'ZFDragableModalTransition', '~>0.5.1'

@@ -88,6 +88,7 @@
 		AECBF5D61BA5F77F0012EC7A /* RZZoomPushAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AECBF5C11BA5F77F0012EC7A /* RZZoomPushAnimationController.m */; settings = {ASSET_TAGS = (); }; };
 		AECBF5D71BA5F77F0012EC7A /* UIImage+RZTransitionsFastImageBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = AECBF5C41BA5F77F0012EC7A /* UIImage+RZTransitionsFastImageBlur.m */; settings = {ASSET_TAGS = (); }; };
 		AECBF5D81BA5F77F0012EC7A /* UIImage+RZTransitionsSnapshotHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AECBF5C61BA5F77F0012EC7A /* UIImage+RZTransitionsSnapshotHelpers.m */; settings = {ASSET_TAGS = (); }; };
+		AECBF6031BA63EFF0012EC7A /* ZFModalTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = AECBF6021BA63EFF0012EC7A /* ZFModalTransitionAnimator.m */; settings = {ASSET_TAGS = (); }; };
 		AEE4C7CC1B8C3E02007957B0 /* RWBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE4C7CB1B8C3E02007957B0 /* RWBarChartView.m */; };
 		AEEA93801B87A3FC0004265F /* DOPScrollableActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEA937F1B87A3FC0004265F /* DOPScrollableActionSheet.m */; };
 		AEF8FA961B7C458800607CB3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AEF8FA981B7C458800607CB3 /* Localizable.strings */; };
@@ -251,6 +252,8 @@
 		AECBF5C41BA5F77F0012EC7A /* UIImage+RZTransitionsFastImageBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RZTransitionsFastImageBlur.m"; sourceTree = "<group>"; };
 		AECBF5C51BA5F77F0012EC7A /* UIImage+RZTransitionsSnapshotHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RZTransitionsSnapshotHelpers.h"; sourceTree = "<group>"; };
 		AECBF5C61BA5F77F0012EC7A /* UIImage+RZTransitionsSnapshotHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RZTransitionsSnapshotHelpers.m"; sourceTree = "<group>"; };
+		AECBF6011BA63EFE0012EC7A /* ZFModalTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFModalTransitionAnimator.h; sourceTree = "<group>"; };
+		AECBF6021BA63EFF0012EC7A /* ZFModalTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFModalTransitionAnimator.m; sourceTree = "<group>"; };
 		AEE4C7CB1B8C3E02007957B0 /* RWBarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWBarChartView.m; sourceTree = "<group>"; };
 		AEEA937E1B87A3FC0004265F /* DOPScrollableActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOPScrollableActionSheet.h; sourceTree = "<group>"; };
 		AEEA937F1B87A3FC0004265F /* DOPScrollableActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOPScrollableActionSheet.m; sourceTree = "<group>"; };
@@ -465,6 +468,7 @@
 		AE7E74B91B74688B003E9341 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				AECBF6001BA63EE50012EC7A /* DraggableModal */,
 				AECBF5971BA5F77F0012EC7A /* RZTransitions */,
 				AE34DEDB1B9EA17000436724 /* UIImage+FixOrientation */,
 				AEA102BD1B9C1A2D00D29C54 /* BlurImageView */,
@@ -697,6 +701,15 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		AECBF6001BA63EE50012EC7A /* DraggableModal */ = {
+			isa = PBXGroup;
+			children = (
+				AECBF6011BA63EFE0012EC7A /* ZFModalTransitionAnimator.h */,
+				AECBF6021BA63EFF0012EC7A /* ZFModalTransitionAnimator.m */,
+			);
+			name = DraggableModal;
+			sourceTree = "<group>";
+		};
 		AEFB78EA1B81910B005DEE30 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -896,6 +909,7 @@
 				AECBF5D51BA5F77F0012EC7A /* RZZoomBlurAnimationController.m in Sources */,
 				AEAF5AB31B88336100D295A8 /* UICountingLabel.m in Sources */,
 				AE3E41041B6EC19D001E26FE /* WelcomeViewController.m in Sources */,
+				AECBF6031BA63EFF0012EC7A /* ZFModalTransitionAnimator.m in Sources */,
 				AE8E228E1B756B9B00A298DE /* YETIMotionLabel.m in Sources */,
 				AE34DEDE1B9EA1C500436724 /* UIImage+fixOrientation.m in Sources */,
 				AE9925B41B92C2F40078A3AD /* UUPhotoCollectionViewController.m in Sources */,
@@ -998,7 +1012,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "34d28abe-8012-4a34-91ae-bf95a5ac6e14";
@@ -1037,7 +1051,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "011cd5a0-7adc-4663-94b0-4ee7e656df9a";
 				SDKROOT = iphoneos;
@@ -1056,7 +1070,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NumberMe-Prefix.pch";
 				INFOPLIST_FILE = NumberMe/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ZL.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1076,7 +1090,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NumberMe-Prefix.pch";
 				INFOPLIST_FILE = NumberMe/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ZL.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
