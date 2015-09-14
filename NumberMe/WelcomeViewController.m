@@ -57,6 +57,8 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *firstSpace;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *secondSpace;
 
+@property (weak, nonatomic) IBOutlet UIButton *gameCenterButton;
+
 @property (nonatomic, assign) NSInteger gameMode;
 
 @property (nonatomic, strong) ZFModalTransitionAnimator *animator;
@@ -79,6 +81,10 @@
 //    self.edgesForExtendedLayout = UIRectEdgeNone;
     
 //    [self initializaBannerView];
+    
+    _gameCenterButton.layer.cornerRadius = _gameCenterButton.frame.size.height / 2;
+    _gameCenterButton.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    _gameCenterButton.layer.masksToBounds = YES;
     
     _transitionAnimator = [[ARTransitionAnimator alloc] init];
     _transitionAnimator.transitionDuration = 0.3;
@@ -263,6 +269,9 @@
 //    nav.modalPresentationStyle = UIModalPresentationCustom;
 //    nav.transitioningDelegate = _transitionAnimator;
     [self presentViewController:nav animated:YES completion:nil];
+}
+
+- (IBAction)gameCenterLogin:(id)sender {
 }
 
 - (void)openSheet:(NSNotification *)notif

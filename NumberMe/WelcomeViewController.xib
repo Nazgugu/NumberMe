@@ -12,6 +12,7 @@
                 <outlet property="bottomSpaceConstraint" destination="lkw-xO-LFd" id="tBm-uZ-WSJ"/>
                 <outlet property="creditLabel" destination="f8x-c1-N9k" id="87H-Xt-Qdt"/>
                 <outlet property="firstSpace" destination="Cv4-y7-gwd" id="xh2-AS-Nep"/>
+                <outlet property="gameCenterButton" destination="4Sg-Qr-dBO" id="E1h-yy-s0k"/>
                 <outlet property="recordButton" destination="IA1-SY-Bae" id="8e5-tR-9Bc"/>
                 <outlet property="recordButtonHeight" destination="CS1-g0-kyM" id="VwD-xK-2Lc"/>
                 <outlet property="secondSpace" destination="Ntp-Ov-MNY" id="ano-3B-AFa"/>
@@ -35,7 +36,7 @@
                     <animations/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NumberMe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZf-GA-3MV">
-                    <rect key="frame" x="75" y="51" width="170" height="39"/>
+                    <rect key="frame" x="75" y="70" width="170" height="39"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="39" id="NRm-dC-8nr"/>
@@ -46,7 +47,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOh-is-50H">
-                    <rect key="frame" x="0.0" y="190" width="320" height="33"/>
+                    <rect key="frame" x="0.0" y="199" width="320" height="33"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="33" id="Vhs-mj-lIe"/>
@@ -62,7 +63,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IA1-SY-Bae">
-                    <rect key="frame" x="0.0" y="263" width="320" height="33"/>
+                    <rect key="frame" x="0.0" y="272" width="320" height="33"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="33" id="CS1-g0-kyM"/>
@@ -78,7 +79,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZA-Hm-puU">
-                    <rect key="frame" x="0.0" y="336" width="320" height="33"/>
+                    <rect key="frame" x="0.0" y="345" width="320" height="33"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="33" id="ea8-84-GLT"/>
@@ -111,6 +112,18 @@
                         <constraint firstAttribute="height" constant="50" id="agA-Bq-cmn"/>
                     </constraints>
                 </adBannerView>
+                <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Sg-Qr-dBO">
+                    <rect key="frame" x="279" y="30" width="30" height="30"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="8sg-kM-bWr"/>
+                        <constraint firstAttribute="width" constant="30" id="LgD-Ji-3oZ"/>
+                    </constraints>
+                    <state key="normal" image="gameCenter"/>
+                    <connections>
+                        <action selector="gameCenterLogin:" destination="-1" eventType="touchUpInside" id="25D-he-gnb"/>
+                    </connections>
+                </button>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -121,12 +134,12 @@
                 <constraint firstAttribute="bottom" secondItem="kXI-WA-7Eo" secondAttribute="bottom" id="Csb-iY-bNa"/>
                 <constraint firstItem="IA1-SY-Bae" firstAttribute="top" secondItem="oOh-is-50H" secondAttribute="bottom" constant="40" id="Cv4-y7-gwd"/>
                 <constraint firstItem="oOh-is-50H" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Eee-Xc-Cxb"/>
-                <constraint firstItem="mZf-GA-3MV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="51" id="LKC-zQ-aIw"/>
+                <constraint firstItem="mZf-GA-3MV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="LKC-zQ-aIw"/>
                 <constraint firstItem="RZA-Hm-puU" firstAttribute="top" secondItem="IA1-SY-Bae" secondAttribute="bottom" constant="40" id="Ntp-Ov-MNY"/>
                 <constraint firstAttribute="trailing" secondItem="qEd-H0-AXE" secondAttribute="trailing" id="OyF-7x-0WA"/>
                 <constraint firstAttribute="trailing" secondItem="oOh-is-50H" secondAttribute="trailing" id="QB7-ZV-Upp"/>
                 <constraint firstItem="qEd-H0-AXE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="SvC-T8-E7j"/>
-                <constraint firstItem="oOh-is-50H" firstAttribute="top" secondItem="mZf-GA-3MV" secondAttribute="bottom" constant="100" id="Yiy-3c-CnX"/>
+                <constraint firstItem="oOh-is-50H" firstAttribute="top" secondItem="mZf-GA-3MV" secondAttribute="bottom" constant="90" id="Yiy-3c-CnX"/>
                 <constraint firstAttribute="centerX" secondItem="mZf-GA-3MV" secondAttribute="centerX" id="det-q1-E3H"/>
                 <constraint firstItem="IA1-SY-Bae" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="edf-tF-oWb"/>
                 <constraint firstItem="RZA-Hm-puU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="kGg-Le-msx"/>
@@ -135,11 +148,14 @@
                 <constraint firstAttribute="trailing" secondItem="IA1-SY-Bae" secondAttribute="trailing" id="tza-Yb-Alv"/>
                 <constraint firstAttribute="bottom" secondItem="qEd-H0-AXE" secondAttribute="bottom" id="uOb-JP-aq6"/>
                 <constraint firstItem="qEd-H0-AXE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="voZ-nm-7LU"/>
+                <constraint firstItem="4Sg-Qr-dBO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="wF4-Ra-t22"/>
+                <constraint firstAttribute="trailing" secondItem="4Sg-Qr-dBO" secondAttribute="trailing" constant="11" id="xF9-kK-eCB"/>
             </constraints>
             <point key="canvasLocation" x="301" y="433"/>
         </view>
     </objects>
     <resources>
+        <image name="gameCenter" width="40" height="40"/>
         <image name="welcome.png" width="1242" height="2208"/>
     </resources>
 </document>

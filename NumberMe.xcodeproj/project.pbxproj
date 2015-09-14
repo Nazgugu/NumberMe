@@ -89,6 +89,7 @@
 		AECBF5D81BA5F77F0012EC7A /* UIImage+RZTransitionsSnapshotHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AECBF5C61BA5F77F0012EC7A /* UIImage+RZTransitionsSnapshotHelpers.m */; settings = {ASSET_TAGS = (); }; };
 		AECBF6031BA63EFF0012EC7A /* ZFModalTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = AECBF6021BA63EFF0012EC7A /* ZFModalTransitionAnimator.m */; settings = {ASSET_TAGS = (); }; };
 		AECBF6071BA641150012EC7A /* CBStoreHouseTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = AECBF6061BA641150012EC7A /* CBStoreHouseTransition.m */; settings = {ASSET_TAGS = (); }; };
+		AECBF6091BA69C920012EC7A /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AECBF6081BA69C920012EC7A /* GameKit.framework */; };
 		AEE4C7CC1B8C3E02007957B0 /* RWBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE4C7CB1B8C3E02007957B0 /* RWBarChartView.m */; };
 		AEEA93801B87A3FC0004265F /* DOPScrollableActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEA937F1B87A3FC0004265F /* DOPScrollableActionSheet.m */; };
 		AEF8FA961B7C458800607CB3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AEF8FA981B7C458800607CB3 /* Localizable.strings */; };
@@ -255,6 +256,7 @@
 		AECBF6021BA63EFF0012EC7A /* ZFModalTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFModalTransitionAnimator.m; sourceTree = "<group>"; };
 		AECBF6051BA641150012EC7A /* CBStoreHouseTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBStoreHouseTransition.h; sourceTree = "<group>"; };
 		AECBF6061BA641150012EC7A /* CBStoreHouseTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBStoreHouseTransition.m; sourceTree = "<group>"; };
+		AECBF6081BA69C920012EC7A /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		AEE4C7CB1B8C3E02007957B0 /* RWBarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWBarChartView.m; sourceTree = "<group>"; };
 		AEEA937E1B87A3FC0004265F /* DOPScrollableActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOPScrollableActionSheet.h; sourceTree = "<group>"; };
 		AEEA937F1B87A3FC0004265F /* DOPScrollableActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOPScrollableActionSheet.m; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				AE6758751B77C25A00F5A93C /* UIKit.framework in Frameworks */,
 				AE6758731B77C24F00F5A93C /* Foundation.framework in Frameworks */,
 				215550EBC1647E8DE4F792BB /* libPods.a in Frameworks */,
+				AECBF6091BA69C920012EC7A /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +308,7 @@
 		6E1917FA78D175219BF57EAC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AECBF6081BA69C920012EC7A /* GameKit.framework */,
 				AE1C6A5A1B7FE4D50064E71C /* SystemConfiguration.framework */,
 				AE1C6A561B7FE4C30064E71C /* MessageUI.framework */,
 				AE1C6A541B7FE4BD0064E71C /* EventKitUI.framework */,
@@ -791,6 +795,9 @@
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = AQNTGEWRNX;
 						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
 							com.apple.InAppPurchase = {
 								enabled = 0;
 							};
