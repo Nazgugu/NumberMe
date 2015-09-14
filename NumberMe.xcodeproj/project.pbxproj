@@ -26,7 +26,6 @@
 		AE26308C1B6EA58000A566AE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE26308B1B6EA58000A566AE /* Images.xcassets */; };
 		AE26309B1B6EA58000A566AE /* NumberMeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AE26309A1B6EA58000A566AE /* NumberMeTests.m */; };
 		AE34DED81B9E875200436724 /* BackgrondTabelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE34DED61B9E875200436724 /* BackgrondTabelViewController.m */; };
-		AE34DED91B9E875200436724 /* BackgrondTabelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE34DED71B9E875200436724 /* BackgrondTabelViewController.xib */; };
 		AE34DEDE1B9EA1C500436724 /* UIImage+fixOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = AE34DEDD1B9EA1C500436724 /* UIImage+fixOrientation.m */; };
 		AE3E41041B6EC19D001E26FE /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3E41021B6EC19D001E26FE /* WelcomeViewController.m */; };
 		AE3E41101B6ECFD0001E26FE /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3E410E1B6ECFD0001E26FE /* GameViewController.m */; };
@@ -135,7 +134,6 @@
 		AE26309A1B6EA58000A566AE /* NumberMeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NumberMeTests.m; sourceTree = "<group>"; };
 		AE34DED51B9E875200436724 /* BackgrondTabelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BackgrondTabelViewController.h; path = VCs/BackgrondTabelViewController.h; sourceTree = "<group>"; };
 		AE34DED61B9E875200436724 /* BackgrondTabelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BackgrondTabelViewController.m; path = VCs/BackgrondTabelViewController.m; sourceTree = "<group>"; };
-		AE34DED71B9E875200436724 /* BackgrondTabelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BackgrondTabelViewController.xib; path = VCs/BackgrondTabelViewController.xib; sourceTree = "<group>"; };
 		AE34DEDC1B9EA1C500436724 /* UIImage+fixOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+fixOrientation.h"; path = "Vendors/UIImage+FixOrientation/UIImage+fixOrientation.h"; sourceTree = "<group>"; };
 		AE34DEDD1B9EA1C500436724 /* UIImage+fixOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+fixOrientation.m"; path = "Vendors/UIImage+FixOrientation/UIImage+fixOrientation.m"; sourceTree = "<group>"; };
 		AE3E41011B6EC19D001E26FE /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
@@ -408,7 +406,6 @@
 				AE9D118B1B8570B800A36953 /* SettingViewController.xib */,
 				AE34DED51B9E875200436724 /* BackgrondTabelViewController.h */,
 				AE34DED61B9E875200436724 /* BackgrondTabelViewController.m */,
-				AE34DED71B9E875200436724 /* BackgrondTabelViewController.xib */,
 			);
 			name = Setting;
 			sourceTree = "<group>";
@@ -833,7 +830,6 @@
 			files = (
 				AEA03C541B917734001ACCEA /* GBGINFI.png in Resources */,
 				AE21E6EB1B7AAB1D006F4CB6 /* RecordViewController.xib in Resources */,
-				AE34DED91B9E875200436724 /* BackgrondTabelViewController.xib in Resources */,
 				AEFB78F51B829072005DEE30 /* normalGame.png in Resources */,
 				AEF8FA961B7C458800607CB3 /* Localizable.strings in Resources */,
 				AE21E6E61B79C229006F4CB6 /* welcome.png in Resources */,

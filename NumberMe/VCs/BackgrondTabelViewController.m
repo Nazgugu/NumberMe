@@ -9,18 +9,22 @@
 #import "BackgrondTabelViewController.h"
 #import "EGOCache.h"
 #import "JGProgressHUD.h"
+#import "CBStoreHouseTransition.h"
 
 #define gameModeTitle @[NSLocalizedString(@"NORMAL",nil), NSLocalizedString(@"CONTINUE",nil), NSLocalizedString(@"LEVEL",nil)]
 
-@interface BackgrondTabelViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface BackgrondTabelViewController ()<UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate>
 
-@property (weak, nonatomic) IBOutlet UITableView *backgroundTableView;
+@property (strong, nonatomic) UITableView *backgroundTableView;
 
 @property (nonatomic, strong) UIImage *blurImage;
 
 @property (nonatomic) CGFloat rowHeight;
 
 @property (nonatomic, strong) JGProgressHUD *reset;
+
+@property (nonatomic, strong) CBStoreHouseTransitionAnimator *animator;
+@property (nonatomic, strong) CBStoreHouseTransitionInteractiveTransition *interactiveTransition;
 
 @end
 
@@ -40,6 +44,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _backgroundTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
+    [self.view addSubview:_backgroundTableView];
+    
     // Do any additional setup after loading the view from its nib.
     _backgroundTableView.backgroundColor = [UIColor clearColor];
     UIImageView *backGroundImage = [[UIImageView alloc] initWithFrame:self.backgroundTableView.frame];
@@ -50,6 +58,17 @@
     _backgroundTableView.delegate = self;
     _backgroundTableView.dataSource = self;
     _backgroundTableView.tableFooterView = [[UIView alloc] init];
+    
+    self.navigationController.delegate = self;
+    
+    [self initTransition];
+}
+
+- (void)initTransition
+{
+    self.animator = [[CBStoreHouseTransitionAnimator alloc] init];
+    self.interactiveTransition = [[CBStoreHouseTransitionInteractiveTransition alloc] init];
+    [self.interactiveTransition attachToViewController:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -261,6 +280,34 @@
     button.enabled = NO;
     button.layer.borderColor = [UIColor lightGrayColor].CGColor;
 }
+
+#pragma mark - UINavigationControllerDelegate
+-(id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+                                 animationControllerForOperation:(UINavigationControllerOperation)operation
+                                              fromViewController:(UIViewController *)fromVC
+                                                toViewController:(UIViewController *)toVC
+{
+    switch (operation) {
+        case UINavigationControllerOperationPush:
+            //we don't need interactive transition for push
+            self.interactiveTransition = nil;
+            self.animator.type = AnimationTypePush;
+            return self.animator;
+        case UINavigationControllerOperationPop:
+            self.interactiveTransition = nil;
+            self.animator.type = AnimationTypePop;
+            return self.animator;
+        default:
+            return nil;
+    }
+}
+
+- (id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController
+                         interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController
+{
+    return self.interactiveTransition;
+}
+
 
 /*
 #pragma mark - Navigation

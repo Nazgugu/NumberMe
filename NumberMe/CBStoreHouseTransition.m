@@ -53,7 +53,7 @@
         [UIView animateKeyframesWithDuration:self.duration delay:0.0 options:0 animations:^{
             
             [UIView addKeyframeWithRelativeStartTime:0 relativeDuration:1 animations:^{
-                toViewController.view.frame = CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT);
+//                toViewController.view.frame = CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT);
                 fromViewController.view.layer.transform = leftViewTransfrom;
                 fromViewController.view.alpha = 0;
                 
