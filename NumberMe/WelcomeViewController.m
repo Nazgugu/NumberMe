@@ -302,21 +302,23 @@
 
 - (IBAction)gameCenterLogin:(id)sender {
     _wantToLogin = YES;
-//    if (![[GameCenterManager sharedManager] localPlayerData])
-//    {
-//        GKLocalPlayer *localPlayer = [GKLocalPlayer localPlayer];
-//        localPlayer.authenticateHandler = ^(UIViewController *viewController, NSError *error) {
-//            if (viewController != nil)
-//            {
-//                [self presentViewController:viewController animated:YES completion:nil];
-//            }
-//            else if (!error)
-//            {
-//                NSLog(@"succeed");
-//                [self initUserInfo];
-//            }
-//        };
-//    }
+    if (![[GameCenterManager sharedManager] localPlayerData])
+    {
+        NSLog(@"THIS CASE");
+        GKLocalPlayer *localPlayer = [GKLocalPlayer localPlayer];
+        localPlayer.authenticateHandler = ^(UIViewController *viewController, NSError *error) {
+            if (viewController != nil)
+            {
+                NSLog(@"has vc");
+                [self presentViewController:viewController animated:YES completion:nil];
+            }
+            else if (!error)
+            {
+                NSLog(@"succeed");
+                [self initUserInfo];
+            }
+        };
+    }
     if ([[GameCenterManager sharedManager] isGameCenterAvailable])
     {
         if ([[GameCenterManager sharedManager] localPlayerData])
@@ -326,6 +328,11 @@
             [[GameCenterManager sharedManager] presentLeaderboardsOnViewController:self];
         }
     }
+}
+
+- (void)initUserInfo
+{
+    [[GameCenterManager sharedManager] syncGameCenter];
 }
 
 - (void)showPopOver
