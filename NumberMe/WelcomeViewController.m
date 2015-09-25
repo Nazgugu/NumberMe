@@ -20,7 +20,7 @@
 #import "SettingViewController.h"
 #import "UIImage+ImageEffects.h"
 #import "GTScrollNavigationBar.h"
-#import "ARTransitionAnimator.h"
+//#import "ARTransitionAnimator.h"
 //#import "UIView+Shimmer.h"
 #import <iAd/iAd.h>
 #import "UUPhotoActionSheet.h"
@@ -52,7 +52,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topSpaceToTitle;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *creditLabel;
-@property (nonatomic, strong) ARTransitionAnimator *transitionAnimator;
+//@property (nonatomic, strong) ARTransitionAnimator *transitionAnimator;
 @property (nonatomic, strong) UUPhotoActionSheet *sheet;
 @property(nonatomic,strong) MLKMenuPopover *menuPopover;
 
@@ -113,9 +113,9 @@
     _gameCenterButton.imageView.contentMode = UIViewContentModeScaleAspectFill;
     _gameCenterButton.layer.masksToBounds = YES;
     
-    _transitionAnimator = [[ARTransitionAnimator alloc] init];
-    _transitionAnimator.transitionDuration = 0.3;
-    _transitionAnimator.transitionStyle = ARTransitionStyleMaterial;
+//    _transitionAnimator = [[ARTransitionAnimator alloc] init];
+//    _transitionAnimator.transitionDuration = 0.3;
+//    _transitionAnimator.transitionStyle = ARTransitionStyleMaterial;
     
     if (IS_IPHONE_4_OR_LESS)
     {

@@ -35,7 +35,7 @@
                     <animations/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NumberMe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZf-GA-3MV">
-                    <rect key="frame" x="90" y="110" width="140" height="39"/>
+                    <rect key="frame" x="90" y="80" width="140" height="39"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="39" id="NRm-dC-8nr"/>
@@ -46,7 +46,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOh-is-50H">
-                    <rect key="frame" x="0.0" y="219" width="320" height="33"/>
+                    <rect key="frame" x="0.0" y="169" width="320" height="33"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="33" id="Vhs-mj-lIe"/>
@@ -62,7 +62,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IA1-SY-Bae">
-                    <rect key="frame" x="0.0" y="292" width="320" height="33"/>
+                    <rect key="frame" x="0.0" y="242" width="320" height="33"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="33" id="CS1-g0-kyM"/>
@@ -78,7 +78,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZA-Hm-puU">
-                    <rect key="frame" x="0.0" y="365" width="320" height="33"/>
+                    <rect key="frame" x="0.0" y="315" width="320" height="33"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="33" id="ea8-84-GLT"/>
@@ -133,10 +133,10 @@
                 <constraint firstItem="oOh-is-50H" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Eee-Xc-Cxb"/>
                 <constraint firstItem="RZA-Hm-puU" firstAttribute="top" secondItem="IA1-SY-Bae" secondAttribute="bottom" constant="40" id="Ntp-Ov-MNY"/>
                 <constraint firstAttribute="trailing" secondItem="qEd-H0-AXE" secondAttribute="trailing" id="OyF-7x-0WA"/>
-                <constraint firstItem="mZf-GA-3MV" firstAttribute="top" secondItem="4Sg-Qr-dBO" secondAttribute="bottom" constant="50" id="PRc-Bc-a7n"/>
+                <constraint firstItem="mZf-GA-3MV" firstAttribute="top" secondItem="4Sg-Qr-dBO" secondAttribute="bottom" constant="20" id="PRc-Bc-a7n"/>
                 <constraint firstAttribute="trailing" secondItem="oOh-is-50H" secondAttribute="trailing" id="QB7-ZV-Upp"/>
                 <constraint firstItem="qEd-H0-AXE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="SvC-T8-E7j"/>
-                <constraint firstItem="oOh-is-50H" firstAttribute="top" secondItem="mZf-GA-3MV" secondAttribute="bottom" constant="70" id="Yiy-3c-CnX"/>
+                <constraint firstItem="oOh-is-50H" firstAttribute="top" secondItem="mZf-GA-3MV" secondAttribute="bottom" constant="50" id="Yiy-3c-CnX"/>
                 <constraint firstAttribute="centerX" secondItem="mZf-GA-3MV" secondAttribute="centerX" id="det-q1-E3H"/>
                 <constraint firstItem="IA1-SY-Bae" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="edf-tF-oWb"/>
                 <constraint firstItem="RZA-Hm-puU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="kGg-Le-msx"/>
