@@ -135,6 +135,7 @@
         
         dispatch_async(dispatch_get_main_queue(), ^{
             if ([[self delegate] respondsToSelector:@selector(gameCenterManager:availabilityChanged:)])
+                
                 [[self delegate] gameCenterManager:self availabilityChanged:errorDictionary];
         });
         
@@ -148,6 +149,7 @@
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 if ([[self delegate] respondsToSelector:@selector(gameCenterManager:availabilityChanged:)])
+                    
                     [[self delegate] gameCenterManager:self availabilityChanged:errorDictionary];
             });
             

@@ -14,8 +14,9 @@
 #import "UAAppReviewManager.h"
 //#import "UIView+Twinkle.h"
 #import "FBShimmeringView.h"
+#import "GameCenterManager.h"
 
-@interface AlertViewController ()
+@interface AlertViewController ()<GameCenterManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *symbolImage;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -63,6 +64,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[GameCenterManager sharedManager] setDelegate:self];
     // Do any additional setup after loading the view from its nib.
 //    self.backgroundView.layer.borderWidth = 1.0f;
 //    self.backgroundView.layer.borderColor = [UIColor whiteColor].CGColor;
@@ -220,8 +222,10 @@
                 _recordSign.hidden = NO;
                 _shimmerView.shimmering = YES;
                 [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameScore] forKey:@"maxNormalScore"];
+                [self storeToGameCenterWithGameMode:_game.gameMode andScore:_game.gameScore];
             }
             _recordLabel.text = [NSString stringWithFormat:NSLocalizedString(@"RECORD", nil),oldRecord];
+            //need to deal with game center
         }
         else
         {
@@ -230,6 +234,7 @@
             _shimmerView.shimmering = YES;
             [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameScore] forKey:@"maxNormalScore"];
             _recordLabel.text = NSLocalizedString(@"NORECORD", nil);
+            [self storeToGameCenterWithGameMode:_game.gameMode andScore:_game.gameScore];
         }
     }
     else if (_game.gameMode == gameModeInfinity)
@@ -255,6 +260,7 @@
                 _recordSign.hidden = NO;
                 _shimmerView.shimmering = YES;
                 [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameScore] forKey:@"maxInfinityScore"];
+                [self storeToGameCenterWithGameMode:_game.gameMode andScore:_game.gameScore];
             }
             _recordLabel.text = [NSString stringWithFormat:NSLocalizedString(@"RECORD", nil),oldRecord];
         }
@@ -264,6 +270,7 @@
             _recordSign.hidden = NO;
             _shimmerView.shimmering = YES;
             [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameScore] forKey:@"maxInfinityScore"];
+            [self storeToGameCenterWithGameMode:_game.gameMode andScore:_game.gameScore];
             _recordLabel.text = NSLocalizedString(@"NORECORD", nil);
         }
         if ([[EGOCache globalCache] hasCacheForKey:@"maxInfinityNO"])
@@ -307,6 +314,7 @@
                 _recordSign.hidden = NO;
                 _shimmerView.shimmering = YES;
                 [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameScore] forKey:@"maxLevelScore"];
+                [self storeToGameCenterWithGameMode:_game.gameMode andScore:_game.gameScore];
             }
             _recordLabel.text = [NSString stringWithFormat:NSLocalizedString(@"RECORD", nil),oldRecord];
         }
@@ -317,6 +325,7 @@
             _shimmerView.shimmering = YES;
             [[EGOCache globalCache] setString:[NSString stringWithFormat:@"%ld",_game.gameScore] forKey:@"maxLevelScore"];
             _recordLabel.text = NSLocalizedString(@"NORECORD", nil);
+            [self storeToGameCenterWithGameMode:_game.gameMode andScore:_game.gameScore];
         }
         if ([[EGOCache globalCache] hasCacheForKey:@"maxLevel"])
         {
@@ -445,6 +454,36 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)storeToGameCenterWithGameMode:(gameMode)mode andScore:(NSInteger)score
+{
+    if ([[GameCenterManager sharedManager] isGameCenterAvailable])
+    {
+        GKLocalPlayer *player = [[GameCenterManager sharedManager] localPlayerData];
+        if (player)
+        {
+            switch (mode) {
+                case gameModeNormal:
+                {
+                    [[GameCenterManager sharedManager] saveAndReportScore:(int)_game.gameScore leaderboard:NORMSCORE sortOrder:GameCenterSortOrderHighToLow];
+                }
+                    break;
+                case gameModeInfinity:
+                {
+                    [[GameCenterManager sharedManager] saveAndReportScore:(int)_game.gameScore leaderboard:INFISCORE sortOrder:GameCenterSortOrderHighToLow];
+                }
+                    break;
+                case gameModeLevelUp:
+                {
+                    [[GameCenterManager sharedManager] saveAndReportScore:(int)_game.gameScore leaderboard:LVSCORE sortOrder:GameCenterSortOrderHighToLow];
+                }
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+}
+
 - (UIImage *)getScreenshot
 {
     CGRect screenRect = CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT);
@@ -566,6 +605,18 @@
 }
 
 - (IBAction)shareFacebookAction:(id)sender {
+}
+
+#pragma mark
+
+- (void)gameCenterManager:(GameCenterManager *)manager authenticateUser:(UIViewController *)gameCenterLoginController
+{
+    
+}
+
+- (void)gameCenterManager:(GameCenterManager *)manager reportedScore:(GKScore *)score withError:(NSError *)error;
+{
+    NSLog(@"reported score");
 }
 
 /*

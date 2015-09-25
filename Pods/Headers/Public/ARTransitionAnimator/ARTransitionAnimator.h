@@ -1,1 +1,0 @@
-../../../ARTransitionAnimator/ARTransitionAnimator/ARTransitionAnimator.h

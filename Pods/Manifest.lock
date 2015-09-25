@@ -1,11 +1,10 @@
 PODS:
-  - ARTransitionAnimator (0.1)
   - CircleProgressBar (0.21)
   - EGOCache (2.1.3)
   - FXBlurView (1.6.4)
   - GameCenterManager (5.3):
     - Reachability
-  - GTScrollNavigationBar (0.2)
+  - GTScrollNavigationBar (0.3)
   - HUMSlider (1.1.0)
   - JGProgressHUD (1.3)
   - JSKTimerView (0.4.1)
@@ -19,12 +18,11 @@ PODS:
   - UAAppReviewManager (0.2.6)
 
 DEPENDENCIES:
-  - ARTransitionAnimator (from `https://github.com/AugustRush/ARTransitionAnimator.git`)
   - CircleProgressBar (~> 0.21)
   - EGOCache (~> 2.1.3)
   - FXBlurView (~> 1.6.4)
   - GameCenterManager (~> 5.3)
-  - GTScrollNavigationBar (~> 0.2)
+  - GTScrollNavigationBar (~> 0.3)
   - HUMSlider (~> 1.1.0)
   - JGProgressHUD (~> 1.3)
   - JSKTimerView (~> 0.4.1)
@@ -36,22 +34,12 @@ DEPENDENCIES:
   - Shimmer (~> 1.0.2)
   - UAAppReviewManager (~> 0.2.6)
 
-EXTERNAL SOURCES:
-  ARTransitionAnimator:
-    :git: https://github.com/AugustRush/ARTransitionAnimator.git
-
-CHECKOUT OPTIONS:
-  ARTransitionAnimator:
-    :commit: 7d711961fdbdab999ec8bf0882323cdf397f3624
-    :git: https://github.com/AugustRush/ARTransitionAnimator.git
-
 SPEC CHECKSUMS:
-  ARTransitionAnimator: ebe30054c9e745fa5dfdb6d1e2720d6a059ad4fe
   CircleProgressBar: 4ce12ddcdc5673cc9f0fb83f6ec7b2a53ecb28df
   EGOCache: f0295dbe041156acabd39021354ad1045ee49e72
   FXBlurView: db786c2561cb49a09ae98407f52460096ab8a44f
   GameCenterManager: e3a855e9db97b876a3a4a0605f5be30c6de9cebd
-  GTScrollNavigationBar: eea90e88744d13444d918824ea3d671ee0aeb292
+  GTScrollNavigationBar: e3a3f643954c66549ca2d24dce349e141d4ffeec
   HUMSlider: 02b165c6be569b2cf87626fcc371a7420425efcf
   JGProgressHUD: a58f62d3afac173d201250c3ba628fe44bd67017
   JSKTimerView: 6e773cc20f87e3af98b9fe242492f38055f55cc8

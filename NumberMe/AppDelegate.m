@@ -12,6 +12,7 @@
 #import "OpenShareHeader.h"
 #import "guessGame.h"
 #import "UAAppReviewManager.h"
+#import "GameCenterManager.h"
 
 @interface AppDelegate ()
 
@@ -44,6 +45,11 @@
     [self registerPlatforms];
     
     return YES;
+}
+
+- (void)setUpGameCenterManager
+{
+    [[GameCenterManager sharedManager] setupManager];
 }
 
 - (void)setUpReviewManager

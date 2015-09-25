@@ -48,6 +48,10 @@
 
 #define TIPMETHOD @"tipMethod"
 
+#define NORMSCORE @"maxNormScore"
+#define INFISCORE @"maxInfiScore"
+#define LVSCORE @"maxLVScore"
+
 //#define SAFEPARAMETER(parameter)    (parameter) ? [NSString stringWithFormat:@"%@",parameter] : @""
 //
 //#define AMapKey @"2ad85cea7d4aabc66d779b4dbc3755b2"

@@ -1,5 +1,5 @@
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '7.1'
+platform :ios, '8.0'
 inhibit_all_warnings!
 
 pod 'MZTimerLabel', '~>0.5.4'
@@ -14,8 +14,8 @@ pod 'SCViewShaker', '~>1.0.2'
 pod 'CircleProgressBar', '~>0.21'
 #pod 'VCTransitionsLibrary', '~>1.5.0'
 #pod 'UIView+Shimmer', '~>1.0.0'
-pod 'GTScrollNavigationBar', '~>0.2'
-pod 'ARTransitionAnimator', :git => 'https://github.com/AugustRush/ARTransitionAnimator.git'
+pod 'GTScrollNavigationBar', '~>0.3'
+#pod 'ARTransitionAnimator', :git => 'https://github.com/AugustRush/ARTransitionAnimator.git'
 pod 'JGProgressHUD', '~>1.3'
 pod 'UAAppReviewManager', '~>0.2.6'
 pod 'FXBlurView', '~>1.6.4'

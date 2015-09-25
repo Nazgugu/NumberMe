@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A05DA0EA26FDB30FE9E2F5B9"
+               BlueprintIdentifier = "1F85E6A8E9208FFB800677DA"
                BuildableName = "libFXBlurView.a"
                BlueprintName = "FXBlurView"
                ReferencedContainer = "container:Pods.xcodeproj">

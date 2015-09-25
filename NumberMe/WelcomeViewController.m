@@ -36,7 +36,11 @@
 
 #import "ZFModalTransitionAnimator.h"
 
-@interface WelcomeViewController () <GameModeSelectionViewDelegate, ADBannerViewDelegate, UUPhotoActionSheetDelegate, UUPhotoBrowserDelegate, RZTransitionInteractionControllerDelegate>
+#import "GameCenterManager.h"
+
+#import "MLKMenuPopover.h"
+
+@interface WelcomeViewController () <GameModeSelectionViewDelegate, ADBannerViewDelegate, UUPhotoActionSheetDelegate, UUPhotoBrowserDelegate, RZTransitionInteractionControllerDelegate, GameCenterManagerDelegate, MLKMenuPopoverDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *welcomeImageView;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIButton *recordButton;
@@ -50,6 +54,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *creditLabel;
 @property (nonatomic, strong) ARTransitionAnimator *transitionAnimator;
 @property (nonatomic, strong) UUPhotoActionSheet *sheet;
+@property(nonatomic,strong) MLKMenuPopover *menuPopover;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *startButtonHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *recordButtonHeight;
@@ -65,6 +70,10 @@
 
 @property (nonatomic, strong) UIImage *capturedImage;
 
+@property (nonatomic, assign) BOOL wantToLogin;
+
+@property (nonatomic, strong) NSMutableArray *highestScores;
+
 @end
 
 @implementation WelcomeViewController
@@ -76,11 +85,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _wantToLogin = NO;
     // Do any additional setup after loading the view from its nib.
     //setting up button appearance
 //    self.edgesForExtendedLayout = UIRectEdgeNone;
     
 //    [self initializaBannerView];
+    
+    if ([[GameCenterManager sharedManager] isInternetAvailable])
+    {
+        if (![[GameCenterManager sharedManager] isGameCenterAvailable])
+        {
+            _gameCenterButton.hidden = YES;
+        }
+        else
+        {
+            _gameCenterButton.hidden = NO;
+            [[GameCenterManager sharedManager] syncGameCenter];
+        }
+    }
+    else
+    {
+        _gameCenterButton.hidden = YES;
+    }
     
     _gameCenterButton.layer.cornerRadius = _gameCenterButton.frame.size.height / 2;
     _gameCenterButton.imageView.contentMode = UIViewContentModeScaleAspectFill;
@@ -206,6 +233,8 @@
     
     id<RZAnimationControllerProtocol> presentDismissAnimationController = [[RZZoomAlphaAnimationController alloc] init];
     [[RZTransitionsManager shared] setDefaultPresentDismissAnimationController:presentDismissAnimationController];
+    
+    [[GameCenterManager sharedManager] setDelegate:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -272,6 +301,42 @@
 }
 
 - (IBAction)gameCenterLogin:(id)sender {
+    _wantToLogin = YES;
+//    if (![[GameCenterManager sharedManager] localPlayerData])
+//    {
+//        GKLocalPlayer *localPlayer = [GKLocalPlayer localPlayer];
+//        localPlayer.authenticateHandler = ^(UIViewController *viewController, NSError *error) {
+//            if (viewController != nil)
+//            {
+//                [self presentViewController:viewController animated:YES completion:nil];
+//            }
+//            else if (!error)
+//            {
+//                NSLog(@"succeed");
+//                [self initUserInfo];
+//            }
+//        };
+//    }
+    if ([[GameCenterManager sharedManager] isGameCenterAvailable])
+    {
+        if ([[GameCenterManager sharedManager] localPlayerData])
+        {
+//            [self retrieveScores];
+//            [self showPopOver];
+            [[GameCenterManager sharedManager] presentLeaderboardsOnViewController:self];
+        }
+    }
+}
+
+- (void)showPopOver
+{
+   if (_menuPopover)
+   {
+       [self.menuPopover dismissMenuPopover];
+   }
+    _menuPopover = [[MLKMenuPopover alloc] initWithFrame:CGRectMake(SCREENWIDTH - 11 - 30 - 100, 65, 140, 90) menuItems:_highestScores];
+    self.menuPopover.menuPopoverDelegate = self;
+    [self.menuPopover showInView:self.view];
 }
 
 - (void)openSheet:(NSNotification *)notif
@@ -417,6 +482,98 @@ didFailToReceiveAdWithError:(NSError *)error{
 }
 -(void)bannerViewActionDidFinish:(ADBannerView *)banner{
     NSLog(@"iAd Banner did finish");
+    
+}
+
+#pragma mark - GameCenter Manager Delegate
+
+- (void)gameCenterManager:(GameCenterManager *)manager authenticateUser:(UIViewController *)gameCenterLoginController {
+    if (_wantToLogin)
+    {
+        [self presentViewController:gameCenterLoginController animated:YES completion:^{
+            NSLog(@"Finished Presenting Authentication Controller");
+        }];
+    }
+}
+
+- (void)gameCenterManager:(GameCenterManager *)manager availabilityChanged:(NSDictionary *)availabilityInformation {
+//    NSLog(@"GC Availabilty: %@", availabilityInformation);
+    if ([[availabilityInformation objectForKey:@"status"] isEqualToString:@"GameCenter Available"]) {
+        [self.navigationController.navigationBar setValue:@"GameCenter Available" forKeyPath:@"prompt"];
+    } else {
+        [self.navigationController.navigationBar setValue:@"GameCenter Unavailable" forKeyPath:@"prompt"];
+    }
+    
+    GKLocalPlayer *player = [[GameCenterManager sharedManager] localPlayerData];
+    if (player) {
+        if ([player isUnderage] == NO) {
+//            [self retrieveScores];
+            NSLog(@"not under age");
+                [[GameCenterManager sharedManager] localPlayerPhoto:^(UIImage *playerPhoto) {
+                    _gameCenterButton.hidden = NO;
+                    [UIView animateWithDuration:0.3f delay:0 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+                        [_gameCenterButton setImage:playerPhoto forState:UIControlStateNormal];
+                    } completion:nil];
+                }];
+            
+            
+        } else {
+            NSLog(@"player under age");
+        }
+    }
+    else {
+    }
+}
+
+- (void)retrieveScores
+{
+    if (!_highestScores)
+    {
+        _highestScores = [[NSMutableArray alloc] init];
+    }
+    NSString *normScore, *infiScore, *lvScore;
+    
+    NSLog(@"high norm = %d",[[GameCenterManager sharedManager] highScoreForLeaderboard:NORMSCORE]);
+    
+    if ([[GameCenterManager sharedManager] highScoreForLeaderboard:NORMSCORE])
+    {
+        normScore = [NSString stringWithFormat:NSLocalizedString(@"MAXNORMALI", nil), [[GameCenterManager sharedManager] highScoreForLeaderboard:NORMSCORE]];
+    }
+    else
+    {
+        normScore = NSLocalizedString(@"MAXNORMALN", nil);
+    }
+    
+    if ([[GameCenterManager sharedManager] highScoreForLeaderboard:INFISCORE])
+    {
+        infiScore = [NSString stringWithFormat:NSLocalizedString(@"MAXINFINITYI", nil), [[GameCenterManager sharedManager] highScoreForLeaderboard:INFISCORE]];
+    }
+    else
+    {
+        infiScore = NSLocalizedString(@"MAXINFINITYN", nil);
+    }
+    
+    if ([[GameCenterManager sharedManager] highScoreForLeaderboard:LVSCORE])
+    {
+        lvScore = [NSString stringWithFormat:NSLocalizedString(@"MAXLEVELI", nil), [[GameCenterManager sharedManager] highScoreForLeaderboard:LVSCORE]];
+    }
+    else
+    {
+        lvScore = NSLocalizedString(@"MAXLEVELN", nil);
+    }
+    
+    [_highestScores removeAllObjects];
+    
+    [_highestScores addObject:normScore];
+    [_highestScores addObject:infiScore];
+    [_highestScores addObject:lvScore];
+}
+
+#pragma mark MLKMenuPopoverDelegate
+
+- (void)menuPopover:(MLKMenuPopover *)menuPopover didSelectMenuItemAtIndex:(NSInteger)selectedIndex
+{
+    [self.menuPopover dismissMenuPopover];
     
 }
 

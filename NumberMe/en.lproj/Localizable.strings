@@ -82,6 +82,12 @@
 "MAXNORMAL"="Normal mode";
 "MAXINFINITY"="Infinity mode";
 "MAXLEVEL"="Level mode";
+"MAXNORMALI"="Normal mode   %ld";
+"MAXINFINITYI"="Infinity mode   %ld";
+"MAXLEVELI"="Level mode   %ld";
+"MAXNORMALN"="Normal mode N/A";
+"MAXINFINITYN"="Infinity mode N/A";
+"MAXLEVELN"="Level mode N/A";
 "CLEARCACHE"="Clear record";
 "CAUTION"="Caution!";
 "WARNING"="Are you sure you want to clear all the data? Once the records are deleted you can not restore them";

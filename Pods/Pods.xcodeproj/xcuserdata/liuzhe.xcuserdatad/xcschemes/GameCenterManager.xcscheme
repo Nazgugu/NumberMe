@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EAA444783DA6A3258155322B"
+               BlueprintIdentifier = "563067F0B9D2CB02E4CD9CD7"
                BuildableName = "libGameCenterManager.a"
                BlueprintName = "GameCenterManager"
                ReferencedContainer = "container:Pods.xcodeproj">

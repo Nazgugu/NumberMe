@@ -32,6 +32,7 @@
 		AE3E41111B6ECFD0001E26FE /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE3E410F1B6ECFD0001E26FE /* GameViewController.xib */; };
 		AE4247971B86F2A50027D9F4 /* recordBG.png in Resources */ = {isa = PBXBuildFile; fileRef = AE4247961B86F2A50027D9F4 /* recordBG.png */; };
 		AE4C1E711B7C679E00AC1FBF /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE4C1E701B7C679E00AC1FBF /* WelcomeViewController.xib */; };
+		AE5D420D1BB4D13500275E55 /* MLKMenuPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = AE5D420C1BB4D13500275E55 /* MLKMenuPopover.m */; settings = {ASSET_TAGS = (); }; };
 		AE6758731B77C24F00F5A93C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6758721B77C24F00F5A93C /* Foundation.framework */; };
 		AE6758751B77C25A00F5A93C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6758741B77C25A00F5A93C /* UIKit.framework */; };
 		AE6758771B77C28100F5A93C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6758761B77C28100F5A93C /* QuartzCore.framework */; };
@@ -147,6 +148,8 @@
 		AE4247961B86F2A50027D9F4 /* recordBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recordBG.png; sourceTree = "<group>"; };
 		AE4AC8A51B7B2842000D541D /* RWBarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWBarChartView.h; sourceTree = "<group>"; };
 		AE4C1E701B7C679E00AC1FBF /* WelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
+		AE5D420B1BB4D13500275E55 /* MLKMenuPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLKMenuPopover.h; sourceTree = "<group>"; };
+		AE5D420C1BB4D13500275E55 /* MLKMenuPopover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLKMenuPopover.m; sourceTree = "<group>"; };
 		AE6758721B77C24F00F5A93C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AE6758741B77C25A00F5A93C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AE6758761B77C28100F5A93C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -469,9 +472,19 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		AE5D420A1BB4D12900275E55 /* PopOverMenu */ = {
+			isa = PBXGroup;
+			children = (
+				AE5D420B1BB4D13500275E55 /* MLKMenuPopover.h */,
+				AE5D420C1BB4D13500275E55 /* MLKMenuPopover.m */,
+			);
+			name = PopOverMenu;
+			sourceTree = "<group>";
+		};
 		AE7E74B91B74688B003E9341 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				AE5D420A1BB4D12900275E55 /* PopOverMenu */,
 				AECBF6041BA641010012EC7A /* CBStoreHouseTransition */,
 				AECBF6001BA63EE50012EC7A /* DraggableModal */,
 				AECBF5971BA5F77F0012EC7A /* RZTransitions */,
@@ -941,6 +954,7 @@
 				AE8E22881B756B8D00A298DE /* YETIFallingLabel.m in Sources */,
 				AE2630811B6EA58000A566AE /* main.m in Sources */,
 				AEEA93801B87A3FC0004265F /* DOPScrollableActionSheet.m in Sources */,
+				AE5D420D1BB4D13500275E55 /* MLKMenuPopover.m in Sources */,
 				AECBF5D61BA5F77F0012EC7A /* RZZoomPushAnimationController.m in Sources */,
 				AECBF5CE1BA5F77F0012EC7A /* RZTransitionsManager.m in Sources */,
 				AE8E22821B756B7E00A298DE /* YETICharacterLabel.m in Sources */,
@@ -1087,7 +1101,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NumberMe-Prefix.pch";
 				INFOPLIST_FILE = NumberMe/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ZL.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1107,7 +1121,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NumberMe-Prefix.pch";
 				INFOPLIST_FILE = NumberMe/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ZL.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
