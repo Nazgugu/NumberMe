@@ -128,3 +128,8 @@
 //Notification
 "NOTIT"="How are you doing?";
 "NOTIB"="Hi there, long time no see. Why not give yourself a break and guess some numbers";
+
+//shortcut
+"normDes"="Guess a four-digit number";
+"infiDes"="Guess infinity long number";
+"lvDes"="Chanllenge yourself with levels";

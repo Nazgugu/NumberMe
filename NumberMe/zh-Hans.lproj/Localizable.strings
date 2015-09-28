@@ -128,3 +128,8 @@
 //Notification
 "NOTIT"="最近好吗?";
 "NOTIB"="Hi 你好, 好久不见. 不如休息一下来才几个数字放松吧";
+
+//shortcut
+"normDes"="猜一个四位数字";
+"infiDes"="无限猜数字";
+"lvDes"="挑战不同难度的关卡";

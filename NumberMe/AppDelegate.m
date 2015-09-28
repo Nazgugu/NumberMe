@@ -14,7 +14,12 @@
 #import "UAAppReviewManager.h"
 #import "GameCenterManager.h"
 
+#import "GameViewController.h"
+#import "ZFModalTransitionAnimator.h"
+
 @interface AppDelegate ()
+
+@property (nonatomic, strong) ZFModalTransitionAnimator *animator;
 
 @end
 
@@ -23,13 +28,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    [self setUp3DTouchShortCutsWithApplication:application];
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_8_0
     if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
         UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
         [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
         [[UIApplication sharedApplication] registerForRemoteNotifications];
     } else {
-        [[UIApplication sharedApplication] registerForRemoteNotificationTypes: (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+//        [[UIApplication sharedApplication] registerForRemoteNotificationTypes: (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeBadge | UIUserNotificationTypeAlert) categories:nil]];
     }
 #else
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes: (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
@@ -45,6 +52,92 @@
     [self registerPlatforms];
     
     return YES;
+}
+
+- (void)setUp3DTouchShortCutsWithApplication:(UIApplication *)application
+{
+    if (IOS9_UP)
+    {
+        UIApplicationShortcutIcon *normalMode = [UIApplicationShortcutIcon iconWithTemplateImageName:@"normD"];
+        UIApplicationShortcutIcon *infinityMode = [UIApplicationShortcutIcon iconWithTemplateImageName:@"infiD"];
+        UIApplicationShortcutIcon *lvMode = [UIApplicationShortcutIcon iconWithTemplateImageName:@"level"];
+        
+        UIMutableApplicationShortcutItem *normalGame = [[UIMutableApplicationShortcutItem alloc] initWithType:@"norm" localizedTitle:NSLocalizedString(@"NORMAL", nil) localizedSubtitle:NSLocalizedString(@"normDes", nil) icon:normalMode userInfo:nil];
+        
+        UIMutableApplicationShortcutItem *infiGame = [[UIMutableApplicationShortcutItem alloc] initWithType:@"infi" localizedTitle:NSLocalizedString(@"CONTINUE", nil) localizedSubtitle:NSLocalizedString(@"infiDes", nil) icon:infinityMode userInfo:nil];
+        
+        UIMutableApplicationShortcutItem *lvGame = [[UIMutableApplicationShortcutItem alloc] initWithType:@"level" localizedTitle:NSLocalizedString(@"LEVEL", nil) localizedSubtitle:NSLocalizedString(@"lvDes", nil) icon:lvMode userInfo:nil];
+        
+        application.shortcutItems = @[normalGame, infiGame, lvGame];
+    }
+}
+
+- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler
+{
+    UIViewController *vc = [self getTopController];
+    GameViewController *gameVC;
+    if ([shortcutItem.type isEqualToString:@"norm"])
+    {
+        gameVC = [[GameViewController alloc] initWithGameMode:gameModeNormal];
+        gameVC.modalPresentationStyle = UIModalPresentationFullScreen;
+
+        self.animator = [[ZFModalTransitionAnimator alloc] initWithModalViewController:gameVC];
+        self.animator.dragable = YES;
+        self.animator.bounces = NO;
+        self.animator.behindViewAlpha = 0.5f;
+        self.animator.behindViewScale = 0.5f;
+        self.animator.transitionDuration = 0.7f;
+        self.animator.direction = ZFModalTransitonDirectionBottom;
+        
+        gameVC.transitioningDelegate = self.animator;
+
+        [vc presentViewController:gameVC animated:YES completion:nil];
+    }
+    else if ([shortcutItem.type isEqualToString:@"infi"])
+    {
+        gameVC = [[GameViewController alloc] initWithGameMode:gameModeInfinity];
+        gameVC.modalPresentationStyle = UIModalPresentationFullScreen;
+
+        self.animator = [[ZFModalTransitionAnimator alloc] initWithModalViewController:gameVC];
+        self.animator.dragable = YES;
+        self.animator.bounces = NO;
+        self.animator.behindViewAlpha = 0.5f;
+        self.animator.behindViewScale = 0.5f;
+        self.animator.transitionDuration = 0.7f;
+        self.animator.direction = ZFModalTransitonDirectionBottom;
+        
+        gameVC.transitioningDelegate = self.animator;
+
+        [vc presentViewController:gameVC animated:YES completion:nil];
+    }
+    else if ([shortcutItem.type isEqualToString:@"level"])
+    {
+        gameVC = [[GameViewController alloc] initWithGameMode:gameModeLevelUp];
+        gameVC.modalPresentationStyle = UIModalPresentationFullScreen;
+
+        self.animator = [[ZFModalTransitionAnimator alloc] initWithModalViewController:gameVC];
+        self.animator.dragable = YES;
+        self.animator.bounces = NO;
+        self.animator.behindViewAlpha = 0.5f;
+        self.animator.behindViewScale = 0.5f;
+        self.animator.transitionDuration = 0.7f;
+        self.animator.direction = ZFModalTransitonDirectionBottom;
+        
+        gameVC.transitioningDelegate = self.animator;
+
+        [vc presentViewController:gameVC animated:YES completion:nil];
+    }
+}
+
+- (UIViewController*)getTopController
+{
+    UIViewController *topViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    
+    while (topViewController.presentedViewController) {
+        topViewController = topViewController.presentedViewController;
+    }
+    
+    return topViewController;
 }
 
 - (void)setUpGameCenterManager

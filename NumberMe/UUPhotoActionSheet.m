@@ -91,7 +91,7 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     NSLog(@"camera");
     UIImage *editedImage = [[info objectForKey:UIImagePickerControllerOriginalImage] fixOrientation];
-    
+
     [_weakSuper dismissViewControllerAnimated:YES completion:^{
     
         [self sendImageArray:@[editedImage]];
@@ -190,7 +190,7 @@
 
 - (void)showAnimation{
     
-    NSLog(@"game mode = %ld",_gameMode);
+    //NSLog(@"game mode = %ld",_gameMode);
     _btnCamera.selected = YES;
     _thumbnailView.gameMode = _gameMode;
     _thumbnailView.weakSuper = _weakSuper;

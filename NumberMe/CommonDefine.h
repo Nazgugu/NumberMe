@@ -12,6 +12,7 @@
 
 #define IOS7_UP                ([[[UIDevice currentDevice] systemVersion] doubleValue] >= 7.0 ? YES : NO )
 #define IOS8_UP                ([[[UIDevice currentDevice] systemVersion] doubleValue] >= 8.0 ? YES : NO )
+#define IOS9_UP                ([[[UIDevice currentDevice] systemVersion] doubleValue] >= 9.0 ? YES : NO )
 
 #define IOS7                (([[[UIDevice currentDevice] systemVersion] doubleValue] >= 7.0 && [[[UIDevice currentDevice] systemVersion] doubleValue] < 8.0) ? YES : NO )
 #define IOS7BASE (([[[UIDevice currentDevice] systemVersion] doubleValue] >= 7.0 && [[[UIDevice currentDevice] systemVersion] doubleValue] < 7.1) ? YES : NO )

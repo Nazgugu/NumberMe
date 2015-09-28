@@ -49,6 +49,8 @@
     
     [self addSubview:self.imgPhoto];
     self.scrollEnabled = NO;
+    
+
 }
 
 - (void)displayImage:(UIImage *)img{
