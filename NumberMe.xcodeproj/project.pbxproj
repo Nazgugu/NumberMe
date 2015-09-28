@@ -31,6 +31,8 @@
 		AE3E41101B6ECFD0001E26FE /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3E410E1B6ECFD0001E26FE /* GameViewController.m */; };
 		AE3E41111B6ECFD0001E26FE /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE3E410F1B6ECFD0001E26FE /* GameViewController.xib */; };
 		AE4247971B86F2A50027D9F4 /* recordBG.png in Resources */ = {isa = PBXBuildFile; fileRef = AE4247961B86F2A50027D9F4 /* recordBG.png */; };
+		AE4925E21BB9074D00830847 /* ImagePreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4925E01BB9074D00830847 /* ImagePreviewViewController.m */; settings = {ASSET_TAGS = (); }; };
+		AE4925E31BB9074D00830847 /* ImagePreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE4925E11BB9074D00830847 /* ImagePreviewViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		AE4C1E711B7C679E00AC1FBF /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE4C1E701B7C679E00AC1FBF /* WelcomeViewController.xib */; };
 		AE5D420D1BB4D13500275E55 /* MLKMenuPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = AE5D420C1BB4D13500275E55 /* MLKMenuPopover.m */; settings = {ASSET_TAGS = (); }; };
 		AE6758731B77C24F00F5A93C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6758721B77C24F00F5A93C /* Foundation.framework */; };
@@ -146,6 +148,9 @@
 		AE3E41121B6F2B06001E26FE /* CommonDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonDefine.h; sourceTree = "<group>"; };
 		AE3E41131B6F2BA7001E26FE /* NumberMe-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NumberMe-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		AE4247961B86F2A50027D9F4 /* recordBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recordBG.png; sourceTree = "<group>"; };
+		AE4925DF1BB9074D00830847 /* ImagePreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImagePreviewViewController.h; path = VCs/ImagePreviewViewController.h; sourceTree = "<group>"; };
+		AE4925E01BB9074D00830847 /* ImagePreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImagePreviewViewController.m; path = VCs/ImagePreviewViewController.m; sourceTree = "<group>"; };
+		AE4925E11BB9074D00830847 /* ImagePreviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ImagePreviewViewController.xib; path = VCs/ImagePreviewViewController.xib; sourceTree = "<group>"; };
 		AE4AC8A51B7B2842000D541D /* RWBarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWBarChartView.h; sourceTree = "<group>"; };
 		AE4C1E701B7C679E00AC1FBF /* WelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 		AE5D420B1BB4D13500275E55 /* MLKMenuPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLKMenuPopover.h; sourceTree = "<group>"; };
@@ -413,6 +418,9 @@
 				AE9D118B1B8570B800A36953 /* SettingViewController.xib */,
 				AE34DED51B9E875200436724 /* BackgrondTabelViewController.h */,
 				AE34DED61B9E875200436724 /* BackgrondTabelViewController.m */,
+				AE4925DF1BB9074D00830847 /* ImagePreviewViewController.h */,
+				AE4925E01BB9074D00830847 /* ImagePreviewViewController.m */,
+				AE4925E11BB9074D00830847 /* ImagePreviewViewController.xib */,
 			);
 			name = Setting;
 			sourceTree = "<group>";
@@ -859,6 +867,7 @@
 				AE9D118D1B8570B800A36953 /* SettingViewController.xib in Resources */,
 				AE4247971B86F2A50027D9F4 /* recordBG.png in Resources */,
 				AE90F88A1B7DAEE10039F75E /* icon.png in Resources */,
+				AE4925E31BB9074D00830847 /* ImagePreviewViewController.xib in Resources */,
 				AEA03C521B917699001ACCEA /* GBGNORM.png in Resources */,
 				AE4C1E711B7C679E00AC1FBF /* WelcomeViewController.xib in Resources */,
 				AE67587C1B7813F400F5A93C /* AlertViewController.xib in Resources */,
@@ -937,6 +946,7 @@
 				AECBF5D41BA5F77F0012EC7A /* RZZoomAlphaAnimationController.m in Sources */,
 				AECBF5D51BA5F77F0012EC7A /* RZZoomBlurAnimationController.m in Sources */,
 				AEAF5AB31B88336100D295A8 /* UICountingLabel.m in Sources */,
+				AE4925E21BB9074D00830847 /* ImagePreviewViewController.m in Sources */,
 				AE3E41041B6EC19D001E26FE /* WelcomeViewController.m in Sources */,
 				AECBF6031BA63EFF0012EC7A /* ZFModalTransitionAnimator.m in Sources */,
 				AE8E228E1B756B9B00A298DE /* YETIMotionLabel.m in Sources */,

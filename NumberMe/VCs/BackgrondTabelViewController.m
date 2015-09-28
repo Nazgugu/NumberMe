@@ -10,10 +10,11 @@
 #import "EGOCache.h"
 #import "JGProgressHUD.h"
 #import "CBStoreHouseTransition.h"
+#import "ImagePreviewViewController.h"
 
 #define gameModeTitle @[NSLocalizedString(@"NORMAL",nil), NSLocalizedString(@"CONTINUE",nil), NSLocalizedString(@"LEVEL",nil)]
 
-@interface BackgrondTabelViewController ()<UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate>
+@interface BackgrondTabelViewController ()<UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate, UIViewControllerPreviewingDelegate>
 
 @property (strong, nonatomic) UITableView *backgroundTableView;
 
@@ -63,6 +64,8 @@
     
     [self initTransition];
 }
+
+
 
 - (void)initTransition
 {
@@ -114,6 +117,7 @@
     cell.imageView.contentMode = UIViewContentModeCenter;
     
     UIImageView *bgImage = [[UIImageView alloc] initWithFrame:CGRectMake(SCREENWIDTH - 100, 5, 40, _rowHeight - 10)];
+    bgImage.userInteractionEnabled = YES;
     bgImage.tag = -1;
     
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(SCREENWIDTH - 50, (_rowHeight - 16) / 2, 40, 16)];
@@ -183,10 +187,111 @@
             break;
     }
     
+    if (self.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable)
+    {
+//        NSLog(@"adding to it");
+        [self registerForPreviewingWithDelegate:(id)self sourceView:self.backgroundTableView];
+//        UILongPressGestureRecognizer *forceTouch = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(showPeek:)];
+//        [bgImage addGestureRecognizer:forceTouch];
+    }
+    
     [cell.contentView addSubview:button];
     [cell.contentView addSubview:bgImage];
     
     return cell;
+}
+
+- (void)showPeek:(UIGestureRecognizer *)gesture
+{
+    
+    NSLog(@"called it");
+    gesture.enabled = NO;
+    
+    UIImageView *theImageView= (UIImageView *)gesture.view;
+    
+    ImagePreviewViewController *preview = [[ImagePreviewViewController alloc] initWithImage:theImageView.image];
+    
+    [self showViewController:preview sender:self];
+}
+
+#pragma mark - 3D Touch Delegate
+
+- (UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location
+{
+//    NSLog(@"location x = %lf, y = %lf",location.x, location.y);
+    
+    if ([self.presentedViewController isKindOfClass:[ImagePreviewViewController class]]) {
+        return nil;
+    }
+    
+    NSIndexPath *indexPath = [self.backgroundTableView indexPathForRowAtPoint:location];
+    
+    if (indexPath)
+    {
+        UITableViewCell *cell = [self.backgroundTableView cellForRowAtIndexPath:indexPath];
+        for (UIView *view in cell.contentView.subviews)
+        {
+            if ([view isKindOfClass:[UIImageView class]] && view.tag == -1)
+            {
+                UIImageView *theImageView = (UIImageView *)view;
+//                NSLog(@"has imageview");
+//                if (theImageView.image)
+//                {
+//                    NSLog(@"has image");
+//                }
+                ImagePreviewViewController *preview = [[ImagePreviewViewController alloc] initWithImage:theImageView.image];
+                return preview;
+            }
+        }
+    }
+    
+    return nil;
+}
+
+- (void)previewingContext:(id<UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit {
+    
+//    NSLog(@"second delegate");
+    // deep press: bring up the commit view controller (pop)
+    
+    [self showViewController:viewControllerToCommit sender:self];
+    
+    
+    // alternatively, use the view controller that's being provided here (viewControllerToCommit)
+}
+
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
+    
+    // called when the interface environment changes
+    // one of those occasions would be if the user enables/disables 3D Touch
+    // so we'll simply check again at this point
+    
+    if (self.traitCollection.forceTouchCapability == UIForceTouchCapabilityUnavailable)
+    {
+//        [self disableForceTouch];
+    }
+}
+
+- (void)disableForceTouch
+{
+    for (int i = 0; i < 3; i++)
+    {
+        UITableViewCell *cell = [self.backgroundTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+        for (UIView *view in cell.contentView.subviews)
+        {
+            if ([view isKindOfClass:[UIImageView class]] && view.tag == -1)
+            {
+                for (UIGestureRecognizer *gesture in view.gestureRecognizers)
+                {
+                    if ([gesture isKindOfClass:[UILongPressGestureRecognizer class]])
+                    {
+                        gesture.enabled = NO;
+                        break;
+                    }
+                }
+                break;
+            }
+        }
+    }
 }
 
 - (UIImage *) makeThumbnailOfSize:(CGSize)size andImage:(UIImage *)image
