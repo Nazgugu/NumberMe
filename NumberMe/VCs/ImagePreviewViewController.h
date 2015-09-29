@@ -10,6 +10,6 @@
 
 @interface ImagePreviewViewController : UIViewController
 
-- (instancetype)initWithImage:(UIImage *)image;
+- (instancetype)initWithImage:(UIImage *)image isOriginal:(BOOL)original andGameMode:(NSInteger)gameMode;
 
 @end

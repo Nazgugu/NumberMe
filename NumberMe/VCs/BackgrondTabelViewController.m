@@ -201,18 +201,18 @@
     return cell;
 }
 
-- (void)showPeek:(UIGestureRecognizer *)gesture
-{
-    
-    NSLog(@"called it");
-    gesture.enabled = NO;
-    
-    UIImageView *theImageView= (UIImageView *)gesture.view;
-    
-    ImagePreviewViewController *preview = [[ImagePreviewViewController alloc] initWithImage:theImageView.image];
-    
-    [self showViewController:preview sender:self];
-}
+//- (void)showPeek:(UIGestureRecognizer *)gesture
+//{
+//    
+//    NSLog(@"called it");
+//    gesture.enabled = NO;
+//    
+//    UIImageView *theImageView= (UIImageView *)gesture.view;
+//    
+//    ImagePreviewViewController *preview = [[ImagePreviewViewController alloc] initWithImage:theImageView.image];
+//    
+//    [self showViewController:preview sender:self];
+//}
 
 #pragma mark - 3D Touch Delegate
 
@@ -225,6 +225,8 @@
     }
     
     NSIndexPath *indexPath = [self.backgroundTableView indexPathForRowAtPoint:location];
+    
+    
     
     if (indexPath)
     {
@@ -239,7 +241,50 @@
 //                {
 //                    NSLog(@"has image");
 //                }
-                ImagePreviewViewController *preview = [[ImagePreviewViewController alloc] initWithImage:theImageView.image];
+                
+                ImagePreviewViewController *preview;
+                
+                switch (indexPath.row) {
+                    case 0:
+                    {
+                        if ([[EGOCache globalCache] hasCacheForKey:NORMBG])
+                        {
+                            preview = [[ImagePreviewViewController alloc] initWithImage:theImageView.image isOriginal:YES andGameMode:0];
+                        }
+                        else
+                        {
+                            preview = [[ImagePreviewViewController alloc] initWithImage:theImageView.image isOriginal:NO andGameMode:0];
+                        }
+                    }
+                        break;
+                    case 1:
+                    {
+                        if ([[EGOCache globalCache] hasCacheForKey:INFIBG])
+                        {
+                            preview = [[ImagePreviewViewController alloc] initWithImage:theImageView.image isOriginal:YES andGameMode:1];
+                        }
+                        else
+                        {
+                            preview = [[ImagePreviewViewController alloc] initWithImage:theImageView.image isOriginal:NO andGameMode:1];
+                        }
+                    }
+                        break;
+                    case 2:
+                    {
+                        if ([[EGOCache globalCache] hasCacheForKey:LEVELBG])
+                        {
+                            preview = [[ImagePreviewViewController alloc] initWithImage:theImageView.image isOriginal:YES andGameMode:2];
+                        }
+                        else
+                        {
+                            preview = [[ImagePreviewViewController alloc] initWithImage:theImageView.image isOriginal:NO andGameMode:2];
+                        }
+                    }
+                        break;
+                    default:
+                        break;
+                }
+                
                 return preview;
             }
         }
