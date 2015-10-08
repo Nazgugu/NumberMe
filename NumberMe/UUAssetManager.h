@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <AssetsLibrary/AssetsLibrary.h>
+//#import <Photos/Photos.h>
 
 #define ASSET_PHOTO_THUMBNAIL           0
 #define ASSET_PHOTO_ASPECT_THUMBNAIL    1

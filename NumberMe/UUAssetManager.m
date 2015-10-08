@@ -32,10 +32,10 @@ SHARED_SERVICE(UUAssetManager);
         _selectdPhotos = [[NSMutableArray alloc] init];
         
         _assetsLibrary = [[ALAssetsLibrary alloc] init];
-        [_assetsLibrary writeImageToSavedPhotosAlbum:nil
-                                            metadata:nil
-                                     completionBlock:^(NSURL *assetURL, NSError *error) {
-                                     }];
+//        [_assetsLibrary writeImageToSavedPhotosAlbum:nil
+//                                            metadata:nil
+//                                     completionBlock:^(NSURL *assetURL, NSError *error) {
+//                                     }];
         
     }
     
@@ -99,8 +99,10 @@ SHARED_SERVICE(UUAssetManager);
         
         void (^assetGroupEnumerator)(ALAssetsGroup *, BOOL *) = ^(ALAssetsGroup *group, BOOL *stop)
         {
+            NSLog(@"calling");
             if ([[group valueForProperty:@"ALAssetsGroupPropertyType"] intValue] == ALAssetsGroupSavedPhotos)
             {
+                NSLog(@"called");
                 [group setAssetsFilter:[ALAssetsFilter allPhotos]];
                 
                 [group enumerateAssetsUsingBlock:^(ALAsset *alPhoto, NSUInteger index, BOOL *stop) {
@@ -113,6 +115,10 @@ SHARED_SERVICE(UUAssetManager);
                     
                     [_assetPhotos addObject:alPhoto];
                 }];
+            }
+            else
+            {
+                NSLog(@"not this case");
             }
         };
         

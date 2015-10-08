@@ -8,7 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol ImagePreviewControllerDelegate<NSObject>
+
+@required
+
+- (void)didResetBackgroundOfGameMode:(NSInteger)gameMode;
+
+@end
+
 @interface ImagePreviewViewController : UIViewController
+
+@property (nonatomic, assign) id<ImagePreviewControllerDelegate> delegete;
 
 - (instancetype)initWithImage:(UIImage *)image isOriginal:(BOOL)original andGameMode:(NSInteger)gameMode;
 

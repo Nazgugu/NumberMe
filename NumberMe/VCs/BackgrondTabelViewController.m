@@ -14,7 +14,7 @@
 
 #define gameModeTitle @[NSLocalizedString(@"NORMAL",nil), NSLocalizedString(@"CONTINUE",nil), NSLocalizedString(@"LEVEL",nil)]
 
-@interface BackgrondTabelViewController ()<UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate, UIViewControllerPreviewingDelegate>
+@interface BackgrondTabelViewController ()<UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate, UIViewControllerPreviewingDelegate, ImagePreviewControllerDelegate>
 
 @property (strong, nonatomic) UITableView *backgroundTableView;
 
@@ -249,11 +249,11 @@
                     {
                         if ([[EGOCache globalCache] hasCacheForKey:NORMBG])
                         {
-                            preview = [[ImagePreviewViewController alloc] initWithImage:theImageView.image isOriginal:YES andGameMode:0];
+                            preview = [[ImagePreviewViewController alloc] initWithImage:theImageView.image isOriginal:NO andGameMode:0];
                         }
                         else
                         {
-                            preview = [[ImagePreviewViewController alloc] initWithImage:theImageView.image isOriginal:NO andGameMode:0];
+                            preview = [[ImagePreviewViewController alloc] initWithImage:theImageView.image isOriginal:YES andGameMode:0];
                         }
                     }
                         break;
@@ -261,11 +261,11 @@
                     {
                         if ([[EGOCache globalCache] hasCacheForKey:INFIBG])
                         {
-                            preview = [[ImagePreviewViewController alloc] initWithImage:theImageView.image isOriginal:YES andGameMode:1];
+                            preview = [[ImagePreviewViewController alloc] initWithImage:theImageView.image isOriginal:NO andGameMode:1];
                         }
                         else
                         {
-                            preview = [[ImagePreviewViewController alloc] initWithImage:theImageView.image isOriginal:NO andGameMode:1];
+                            preview = [[ImagePreviewViewController alloc] initWithImage:theImageView.image isOriginal:YES andGameMode:1];
                         }
                     }
                         break;
@@ -273,17 +273,19 @@
                     {
                         if ([[EGOCache globalCache] hasCacheForKey:LEVELBG])
                         {
-                            preview = [[ImagePreviewViewController alloc] initWithImage:theImageView.image isOriginal:YES andGameMode:2];
+                            preview = [[ImagePreviewViewController alloc] initWithImage:theImageView.image isOriginal:NO andGameMode:2];
                         }
                         else
                         {
-                            preview = [[ImagePreviewViewController alloc] initWithImage:theImageView.image isOriginal:NO andGameMode:2];
+                            preview = [[ImagePreviewViewController alloc] initWithImage:theImageView.image isOriginal:YES andGameMode:2];
                         }
                     }
                         break;
                     default:
                         break;
                 }
+                
+                preview.delegete = self;
                 
                 return preview;
             }
@@ -429,6 +431,51 @@
     }
     button.enabled = NO;
     button.layer.borderColor = [UIColor lightGrayColor].CGColor;
+}
+
+#pragma mark - ImagePreviewControllerDelegate
+
+- (void)didResetBackgroundOfGameMode:(NSInteger)gameMode
+{
+    UIImageView *bgImage;
+    UITableViewCell *cell = [_backgroundTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:gameMode inSection:0]];
+    for (UIView *view in cell.contentView.subviews)
+    {
+        if (view.tag == -1)
+        {
+            bgImage = (UIImageView *)view;
+            break;
+        }
+    }
+    for (UIView *view in cell.contentView.subviews)
+    {
+        if ([view isKindOfClass:[UIButton class]])
+        {
+            UIButton *btn = (UIButton *)view;
+            btn.enabled = NO;
+            btn.layer.borderColor = [UIColor lightGrayColor].CGColor;
+            break;
+        }
+    }
+    switch (gameMode) {
+        case 0:
+        {
+            [bgImage setImage:[UIImage imageNamed:@"GBGNORM"]];
+        }
+            break;
+        case 1:
+        {
+            [bgImage setImage:[UIImage imageNamed:@"GBGINFI"]];
+        }
+            break;
+        case 2:
+        {
+            [bgImage setImage:[UIImage imageNamed:@"GBGLV"]];
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 #pragma mark - UINavigationControllerDelegate

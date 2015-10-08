@@ -39,7 +39,7 @@
     [self.backgroundImage setImage:_theImage];
     
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"RST", nil) style:UIBarButtonItemStylePlain target:self action:@selector(resetBG)];
-    self.navigationController.navigationItem.rightBarButtonItem = rightItem;
+    self.navigationItem.rightBarButtonItem = rightItem;
     
     if (_isOriginal)
     {
@@ -87,8 +87,9 @@
     [UIView transitionWithView:_backgroundImage duration:0.4f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
         [_backgroundImage setImage:originBG];
     } completion:^(BOOL finished) {
-        self.navigationController.navigationItem.rightBarButtonItem.enabled = NO;
+        self.navigationItem.rightBarButtonItem.enabled = NO;
         [[EGOCache globalCache] removeCacheForKey:cacheString];
+        [_delegete didResetBackgroundOfGameMode:_gameMode];
     }];
 }
 

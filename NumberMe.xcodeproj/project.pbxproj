@@ -27,6 +27,8 @@
 		AE26309B1B6EA58000A566AE /* NumberMeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AE26309A1B6EA58000A566AE /* NumberMeTests.m */; };
 		AE34DED81B9E875200436724 /* BackgrondTabelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE34DED61B9E875200436724 /* BackgrondTabelViewController.m */; };
 		AE34DEDE1B9EA1C500436724 /* UIImage+fixOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = AE34DEDD1B9EA1C500436724 /* UIImage+fixOrientation.m */; };
+		AE3C831A1BBD0847007D88B4 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE3C83191BBD0847007D88B4 /* Photos.framework */; };
+		AE3C83841BC634C3007D88B4 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE3C83831BC634C3007D88B4 /* AssetsLibrary.framework */; };
 		AE3E41041B6EC19D001E26FE /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3E41021B6EC19D001E26FE /* WelcomeViewController.m */; };
 		AE3E41101B6ECFD0001E26FE /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3E410E1B6ECFD0001E26FE /* GameViewController.m */; };
 		AE3E41111B6ECFD0001E26FE /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE3E410F1B6ECFD0001E26FE /* GameViewController.xib */; };
@@ -140,6 +142,8 @@
 		AE34DED61B9E875200436724 /* BackgrondTabelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BackgrondTabelViewController.m; path = VCs/BackgrondTabelViewController.m; sourceTree = "<group>"; };
 		AE34DEDC1B9EA1C500436724 /* UIImage+fixOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+fixOrientation.h"; path = "Vendors/UIImage+FixOrientation/UIImage+fixOrientation.h"; sourceTree = "<group>"; };
 		AE34DEDD1B9EA1C500436724 /* UIImage+fixOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+fixOrientation.m"; path = "Vendors/UIImage+FixOrientation/UIImage+fixOrientation.m"; sourceTree = "<group>"; };
+		AE3C83191BBD0847007D88B4 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		AE3C83831BC634C3007D88B4 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		AE3E41011B6EC19D001E26FE /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		AE3E41021B6EC19D001E26FE /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		AE3E410D1B6ECFD0001E26FE /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameViewController.h; path = VCs/GameViewController.h; sourceTree = "<group>"; };
@@ -284,6 +288,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE3C83841BC634C3007D88B4 /* AssetsLibrary.framework in Frameworks */,
+				AE3C831A1BBD0847007D88B4 /* Photos.framework in Frameworks */,
 				AEA03C571B9238F6001ACCEA /* iAd.framework in Frameworks */,
 				AE1C6A5B1B7FE4D50064E71C /* SystemConfiguration.framework in Frameworks */,
 				AE1C6A571B7FE4C30064E71C /* MessageUI.framework in Frameworks */,
@@ -316,6 +322,8 @@
 		6E1917FA78D175219BF57EAC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AE3C83831BC634C3007D88B4 /* AssetsLibrary.framework */,
+				AE3C83191BBD0847007D88B4 /* Photos.framework */,
 				AECBF6081BA69C920012EC7A /* GameKit.framework */,
 				AE1C6A5A1B7FE4D50064E71C /* SystemConfiguration.framework */,
 				AE1C6A561B7FE4C30064E71C /* MessageUI.framework */,
@@ -1053,7 +1061,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "34d28abe-8012-4a34-91ae-bf95a5ac6e14";
@@ -1092,7 +1100,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "011cd5a0-7adc-4663-94b0-4ee7e656df9a";
 				SDKROOT = iphoneos;
